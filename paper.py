@@ -774,6 +774,112 @@ def resolve_doi_to_url(doi):
     return resolve_doi_via_handle_api(doi)
 
 
+def try_arxiv(doi, title):
+    """Strategy 4: Query arXiv Open Access Preprint Server."""
+    if doi and (doi.startswith("http://") or doi.startswith("https://")):
+        return False
+        
+    if not doi and not title:
+        print("\n--- [STRATEGY 4] Skipped (No DOI or Title available) ---")
+        return False
+        
+    print("\n--- [STRATEGY 4] Querying arXiv Open Access Preprint Server ---")
+    url = None
+    if doi:
+        clean_doi = doi.strip()
+        url = f"http://export.arxiv.org/api/query?search_query=doi:{urllib.parse.quote(clean_doi)}&max_results=1"
+    elif title:
+        clean_title = title.strip().strip('"').strip("'")
+        url = f"http://export.arxiv.org/api/query?search_query=ti:%22{urllib.parse.quote(clean_title)}%22&max_results=1"
+        
+    if not url:
+        return False
+        
+    try:
+        req = urllib.request.Request(url, headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=10) as response:
+            xml_data = response.read().decode('utf-8', errors='ignore')
+            
+        pdf_links = re.findall(r'<link[^>]*?href=["\'](https?://arxiv\.org/pdf/[^"\']+)["\']', xml_data)
+        ids = re.findall(r'<id>https?://arxiv\.org/abs/([^<\s]+)</id>', xml_data)
+        
+        if not pdf_links and ids:
+            pdf_links = [f"https://arxiv.org/pdf/{ids[0]}.pdf"]
+            
+        if pdf_links:
+            pdf_url = pdf_links[0]
+            if not pdf_url.endswith('.pdf'):
+                pdf_url += '.pdf'
+            print(f"[INFO] Found arXiv PDF Target: {pdf_url}")
+            register_discovered_url(pdf_url, "arXiv Open Access PDF")
+            
+            paper_name = title if title else (ids[0] if ids else 'arxiv_paper')
+            filename = f"arxiv_{clean_filename(paper_name)}.pdf"
+            return download_file(pdf_url, filename)
+        else:
+            print("[INFO] No matching document found on arXiv.")
+    except Exception as e:
+        print(f"[WARNING] arXiv lookup failed: {e}")
+    return False
+
+
+def try_europe_pmc(doi, title):
+    """Strategy 5: Query Europe PMC Open Access Repository."""
+    if doi and (doi.startswith("http://") or doi.startswith("https://")):
+        return False
+        
+    if not doi and not title:
+        print("\n--- [STRATEGY 5] Skipped (No DOI or Title available) ---")
+        return False
+        
+    print("\n--- [STRATEGY 5] Querying Europe PMC Open Access Repository ---")
+    url = None
+    if doi:
+        url = f"https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:{urllib.parse.quote(doi)}&format=json"
+    elif title:
+        url = f"https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22{urllib.parse.quote(title)}%22&format=json"
+        
+    if not url:
+        return False
+        
+    try:
+        req = urllib.request.Request(url, headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=10) as response:
+            data = json.loads(response.read().decode())
+            
+        results = data.get('resultList', {}).get('result', [])
+        if results:
+            best_match = results[0]
+            pmcid = best_match.get('pmcid')
+            is_oa = best_match.get('isOpenAccess') == 'Y'
+            
+            pdf_url = None
+            url_list = best_match.get('fullTextUrlList', {}).get('fullTextUrl', [])
+            for u in url_list:
+                if u.get('documentStyle') == 'pdf' or u.get('availabilityCode') == 'OA':
+                    test_url = u.get('url', '')
+                    if 'pdf' in test_url.lower() or test_url.endswith('.pdf'):
+                        pdf_url = test_url
+                        break
+                        
+            if not pdf_url and is_oa and pmcid:
+                pdf_url = f"https://europepmc.org/articles/{pmcid}?pdf=render"
+                
+            if pdf_url:
+                print(f"[INFO] Found Europe PMC PDF Target: {pdf_url}")
+                register_discovered_url(pdf_url, "Europe PMC Open Access PDF")
+                paper_name = title if title else (pmcid if pmcid else 'europepmc_paper')
+                filename = f"pmc_{clean_filename(paper_name)}.pdf"
+                return download_file(pdf_url, filename)
+            else:
+                print("[INFO] Document found on Europe PMC, but no direct PDF link is available.")
+        else:
+            print("[INFO] No matching document found on Europe PMC.")
+    except Exception as e:
+        print(f"[WARNING] Europe PMC lookup failed: {e}")
+    return False
+
+
 def try_researchgate(doi, title):
     """Strategy 3: Automated extraction from ResearchGate."""
     if not doi and not title:
@@ -1060,6 +1166,20 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
             if not success:
                 status_label.config(text="Querying Sci-Hub Shadows...", fg="#00ADB5")
                 success = try_scihub(target_doi)
+            
+        if abort_requested:
+            raise InterruptedError("Cancelled by user")
+
+        if not success:
+            status_label.config(text="Querying arXiv...", fg="#00ADB5")
+            success = try_arxiv(target_doi, target_title)
+            
+        if abort_requested:
+            raise InterruptedError("Cancelled by user")
+
+        if not success:
+            status_label.config(text="Querying Europe PMC...", fg="#00ADB5")
+            success = try_europe_pmc(target_doi, target_title)
             
         if abort_requested:
             raise InterruptedError("Cancelled by user")
