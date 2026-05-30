@@ -242,9 +242,9 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
     # Build URL: use query.title when title given, query.author when author given
     url = "https://api.crossref.org/works?"
     if clean_query and clean_author:
-        url += f"query.title={urllib.parse.quote(clean_query)}&query.author={urllib.parse.quote(clean_author)}"
+        url += f"query={urllib.parse.quote(clean_query)}&query.author={urllib.parse.quote(clean_author)}"
     elif clean_query:
-        url += f"query.title={urllib.parse.quote(clean_query)}"
+        url += f"query={urllib.parse.quote(clean_query)}"
     elif clean_author:
         url += f"query.author={urllib.parse.quote(clean_author)}"
     else:
