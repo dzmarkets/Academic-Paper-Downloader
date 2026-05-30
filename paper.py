@@ -141,6 +141,19 @@ def download_file(url, filename, referer=None):
     if abort_requested:
         print("[INFO] Download aborted by user.")
         return False
+
+    # Ensure all downloads route to a dedicated Downloads folder rather than the root
+    downloads_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Downloads")
+    if not os.path.exists(downloads_dir):
+        try:
+            os.makedirs(downloads_dir)
+        except Exception as e:
+            print(f"[WARNING] Failed to create Downloads directory: {e}. Falling back to local root.")
+            downloads_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Bind the destination filepath inside the Downloads folder
+    filename = os.path.join(downloads_dir, os.path.basename(filename))
+
     content = None
     try:
         headers = HEADERS.copy()
@@ -188,7 +201,8 @@ def download_file(url, filename, referer=None):
     # Ensure raw PDF content is saved to disk
     with open(filename, "wb") as out_file:
         out_file.write(content)
-    print(f"[SUCCESS] Saved flawlessly: '{filename}'")
+    print(f"[SUCCESS] Saved flawlessly inside Downloads folder: '{os.path.basename(filename)}'")
+    print(f"[INFO] Absolute Location: {filename}")
     return True
 
 
