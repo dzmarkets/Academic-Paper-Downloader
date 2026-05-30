@@ -957,6 +957,7 @@ is_running = False
 current_mode = "Direct"
 research_query = ""
 current_page = 1
+has_more_results = True
 card_buttons = []
 prev_btn = None
 next_btn = None
@@ -990,7 +991,7 @@ def reset_gui_state(run_button, entry_widget):
 
 def update_pagination_states():
     """Helper to update the enabled/disabled states of pagination controls."""
-    global current_page, prev_btn, next_btn
+    global current_page, prev_btn, next_btn, has_more_results
     if not prev_btn or not next_btn:
         return
         
@@ -999,8 +1000,10 @@ def update_pagination_states():
     else:
         prev_btn.config(state='normal')
         
-    # We always allow Next unless explicitly disabled during loading
-    next_btn.config(state='normal')
+    if has_more_results:
+        next_btn.config(state='normal')
+    else:
+        next_btn.config(state='disabled')
 
 
 def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widget, root_widget):
@@ -1295,6 +1298,32 @@ def launch_gui():
     logs_frame = tk.Frame(root, bg="#0D0B14", padx=25)
     logs_frame.pack(fill='both', expand=True, pady=(0, 15))
     
+    # Sleek console header with a "Clear Logs" button
+    logs_header = tk.Frame(logs_frame, bg="#0D0B14")
+    logs_header.pack(fill='x', pady=(0, 6))
+    
+    console_lbl = tk.Label(logs_header, text="📜  Pipeline Console Logs", bg="#0D0B14", fg="#A78BFA", font=('Segoe UI Semibold', 9))
+    console_lbl.pack(side='left')
+    
+    def clear_logs():
+        log_area.delete('1.0', 'end')
+        
+    clear_btn = tk.Button(
+        logs_header,
+        text="🧹 Clear Logs",
+        bg="#2E2543",
+        fg="#EEEEEE",
+        activebackground="#3F335C",
+        activeforeground="#FFFFFF",
+        bd=0,
+        font=('Segoe UI Semibold', 8),
+        padx=10,
+        pady=2,
+        cursor="hand2",
+        command=clear_logs
+    )
+    clear_btn.pack(side='right')
+    
     log_area = tk.Text(logs_frame, bg="#1A1625", fg="#F3E8FF", insertbackground="#FFFFFF", bd=0, font=('Consolas', 9), relief='flat', height=10)
     scrollbar = ttk.Scrollbar(logs_frame, orient="vertical", command=log_area.yview, style="Vertical.TScrollbar")
     log_area.configure(yscrollcommand=scrollbar.set)
@@ -1360,19 +1389,30 @@ def launch_gui():
         
     def display_research_results(results, query, page):
         """Render the 5 results cards dynamically into the results frame."""
-        global current_page, research_query, card_buttons
+        global current_page, research_query, card_buttons, has_more_results
         
+        if not results:
+            if page > 1:
+                status_label.config(text="No more results available.", fg="#FBBF24")
+                current_page = page - 1
+                page_lbl.config(text=f"Page {current_page}")
+                has_more_results = False
+                update_pagination_states()
+                reset_gui_state(run_button, entry)
+                return
+            else:
+                status_label.config(text="No matching documents found.", fg="#F44336")
+                clear_research_results()
+                reset_gui_state(run_button, entry)
+                reset_inputs()
+                return
+                
         current_page = page
         research_query = query
         card_buttons = []
+        has_more_results = (len(results) == 5)
         
         clear_research_results()
-        
-        if not results:
-            status_label.config(text="No matching documents found.", fg="#F44336")
-            reset_gui_state(run_button, entry)
-            reset_inputs()
-            return
             
         results_frame.pack(fill='x', padx=25, pady=(5, 5), before=logs_frame)
         page_lbl.config(text=f"Page {page}")
