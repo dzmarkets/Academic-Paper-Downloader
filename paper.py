@@ -9,7 +9,54 @@ from tkinter import ttk
 from tkinter import scrolledtext
 import threading
 
+# ---------------------------------------------------------------------------
+# PyInstaller-aware path resolution
+# ---------------------------------------------------------------------------
+def get_app_dir():
+    """Return the directory that contains the running script / executable.
+
+    When packaged with PyInstaller (sys.frozen is set) the interpreter lives
+    inside a temporary _MEI... folder, so we must use sys.executable instead
+    of __file__ to locate the real application directory.
+    """
+    if getattr(sys, 'frozen', False):
+        # Running as a PyInstaller bundle — use the .exe location
+        return os.path.dirname(os.path.abspath(sys.executable))
+    # Running as a plain Python script
+    return os.path.dirname(os.path.abspath(__file__))
+
+
+# Mapping from document category → descriptive folder name
+_FOLDER_FOR_CATEGORY = {
+    "book":   "Books",
+    "thesis": "Theses",
+    "paper":  "Papers",
+}
+
+
+def get_download_dir(category="paper"):
+    """Return (and create if necessary) the Downloads subfolder for *category*.
+
+    Parameters
+    ----------
+    category : str
+        One of "paper", "book", or "thesis".  Anything else falls back to
+        "Sample Papers".
+
+    Returns
+    -------
+    str
+        Absolute path to the category subfolder, guaranteed to exist.
+    """
+    folder_name = _FOLDER_FOR_CATEGORY.get(category.lower(), "Sample Papers")
+    path = os.path.join(get_app_dir(), folder_name)
+    os.makedirs(path, exist_ok=True)
+    return path
+
+
+# ---------------------------------------------------------------------------
 # Define target paper metadata
+# ---------------------------------------------------------------------------
 DOI = "10.1145/3375633"
 TITLE = "Certifying compilation with de Bruijn indices"  # Used if DOI fails or for ResearchGate search
 abort_requested = False
@@ -163,23 +210,38 @@ def view_document_in_browser(doi, paper_title, is_book=False):
     t.start()
 
 
-def download_file(url, filename, referer=None, cookie=None):
-    """Helper to perform standard binary file downloads with PDF validation."""
+def download_file(url, filename, referer=None, cookie=None, category="paper"):
+    """Helper to perform standard binary file downloads with PDF validation.
+
+    Parameters
+    ----------
+    url : str
+        Direct download URL.
+    filename : str
+        Destination filename (basename only) or absolute path.
+    referer : str, optional
+        Referer header value.
+    cookie : str, optional
+        Cookie header value.
+    category : str, optional
+        Document category used to select the output subfolder.
+        One of ``"paper"`` (default), ``"book"``, or ``"thesis"``.
+    """
     global abort_requested
     if abort_requested:
         print("[INFO] Download aborted by user.")
         return False
 
-    # Ensure all downloads route to a dedicated Downloads folder rather than the root
-    downloads_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Downloads")
+    # Route downloads to the correct named subfolder next to the .exe / script
+    downloads_dir = get_download_dir(category)
     if not os.path.isabs(filename):
         filename = os.path.join(downloads_dir, filename)
-        
+
     try:
         os.makedirs(os.path.dirname(filename), exist_ok=True)
     except Exception as e:
-        print(f"[WARNING] Failed to create parent directory: {e}. Falling back to local root.")
-        filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.path.basename(filename))
+        print(f"[WARNING] Failed to create parent directory: {e}. Falling back to app root.")
+        filename = os.path.join(get_app_dir(), os.path.basename(filename))
 
     is_pdf = filename.lower().endswith('.pdf')
     content = None
@@ -1486,8 +1548,7 @@ def try_download_taylorfrancis(doi, title):
         
         # It's a PDF! Stream the rest and save
         filename = f"{clean_filename(title if title else doi)}.pdf"
-        downloads_dir = os.path.join(os.path.dirname(__file__), "Downloads")
-        os.makedirs(downloads_dir, exist_ok=True)
+        downloads_dir = get_download_dir("book")
         pdf_path = os.path.join(downloads_dir, filename)
         
         print(f"[INFO] Downloading T&F PDF to: {pdf_path}")
@@ -1539,7 +1600,7 @@ def try_download_book(identifier, title, status_label=None, root_widget=None):
         filename = f"{clean_filename(title if title else key)}.pdf"
         register_discovered_url(f"https://archive.org/details/{key}", "Internet Archive Details / Borrow Page")
         print(f"[INFO] Downloading direct PDF from Internet Archive: {ia_url}")
-        success = download_file(ia_url, filename)
+        success = download_file(ia_url, filename, category="book")
         if success:
             return True
         else:
@@ -1583,7 +1644,7 @@ def try_download_book(identifier, title, status_label=None, root_widget=None):
                     register_discovered_url(target_url, "Project Gutenberg Book File")
                     print(f"[INFO] Downloading book file: {target_url}")
                     filename = f"Gutenberg_{clean_filename(title)}{ext}"
-                    success = download_file(target_url, filename)
+                    success = download_file(target_url, filename, category="book")
                     if success:
                         return True
         except Exception as e:
@@ -1617,7 +1678,7 @@ def try_download_book(identifier, title, status_label=None, root_widget=None):
                     register_discovered_url(f"https://archive.org/details/{ia_id}", "Internet Archive Details / Borrow Page")
                     print(f"[INFO] Resolved Internet Archive ID: {ia_id}")
                     print(f"[INFO] Downloading direct PDF from Internet Archive: {ia_url}")
-                    success = download_file(ia_url, filename)
+                    success = download_file(ia_url, filename, category="book")
                     if success:
                         return True
                     else:
@@ -1650,7 +1711,7 @@ def try_download_book(identifier, title, status_label=None, root_widget=None):
                     register_discovered_url(f"https://archive.org/details/{ia_id}", "Internet Archive Details / Borrow Page")
                     print(f"[INFO] Found alternate edition Internet Archive ID: {ia_id}")
                     print(f"[INFO] Downloading direct PDF from Internet Archive: {ia_url}")
-                    success = download_file(ia_url, filename)
+                    success = download_file(ia_url, filename, category="book")
                     if success:
                         return True
                     else:
