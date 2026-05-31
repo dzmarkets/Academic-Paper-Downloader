@@ -1,6 +1,6 @@
 # 📚 Academic Paper Downloader
 
-> **Version 2.2.0**
+> **Version 2.3.0**
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
@@ -17,6 +17,9 @@ A premium, high-performance desktop application built in Python/Tkinter designed
   - **Left: Services** (Highlighting custom freelance web/IoT offerings).
   - **Center: Contact** (Featuring instant WhatsApp, Email, and Location metrics aligned with pixel-perfect accuracy).
   - **Right: Buy Me a Coffee** (Inspiring support action for local innovation 🇩🇿).
+- **📖 Beautiful In-App Help & About Documentation**: Standard top menu bar offering dedicated styled popups explaining direct download inputs, search mechanics, and smart folder structures.
+- **🚀 Background Update Checker**: Detects new software releases directly from the GitHub repository, displays dynamic changelogs, and offers secure, one-click `.exe` download triggers.
+- **🧹 Clear Results Button**: An instant reset utility built directly into the search results navigation bar to clear results and input fields cleanly.
 - **📦 Zero Third-Party Dependencies**: Runs purely on the native Python standard library and Tkinter framework—no bulky package installations required!
 - **📂 Smart Download Folders** *(v2.2.0)*: Downloaded files are automatically organized into named subfolders beside the `.exe` / script:
 
@@ -66,6 +69,12 @@ The compiled `.exe` will be placed in the `dist\` folder. All downloaded files w
 ---
 
 ## 📋 Changelog
+
+### v2.3.0
+- Added **Help dropdown menu** with detailed **How to Use** and **About** dialogs matching the premium dark theme.
+- Integrated a **GitHub Update Checker** running silently on startup (and manually from Help) to notify users if a newer `.exe` release is available on GitHub.
+- Added a **🧹 Clear Results** button in the search pagination bar to instantly reset keyword results and restore default input states.
+- Refactored header and title version outputs to dynamically load from the central `VERSION` constant.
 
 ### v2.2.0
 - Fixed download output path when running as a PyInstaller `.exe` (files were incorrectly saved to `%TEMP%\_MEI...\`).
