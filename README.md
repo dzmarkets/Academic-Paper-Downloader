@@ -1,6 +1,6 @@
 # 📚 Academic Paper Downloader
 
-> **Version 2.3.0**
+> **Version 2.3.1**
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
@@ -68,6 +68,9 @@ The compiled `.exe` will be placed in the `dist\` folder. All downloaded files w
 ---
 
 ## 📋 Changelog
+
+### v2.3.1
+- Incremented version to `v2.3.1` for release testing.
 
 ### v2.3.0
 - Integrated a **GitHub Update Checker** running silently on startup and manually via an interactive header icon (`🔄`) to notify users and provide an interactive dialog with release notes and a direct `.exe` download option if a newer update is available.
