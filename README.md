@@ -1,5 +1,7 @@
 # 📚 Academic Paper Downloader
 
+> **Version 2.2.0**
+
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
 ---
@@ -16,6 +18,16 @@ A premium, high-performance desktop application built in Python/Tkinter designed
   - **Center: Contact** (Featuring instant WhatsApp, Email, and Location metrics aligned with pixel-perfect accuracy).
   - **Right: Buy Me a Coffee** (Inspiring support action for local innovation 🇩🇿).
 - **📦 Zero Third-Party Dependencies**: Runs purely on the native Python standard library and Tkinter framework—no bulky package installations required!
+- **📂 Smart Download Folders** *(v2.2.0)*: Downloaded files are automatically organized into named subfolders beside the `.exe` / script:
+
+  | Document Type | Folder |
+  |---|---|
+  | Academic Paper | `Papers\` |
+  | Book | `Books\` |
+  | Thesis | `Theses\` |
+  | Other / Unknown | `Others\` |
+
+  Folders are created automatically on first use if they do not already exist.
 
 ---
 
@@ -34,6 +46,14 @@ cd Academic-Paper-Downloader
 python paper.py
 ```
 
+### Building a standalone executable
+
+```bash
+python -m PyInstaller --onefile --windowed --icon=app_icon.png paper.py
+```
+
+The compiled `.exe` will be placed in the `dist\` folder. All downloaded files will be saved in subfolders (`Papers\`, `Books\`, `Theses\`, `Others\`) **next to the `.exe`**, not in the system temp directory.
+
 ---
 
 ## 🏗️ Technical Architecture
@@ -41,6 +61,17 @@ python paper.py
 - **Thread-Safe Architecture**: All HTTP calls, scraping pipelines, and network requests are executed on background worker threads (`threading.Thread`) to ensure the desktop GUI remains perfectly responsive and never freezes.
 - **Resilient Fallback Parsing**: When Python's native `urllib.request` triggers Cloudflare filters, the scraping engine spawns system `curl` subprocesses to guarantee a 100% profile lookup and thesis retrieval rate.
 - **Deduplication Engine**: Combines OpenAlex JSON API entries and raw scraped HTML elements from ResearchGate in parallel, dynamically sorting and deduplicating records by title similarity.
+- **PyInstaller-Aware Path Resolution** *(v2.2.0)*: Detects whether the app is running as a frozen bundle (`sys.frozen`) and uses `sys.executable` to resolve the correct application directory, preventing files from being saved to the temporary `_MEI...` extraction folder.
+
+---
+
+## 📋 Changelog
+
+### v2.2.0
+- Fixed download output path when running as a PyInstaller `.exe` (files were incorrectly saved to `%TEMP%\_MEI...\`).
+- Downloads are now organized into smart named subfolders (`Papers\`, `Books\`, `Theses\`, `Others\`) beside the executable.
+- Added `Others\` as a fallback folder for any unrecognized document type.
+- Added `VERSION` constant to source for release tracking.
 
 ---
 
