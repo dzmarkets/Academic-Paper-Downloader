@@ -2,6 +2,8 @@
 
 > **Version 2.3.1**
 
+[![Download paper.exe](https://img.shields.io/badge/Download-paper.exe-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.3.1/paper.exe)
+
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
 ---
