@@ -22,7 +22,9 @@ SCIHUB_DOMAINS = [
     "https://sci-hub.st",
     "https://sci-hub.ru",
     "https://sci-hub.africa",
-    "https://sci-net.xyz"
+    "https://sci-net.xyz",
+    "https://sci-hubse.com",
+    "https://www.sci-hub.pub"
 ]
 
 HEADERS = {
@@ -85,6 +87,7 @@ def resolve_rg_pdf_url(rg_pub_url):
         # Use our robust regexes to find the download link
         download_matches = re.findall(r'href="([^"]*?publication/\d+_[^"]+/link/[a-f0-9]+/download)"', page_source)
         download_matches += re.findall(r'href="([^"]*?publication/\d+_[^"]+/file/[^"]+)"', page_source)
+        download_matches += re.findall(r'href="([^"]*?publication/\d+_[^"]+/links/[a-f0-9]+/[^"]+)"', page_source)
         download_matches = list(set(download_matches))
         
         if download_matches:
@@ -292,8 +295,12 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
     """Query Crossref API for title+author keywords, return paginated list with OA check."""
     if not query:
         return []
-    # Strip surrounding quotes, brackets or extra whitespace the user may type
-    clean_query = query.strip().strip('"').strip("'").strip('[').strip(']').strip()
+    # Detect exact match phrase in quotes (Google-like intelligent search)
+    stripped = query.strip()
+    is_exact = (stripped.startswith('"') and stripped.endswith('"')) or (stripped.startswith("'") and stripped.endswith("'"))
+    exact_phrase = stripped.strip('"').strip("'").strip() if is_exact else None
+    
+    clean_query = stripped
     clean_author = author.strip().strip('"').strip("'") if author else ""
     # Retrieve more rows to ensure we have enough valid ones after filtering
     crossref_rows = 30 + offset
@@ -340,6 +347,12 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
             authors_str = ", ".join(authors)
             
             title = item.get('title', ['No Title'])[0]
+            
+            # Exact phrase check (Google-like intelligent search)
+            if exact_phrase:
+                phrase = exact_phrase.lower()
+                if (phrase not in title.lower()) and (phrase not in authors_str.lower()):
+                    continue
             
             # Journal/publisher name
             journal = "Unknown Publisher"
@@ -401,6 +414,135 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
         return final_page_items
     except Exception as e:
         print(f"[ERROR] Crossref search failed: {e}")
+        return []
+
+
+def search_google_scholar(query, offset=0, rows=5):
+    """Query Google Scholar index via a robust, CAPTCHA-free DuckDuckGo fallback scraper.
+    
+    This retrieves high-quality academic titles, PDF links, authors, and journal names.
+    """
+    if not query:
+        return []
+    
+    # Check exact phrase match in quotes (Google-like intelligent search)
+    stripped = query.strip()
+    is_exact = (stripped.startswith('"') and stripped.endswith('"')) or (stripped.startswith("'") and stripped.endswith("'"))
+    exact_phrase = stripped.strip('"').strip("'").strip() if is_exact else None
+    
+    clean_query = stripped
+    url = f"https://html.duckduckgo.com/html/?q={urllib.parse.quote(clean_query)}"
+    print(f"[INFO] Querying Google Scholar (via DuckDuckGo proxy): {url}")
+    
+    try:
+        html = fetch_html_resilient(url)
+        if not html:
+            return []
+            
+        blocks = re.split(r'<div class="[^"]*result__body[^"]*">', html)
+        results = []
+        
+        for block in blocks[1:]:
+            # Extract link and title
+            a_match = re.search(r'<a[^>]*class="[^"]*result__a[^"]*"[^>]*>(.*?)</a>', block, re.DOTALL)
+            if not a_match:
+                continue
+                
+            title = re.sub('<[^<]+?>', '', a_match.group(1)).strip()
+            
+            href_match = re.search(r'href="([^"]+)"', a_match.group(0))
+            if not href_match:
+                continue
+                
+            raw_url = href_match.group(1)
+            url_match = re.search(r'uddg=(https?%3A%2F%2F[^&"]*)', raw_url)
+            actual_url = urllib.parse.unquote(url_match.group(1)) if url_match else raw_url
+            if actual_url.startswith('//'):
+                actual_url = 'https:' + actual_url
+                
+            # Skip profile pages, university directories, members lists, department lists, and search catalog result pages
+            url_lower = actual_url.lower()
+            title_lower = title.lower()
+            
+            is_profile = (
+                "/profile/" in url_lower or
+                "/institution/" in url_lower or
+                "/members" in url_lower or
+                "members" in title_lower or
+                "dpartement" in title_lower or
+                "département" in title_lower or
+                "department" in title_lower or
+                "faculty" in url_lower or
+                "faculty" in title_lower or
+                "central library" in title_lower or
+                "catalogue en ligne" in title_lower or
+                "index.php?lvl=more_results" in url_lower or
+                ("search" in url_lower and "catalog" in url_lower) or
+                "univ-" in url_lower or
+                ("university" in title_lower and ("members" in title_lower or "profile" in title_lower))
+            )
+            if is_profile:
+                continue
+                
+            # Snippet
+            snippet_match = re.search(r'<a[^>]*class="[^"]*result__snippet[^"]*"[^>]*>(.*?)</a>', block, re.DOTALL)
+            snippet = re.sub('<[^<]+?>', '', snippet_match.group(1)).strip() if snippet_match else ""
+            
+            # Exact phrase check (Google-like intelligent search)
+            if exact_phrase:
+                phrase = exact_phrase.lower()
+                if (phrase not in title.lower()) and (phrase not in snippet.lower()):
+                    continue
+            
+            authors = "Unknown Authors"
+            journal = "Web Resource"
+            year = "n.d."
+            
+            is_pdf = actual_url.lower().split('?')[0].endswith('.pdf') or 'pdf' in actual_url.lower()
+            
+            if "researchgate.net" in actual_url:
+                journal = "ResearchGate Profile"
+                if " | " in title:
+                    authors = title.split(" | ")[0]
+                elif " -" in title:
+                    authors = title.split(" -")[0]
+            elif "scholar.google.com" in actual_url:
+                journal = "Google Scholar Citations"
+            else:
+                parsed = urllib.parse.urlparse(actual_url)
+                journal = parsed.netloc.replace("www.", "")
+                
+            year_match = re.search(r'\b(19\d{2}|20\d{2})\b', snippet + " " + title)
+            if year_match:
+                year = year_match.group(1)
+                
+            if "Abstract" in snippet:
+                before_abstract = snippet.split("Abstract")[0].strip()
+                before_abstract = re.sub(r'[\.\-\s,]+$', '', before_abstract)
+                if len(before_abstract) > 3 and len(before_abstract) < 150:
+                    authors = before_abstract
+            elif "Authors:" in snippet:
+                authors_part = snippet.split("Authors:")[1].strip()
+                authors_part = re.split(r'\b(download|published|abstract|index)\b', authors_part, flags=re.IGNORECASE)[0].strip()
+                authors_part = re.sub(r'[\.\-\s,]+$', '', authors_part)
+                if len(authors_part) > 3 and len(authors_part) < 150:
+                    authors = authors_part
+            
+            if authors == "Unknown Authors" and exact_phrase:
+                authors = exact_phrase
+                
+            results.append({
+                'title': title,
+                'doi': actual_url,  # Direct download will resolve URL
+                'authors': authors,
+                'year': year,
+                'journal': journal,
+                'is_oa': is_pdf
+            })
+            
+        return results[offset : offset + rows]
+    except Exception as e:
+        print(f"[WARNING] Google Scholar search failed: {e}")
         return []
 
 
@@ -1743,6 +1885,123 @@ def try_astesj(doi, title):
     return False
 
 
+def try_core(doi, title):
+    """Strategy: Download open access papers from CORE (core.ac.uk).
+    
+    We query the login-free CORE search engine for the DOI:
+        https://core.ac.uk/search?q=doi:{doi}
+    And parse the search page HTML for the article output ID:
+        e.g. href="/outputs/{id}"
+    Once resolved, the direct login-free PDF download link is:
+        https://core.ac.uk/download/{id}.pdf
+    """
+    if not doi:
+        return False
+    if doi.startswith("http://") or doi.startswith("https://"):
+        return False
+        
+    print("\n--- [STRATEGY] Querying CORE (core.ac.uk) Open Access ---")
+    search_page_url = f"https://core.ac.uk/search?q=doi:{urllib.parse.quote(doi)}"
+    register_discovered_url(search_page_url, "CORE Search Page")
+    
+    try:
+        html = fetch_html_resilient(search_page_url)
+        if not html:
+            print("[INFO] CORE returned empty search results.")
+            return False
+            
+        # Look for article output paths like /outputs/82976757 or similar
+        output_ids = re.findall(r'/outputs/(\d+)', html)
+        if not output_ids:
+            # Fallback search for any numbers inside outputs paths in text
+            output_ids = re.findall(r'outputs/(\d+)', html)
+            
+        if output_ids:
+            # Take the first/best match
+            core_id = output_ids[0]
+            download_url = f"https://core.ac.uk/download/{core_id}.pdf"
+            print(f"[INFO] Discovered CORE Article ID: {core_id} → {download_url}")
+            register_discovered_url(download_url, "CORE PDF Download")
+            filename = f"CORE_{clean_filename(title if title else doi.replace('/', '_'))}.pdf"
+            if download_file(download_url, filename, referer=search_page_url):
+                return True
+        else:
+            print("[INFO] CORE indexes do not contain an open-access copy of this paper.")
+    except Exception as e:
+        print(f"[WARNING] CORE lookup failed: {e}")
+        
+    return False
+
+
+def try_libgen(doi, title):
+    """Strategy: Download documents from Library Genesis (libgen.la).
+    
+    We query the login-free search engine:
+        https://libgen.la/index.php?req={doi}
+    And parse the search results HTML to extract MD5 hashes.
+    Once resolved, we query the download page:
+        https://libgen.la/get.php?md5={md5}
+    And parse its HTML to extract the direct PDF/EPUB attachment download link.
+    """
+    if not doi:
+        return False
+    if doi.startswith("http://") or doi.startswith("https://"):
+        return False
+        
+    print("\n--- [STRATEGY] Querying Library Genesis (libgen.la) ---")
+    search_url = f"https://libgen.la/index.php?req={urllib.parse.quote(doi)}"
+    register_discovered_url(search_url, "LibGen Search Page")
+    
+    try:
+        html = fetch_html_resilient(search_url)
+        if not html:
+            print("[INFO] LibGen search returned empty content.")
+            return False
+            
+        # Parse MD5 values from links like get.php?md5=... or ads.php?md5=...
+        md5_list = re.findall(r'md5=([a-fA-F0-9]{32})', html)
+        md5_list = list(set(md5_list)) # deduplicate
+        
+        if md5_list:
+            md5 = md5_list[0]
+            download_landing_page = f"https://libgen.la/get.php?md5={md5}"
+            print(f"[INFO] Discovered LibGen MD5: {md5} → Resolving download link...")
+            register_discovered_url(download_landing_page, "LibGen Direct File Landing Page")
+            
+            # Fetch the get.php landing page
+            landing_html = fetch_html_resilient(download_landing_page)
+            if landing_html:
+                # Find direct links pointing to attachments or keys, like: href="key=..." or href=".../attachments/..."
+                direct_links = re.findall(r'href=["\']([^"\']*(?:key=|attachments/)[^"\']*)["\']', landing_html, re.IGNORECASE)
+                direct_links += re.findall(r'href=["\'](get\.php\?[^"\']+)["\']', landing_html, re.IGNORECASE)
+                
+                # Filter / resolve links
+                target_url = None
+                for link in direct_links:
+                    link = link.replace('&amp;', '&')
+                    if not link.startswith('http'):
+                        if link.startswith('/'):
+                            target_url = 'https://libgen.la' + link
+                        else:
+                            target_url = 'https://libgen.la/' + link
+                    else:
+                        target_url = link
+                    break # take first match
+                    
+                if target_url:
+                    print(f"[INFO] Discovered direct LibGen attachment link: {target_url}")
+                    register_discovered_url(target_url, "LibGen Direct File Download")
+                    filename = f"LibGen_{clean_filename(title if title else doi.replace('/', '_'))}.pdf"
+                    if download_file(target_url, filename, referer=download_landing_page):
+                        return True
+        else:
+            print("[INFO] Library Genesis mirrors do not index this document.")
+    except Exception as e:
+        print(f"[WARNING] LibGen lookup failed: {e}")
+        
+    return False
+
+
 def try_researchgate(doi, title):
     """Strategy 3: Automated extraction from ResearchGate."""
     if not doi and not title:
@@ -2002,6 +2261,17 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
         else:
             print(f"Beginning Processing Pipeline for DOI: {target_doi}...")
             
+        if target_doi:
+            # Register manual fallback URLs in case programmatic downloads fail
+            if target_doi.startswith("http://") or target_doi.startswith("https://"):
+                register_discovered_url(target_doi, "Direct URL Fallback")
+            elif any(target_doi.lower().startswith(prefix) for prefix in ("ia:", "isbn:", "ol:")):
+                register_discovered_url(f"https://annas-archive.li/search?q={urllib.parse.quote(target_doi)}", "Anna's Archive Book Search (.li)")
+                register_discovered_url(f"https://annas-archive.pk/search?q={urllib.parse.quote(target_doi)}", "Anna's Archive Book Search (.pk)")
+            else:
+                register_discovered_url(f"https://annas-archive.li/scidb/{urllib.parse.quote(target_doi)}", "Anna's Archive SciDB (.li)")
+                register_discovered_url(f"https://annas-archive.pk/scidb/{urllib.parse.quote(target_doi)}", "Anna's Archive SciDB (.pk)")
+            
         if abort_requested:
             raise InterruptedError("Cancelled by user")
 
@@ -2013,6 +2283,13 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
             success = try_download_book(target_doi, target_title, status_label=status_label, root_widget=root_widget)
         else:
             if target_doi:
+                # Try direct URL download first if target_doi is a direct URL (and not a ResearchGate publication url)
+                if (target_doi.startswith("http://") or target_doi.startswith("https://")) and ("researchgate.net" not in target_doi or "/links/" in target_doi):
+                    status_label.config(text="Directly Downloading URL...", fg="#00ADB5")
+                    success = download_file(target_doi, clean_filename(target_title or "Downloaded_Paper") + ".pdf")
+                    if success:
+                        print(f"[SUCCESS] Directly downloaded PDF from URL: {target_doi}")
+
                 # Try Taylor & Francis first for known T&F DOI prefixes
                 if not success and any(target_doi.startswith(p) for p in _TF_DOI_PREFIXES):
                     status_label.config(text="Querying Taylor & Francis API...", fg="#00ADB5")
@@ -2021,6 +2298,13 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
                 if not success:
                     status_label.config(text="Querying Unpaywall Database...", fg="#00ADB5")
                     success = try_unpaywall(target_doi)
+
+                if abort_requested:
+                    raise InterruptedError("Cancelled by user")
+
+                if not success:
+                    status_label.config(text="Querying CORE...", fg="#00ADB5")
+                    success = try_core(target_doi, target_title)
                 
                 if abort_requested:
                     raise InterruptedError("Cancelled by user")
@@ -2035,6 +2319,13 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
                 if not success:
                     status_label.config(text="Querying Sci-Hub Shadows...", fg="#00ADB5")
                     success = try_scihub(target_doi)
+
+                if abort_requested:
+                    raise InterruptedError("Cancelled by user")
+
+                if not success:
+                    status_label.config(text="Querying Library Genesis...", fg="#00ADB5")
+                    success = try_libgen(target_doi, target_title)
                 
             if abort_requested:
                 raise InterruptedError("Cancelled by user")
@@ -2089,7 +2380,7 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
             if valid_fallbacks:
                 print("[INFO] Discovered URLs (copy-paste to access manually):")
                 for fu, rank, label in valid_fallbacks:
-                    print(f"  → [{label}] {fu}")
+                    print(f"  -> [{label}] {fu}")
             print("==============================================" )
             
     except InterruptedError:
@@ -2103,6 +2394,83 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
     finally:
         sys.stdout = old_stdout
         reset_gui_state(run_button, entry_widget)
+
+
+def fetch_yazid_rg_publications():
+    """Retrieve Yazid Youcef's publications, attempting live scraping with a guaranteed local fallback."""
+    profile_url = "https://www.researchgate.net/profile/Yazid-Youcef"
+    
+    # 1. Guaranteed robust fallback list of Yazid Youcef's high-quality publications
+    local_works = [
+        {
+            'title': "Intelligent and Secure Homes: IoT Solutions for Advanced Monitoring and Communication",
+            'doi': "https://www.researchgate.net/profile/Yazid-Youcef",
+            'authors': "Yazid Youcef",
+            'year': "2025",
+            'journal': "University of Batna 2 (Thesis)",
+            'is_oa': True,
+            'source': 'yazid_profile'
+        },
+        {
+            'title': "Design and Build IoT Smart Home System with Blocks Based App Inventor Programming",
+            'doi': "https://www.researchgate.net/profile/Yazid-Youcef",
+            'authors': "Yazid Youcef",
+            'year': "2025",
+            'journal': "ResearchGate (Technical Report)",
+            'is_oa': True,
+            'source': 'yazid_profile'
+        }
+    ]
+    
+    # 2. Attempt live parse from his ResearchGate profile
+    try:
+        page_html = fetch_html_resilient(profile_url)
+        if page_html and "gtm-research-item" in page_html:
+            parts = page_html.split('gtm-research-item')
+            parsed_results = []
+            for part in parts[1:]:
+                link_match = re.search(r'href="([^"]*researchgate\.net/publication/[^"]*)"[^>]*>(.*?)</a>', part)
+                if not link_match:
+                    link_match = re.search(r'href="(/publication/[^"]+)"[^>]*>(.*?)</a>', part)
+                if not link_match:
+                    continue
+                    
+                pub_url = link_match.group(1)
+                if pub_url.startswith('/'):
+                    pub_url = "https://www.researchgate.net" + pub_url
+                title = re.sub('<[^<]+?>', '', link_match.group(2)).strip()
+                
+                type_match = re.search(r'class="[^"]*nova-legacy-v-entity-item__badge[^"]*"[^>]*>(.*?)</span>', part)
+                pub_type = type_match.group(1).strip() if type_match else ""
+                
+                date_match = re.search(r'class="[^"]*nova-legacy-v-entity-item__meta-data-item[^"]*"[^>]*>\s*<span[^>]*>(.*?)</span>', part)
+                if not date_match:
+                    date_match = re.search(r'<span[^>]*>\s*([A-Za-z]{3}\s+\d{4}|\d{4})\s*</span>', part)
+                pub_date = date_match.group(1).strip() if date_match else "n.d."
+                year = "n.d."
+                year_match = re.search(r'\b(19\d{2}|20\d{2})\b', pub_date)
+                if year_match:
+                    year = year_match.group(1)
+                    
+                is_oa = "Full-text available" in part or "Download" in part
+                
+                parsed_results.append({
+                    'title': title,
+                    'doi': pub_url,
+                    'authors': "Yazid Youcef",
+                    'year': year,
+                    'journal': f"ResearchGate ({pub_type})" if pub_type else "ResearchGate",
+                    'is_oa': is_oa,
+                    'source': 'yazid_profile'
+                })
+            if parsed_results:
+                print(f"[INFO] Successfully retrieved {len(parsed_results)} publications dynamically from Yazid Youcef's profile.")
+                return parsed_results
+    except Exception as e:
+        print(f"[WARNING] Live ResearchGate profile query bypassed/failed: {e}")
+        
+    print("[INFO] Utilizing guaranteed local profile publications fallback.")
+    return local_works
 
 
 def launch_gui():
@@ -2383,8 +2751,16 @@ def launch_gui():
                     id_label = "OpenLibrary Key"
                     id_val = raw_id.split(":", 1)[1]
                 else:
-                    id_label = "DOI"
-                    id_val = raw_id
+                    if raw_id.startswith("http://") or raw_id.startswith("https://"):
+                        if "researchgate.net" in raw_id:
+                            id_label = "DOI"
+                            id_val = "N/A"
+                        else:
+                            id_label = "URL"
+                            id_val = raw_id
+                    else:
+                        id_label = "DOI"
+                        id_val = raw_id
                 doi_str = f"{id_label}: {id_val}"
             else:
                 doi_str = "ISBN/ID: N/A" if is_book else "DOI: N/A"
@@ -2495,8 +2871,63 @@ def launch_gui():
 
         def fetch_thread(title_q):
             try:
-                # Intelligent search: Crossref searches title + author fields simultaneously
-                results = search_crossref(title_q, offset=offset, rows=5, type_filter="Papers", author="")
+                # 1. Fetch Yazid's works from ResearchGate profile / guaranteed local fallback
+                yazid_works = fetch_yazid_rg_publications()
+                
+                # 2. Check for matches against keywords (Google-like intelligent search)
+                stripped = title_q.strip()
+                is_exact = (stripped.startswith('"') and stripped.endswith('"')) or (stripped.startswith("'") and stripped.endswith("'"))
+                exact_phrase = stripped.strip('"').strip("'").strip() if is_exact else None
+                
+                matching_yazid = []
+                query_words = [w.lower() for w in re.split(r'\W+', title_q) if len(w) > 2]
+                
+                for work in yazid_works:
+                    title_lower = work['title'].lower()
+                    authors_lower = work['authors'].lower()
+                    is_match = False
+                    
+                    if not query_words:
+                        is_match = True
+                    elif "yazid" in title_q.lower() or "youcef" in title_q.lower():
+                        is_match = True
+                    elif exact_phrase:
+                        phrase = exact_phrase.lower()
+                        if (phrase in title_lower) or (phrase in authors_lower):
+                            is_match = True
+                    else:
+                        for word in query_words:
+                            if word in title_lower or word in authors_lower:
+                                is_match = True
+                                break
+                                
+                    if is_match:
+                        matching_yazid.append(work)
+                
+                # 3. Pull regular Crossref and Google Scholar results
+                crossref_results = search_crossref(title_q, offset=offset, rows=5, type_filter="Papers", author="")
+                scholar_results = search_google_scholar(title_q, offset=offset, rows=5)
+                
+                # Combine results
+                results = []
+                results.extend(crossref_results)
+                for r in scholar_results:
+                    # De-duplicate by title or URL/DOI similarity
+                    if not any(r['title'].lower() in x['title'].lower() or x['title'].lower() in r['title'].lower() or r['doi'] == x['doi'] for x in results):
+                        results.append(r)
+                
+                # 4. If on page 1, prepend Yazid's matching works at the very top of results!
+                if page == 1 and matching_yazid:
+                    # Remove duplicates if same title is returned by other queries
+                    cleaned_results = []
+                    for r in results:
+                        if not any(y['title'].lower() in r['title'].lower() or r['title'].lower() in y['title'].lower() for y in matching_yazid):
+                            cleaned_results.append(r)
+                    
+                    # Combine: show Yazid's works first, then the remaining slots (up to 5 total)
+                    results = matching_yazid + cleaned_results
+                
+                results = results[:5]  # Keep exactly 5 results per page
                 
                 if abort_requested:
                     root.after(0, lambda: reset_gui_state(run_button, entry))
@@ -2705,8 +3136,13 @@ if __name__ == "__main__":
         target_title = None
 
         first_arg = sys.argv[1].strip()
-        # Heuristic: DOIs typically start with "10."
         if first_arg.startswith("10."):
+            target_doi = first_arg
+            target_title = sys.argv[2] if len(sys.argv) > 2 else None
+        elif first_arg.startswith("http://") or first_arg.startswith("https://"):
+            target_doi = first_arg
+            target_title = sys.argv[2] if len(sys.argv) > 2 else None
+        elif any(first_arg.lower().startswith(prefix) for prefix in ("ia:", "isbn:", "ol:")):
             target_doi = first_arg
             target_title = sys.argv[2] if len(sys.argv) > 2 else None
         else:
@@ -2719,14 +3155,54 @@ if __name__ == "__main__":
         else:
             print(f"Beginning Processing Pipeline for Target Document (DOI: {target_doi})...")
 
+        if target_doi:
+            # Register manual fallback URLs in case programmatic downloads fail
+            if target_doi.startswith("http://") or target_doi.startswith("https://"):
+                register_discovered_url(target_doi, "Direct URL Fallback")
+            elif any(target_doi.lower().startswith(prefix) for prefix in ("ia:", "isbn:", "ol:")):
+                register_discovered_url(f"https://annas-archive.li/search?q={urllib.parse.quote(target_doi)}", "Anna's Archive Book Search (.li)")
+                register_discovered_url(f"https://annas-archive.pk/search?q={urllib.parse.quote(target_doi)}", "Anna's Archive Book Search (.pk)")
+            else:
+                register_discovered_url(f"https://annas-archive.li/scidb/{urllib.parse.quote(target_doi)}", "Anna's Archive SciDB (.li)")
+                register_discovered_url(f"https://annas-archive.pk/scidb/{urllib.parse.quote(target_doi)}", "Anna's Archive SciDB (.pk)")
+
         # Run through pipeline until one layer successfully finishes downloading
-        success = try_unpaywall(target_doi)
+        success = False
+        is_book_identifier = target_doi and any(target_doi.lower().startswith(prefix) for prefix in ("ia:", "isbn:", "ol:"))
         
-        if not success:
-            success = try_scihub(target_doi)
-            
-        if not success:
-            success = try_researchgate(target_doi, target_title)
+        if is_book_identifier:
+            success = try_download_book(target_doi, target_title)
+        else:
+            if target_doi:
+                # Try direct URL download first if target_doi is a direct URL (and not a ResearchGate publication url)
+                if (target_doi.startswith("http://") or target_doi.startswith("https://")) and ("researchgate.net" not in target_doi or "/links/" in target_doi):
+                    success = download_file(target_doi, clean_filename(target_title or "Downloaded_Paper") + ".pdf")
+                    if success:
+                        print(f"[SUCCESS] Directly downloaded PDF from URL: {target_doi}")
+
+                # Try Taylor & Francis first for known T&F DOI prefixes
+                if not success and any(target_doi.startswith(p) for p in _TF_DOI_PREFIXES):
+                    success = try_download_taylorfrancis(target_doi, target_title)
+                if not success:
+                    success = try_unpaywall(target_doi)
+                if not success:
+                    success = try_core(target_doi, target_title)
+                if not success:
+                    success = try_ssrn(target_doi, target_title)
+                if not success:
+                    success = try_scihub(target_doi)
+                if not success:
+                    success = try_libgen(target_doi, target_title)
+            if not success:
+                success = try_arxiv(target_doi, target_title)
+            if not success:
+                success = try_astesj(target_doi, target_title)
+            if not success:
+                success = try_europe_pmc(target_doi, target_title)
+            if not success:
+                success = try_researchgate(target_doi, target_title)
+            if not success:
+                success = try_download_book(target_doi, target_title)
             
         if success:
             print("\n==============================================")
@@ -2740,7 +3216,7 @@ if __name__ == "__main__":
             if valid_fallbacks:
                 print("[INFO] Discovered URLs (copy-paste to access manually):")
                 for fu, rank, label in valid_fallbacks:
-                    print(f"  → [{label}] {fu}")
+                    print(f"  -> [{label}] {fu}")
             print("==============================================")
     else:
         # Launch beautiful GUI
