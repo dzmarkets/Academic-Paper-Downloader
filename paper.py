@@ -1,5 +1,6 @@
 import urllib.request
 import urllib.parse
+import urllib.error
 import json
 import re
 import os
@@ -125,6 +126,13 @@ def check_for_updates():
                         download_url = asset.get("browser_download_url", html_url)
                         break
             return latest_version, changelog, download_url
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            # 404 means no releases are published yet!
+            print("[INFO] No releases found on GitHub. Assuming up-to-date.")
+            return VERSION, "No releases published yet on GitHub.", "https://github.com/dzmarkets/Academic-Paper-Downloader"
+        print(f"[WARNING] Update check HTTP error: {e}")
+        return None, None, None
     except Exception as e:
         print(f"[WARNING] Update check failed: {e}")
         return None, None, None
@@ -2590,156 +2598,11 @@ def fetch_assma_publications():
     return local_works
 
 
-def show_help_dialog(parent):
-    """Show a beautiful dark-themed How to Use dialog."""
-    dialog = tk.Toplevel(parent)
-    dialog.title("How to Use")
-    dialog.configure(bg="#0D0B14")
-    dialog.transient(parent)
-    dialog.grab_set()
-    
-    # Center window
-    w, h = 550, 480
-    ws = dialog.winfo_screenwidth()
-    hs = dialog.winfo_screenheight()
-    x = (ws/2) - (w/2)
-    y = (hs/2) - (h/2)
-    dialog.geometry(f"{w}x{h}+{int(x)}+{int(y)}")
-    dialog.resizable(False, False)
-    
-    content = tk.Frame(dialog, bg="#0D0B14", padx=25, pady=20)
-    content.pack(fill='both', expand=True)
-    
-    title_lbl = tk.Label(content, text="📖 How to Use Paper Downloader", bg="#0D0B14", fg="#A855F7", font=('Segoe UI Semibold', 14))
-    title_lbl.pack(anchor='w', pady=(0, 15))
-    
-    inst_frame = tk.Frame(content, bg="#1A1625", bd=1, relief='flat', padx=15, pady=15)
-    inst_frame.pack(fill='both', expand=True, pady=(0, 15))
-    
-    text_widget = tk.Text(inst_frame, bg="#1A1625", fg="#EEEEEE", bd=0, font=('Segoe UI', 9.5), wrap='word')
-    text_widget.pack(fill='both', expand=True)
-    
-    instructions = (
-        "Academic Paper Downloader is a premium utility designed to search, retrieve, and organize academic publications and books.\n\n"
-        "⚡ DIRECT DOWNLOAD MODE:\n"
-        "• Enter a DOI (e.g., 10.1145/3375633) or direct PDF URL to download it immediately.\n"
-        "• Enter an Internet Archive ID prefixed with 'ia:' (e.g., ia:de_bruijn_indices).\n"
-        "• Enter an ISBN prefixed with 'isbn:' (e.g., isbn:9780131103627).\n"
-        "• Enter an OpenLibrary ID prefixed with 'ol:' (e.g., ol:OL27479709M).\n"
-        "• Press Enter or click 'Search / Download' to run the pipeline.\n\n"
-        "🔍 KEYWORD RESEARCH MODE:\n"
-        "• Enter search keywords (e.g., 'machine learning security') and click 'Search / Download'.\n"
-        "• The app queries Crossref, Google Scholar, and priority local indexes.\n"
-        "• Click 'View' to see the document in your web browser, or 'Download' to start downloading.\n"
-        "• Use the pagination buttons to browse through results or 'Clear Results' to reset the view.\n\n"
-        "📁 SMART DIRECTORY ORGANIZATION:\n"
-        "Downloaded files are automatically categorized and saved in separate folders right next to the application:\n"
-        "• Papers/  — Research articles and journal papers\n"
-        "• Books/   — Textbook and book acquisitions\n"
-        "• Theses/  — Academic theses and dissertations\n"
-        "• Others/  — Miscellaneous documents"
-    )
-    text_widget.insert('1.0', instructions)
-    text_widget.config(state='disabled')
-    
-    close_btn = tk.Button(
-        content, 
-        text="Got It", 
-        bg="#8B5CF6", 
-        fg="#FFFFFF", 
-        activebackground="#A78BFA", 
-        activeforeground="#FFFFFF", 
-        bd=0, 
-        font=('Segoe UI Semibold', 10), 
-        padx=25, 
-        pady=8, 
-        cursor="hand2", 
-        command=dialog.destroy
-    )
-    close_btn.pack(anchor='center')
 
 
-def show_about_dialog(parent):
-    """Show a beautiful dark-themed About dialog."""
-    dialog = tk.Toplevel(parent)
-    dialog.title("About")
-    dialog.configure(bg="#0D0B14")
-    dialog.transient(parent)
-    dialog.grab_set()
-    
-    w, h = 500, 390
-    ws = dialog.winfo_screenwidth()
-    hs = dialog.winfo_screenheight()
-    x = (ws/2) - (w/2)
-    y = (hs/2) - (h/2)
-    dialog.geometry(f"{w}x{h}+{int(x)}+{int(y)}")
-    dialog.resizable(False, False)
-    
-    content = tk.Frame(dialog, bg="#0D0B14", padx=25, pady=20)
-    content.pack(fill='both', expand=True)
-    
-    title_lbl = tk.Label(content, text="🎓 Academic Paper Downloader", bg="#0D0B14", fg="#A855F7", font=('Segoe UI Semibold', 14))
-    title_lbl.pack(anchor='center', pady=(0, 5))
-    
-    ver_lbl = tk.Label(content, text=f"Version {VERSION}", bg="#0D0B14", fg="#A78BFA", font=('Segoe UI', 10, 'bold'))
-    ver_lbl.pack(anchor='center', pady=(0, 15))
-    
-    card = tk.Frame(content, bg="#1A1625", bd=1, relief='flat', padx=15, pady=15)
-    card.pack(fill='both', expand=True, pady=(0, 15))
-    
-    desc_text = (
-        "A high-performance research paper and book downloader featuring intelligent "
-        "multi-layer fallback pipelines, automatic folder organization, and interactive search modes.\n\n"
-        "Designed & Developed by Yazid YOUCEF\n"
-        "Supporting open science and academic accessibility worldwide.\n\n"
-        "GitHub: github.com/dzmarkets/Academic-Paper-Downloader"
-    )
-    
-    desc_lbl = tk.Label(card, text=desc_text, bg="#1A1625", fg="#EEEEEE", font=('Segoe UI', 9.5), justify='center', wrap=420)
-    desc_lbl.pack(fill='both', expand=True)
-    
-    btn_frame = tk.Frame(content, bg="#0D0B14")
-    btn_frame.pack(anchor='center')
-    
-    def open_github():
-        import webbrowser
-        webbrowser.open("https://github.com/dzmarkets/Academic-Paper-Downloader")
-        
-    gh_btn = tk.Button(
-        btn_frame, 
-        text="🌐 Visit GitHub", 
-        bg="#2E2543", 
-        fg="#EEEEEE", 
-        activebackground="#3F335C", 
-        activeforeground="#FFFFFF", 
-        bd=0, 
-        font=('Segoe UI Semibold', 9), 
-        padx=15, 
-        pady=6, 
-        cursor="hand2", 
-        command=open_github
-    )
-    gh_btn.pack(side='left', padx=5)
-    
-    close_btn = tk.Button(
-        btn_frame, 
-        text="Close", 
-        bg="#8B5CF6", 
-        fg="#FFFFFF", 
-        activebackground="#A78BFA", 
-        activeforeground="#FFFFFF", 
-        bd=0, 
-        font=('Segoe UI Semibold', 9), 
-        padx=20, 
-        pady=6, 
-        cursor="hand2", 
-        command=dialog.destroy
-    )
-    close_btn.pack(side='left', padx=5)
 
-
-def show_update_result_dialog(parent, result_type, latest_version, changelog, download_url):
-    """Display the update status beautifully."""
+def show_update_result_dialog(parent, latest_version, changelog, download_url):
+    """Display the new update availability beautifully."""
     dialog = tk.Toplevel(parent)
     dialog.title("Update Status")
     dialog.configure(bg="#0D0B14")
@@ -2747,9 +2610,6 @@ def show_update_result_dialog(parent, result_type, latest_version, changelog, do
     dialog.grab_set()
     
     w, h = 500, 400
-    if result_type != "update_available":
-        w, h = 400, 220
-        
     ws = dialog.winfo_screenwidth()
     hs = dialog.winfo_screenheight()
     x = (ws/2) - (w/2)
@@ -2760,60 +2620,39 @@ def show_update_result_dialog(parent, result_type, latest_version, changelog, do
     content = tk.Frame(dialog, bg="#0D0B14", padx=20, pady=20)
     content.pack(fill='both', expand=True)
     
-    if result_type == "error":
-        title_lbl = tk.Label(content, text="⚠️ Update Check Failed", bg="#0D0B14", fg="#EF4444", font=('Segoe UI Semibold', 12))
-        title_lbl.pack(pady=(10, 5))
+    title_lbl = tk.Label(content, text="🚀 New Update Available!", bg="#0D0B14", fg="#F59E0B", font=('Segoe UI Semibold', 13))
+    title_lbl.pack(anchor='w', pady=(0, 2))
+    
+    version_lbl = tk.Label(content, text=f"A newer version (v{latest_version}) is available. You have v{VERSION}.", bg="#0D0B14", fg="#A78BFA", font=('Segoe UI', 9, 'italic'))
+    version_lbl.pack(anchor='w', pady=(0, 10))
+    
+    card = tk.Frame(content, bg="#1A1625", bd=1, relief='flat', padx=12, pady=12)
+    card.pack(fill='both', expand=True, pady=(0, 15))
+    
+    cl_title = tk.Label(card, text="Release Notes / Changelog:", bg="#1A1625", fg="#A78BFA", font=('Segoe UI Semibold', 9))
+    cl_title.pack(anchor='w', pady=(0, 5))
+    
+    text_widget = tk.Text(card, bg="#1A1625", fg="#EEEEEE", bd=0, font=('Segoe UI', 8.5), wrap='word', height=10)
+    text_widget.pack(fill='both', expand=True)
+    if changelog:
+        text_widget.insert('1.0', changelog.strip())
+    else:
+        text_widget.insert('1.0', "No release notes provided for this version.")
+    text_widget.config(state='disabled')
+    
+    btn_frame = tk.Frame(content, bg="#0D0B14")
+    btn_frame.pack(fill='x')
+    
+    def download_update():
+        import webbrowser
+        webbrowser.open(download_url)
+        dialog.destroy()
         
-        msg_lbl = tk.Label(content, text="Could not connect to GitHub to check for updates.\nPlease check your network connection and try again.", bg="#0D0B14", fg="#EEEEEE", font=('Segoe UI', 9.5), justify='center', wrap=360)
-        msg_lbl.pack(pady=(5, 20))
-        
-        close_btn = tk.Button(content, text="Dismiss", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", bd=0, font=('Segoe UI Semibold', 9.5), padx=20, pady=6, cursor="hand2", command=dialog.destroy)
-        close_btn.pack()
-        
-    elif result_type == "up_to_date":
-        title_lbl = tk.Label(content, text="✨ You are Up to Date!", bg="#0D0B14", fg="#10B981", font=('Segoe UI Semibold', 12))
-        title_lbl.pack(pady=(10, 5))
-        
-        msg_lbl = tk.Label(content, text=f"Academic Paper Downloader is fully updated.\n\nInstalled Version: v{VERSION}\nLatest Available: v{latest_version}", bg="#0D0B14", fg="#EEEEEE", font=('Segoe UI', 9.5), justify='center')
-        msg_lbl.pack(pady=(5, 20))
-        
-        close_btn = tk.Button(content, text="Excellent", bg="#8B5CF6", fg="#FFFFFF", activebackground="#A78BFA", activeforeground="#FFFFFF", bd=0, font=('Segoe UI Semibold', 9.5), padx=20, pady=6, cursor="hand2", command=dialog.destroy)
-        close_btn.pack()
-        
-    elif result_type == "update_available":
-        title_lbl = tk.Label(content, text="🚀 New Update Available!", bg="#0D0B14", fg="#F59E0B", font=('Segoe UI Semibold', 13))
-        title_lbl.pack(anchor='w', pady=(0, 2))
-        
-        version_lbl = tk.Label(content, text=f"A newer version (v{latest_version}) is available. You have v{VERSION}.", bg="#0D0B14", fg="#A78BFA", font=('Segoe UI', 9, 'italic'))
-        version_lbl.pack(anchor='w', pady=(0, 10))
-        
-        card = tk.Frame(content, bg="#1A1625", bd=1, relief='flat', padx=12, pady=12)
-        card.pack(fill='both', expand=True, pady=(0, 15))
-        
-        cl_title = tk.Label(card, text="Release Notes / Changelog:", bg="#1A1625", fg="#A78BFA", font=('Segoe UI Semibold', 9))
-        cl_title.pack(anchor='w', pady=(0, 5))
-        
-        text_widget = tk.Text(card, bg="#1A1625", fg="#EEEEEE", bd=0, font=('Segoe UI', 8.5), wrap='word', height=10)
-        text_widget.pack(fill='both', expand=True)
-        if changelog:
-            text_widget.insert('1.0', changelog.strip())
-        else:
-            text_widget.insert('1.0', "No release notes provided for this version.")
-        text_widget.config(state='disabled')
-        
-        btn_frame = tk.Frame(content, bg="#0D0B14")
-        btn_frame.pack(fill='x')
-        
-        def download_update():
-            import webbrowser
-            webbrowser.open(download_url)
-            dialog.destroy()
-            
-        dl_btn = tk.Button(btn_frame, text="📥 Download EXE", bg="#10B981", fg="#FFFFFF", activebackground="#059669", activeforeground="#FFFFFF", bd=0, font=('Segoe UI Semibold', 9.5), padx=20, pady=6, cursor="hand2", command=download_update)
-        dl_btn.pack(side='right', padx=5)
-        
-        cancel_btn = tk.Button(btn_frame, text="Later", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", bd=0, font=('Segoe UI Semibold', 9.5), padx=20, pady=6, cursor="hand2", command=dialog.destroy)
-        cancel_btn.pack(side='right', padx=5)
+    dl_btn = tk.Button(btn_frame, text="📥 Download EXE", bg="#10B981", fg="#FFFFFF", activebackground="#059669", activeforeground="#FFFFFF", bd=0, font=('Segoe UI Semibold', 9.5), padx=20, pady=6, cursor="hand2", command=download_update)
+    dl_btn.pack(side='right', padx=5)
+    
+    cancel_btn = tk.Button(btn_frame, text="Later", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", bd=0, font=('Segoe UI Semibold', 9.5), padx=20, pady=6, cursor="hand2", command=dialog.destroy)
+    cancel_btn.pack(side='right', padx=5)
 
 
 def check_updates_gui(parent, manual=True):
@@ -2849,7 +2688,7 @@ def check_updates_gui(parent, manual=True):
                 
         if not latest_ver:
             if manual:
-                parent.after(0, lambda: show_update_result_dialog(parent, "error", None, None, None))
+                parent.after(0, lambda: status_label.config(text="Update check bypassed (offline/no releases found).", fg="#A78BFA"))
             return
             
         def parse_version(v_str):
@@ -2876,10 +2715,10 @@ def check_updates_gui(parent, manual=True):
                 is_newer = True
                 
         if is_newer:
-            parent.after(0, lambda: show_update_result_dialog(parent, "update_available", latest_ver, changelog, dl_url))
+            parent.after(0, lambda: show_update_result_dialog(parent, latest_ver, changelog, dl_url))
         else:
             if manual:
-                parent.after(0, lambda: show_update_result_dialog(parent, "up_to_date", latest_ver, None, None))
+                parent.after(0, lambda: status_label.config(text=f"Academic Paper Downloader is up to date (v{VERSION}).", fg="#10B981"))
                 
     t = threading.Thread(target=thread_proc)
     t.daemon = True
@@ -2888,23 +2727,11 @@ def check_updates_gui(parent, manual=True):
 
 def launch_gui():
     """Launch the modern dark-themed desktop GUI for Paper Downloader."""
-    global prev_btn, next_btn, page_lbl, results_frame, results_container, card_buttons, clear_res_btn
+    global prev_btn, next_btn, page_lbl, results_frame, results_container, card_buttons, clear_res_btn, status_label
     
     root = tk.Tk()
     root.title(f"Premium Paper Downloader v{VERSION} by Yazid YOUCEF")
     root.configure(bg="#0D0B14")
-    
-    # Configure Top Menu Bar
-    menu_bar = tk.Menu(root, bg="#1A1625", fg="#EEEEEE", activebackground="#8B5CF6", activeforeground="#FFFFFF")
-    
-    help_menu = tk.Menu(menu_bar, tearoff=0, bg="#1A1625", fg="#EEEEEE", activebackground="#8B5CF6", activeforeground="#FFFFFF")
-    help_menu.add_command(label="How to Use", command=lambda: show_help_dialog(root))
-    help_menu.add_command(label="Check for Updates", command=lambda: check_updates_gui(root, manual=True))
-    help_menu.add_separator()
-    help_menu.add_command(label="About", command=lambda: show_about_dialog(root))
-    
-    menu_bar.add_cascade(label="Help", menu=help_menu)
-    root.config(menu=menu_bar)
     
     # Silent update check on startup after 1.5 seconds
     root.after(1500, lambda: check_updates_gui(root, manual=False))
@@ -2951,8 +2778,30 @@ def launch_gui():
     header_frame = tk.Frame(root, bg="#0D0B14", pady=12)
     header_frame.pack(fill='x', padx=25)
     
-    header_lbl = tk.Label(header_frame, text=f"PAPER DOWNLOADER v{VERSION}", bg="#0D0B14", fg="#A855F7", font=('Segoe UI Semibold', 16))
-    header_lbl.pack(anchor='center')
+    # Title & Update symbols container centered beautifully
+    title_container = tk.Frame(header_frame, bg="#0D0B14")
+    title_container.pack(anchor='center')
+    
+    header_lbl = tk.Label(title_container, text=f"PAPER DOWNLOADER v{VERSION}", bg="#0D0B14", fg="#A855F7", font=('Segoe UI Semibold', 16))
+    header_lbl.pack(side='left')
+    
+    # Flat spacer label
+    tk.Label(title_container, text="  ", bg="#0D0B14").pack(side='left')
+    
+    # Update interactive label/symbol (🔄)
+    update_sym = tk.Label(title_container, text="🔄", bg="#0D0B14", fg="#A78BFA", font=('Segoe UI', 11), cursor="hand2")
+    update_sym.pack(side='left', padx=3)
+    update_sym.bind("<Button-1>", lambda e: check_updates_gui(root, manual=True))
+    
+    # Hover states to make elements feel alive
+    def on_sym_enter(lbl):
+        lbl.config(fg="#C084FC")
+        
+    def on_sym_leave(lbl):
+        lbl.config(fg="#A78BFA")
+        
+    update_sym.bind("<Enter>", lambda e: on_sym_enter(update_sym))
+    update_sym.bind("<Leave>", lambda e: on_sym_leave(update_sym))
     
     sub_lbl = tk.Label(header_frame, text="Enter a DOI to download directly · Enter keywords to search and browse results.", bg="#0D0B14", fg="#A78BFA", font=('Segoe UI', 9))
     sub_lbl.pack(anchor='center', pady=(2, 0))
