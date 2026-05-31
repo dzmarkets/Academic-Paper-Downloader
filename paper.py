@@ -3003,6 +3003,16 @@ def launch_gui():
                 
     results_container.bind('<Configure>', on_container_resize)
     
+    def clear_research_results():
+        """Clear all loaded paper cards from the research view."""
+        global card_buttons
+        for widget in results_container.winfo_children():
+            widget.destroy()
+        card_buttons = []
+        results_frame.pack_forget()
+        entry.delete(0, tk.END)
+        status_label.config(text="Ready for input.", fg="#A78BFA")
+        
     # Navigation bar for pagination
     nav_frame = tk.Frame(results_frame, bg="#0D0B14", pady=5)
     nav_frame.pack(fill='x')
@@ -3075,16 +3085,6 @@ def launch_gui():
         spaces = " " * (3 - len(dots))
         label.config(text=f"Processing Pipeline {dots}{spaces}")
         root.after(400, lambda: animate_loading(label, run_event, count + 1))
-        
-    def clear_research_results():
-        """Clear all loaded paper cards from the research view."""
-        global card_buttons
-        for widget in results_container.winfo_children():
-            widget.destroy()
-        card_buttons = []
-        results_frame.pack_forget()
-        entry.delete(0, tk.END)
-        status_label.config(text="Ready for input.", fg="#A78BFA")
         
     def reset_inputs():
         """Re-enable all input fields (called after any operation completes)."""
