@@ -2165,6 +2165,12 @@ def try_researchgate(doi, title):
             print("\n[WARNING] ResearchGate's Cloudflare security walls are actively blocking automated scripts.")
             if target_pdf:
                 print(f"[INFO] Blocked PDF URL (for manual access): {target_pdf}")
+                print("[INFO] Automatically launching web browser to open the ResearchGate direct PDF...")
+                try:
+                    import webbrowser
+                    webbrowser.open(target_pdf)
+                except Exception as browser_err:
+                    print(f"[WARNING] Failed to launch web browser: {browser_err}")
             return False
             
     except Exception as e:
@@ -2470,6 +2476,31 @@ def fetch_yazid_rg_publications():
         print(f"[WARNING] Live ResearchGate profile query bypassed/failed: {e}")
         
     print("[INFO] Utilizing guaranteed local profile publications fallback.")
+    return local_works
+
+
+def fetch_assma_publications():
+    """Retrieve Assma Derdoukh's publications using a guaranteed local fallback."""
+    local_works = [
+        {
+            'title': "On the Robust Stability of Positive Delay Systems Under Time-varying Perturbations",
+            'doi': "http://bmathaa.org/repository/docs/BMAA17-1-7.pdf",
+            'authors': "Assma Derdoukh, Maissa Kada",
+            'year': "2025",
+            'journal': "Bulletin of Mathematical Analysis and Applications",
+            'is_oa': True,
+            'source': 'assma_profile'
+        },
+        {
+            'title': "Sur la méthode de Fourier pour l'étude d'une classe d'équations opératorielles",
+            'doi': "https://bu.umc.edu.dz/md/index.php?lvl=more_results&mode=keyword&user_query=Indices+de+d%C3%A9faut&tags=ok",
+            'authors': "Assma Derdoukh",
+            'year': "2023",
+            'journal': "Université Constantine 1 (Thesis)",
+            'is_oa': False,
+            'source': 'assma_profile'
+        }
+    ]
     return local_works
 
 
@@ -2871,18 +2902,20 @@ def launch_gui():
 
         def fetch_thread(title_q):
             try:
-                # 1. Fetch Yazid's works from ResearchGate profile / guaranteed local fallback
+                # 1. Fetch priority works (Yazid Youcef & Assma Derdoukh fallback profiles)
                 yazid_works = fetch_yazid_rg_publications()
+                assma_works = fetch_assma_publications()
+                priority_works = yazid_works + assma_works
                 
                 # 2. Check for matches against keywords (Google-like intelligent search)
                 stripped = title_q.strip()
                 is_exact = (stripped.startswith('"') and stripped.endswith('"')) or (stripped.startswith("'") and stripped.endswith("'"))
                 exact_phrase = stripped.strip('"').strip("'").strip() if is_exact else None
                 
-                matching_yazid = []
+                matching_priority = []
                 query_words = [w.lower() for w in re.split(r'\W+', title_q) if len(w) > 2]
                 
-                for work in yazid_works:
+                for work in priority_works:
                     title_lower = work['title'].lower()
                     authors_lower = work['authors'].lower()
                     is_match = False
@@ -2890,7 +2923,11 @@ def launch_gui():
                     if not query_words:
                         is_match = True
                     elif "yazid" in title_q.lower() or "youcef" in title_q.lower():
-                        is_match = True
+                        if "yazid" in authors_lower or "youcef" in authors_lower:
+                            is_match = True
+                    elif "assma" in title_q.lower() or "derdoukh" in title_q.lower():
+                        if "assma" in authors_lower or "derdoukh" in authors_lower:
+                            is_match = True
                     elif exact_phrase:
                         phrase = exact_phrase.lower()
                         if (phrase in title_lower) or (phrase in authors_lower):
@@ -2902,7 +2939,7 @@ def launch_gui():
                                 break
                                 
                     if is_match:
-                        matching_yazid.append(work)
+                        matching_priority.append(work)
                 
                 # 3. Pull regular Crossref and Google Scholar results
                 crossref_results = search_crossref(title_q, offset=offset, rows=5, type_filter="Papers", author="")
@@ -2916,16 +2953,16 @@ def launch_gui():
                     if not any(r['title'].lower() in x['title'].lower() or x['title'].lower() in r['title'].lower() or r['doi'] == x['doi'] for x in results):
                         results.append(r)
                 
-                # 4. If on page 1, prepend Yazid's matching works at the very top of results!
-                if page == 1 and matching_yazid:
+                # 4. If on page 1, prepend matching priority works at the very top of results!
+                if page == 1 and matching_priority:
                     # Remove duplicates if same title is returned by other queries
                     cleaned_results = []
                     for r in results:
-                        if not any(y['title'].lower() in r['title'].lower() or r['title'].lower() in y['title'].lower() for y in matching_yazid):
+                        if not any(y['title'].lower() in r['title'].lower() or r['title'].lower() in y['title'].lower() for y in matching_priority):
                             cleaned_results.append(r)
                     
-                    # Combine: show Yazid's works first, then the remaining slots (up to 5 total)
-                    results = matching_yazid + cleaned_results
+                    # Combine: show priority works first, then the remaining slots (up to 5 total)
+                    results = matching_priority + cleaned_results
                 
                 results = results[:5]  # Keep exactly 5 results per page
                 
@@ -3104,14 +3141,18 @@ def launch_gui():
         bd=0,
         font=('Segoe UI Semibold', 9),
         padx=14,
-        pady=6,
+        pady=4,
         cursor="hand2",
         command=open_bmc
     )
     bmc_btn.pack(anchor='center')
     
+    rip_lbl = tk.Label(bmc_frame, text="RIP CCP : 00799999000605964735",
+                       bg="#120F1E", fg="#10B981", font=('Segoe UI Semibold', 8))
+    rip_lbl.pack(pady=(4, 0), anchor='center')
+    
     tk.Label(bmc_frame, text="Encourager l'innovation locale 🇩🇿",
-             bg="#120F1E", fg="#6B7280", font=('Segoe UI', 7, 'italic')).pack(pady=(4, 0))
+             bg="#120F1E", fg="#6B7280", font=('Segoe UI', 7, 'italic')).pack(pady=(2, 0))
     
     def check_country_bg():
         """Background thread: reveal support panel only for Algerian users."""
