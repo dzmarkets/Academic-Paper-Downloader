@@ -2809,6 +2809,25 @@ def launch_gui():
     author_lbl = tk.Label(header_frame, text="Designed & Developed by Yazid YOUCEF", bg="#0D0B14", fg="#8B5CF6", font=('Segoe UI', 8, 'italic'))
     author_lbl.pack(anchor='center', pady=(3, 0))
     
+    # Clickable download releases link
+    def open_releases(e=None):
+        import webbrowser
+        webbrowser.open("https://github.com/dzmarkets/Academic-Paper-Downloader/releases")
+        
+    dl_link_lbl = tk.Label(header_frame, text="🌐 Get Latest Releases & Updates", bg="#0D0B14", fg="#10B981", font=('Segoe UI Semibold', 9, 'underline'), cursor="hand2")
+    dl_link_lbl.pack(anchor='center', pady=(4, 0))
+    dl_link_lbl.bind("<Button-1>", open_releases)
+    
+    # Hover states to make elements feel alive
+    def on_link_enter(e):
+        dl_link_lbl.config(fg="#34D399")
+        
+    def on_link_leave(e):
+        dl_link_lbl.config(fg="#10B981")
+        
+    dl_link_lbl.bind("<Enter>", on_link_enter)
+    dl_link_lbl.bind("<Leave>", on_link_leave)
+    
     # Main Input Card (Centered Elements)
     card_frame = tk.Frame(root, bg="#1A1625", bd=1, relief='flat', padx=20, pady=15)
     card_frame.pack(fill='x', padx=25, pady=(5, 5))
