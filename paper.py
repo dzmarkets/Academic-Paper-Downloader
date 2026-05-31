@@ -178,31 +178,58 @@ def download_file(url, filename, referer=None, cookie=None):
         print(f"[WARNING] Failed to create parent directory: {e}. Falling back to local root.")
         filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.path.basename(filename))
 
-    content = None
-    try:
-        headers = HEADERS.copy()
-        if referer:
-            headers['Referer'] = referer
-        if cookie:
-            headers['Cookie'] = cookie
-        req = urllib.request.Request(url, headers=headers)
-        with urllib.request.urlopen(req, timeout=25) as response:
-            if abort_requested:
-                print("[INFO] Download aborted by user.")
-                return False
-            content = response.read()
-    except Exception as e:
-        print(f"[WARNING] urllib download failed: {e}. Trying system curl fallback...")
-        content = None
-
-    # Fallback to system curl command if urllib failed (or did not return a valid PDF and we expect a PDF)
     is_pdf = filename.lower().endswith('.pdf')
-    needs_curl = not content or (is_pdf and not content.startswith(b'%PDF'))
-    if needs_curl:
+    content = None
+    
+    # Build progressive header sets to try (some publishers require specific Accept/Referer combos)
+    header_attempts = [
+        # Attempt 1: Standard browser headers
+        {
+            'User-Agent': HEADERS['User-Agent'],
+            'Accept': 'application/pdf,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.9',
+            **(({'Referer': referer}) if referer else {}),
+            **(({'Cookie': cookie}) if cookie else {}),
+        },
+        # Attempt 2: Academic publisher-friendly headers (OUP, Springer, Elsevier)
+        {
+            'User-Agent': HEADERS['User-Agent'],
+            'Accept': 'application/pdf,application/x-pdf,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'same-origin',
+            **(({'Referer': referer}) if referer else {}),
+            **(({'Cookie': cookie}) if cookie else {}),
+        },
+    ]
+    
+    for attempt_num, hdrs in enumerate(header_attempts, 1):
+        try:
+            req = urllib.request.Request(url, headers=hdrs)
+            with urllib.request.urlopen(req, timeout=25) as response:
+                if abort_requested:
+                    print("[INFO] Download aborted by user.")
+                    return False
+                content = response.read()
+            # Validate immediately
+            if is_pdf and content and not content.startswith(b'%PDF'):
+                content = None  # not a real PDF, try next
+                continue
+            break  # success
+        except Exception as e:
+            if attempt_num == 1:
+                print(f"[WARNING] urllib download failed: {e}. Trying system curl fallback...")
+            content = None
+
+    # Fallback to system curl command if urllib failed
+    if not content or (is_pdf and not content.startswith(b'%PDF')):
         try:
             import subprocess
             print(f"[INFO] Bypassing via native system curl...")
-            cmd = ["curl", "-s", "-L", "-H", f"User-Agent: {HEADERS['User-Agent']}", "-H", f"Accept: {HEADERS['Accept']}"]
+            cmd = ["curl", "-s", "-L",
+                   "-H", f"User-Agent: {HEADERS['User-Agent']}",
+                   "-H", "Accept: application/pdf,*/*;q=0.8"]
             if referer:
                 cmd += ["-H", f"Referer: {referer}"]
             if cookie:
@@ -378,7 +405,13 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
 
 
 def search_openlibrary(query, author="", offset=0, rows=5):
-    """Query OpenLibrary API for books — much more accurate than Crossref for book searches."""
+    """Query OpenLibrary API for books — much more accurate than Crossref for book searches.
+    
+    Returns books with a `can_download` field: True only when we have a viable
+    programmatic download path (Internet Archive ID → direct PDF or CDL image scrape,
+    or a known Taylor & Francis DOI prefix → T&F API). Books with only isbn:/ol:
+    identifiers cannot be downloaded automatically and are excluded from results.
+    """
     if not query:
         return []
     clean_query = query.strip().strip('"').strip("'").strip('[').strip(']').strip()
@@ -387,7 +420,7 @@ def search_openlibrary(query, author="", offset=0, rows=5):
     params = f"title={urllib.parse.quote(clean_query)}"
     if clean_author:
         params += f"&author={urllib.parse.quote(clean_author)}"
-    params += "&fields=title,author_name,first_publish_year,isbn,publisher,key,ia&limit=50"
+    params += "&fields=title,author_name,first_publish_year,isbn,publisher,key,ia&limit=100"
     url = f"https://openlibrary.org/search.json?{params}"
     
     try:
@@ -415,12 +448,24 @@ def search_openlibrary(query, author="", offset=0, rows=5):
             ia_ids = doc.get('ia', [])
             
             doi = ""
+            can_download = False
             if ia_ids:
                 doi = f"ia:{ia_ids[0]}"
+                can_download = True   # Internet Archive: direct PDF or CDL image scrape
             elif isbns:
                 doi = f"isbn:{isbns[0]}"
+                can_download = False  # No direct programmatic download path
             elif ol_key:
                 doi = f"ol:{ol_key.replace('/works/', '')}"
+                can_download = False  # No direct programmatic download path
+            
+            # Skip entries with no identifier at all
+            if not doi:
+                continue
+                
+            # Only include books we can actually download
+            if not can_download:
+                continue
                 
             filtered.append({
                 'title': title,
@@ -429,7 +474,8 @@ def search_openlibrary(query, author="", offset=0, rows=5):
                 'authors': authors_str,
                 'year': year,
                 'journal': publisher_str,
-                'is_oa': True,  # OpenLibrary books are typically openly accessible
+                'is_oa': can_download,
+                'can_download': can_download,
                 'source': 'openlibrary'
             })
         
@@ -440,6 +486,7 @@ def search_openlibrary(query, author="", offset=0, rows=5):
     except Exception as e:
         print(f"[ERROR] OpenLibrary search failed: {e}")
         return []
+
 
 
 def search_openalex_by_author(author_name, offset=0, rows=5, type_filter="All"):
@@ -1584,6 +1631,118 @@ def try_europe_pmc(doi, title):
     return False
 
 
+def try_ssrn(doi, title):
+    """Strategy: Download papers from SSRN (Social Science Research Network).
+    
+    SSRN DOIs follow the pattern: 10.2139/ssrn.{abstract_id}
+    Direct PDF download URL: https://download.ssrn.com/sol3/papers.cfm?abstract_id={id}&download=yes
+    Fallback: scrape the abstract page for the embedded PDF link.
+    """
+    if not doi:
+        return False
+    
+    abstract_id = None
+    if doi.startswith("10.2139/ssrn."):
+        abstract_id = doi.split("10.2139/ssrn.", 1)[1].strip()
+    elif "ssrn.com" in doi:
+        # Handle direct SSRN URL passed as DOI
+        m = re.search(r'abstract[_=]id[=_](\d+)', doi)
+        if m:
+            abstract_id = m.group(1)
+    
+    if not abstract_id:
+        return False
+    
+    print("\n--- [STRATEGY] Querying SSRN (Social Science Research Network) ---")
+    print(f"[INFO] SSRN Abstract ID: {abstract_id}")
+    
+    abstract_page = f"https://papers.ssrn.com/sol3/papers.cfm?abstract_id={abstract_id}"
+    register_discovered_url(abstract_page, "SSRN Abstract Page")
+    
+    # Strategy 1: Direct download endpoint
+    direct_url = f"https://download.ssrn.com/sol3/papers.cfm?abstract_id={abstract_id}&download=yes"
+    filename = f"SSRN_{abstract_id}_{clean_filename(title) if title else abstract_id}.pdf"
+    print(f"[INFO] Trying SSRN direct download: {direct_url}")
+    register_discovered_url(direct_url, "SSRN Direct PDF Download")
+    if download_file(direct_url, filename, referer=abstract_page):
+        return True
+    
+    # Strategy 2: Scrape abstract page for embedded PDF URL
+    print(f"[INFO] Scraping SSRN abstract page for PDF link: {abstract_page}")
+    try:
+        html = fetch_html_resilient(abstract_page)
+        if html:
+            # SSRN embeds links like: href="/sol3/Delivery.cfm/.../...pdf?..."
+            pdf_links = re.findall(r'href=["\']([^"\']*\.pdf[^"\']*)["\']', html, re.IGNORECASE)
+            pdf_links += re.findall(r'href=["\']([^"\']*delivery\.cfm[^"\']*)["\']', html, re.IGNORECASE)
+            for link in pdf_links:
+                if link.startswith('/'):
+                    link = 'https://papers.ssrn.com' + link
+                elif not link.startswith('http'):
+                    link = 'https://papers.ssrn.com/' + link
+                link = link.replace('&amp;', '&')
+                print(f"[INFO] SSRN PDF candidate: {link}")
+                register_discovered_url(link, "SSRN PDF Link")
+                if download_file(link, filename, referer=abstract_page):
+                    return True
+    except Exception as e:
+        print(f"[WARNING] SSRN page scraping failed: {e}")
+    
+    return False
+
+
+def try_astesj(doi, title):
+    """Strategy: Download papers from ASTESJ (open-access engineering journal).
+    
+    ASTESJ DOIs: 10.25046/aj{volume}{issue}{sequence}
+    Article page: https://doi.org/{doi}  →  redirects to astesj.com article page
+    The article page contains a direct PDF download link.
+    """
+    if not doi:
+        return False
+    if not doi.startswith("10.25046/"):
+        return False
+    
+    print("\n--- [STRATEGY] Querying ASTESJ (Advances in Science, Technology and Engineering Systems) ---")
+    
+    # Resolve DOI to get article page URL
+    article_url = f"https://doi.org/{doi}"
+    print(f"[INFO] Resolving ASTESJ DOI: {article_url}")
+    register_discovered_url(f"https://www.astesj.com/", "ASTESJ Journal")
+    
+    try:
+        req = urllib.request.Request(article_url, headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            final_url = resp.geturl()
+            html = resp.read().decode('utf-8', errors='ignore')
+        
+        print(f"[INFO] ASTESJ article page: {final_url}")
+        register_discovered_url(final_url, "ASTESJ Article Page")
+        
+        # Extract direct PDF link from article page
+        # Pattern: href=".../ASTESJ_XXXX/XX.pdf" or similar
+        pdf_links = re.findall(r'href=["\']([^"\']*\.pdf[^"\']*)["\']', html, re.IGNORECASE)
+        
+        for link in pdf_links:
+            if not link.startswith('http'):
+                if link.startswith('/'):
+                    base = 'https://www.astesj.com'
+                    link = base + link
+                else:
+                    link = urllib.parse.urljoin(final_url, link)
+            link = link.replace('&amp;', '&')
+            print(f"[INFO] ASTESJ PDF candidate: {link}")
+            register_discovered_url(link, "ASTESJ PDF")
+            filename = f"ASTESJ_{clean_filename(title if title else doi.replace('/', '_'))}.pdf"
+            if download_file(link, filename, referer=final_url):
+                return True
+                
+    except Exception as e:
+        print(f"[WARNING] ASTESJ resolution failed: {e}")
+    
+    return False
+
+
 def try_researchgate(doi, title):
     """Strategy 3: Automated extraction from ResearchGate."""
     if not doi and not title:
@@ -1745,17 +1904,9 @@ def try_researchgate(doi, title):
             return True
         else:
             print("\n[WARNING] ResearchGate's Cloudflare security walls are actively blocking automated scripts.")
-            print("[INFO] Launching the direct PDF in your default web browser...")
-            try:
-                import webbrowser
-                # Prioritize direct PDF URL, fallback to profile page
-                open_url = target_pdf if target_pdf else final_profile_url
-                webbrowser.open(open_url)
-                print("[SUCCESS] Opened target PDF link in your web browser!")
-                return True
-            except Exception as browser_err:
-                print(f"[ERROR] Failed to launch web browser: {browser_err}")
-                return False
+            if target_pdf:
+                print(f"[INFO] Blocked PDF URL (for manual access): {target_pdf}")
+            return False
             
     except Exception as e:
         print(f"[WARNING] ResearchGate scraping routine failed: {e}")
@@ -1764,7 +1915,6 @@ def try_researchgate(doi, title):
 
 
 is_running = False
-current_mode = "Direct"
 research_query = ""
 current_page = 1
 has_more_results = True
@@ -1777,16 +1927,10 @@ results_container = None
 
 
 def reset_gui_state(run_button, entry_widget):
-    """Restore the GUI download button and entry box back to their idle states."""
-    global is_running, current_mode, prev_btn, next_btn, card_buttons
+    """Restore the GUI button and entry box back to their idle states."""
+    global is_running, prev_btn, next_btn, card_buttons
     is_running = False
-    
-    # Restore main action button text based on mode
-    if current_mode == "Direct":
-        run_button.config(text="Download Document", bg="#8B5CF6", activebackground="#A78BFA", state='normal')
-    else:
-        run_button.config(text="Search Keywords", bg="#8B5CF6", activebackground="#A78BFA", state='normal')
-        
+    run_button.config(text="Search / Download", bg="#8B5CF6", activebackground="#A78BFA", state='normal')
     entry_widget.config(state='normal')
     
     # Re-enable pagination and cards
@@ -1882,6 +2026,13 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
                     raise InterruptedError("Cancelled by user")
                     
                 if not success:
+                    status_label.config(text="Querying SSRN...", fg="#00ADB5")
+                    success = try_ssrn(target_doi, target_title)
+
+                if abort_requested:
+                    raise InterruptedError("Cancelled by user")
+
+                if not success:
                     status_label.config(text="Querying Sci-Hub Shadows...", fg="#00ADB5")
                     success = try_scihub(target_doi)
                 
@@ -1892,6 +2043,13 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
                 status_label.config(text="Querying arXiv...", fg="#00ADB5")
                 success = try_arxiv(target_doi, target_title)
                 
+            if abort_requested:
+                raise InterruptedError("Cancelled by user")
+
+            if not success:
+                status_label.config(text="Querying ASTESJ...", fg="#00ADB5")
+                success = try_astesj(target_doi, target_title)
+
             if abort_requested:
                 raise InterruptedError("Cancelled by user")
 
@@ -1921,33 +2079,18 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
             status_label.config(text="Document Pulled Successfully!", fg="#4CAF50")
             print("\n==============================================")
             print("[PROCESS FINISHED] Document pulled successfully.")
-            print("==============================================")
+            print("==============================================" )
         else:
-            # Fallback to browser launching if any URLs were discovered
+            # All strategies failed — report failure clearly, no browser popup
             valid_fallbacks = sorted(discovered_urls, key=lambda x: x[1])
+            status_label.config(text="Download Failed. Publisher blocked all channels.", fg="#F44336")
+            print("\n==============================================")
+            print("[PROCESS FAILED] Could not retrieve a downloadable PDF.")
             if valid_fallbacks:
-                best_url, rank, label = valid_fallbacks[0]
-                print(f"\n[WARNING] Programmatic binary download failed (likely due to Cloudflare protection).")
-                print(f"[INFO] Launching the best discovered URL in your default web browser ({label}):")
-                print(f"       {best_url}")
-                try:
-                    import webbrowser
-                    webbrowser.open(best_url)
-                    status_label.config(text=f"Opened in Browser: {label}", fg="#4CAF50")
-                    print("\n==============================================")
-                    print("[PROCESS FINISHED] Document opened in web browser.")
-                    print("==============================================")
-                except Exception as browser_err:
-                    print(f"[ERROR] Failed to launch web browser: {browser_err}")
-                    status_label.config(text="Pull Failed. Check active channels.", fg="#F44336")
-                    print("\n==============================================")
-                    print("[PROCESS FAILED] File could not be retrieved from active channels.")
-                    print("==============================================")
-            else:
-                status_label.config(text="Pull Failed. Check active channels.", fg="#F44336")
-                print("\n==============================================")
-                print("[PROCESS FAILED] File could not be retrieved from active channels.")
-                print("==============================================")
+                print("[INFO] Discovered URLs (copy-paste to access manually):")
+                for fu, rank, label in valid_fallbacks:
+                    print(f"  → [{label}] {fu}")
+            print("==============================================" )
             
     except InterruptedError:
         status_label.config(text="Research Stopped.", fg="#FF9800")
@@ -2015,7 +2158,7 @@ def launch_gui():
     header_lbl = tk.Label(header_frame, text="PAPER DOWNLOADER v2.1", bg="#0D0B14", fg="#A855F7", font=('Segoe UI Semibold', 16))
     header_lbl.pack(anchor='center')
     
-    sub_lbl = tk.Label(header_frame, text="Search and retrieve academic documents by DOI or Title dynamically.", bg="#0D0B14", fg="#A78BFA", font=('Segoe UI', 9))
+    sub_lbl = tk.Label(header_frame, text="Enter a DOI to download directly · Enter keywords to search and browse results.", bg="#0D0B14", fg="#A78BFA", font=('Segoe UI', 9))
     sub_lbl.pack(anchor='center', pady=(2, 0))
     
     author_lbl = tk.Label(header_frame, text="Designed & Developed by Yazid YOUCEF", bg="#0D0B14", fg="#8B5CF6", font=('Segoe UI', 8, 'italic'))
@@ -2025,43 +2168,7 @@ def launch_gui():
     card_frame = tk.Frame(root, bg="#1A1625", bd=1, relief='flat', padx=20, pady=15)
     card_frame.pack(fill='x', padx=25, pady=(5, 5))
     
-    # Segmented Mode Selector
-    mode_frame = tk.Frame(card_frame, bg="#1A1625")
-    mode_frame.pack(anchor='center', pady=(0, 10))
-    
-    mode_var = tk.StringVar(value="Direct")
-    
-    def on_mode_change():
-        global current_mode, is_running
-        if is_running:
-            mode_var.set(current_mode)
-            return
-            
-        current_mode = mode_var.get()
-        if current_mode == "Direct":
-            run_button.config(text="Download Document")
-            input_lbl.config(text="Enter DOI or Title:")
-            clear_research_results()
-            type_frame.pack_forget()
-        elif current_mode == "Research":
-            run_button.config(text="Search Keywords")
-            input_lbl.config(text="Enter Keywords:")
-            type_frame.pack(anchor='center', pady=(4, 2))
-        else:  # Author
-            run_button.config(text="Search by Author")
-            input_lbl.config(text="Enter Author Name:")
-            type_frame.pack(anchor='center', pady=(4, 2))
-            
-    direct_rb = tk.Radiobutton(mode_frame, text="Direct", variable=mode_var, value="Direct", bg="#1A1625", fg="#EEEEEE", activebackground="#1A1625", activeforeground="#A855F7", selectcolor="#0D0B14", font=('Segoe UI', 9), command=on_mode_change, cursor="hand2")
-    direct_rb.pack(side='left', padx=8)
-    
-    research_rb = tk.Radiobutton(mode_frame, text="By Keywords", variable=mode_var, value="Research", bg="#1A1625", fg="#EEEEEE", activebackground="#1A1625", activeforeground="#A855F7", selectcolor="#0D0B14", font=('Segoe UI', 9), command=on_mode_change, cursor="hand2")
-    research_rb.pack(side='left', padx=8)
-    
-    author_mode_rb = tk.Radiobutton(mode_frame, text="By Author", variable=mode_var, value="Author", bg="#1A1625", fg="#EEEEEE", activebackground="#1A1625", activeforeground="#A855F7", selectcolor="#0D0B14", font=('Segoe UI', 9), command=on_mode_change, cursor="hand2")
-    author_mode_rb.pack(side='left', padx=8)
-    
-    input_lbl = tk.Label(card_frame, text="Enter DOI or Title:", bg="#1A1625", fg="#EEEEEE", font=('Segoe UI Semibold', 10))
+    input_lbl = tk.Label(card_frame, text="Enter DOI or Keywords:", bg="#1A1625", fg="#EEEEEE", font=('Segoe UI Semibold', 10))
     input_lbl.pack(anchor='center', pady=(8, 5))
     
     # Modern rounded entry emulation
@@ -2071,24 +2178,6 @@ def launch_gui():
     entry = tk.Entry(entry_container, bg="#2E2543", fg="#FFFFFF", insertbackground="#FFFFFF", bd=0, font=('Segoe UI', 11), relief='flat', justify='center')
     entry.pack(fill='x')
     entry.focus_set()
-    
-    # Filter row (All / Papers / Books) — visible in Research and Author modes, hidden in Direct
-    type_frame = tk.Frame(card_frame, bg="#1A1625")
-    # NOTE: not packed here; shown via on_mode_change()
-    
-    type_var = tk.StringVar(value="All")
-    
-    type_lbl = tk.Label(type_frame, text="Filter:", bg="#1A1625", fg="#9CA3AF", font=('Segoe UI Semibold', 9))
-    type_lbl.pack(side='left', padx=(0, 10))
-    
-    all_rb = tk.Radiobutton(type_frame, text="All", variable=type_var, value="All", bg="#1A1625", fg="#EEEEEE", activebackground="#1A1625", activeforeground="#A855F7", selectcolor="#0D0B14", font=('Segoe UI', 9), cursor="hand2")
-    all_rb.pack(side='left', padx=10)
-    
-    papers_rb = tk.Radiobutton(type_frame, text="Papers", variable=type_var, value="Papers", bg="#1A1625", fg="#EEEEEE", activebackground="#1A1625", activeforeground="#A855F7", selectcolor="#0D0B14", font=('Segoe UI', 9), cursor="hand2")
-    papers_rb.pack(side='left', padx=10)
-    
-    books_rb = tk.Radiobutton(type_frame, text="Books", variable=type_var, value="Books", bg="#1A1625", fg="#EEEEEE", activebackground="#1A1625", activeforeground="#A855F7", selectcolor="#0D0B14", font=('Segoe UI', 9), cursor="hand2")
-    books_rb.pack(side='left', padx=10)
     
     # Status label — always visible
     status_label = tk.Label(card_frame, text="Ready for input.", bg="#1A1625", fg="#A78BFA", font=('Segoe UI', 10, 'italic'))
@@ -2279,9 +2368,9 @@ def launch_gui():
             title_lbl = tk.Label(details_f, text=f"{idx+1}. {result['title']}", bg="#1A1625", fg="#FFFFFF", font=('Segoe UI Semibold', 9), anchor='w', wraplength=current_wrap, justify='left')
             title_lbl.pack(anchor='w')
             
-            # Format identifier label dynamically based on book/paper prefixes (ISBN instead of DOI for books)
+            # Format identifier label (DOI for papers)
             raw_id = result['doi']
-            is_book = (type_var.get() == "Books") or (result.get('source') == 'openlibrary') or (raw_id and any(raw_id.lower().startswith(prefix) for prefix in ("ia:", "isbn:", "ol:")))
+            is_book = (result.get('source') == 'openlibrary') or (raw_id and any(raw_id.lower().startswith(prefix) for prefix in ("ia:", "isbn:", "ol:")))
             
             if raw_id:
                 if raw_id.lower().startswith("ia:"):
@@ -2301,8 +2390,17 @@ def launch_gui():
                 doi_str = "ISBN/ID: N/A" if is_book else "DOI: N/A"
                 
             if is_book:
-                badge_text = "  [Free eBook Available]"
-                badge_fg = "#10B981"
+                can_dl = result.get('can_download', True)  # default True for ia: items
+                # Also check T&F DOI prefix (doi like 10.1201/ etc.)
+                raw_doi = result.get('doi', '')
+                if not can_dl and raw_doi and any(raw_doi.startswith(p) for p in _TF_DOI_PREFIXES):
+                    can_dl = True
+                if can_dl:
+                    badge_text = "  [PDF Download Available]"
+                    badge_fg = "#10B981"
+                else:
+                    badge_text = "  [No Direct PDF Available]"
+                    badge_fg = "#6B7280"
             else:
                 badge_text = "  [Direct PDF Available]" if result.get('is_oa') else "  [Sci-Hub / ResearchGate Fallback]"
                 badge_fg = "#10B981" if result.get('is_oa') else "#8B5CF6"
@@ -2375,7 +2473,7 @@ def launch_gui():
         reset_inputs()
         
     def load_research_page(query, page):
-        """Fetch results dynamically for a page offset in a background thread."""
+        """Fetch keyword search results for a page offset in a background thread."""
         global is_running, abort_requested
         
         is_running = True
@@ -2383,73 +2481,22 @@ def launch_gui():
         
         # Disable inputs
         entry.config(state='disabled')
-        run_button.config(text="Stop Research", bg="#D32F2F", activebackground="#EF5350")
+        run_button.config(text="Stop Search", bg="#D32F2F", activebackground="#EF5350")
         prev_btn.config(state='disabled')
         next_btn.config(state='disabled')
         for btn in card_buttons:
             btn.config(state='disabled')
-            
-        # Read filter value safely on the main thread before starting background thread
-        type_val = type_var.get()
-        # In Author mode, the main entry IS the author query; title is empty
-        if current_mode == "Author":
-            title_val = ""
-            author_val = query  # query param holds the author name
-        else:
-            title_val = query
-            author_val = ""
         
-        if type_val == "Books":
-            status_label.config(text="Querying OpenLibrary Database...", fg="#A855F7")
-        elif current_mode == "Author":
-            status_label.config(text="Searching by Author...", fg="#A855F7")
-        else:
-            status_label.config(text="Querying Crossref Database...", fg="#A855F7")
+        status_label.config(text="Searching Crossref & OpenAlex...", fg="#A855F7")
         running_event.set()
         animate_loading(status_label, running_event)
         
         offset = (page - 1) * 5
 
-        def fetch_thread(type_filter_val, title_q, author_q):
+        def fetch_thread(title_q):
             try:
-                if author_q and not title_q:
-                    # By Author mode: search OpenAlex AND ResearchGate, combine & deduplicate
-                    results_oa = []
-                    try:
-                        results_oa = search_openalex_by_author(author_q, offset=0, rows=100, type_filter=type_filter_val)
-                    except Exception as e_oa:
-                        print(f"[WARNING] OpenAlex author search failed: {e_oa}")
-                        
-                    results_rg = []
-                    try:
-                        results_rg = search_researchgate_by_author(author_q, offset=0, rows=100, type_filter=type_filter_val)
-                    except Exception as e_rg:
-                        print(f"[WARNING] ResearchGate author search failed: {e_rg}")
-                        
-                    # Merge and deduplicate by title or URL/DOI
-                    seen_titles = set()
-                    seen_dois = set()
-                    merged = []
-                    
-                    for item in results_rg + results_oa:
-                        title_norm = re.sub(r'[^a-z0-9]', '', item['title'].lower())
-                        doi_val = item.get('doi', '')
-                        
-                        if title_norm in seen_titles:
-                            continue
-                        if doi_val and doi_val in seen_dois:
-                            continue
-                            
-                        seen_titles.add(title_norm)
-                        if doi_val:
-                            seen_dois.add(doi_val)
-                        merged.append(item)
-                        
-                    results = merged[offset : offset + 5]
-                elif type_filter_val == "Books":
-                    results = search_openlibrary(title_q, author=author_q, offset=offset, rows=5)
-                else:
-                    results = search_crossref(title_q, offset=offset, rows=5, type_filter=type_filter_val, author=author_q)
+                # Intelligent search: Crossref searches title + author fields simultaneously
+                results = search_crossref(title_q, offset=offset, rows=5, type_filter="Papers", author="")
                 
                 if abort_requested:
                     root.after(0, lambda: reset_gui_state(run_button, entry))
@@ -2458,15 +2505,15 @@ def launch_gui():
                     
                 root.after(0, lambda: display_research_results(results, query, page))
             except Exception as e:
-                root.after(0, lambda err=e: log_area.insert('end', f"\n[ERROR] Research fetch failed: {err}\n"))
+                root.after(0, lambda err=e: log_area.insert('end', f"\n[ERROR] Search failed: {err}\n"))
                 root.after(0, lambda: log_area.see('end'))
-                root.after(0, lambda: status_label.config(text="Failed to fetch research results.", fg="#F44336"))
+                root.after(0, lambda: status_label.config(text="Failed to fetch search results.", fg="#F44336"))
                 root.after(0, lambda: reset_gui_state(run_button, entry))
                 root.after(0, reset_inputs)
             finally:
                 running_event.clear()
                 
-        t = threading.Thread(target=fetch_thread, args=(type_val, title_val, author_val))
+        t = threading.Thread(target=fetch_thread, args=(query,))
         t.daemon = True
         t.start()
         
@@ -2477,50 +2524,52 @@ def launch_gui():
             running_event.clear()
             
     def handle_button_click():
-        global is_running, abort_requested, current_mode
+        global is_running, abort_requested
         
         if not is_running:
             # START ACTION
             identifier = entry.get().strip()
             if not identifier:
-                status_label.config(text="Please enter a search query first!", fg="#F44336")
+                status_label.config(text="Please enter a DOI or keywords first!", fg="#F44336")
                 return
-                
-            if current_mode in ("Research", "Author"):
-                load_research_page(identifier, 1)
-                return
-            else:
-                # Direct Download Mode
+            
+            # Auto-detect: is this a DOI / identifier, or a keyword query?
+            is_doi = (
+                identifier.startswith("10.")               # Standard DOI
+                or identifier.startswith("http://")        # URL DOI
+                or identifier.startswith("https://")
+                or any(identifier.lower().startswith(p) for p in ("ia:", "isbn:", "ol:"))  # Book IDs
+                or re.match(r'^10\.\d{4,}/\S+$', identifier)  # Strict DOI pattern
+            )
+
+            if is_doi:
+                # --- DIRECT DOWNLOAD MODE ---
+                clear_research_results()
                 is_running = True
                 abort_requested = False
-                
-                # Disable input entry box
                 entry.config(state='disabled')
-                
-                # Update button to "Stop Research" with warning/red styles
-                run_button.config(text="Stop Research", bg="#D32F2F", activebackground="#EF5350")
-                status_label.config(text="Initializing...", fg="#A855F7")
-                
+                run_button.config(text="Stop", bg="#D32F2F", activebackground="#EF5350")
+                status_label.config(text="Initializing pipeline...", fg="#A855F7")
                 running_event.set()
                 animate_loading(status_label, running_event)
-                
-                # Clear log area
                 log_area.delete('1.0', 'end')
-                
                 t = threading.Thread(target=run_thread, args=(identifier,))
                 t.daemon = True
                 t.start()
+            else:
+                # --- KEYWORD SEARCH MODE ---
+                load_research_page(identifier, 1)
         else:
             # STOP ACTION
             abort_requested = True
             status_label.config(text="Stopping...", fg="#FF9800")
             run_button.config(state='disabled')
         
-    # Center Download/Stop Button
+    # Center Search / Download Button
     btn_frame = tk.Frame(card_frame, bg="#1A1625")
     btn_frame.pack(anchor='center', pady=(10, 0))
     
-    run_button = tk.Button(btn_frame, text="Download Document", bg="#8B5CF6", fg="#FFFFFF", activebackground="#A78BFA", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI Semibold', 10), padx=25, pady=8, cursor="hand2", command=handle_button_click)
+    run_button = tk.Button(btn_frame, text="Search / Download", bg="#8B5CF6", fg="#FFFFFF", activebackground="#A78BFA", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI Semibold', 10), padx=25, pady=8, cursor="hand2", command=handle_button_click)
     run_button.pack(anchor='center')
     
     # Style button hover bindings
@@ -2684,28 +2733,15 @@ if __name__ == "__main__":
             print("[PROCESS FINISHED] Document pulled successfully.")
             print("==============================================")
         else:
-            # Fallback to browser launching in CLI mode if any URLs were discovered
+            # CLI mode failed to download programmatically. Report failure cleanly without browser popups.
             valid_fallbacks = sorted(discovered_urls, key=lambda x: x[1])
+            print("\n==============================================")
+            print("[PROCESS FAILED] Programmatic binary download failed.")
             if valid_fallbacks:
-                best_url, rank, label = valid_fallbacks[0]
-                print(f"\n[WARNING] Programmatic binary download failed (likely due to Cloudflare protection).")
-                print(f"[INFO] Launching the best discovered URL in your default web browser ({label}):")
-                print(f"       {best_url}")
-                try:
-                    import webbrowser
-                    webbrowser.open(best_url)
-                    print("\n==============================================")
-                    print("[PROCESS FINISHED] Document opened in web browser.")
-                    print("==============================================")
-                except Exception as browser_err:
-                    print(f"[ERROR] Failed to launch web browser: {browser_err}")
-                    print("\n==============================================")
-                    print("[PROCESS FAILED] File could not be retrieved from active channels.")
-                    print("==============================================")
-            else:
-                print("\n==============================================")
-                print("[PROCESS FAILED] File could not be retrieved from active channels.")
-                print("==============================================")
+                print("[INFO] Discovered URLs (copy-paste to access manually):")
+                for fu, rank, label in valid_fallbacks:
+                    print(f"  → [{label}] {fu}")
+            print("==============================================")
     else:
         # Launch beautiful GUI
         launch_gui()
