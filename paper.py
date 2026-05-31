@@ -107,21 +107,46 @@ def resolve_rg_pdf_url(rg_pub_url):
     return rg_pub_url
 
 
-def view_document_in_browser(doi, paper_title):
+def view_document_in_browser(doi, paper_title, is_book=False):
     """Resolve the paper and open it in the default web browser for viewing."""
     def open_thread():
         url = None
         if doi:
-            if doi.startswith("http://") or doi.startswith("https://"):
+            ident = doi.strip()
+            if ident.startswith("http://") or ident.startswith("https://"):
                 if "researchgate.net/publication/" in doi:
                     url = resolve_rg_pdf_url(doi)
                 else:
                     url = doi
+            elif ":" in ident:
+                prefix, key = ident.split(":", 1)
+                prefix = prefix.strip().lower()
+                key = key.strip()
+                if prefix == "ia":
+                    url = f"https://archive.org/details/{key}"
+                elif prefix == "isbn":
+                    url = f"https://openlibrary.org/isbn/{key}"
+                elif prefix == "ol":
+                    clean_key = key.lstrip('/')
+                    if not clean_key.startswith("works/") and not clean_key.startswith("books/") and not clean_key.startswith("authors/"):
+                        clean_key = f"works/{clean_key}"
+                    url = f"https://openlibrary.org/{clean_key}"
+                else:
+                    if is_book:
+                        url = f"https://openlibrary.org/search?q={urllib.parse.quote(paper_title)}"
+                    else:
+                        url = f"https://doi.org/{doi}"
             else:
-                url = f"https://doi.org/{doi}"
+                if is_book:
+                    url = f"https://openlibrary.org/search?q={urllib.parse.quote(paper_title)}"
+                else:
+                    url = f"https://doi.org/{doi}"
         else:
             # Fallback to search query
-            url = f"https://www.google.com/search?q={urllib.parse.quote(paper_title)}"
+            if is_book:
+                url = f"https://openlibrary.org/search?q={urllib.parse.quote(paper_title)}"
+            else:
+                url = f"https://www.google.com/search?q={urllib.parse.quote(paper_title)}"
             
         print(f"\n[INFO] Opening document for viewing in browser: {url}")
         try:
@@ -169,8 +194,10 @@ def download_file(url, filename, referer=None):
         print(f"[WARNING] urllib download failed: {e}. Trying system curl fallback...")
         content = None
 
-    # Fallback to system curl command if urllib failed or did not return a valid PDF
-    if not content or not content.startswith(b'%PDF'):
+    # Fallback to system curl command if urllib failed (or did not return a valid PDF and we expect a PDF)
+    is_pdf = filename.lower().endswith('.pdf')
+    needs_curl = not content or (is_pdf and not content.startswith(b'%PDF'))
+    if needs_curl:
         try:
             import subprocess
             print(f"[INFO] Bypassing via native system curl...")
@@ -186,19 +213,20 @@ def download_file(url, filename, referer=None):
             print(f"[ERROR] Native curl fallback failed: {curl_err}")
             return False
 
-    # Validate PDF magic bytes
-    if not content or not content.startswith(b'%PDF'):
-        print(f"[WARNING] Downloaded content from {url} is not a valid PDF! (Size: {len(content) if content else 0} bytes)")
-        if content and (b'<html' in content.lower() or b'<!doctype' in content.lower()):
-            print("[TIP] The server served an HTML page/blocker instead of the raw PDF.")
-        if os.path.exists(filename):
-            try:
-                os.remove(filename)
-            except:
-                pass
-        return False
+    # Validate PDF magic bytes if we expect a PDF
+    if is_pdf:
+        if not content or not content.startswith(b'%PDF'):
+            print(f"[WARNING] Downloaded content from {url} is not a valid PDF! (Size: {len(content) if content else 0} bytes)")
+            if content and (b'<html' in content.lower() or b'<!doctype' in content.lower()):
+                print("[TIP] The server served an HTML page/blocker instead of the raw PDF.")
+            if os.path.exists(filename):
+                try:
+                    os.remove(filename)
+                except:
+                    pass
+            return False
         
-    # Ensure raw PDF content is saved to disk
+    # Ensure content is saved to disk
     with open(filename, "wb") as out_file:
         out_file.write(content)
     print(f"[SUCCESS] Saved flawlessly inside Downloads folder: '{os.path.basename(filename)}'")
@@ -356,7 +384,7 @@ def search_openlibrary(query, author="", offset=0, rows=5):
     params = f"title={urllib.parse.quote(clean_query)}"
     if clean_author:
         params += f"&author={urllib.parse.quote(clean_author)}"
-    params += "&fields=title,author_name,first_publish_year,isbn,publisher,key&limit=50"
+    params += "&fields=title,author_name,first_publish_year,isbn,publisher,key,ia&limit=50"
     url = f"https://openlibrary.org/search.json?{params}"
     
     try:
@@ -377,13 +405,20 @@ def search_openlibrary(query, author="", offset=0, rows=5):
             year = str(doc.get('first_publish_year', 'n.d.'))
             publishers = doc.get('publisher', [])
             publisher_str = publishers[0] if publishers else "OpenLibrary"
-            # Build a pseudo-DOI using the OL key for download pipeline compatibility
+            
+            # Retrieve identifiers to build a pseudo-DOI for the pipeline
             ol_key = doc.get('key', '')  # e.g. /works/OL12345W
             isbns = doc.get('isbn', [])
-            # Prefer ISBN-based DOI lookup, fallback to OL key as identifier
+            ia_ids = doc.get('ia', [])
+            
             doi = ""
-            if isbns:
+            if ia_ids:
+                doi = f"ia:{ia_ids[0]}"
+            elif isbns:
                 doi = f"isbn:{isbns[0]}"
+            elif ol_key:
+                doi = f"ol:{ol_key.replace('/works/', '')}"
+                
             filtered.append({
                 'title': title,
                 'doi': doi,
@@ -774,6 +809,144 @@ def resolve_doi_to_url(doi):
     return resolve_doi_via_handle_api(doi)
 
 
+def try_download_book(identifier, title):
+    """Strategy for downloading free public domain books from Open Library / Internet Archive and Project Gutenberg."""
+    if not identifier and not title:
+        print("\n--- [BOOK STRATEGY] Skipped (No ID or Title available) ---")
+        return False
+        
+    print("\n--- [BOOK STRATEGY] Querying Free Book Repositories ---")
+    
+    # Extract prefix and key
+    key = ""
+    prefix = ""
+    if identifier and ":" in identifier:
+        prefix, key = identifier.split(":", 1)
+        prefix = prefix.strip().lower()
+        key = key.strip()
+        
+    success = False
+    
+    # 1. If prefix is 'ia' (Internet Archive ID), download from archive.org directly!
+    if prefix == "ia" and key:
+        print(f"[INFO] Found Internet Archive ID: {key}")
+        ia_url = f"https://archive.org/download/{key}/{key}.pdf"
+        filename = f"{clean_filename(title if title else key)}.pdf"
+        register_discovered_url(f"https://archive.org/details/{key}", "Internet Archive Details / Borrow Page")
+        print(f"[INFO] Downloading direct PDF from Internet Archive: {ia_url}")
+        success = download_file(ia_url, filename)
+        if success:
+            return True
+        else:
+            print("[TIP] This book is copyrighted or locked under Controlled Digital Lending (CDL).")
+            print("      Archive.org blocks direct PDF pulls and serves them as protected online reader images.")
+            
+    # 2. Try Project Gutenberg search via Gutendex API (Title search)
+    if not success and title:
+        print(f"[INFO] Querying Project Gutenberg (Gutendex) for '{title}'...")
+        try:
+            gutendex_url = f"https://gutendex.com/books/?search={urllib.parse.quote(title)}"
+            req = urllib.request.Request(gutendex_url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=10) as response:
+                data = json.loads(response.read().decode())
+                
+            results = data.get('results', [])
+            if results:
+                best_match = results[0]
+                guten_id = best_match.get('id')
+                formats = best_match.get('formats', {})
+                
+                # Check for PDF or EPUB formats
+                pdf_url = formats.get('application/pdf') or formats.get('application/x-mobipocket-ebook')
+                epub_url = formats.get('application/epub+zip')
+                html_url = formats.get('text/html')
+                
+                # Prefer PDF, fallback to EPUB
+                target_url = pdf_url if pdf_url else epub_url
+                if not target_url and html_url:
+                    target_url = html_url
+                    
+                if target_url:
+                    ext = ".pdf" if "pdf" in target_url else (".epub" if "epub" in target_url else ".html")
+                    print(f"[INFO] Found Gutenberg Book: '{best_match.get('title')}' (ID: {guten_id})")
+                    register_discovered_url(f"https://www.gutenberg.org/ebooks/{guten_id}", "Project Gutenberg Details Page")
+                    register_discovered_url(target_url, "Project Gutenberg Book File")
+                    print(f"[INFO] Downloading book file: {target_url}")
+                    filename = f"Gutenberg_{clean_filename(title)}{ext}"
+                    success = download_file(target_url, filename)
+                    if success:
+                        return True
+        except Exception as e:
+            print(f"[WARNING] Project Gutenberg query failed: {e}")
+            
+    # 3. If we only have ISBN or OL Key, query Open Library's Edition API to resolve Internet Archive ID
+    if not success and (prefix in ("isbn", "ol") or key):
+        print(f"[INFO] Querying Open Library API to resolve Internet Archive ID...")
+        try:
+            ol_url = ""
+            if prefix == "isbn":
+                ol_url = f"https://openlibrary.org/api/books?bibkeys=ISBN:{key}&format=json&jscmd=data"
+                register_discovered_url(f"https://openlibrary.org/isbn/{key}", "OpenLibrary Book Page")
+            elif prefix == "ol":
+                ol_url = f"https://openlibrary.org/works/{key}.json"
+                register_discovered_url(f"https://openlibrary.org/works/{key}", "OpenLibrary Work Page")
+                
+            if ol_url:
+                req = urllib.request.Request(ol_url, headers=HEADERS)
+                with urllib.request.urlopen(req, timeout=10) as response:
+                    res_data = json.loads(response.read().decode())
+                    
+                ia_id = None
+                if prefix == "isbn":
+                    book_data = res_data.get(f"ISBN:{key}", {})
+                    ia_id = book_data.get('identifiers', {}).get('archive', [None])[0] or book_data.get('ocaid')
+                
+                if ia_id:
+                    ia_url = f"https://archive.org/download/{ia_id}/{ia_id}.pdf"
+                    filename = f"{clean_filename(title if title else ia_id)}.pdf"
+                    register_discovered_url(f"https://archive.org/details/{ia_id}", "Internet Archive Details / Borrow Page")
+                    print(f"[INFO] Resolved Internet Archive ID: {ia_id}")
+                    print(f"[INFO] Downloading direct PDF from Internet Archive: {ia_url}")
+                    success = download_file(ia_url, filename)
+                    if success:
+                        return True
+                    else:
+                        print("[TIP] This resolved book is copyrighted or locked under CDL on Archive.org.")
+                        print("      Archive.org blocks direct PDF pulls and serves them as protected online reader images.")
+        except Exception as e:
+            print(f"[WARNING] Open Library resolving failed: {e}")
+            
+    # 4. Fallback: Search Open Library by Title to get another matching copy with Internet Archive ID
+    if not success and title:
+        print(f"[INFO] Searching Open Library by Title to find alternate open editions...")
+        try:
+            search_url = f"https://openlibrary.org/search.json?title={urllib.parse.quote(title)}&fields=ia&limit=3"
+            req = urllib.request.Request(search_url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=10) as response:
+                data = json.loads(response.read().decode())
+                
+            docs = data.get('docs', [])
+            for doc in docs:
+                ia_list = doc.get('ia', [])
+                if ia_list:
+                    ia_id = ia_list[0]
+                    ia_url = f"https://archive.org/download/{ia_id}/{ia_id}.pdf"
+                    filename = f"{clean_filename(title)}.pdf"
+                    register_discovered_url(f"https://archive.org/details/{ia_id}", "Internet Archive Details / Borrow Page")
+                    print(f"[INFO] Found alternate edition Internet Archive ID: {ia_id}")
+                    print(f"[INFO] Downloading direct PDF from Internet Archive: {ia_url}")
+                    success = download_file(ia_url, filename)
+                    if success:
+                        return True
+                    else:
+                        print("[TIP] This alternate edition is copyrighted or locked under CDL on Archive.org.")
+                        print("      Archive.org blocks direct PDF pulls and serves them as protected online reader images.")
+        except Exception as e:
+            print(f"[WARNING] Alternate Open Library search failed: {e}")
+            
+    return False
+
+
 def try_arxiv(doi, title):
     """Strategy 4: Query arXiv Open Access Preprint Server."""
     if doi and (doi.startswith("http://") or doi.startswith("https://")):
@@ -1126,6 +1299,8 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
         target_doi = ident
     elif ident.startswith("http://") or ident.startswith("https://"):
         target_doi = ident
+    elif any(ident.lower().startswith(prefix) for prefix in ("ia:", "isbn:", "ol:")):
+        target_doi = ident
     else:
         target_title = ident
         
@@ -1156,40 +1331,54 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
             raise InterruptedError("Cancelled by user")
 
         success = False
-        if target_doi:
-            status_label.config(text="Querying Unpaywall Database...", fg="#00ADB5")
-            success = try_unpaywall(target_doi)
-            
+        is_book_identifier = target_doi and any(target_doi.lower().startswith(prefix) for prefix in ("ia:", "isbn:", "ol:"))
+        
+        if is_book_identifier:
+            status_label.config(text="Querying Book Repositories...", fg="#00ADB5")
+            success = try_download_book(target_doi, target_title)
+        else:
+            if target_doi:
+                status_label.config(text="Querying Unpaywall Database...", fg="#00ADB5")
+                success = try_unpaywall(target_doi)
+                
+                if abort_requested:
+                    raise InterruptedError("Cancelled by user")
+                    
+                if not success:
+                    status_label.config(text="Querying Sci-Hub Shadows...", fg="#00ADB5")
+                    success = try_scihub(target_doi)
+                
             if abort_requested:
                 raise InterruptedError("Cancelled by user")
-                
+
             if not success:
-                status_label.config(text="Querying Sci-Hub Shadows...", fg="#00ADB5")
-                success = try_scihub(target_doi)
-            
-        if abort_requested:
-            raise InterruptedError("Cancelled by user")
+                status_label.config(text="Querying arXiv...", fg="#00ADB5")
+                success = try_arxiv(target_doi, target_title)
+                
+            if abort_requested:
+                raise InterruptedError("Cancelled by user")
 
-        if not success:
-            status_label.config(text="Querying arXiv...", fg="#00ADB5")
-            success = try_arxiv(target_doi, target_title)
-            
-        if abort_requested:
-            raise InterruptedError("Cancelled by user")
+            if not success:
+                status_label.config(text="Querying Europe PMC...", fg="#00ADB5")
+                success = try_europe_pmc(target_doi, target_title)
+                
+            if abort_requested:
+                raise InterruptedError("Cancelled by user")
 
-        if not success:
-            status_label.config(text="Querying Europe PMC...", fg="#00ADB5")
-            success = try_europe_pmc(target_doi, target_title)
-            
-        if abort_requested:
-            raise InterruptedError("Cancelled by user")
+            if not success:
+                status_label.config(text="Querying ResearchGate...", fg="#00ADB5")
+                success = try_researchgate(target_doi, target_title)
+                
+            if abort_requested:
+                raise InterruptedError("Cancelled by user")
 
-        if not success:
-            status_label.config(text="Querying ResearchGate...", fg="#00ADB5")
-            success = try_researchgate(target_doi, target_title)
-            
-        if abort_requested:
-            raise InterruptedError("Cancelled by user")
+            # Final resort: check if it matches Gutenberg / OpenLibrary public domain books
+            if not success:
+                status_label.config(text="Querying Book Repositories...", fg="#00ADB5")
+                success = try_download_book(target_doi, target_title)
+                
+            if abort_requested:
+                raise InterruptedError("Cancelled by user")
 
         if success:
             status_label.config(text="Document Pulled Successfully!", fg="#4CAF50")
@@ -1405,13 +1594,13 @@ def launch_gui():
         global current_page, research_query
         load_research_page(research_query, current_page + 1)
         
-    prev_btn = tk.Button(nav_frame, text="◀ Previous", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", bd=0, font=('Segoe UI', 9), padx=12, pady=4, cursor="hand2", command=on_prev_click, state='disabled')
+    prev_btn = tk.Button(nav_frame, text="◀ Previous", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI', 9), padx=12, pady=4, cursor="hand2", command=on_prev_click, state='disabled')
     prev_btn.pack(side='left', padx=15)
     
     page_lbl = tk.Label(nav_frame, text="Page 1", bg="#0D0B14", fg="#A855F7", font=('Segoe UI Semibold', 10))
     page_lbl.pack(side='left', fill='x', expand=True)
     
-    next_btn = tk.Button(nav_frame, text="Next ▶", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", bd=0, font=('Segoe UI', 9), padx=12, pady=4, cursor="hand2", command=on_next_click)
+    next_btn = tk.Button(nav_frame, text="Next ▶", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI', 9), padx=12, pady=4, cursor="hand2", command=on_next_click)
     next_btn.pack(side='right', padx=15)
     
     # Details text area container (Always visible)
@@ -1435,6 +1624,7 @@ def launch_gui():
         fg="#EEEEEE",
         activebackground="#3F335C",
         activeforeground="#FFFFFF",
+        disabledforeground="#8E8A9F",
         bd=0,
         font=('Segoe UI Semibold', 8),
         padx=10,
@@ -1552,9 +1742,33 @@ def launch_gui():
             title_lbl = tk.Label(details_f, text=f"{idx+1}. {result['title']}", bg="#1A1625", fg="#FFFFFF", font=('Segoe UI Semibold', 9), anchor='w', wraplength=current_wrap, justify='left')
             title_lbl.pack(anchor='w')
             
-            doi_str = f"DOI: {result['doi']}" if result['doi'] else "DOI: N/A"
-            badge_text = "  [Direct PDF Available]" if result.get('is_oa') else "  [Sci-Hub / ResearchGate Fallback]"
-            badge_fg = "#10B981" if result.get('is_oa') else "#8B5CF6"
+            # Format identifier label dynamically based on book/paper prefixes (ISBN instead of DOI for books)
+            raw_id = result['doi']
+            is_book = (type_var.get() == "Books") or (result.get('source') == 'openlibrary') or (raw_id and any(raw_id.lower().startswith(prefix) for prefix in ("ia:", "isbn:", "ol:")))
+            
+            if raw_id:
+                if raw_id.lower().startswith("ia:"):
+                    id_label = "Internet Archive ID"
+                    id_val = raw_id.split(":", 1)[1]
+                elif raw_id.lower().startswith("isbn:"):
+                    id_label = "ISBN"
+                    id_val = raw_id.split(":", 1)[1]
+                elif raw_id.lower().startswith("ol:"):
+                    id_label = "OpenLibrary Key"
+                    id_val = raw_id.split(":", 1)[1]
+                else:
+                    id_label = "DOI"
+                    id_val = raw_id
+                doi_str = f"{id_label}: {id_val}"
+            else:
+                doi_str = "ISBN/ID: N/A" if is_book else "DOI: N/A"
+                
+            if is_book:
+                badge_text = "  [Free eBook Available]"
+                badge_fg = "#10B981"
+            else:
+                badge_text = "  [Direct PDF Available]" if result.get('is_oa') else "  [Sci-Hub / ResearchGate Fallback]"
+                badge_fg = "#10B981" if result.get('is_oa') else "#8B5CF6"
             
             doi_frame = tk.Frame(details_f, bg="#1A1625")
             doi_frame.pack(anchor='w', pady=(1, 0))
@@ -1585,12 +1799,13 @@ def launch_gui():
                 fg="#FFFFFF", 
                 activebackground="#A78BFA", 
                 activeforeground="#FFFFFF", 
+                disabledforeground="#8E8A9F", 
                 bd=0, 
                 font=('Segoe UI Semibold', 9), 
                 padx=12, 
                 pady=4, 
                 cursor="hand2", 
-                command=lambda d=target_doi, t=target_title: view_document_in_browser(d, t)
+                command=lambda d=target_doi, t=target_title, ib=is_book: view_document_in_browser(d, t, is_book=ib)
             )
             view_btn.pack(side='left', padx=(0, 6))
             card_buttons.append(view_btn)
@@ -1603,6 +1818,7 @@ def launch_gui():
                 fg="#FFFFFF", 
                 activebackground="#059669", 
                 activeforeground="#FFFFFF", 
+                disabledforeground="#8E8A9F", 
                 bd=0, 
                 font=('Segoe UI Semibold', 9), 
                 padx=12, 
@@ -1767,7 +1983,7 @@ def launch_gui():
     btn_frame = tk.Frame(card_frame, bg="#1A1625")
     btn_frame.pack(anchor='center', pady=(10, 0))
     
-    run_button = tk.Button(btn_frame, text="Download Document", bg="#8B5CF6", fg="#FFFFFF", activebackground="#A78BFA", activeforeground="#FFFFFF", bd=0, font=('Segoe UI Semibold', 10), padx=25, pady=8, cursor="hand2", command=handle_button_click)
+    run_button = tk.Button(btn_frame, text="Download Document", bg="#8B5CF6", fg="#FFFFFF", activebackground="#A78BFA", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI Semibold', 10), padx=25, pady=8, cursor="hand2", command=handle_button_click)
     run_button.pack(anchor='center')
     
     # Style button hover bindings
