@@ -31,6 +31,7 @@ _FOLDER_FOR_CATEGORY = {
     "book":   "Books",
     "thesis": "Theses",
     "paper":  "Papers",
+    "others": "Others",
 }
 
 
@@ -40,15 +41,15 @@ def get_download_dir(category="paper"):
     Parameters
     ----------
     category : str
-        One of "paper", "book", or "thesis".  Anything else falls back to
-        "Sample Papers".
+        One of ``"paper"``, ``"book"``, ``"thesis"``, or ``"others"``.
+        Anything else falls back to ``"Others"``.
 
     Returns
     -------
     str
         Absolute path to the category subfolder, guaranteed to exist.
     """
-    folder_name = _FOLDER_FOR_CATEGORY.get(category.lower(), "Sample Papers")
+    folder_name = _FOLDER_FOR_CATEGORY.get(category.lower(), "Others")
     path = os.path.join(get_app_dir(), folder_name)
     os.makedirs(path, exist_ok=True)
     return path
