@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Academic Paper Downloader"
-#define MyAppVersion "2.3.2"
+#define MyAppVersion "2.3.3"
 #define MyAppPublisher "Yazid YOUCEF"
 #define MyAppURL "https://github.com/dzmarkets/Academic-Paper-Downloader"
 #define MyAppExeName "paper.exe"

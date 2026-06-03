@@ -1,8 +1,8 @@
 # 📚 Academic Paper Downloader
 
-> **Version 2.3.2**
+> **Version 2.3.3**
 
-[![Download paper.exe](https://img.shields.io/badge/Download-paper.exe-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.3.2/paper.exe)
+[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.3.3/AcademicPaperDownloader_Setup.exe)
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
@@ -70,6 +70,12 @@ The compiled `.exe` will be placed in the `dist\` folder. All downloaded files w
 ---
 
 ## 📋 Changelog
+
+### v2.3.3
+- Configured professional setup installer using Inno Setup (supporting user-level installations without UAC admin prompts).
+- Integrated premium inline auto-updater directly in the application header replacing popups, with real-time download progress.
+- Implemented Windows mutex locks in Python to prevent active installer lock errors.
+- Configured GitHub Actions CI/CD release workflow to build executables and compile installers automatically on version tag push.
 
 ### v2.3.2
 - Integrated direct, clickable releases and updates gateway link directly in the app’s main header (`🌐 Get Latest Releases & Updates`).
