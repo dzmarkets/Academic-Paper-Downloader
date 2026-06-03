@@ -2674,6 +2674,13 @@ def start_update_download(parent, latest_version, download_url):
                         else:
                             parent.after(0, lambda: dl_link_lbl.config(text="📥 Downloading update..."))
                             
+            # Verify the downloaded file is a valid Windows executable (magic bytes 'MZ')
+            if os.path.exists(temp_path):
+                with open(temp_path, 'rb') as f:
+                    magic = f.read(2)
+                if magic != b'MZ':
+                    raise ValueError("Downloaded file does not have a valid Windows executable signature.")
+                            
             # Launch installer and exit app immediately so the file is not locked
             parent.after(0, lambda: dl_link_lbl.config(text="⚡ Launching Installer..."))
             cmd_str = f'timeout /t 2 & start "" "{temp_path}"'
