@@ -1,0 +1,46 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*' # Triggers the workflow on tag pushes matching v*, e.g., v2.3.2
+
+permissions:
+  contents: write # Grants permission to create releases and upload assets
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller requests pycryptodome
+
+    - name: Build Executable with PyInstaller
+      run: |
+        python -m PyInstaller --clean paper.spec
+
+    - name: Compile Setup Installer with Inno Setup
+      run: |
+        iscc installer.iss
+
+    - name: Create GitHub Release and Upload Assets
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          Output/AcademicPaperDownloader_Setup.exe
+          dist/paper.exe
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

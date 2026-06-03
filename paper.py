@@ -59,11 +59,13 @@ def get_download_dir(category="paper"):
 # ---------------------------------------------------------------------------
 # Define target paper metadata
 # ---------------------------------------------------------------------------
-VERSION = "2.3.1"
+VERSION = "2.3.2"
 DOI = "10.1145/3375633"
 TITLE = "Certifying compilation with de Bruijn indices"  # Used if DOI fails or for ResearchGate search
 abort_requested = False
 discovered_urls = []
+dl_link_lbl = None
+
 
 # Configuration
 UNPAYWALL_EMAIL = "researcher@domain.com"
@@ -2601,58 +2603,95 @@ def fetch_assma_publications():
 
 
 
-def show_update_result_dialog(parent, latest_version, changelog, download_url):
-    """Display the new update availability beautifully."""
-    dialog = tk.Toplevel(parent)
-    dialog.title("Update Status")
-    dialog.configure(bg="#0D0B14")
-    dialog.transient(parent)
-    dialog.grab_set()
+def start_update_download(parent, latest_version, download_url):
+    """Downloads the installer in the background and updates the header label progress."""
+    global dl_link_lbl
     
-    w, h = 500, 400
-    ws = dialog.winfo_screenwidth()
-    hs = dialog.winfo_screenheight()
-    x = (ws/2) - (w/2)
-    y = (hs/2) - (h/2)
-    dialog.geometry(f"{w}x{h}+{int(x)}+{int(y)}")
-    dialog.resizable(False, False)
+    # Disable further clicks by unbinding event
+    dl_link_lbl.unbind("<Button-1>")
+    dl_link_lbl.unbind("<Enter>")
+    dl_link_lbl.unbind("<Leave>")
+    dl_link_lbl.config(text="📥 Initializing download...", fg="#A78BFA", cursor="")
     
-    content = tk.Frame(dialog, bg="#0D0B14", padx=20, pady=20)
-    content.pack(fill='both', expand=True)
+    def do_download():
+        try:
+            import urllib.request
+            import tempfile
+            import subprocess
+            import sys
+            
+            # Extract filename from the URL or default to setup exe name
+            filename = download_url.split('/')[-1]
+            if not filename.endswith('.exe'):
+                filename = "AcademicPaperDownloader_Setup.exe"
+                
+            temp_path = os.path.join(tempfile.gettempdir(), filename)
+            
+            req = urllib.request.Request(download_url, headers=HEADERS)
+            with urllib.request.urlopen(req) as response:
+                total_size = int(response.info().get('Content-Length', 0))
+                downloaded = 0
+                
+                with open(temp_path, 'wb') as f:
+                    block_size = 65536
+                    while True:
+                        buffer = response.read(block_size)
+                        if not buffer:
+                            break
+                        downloaded += len(buffer)
+                        f.write(buffer)
+                        
+                        if total_size > 0:
+                            pct = int(downloaded * 100 / total_size)
+                            parent.after(0, lambda p=pct: dl_link_lbl.config(text=f"📥 Downloading update: {p}%"))
+                        else:
+                            parent.after(0, lambda: dl_link_lbl.config(text="📥 Downloading update..."))
+                            
+            # Launch installer and exit app immediately so the file is not locked
+            parent.after(0, lambda: dl_link_lbl.config(text="⚡ Launching Installer..."))
+            cmd_str = f'timeout /t 2 & start "" "{temp_path}"'
+            subprocess.Popen(["cmd.exe", "/c", cmd_str], creationflags=0x08000000)
+            parent.after(100, lambda: os._exit(0))
+            
+        except Exception as e:
+            print(f"[ERROR] Failed to download update: {e}")
+            # Fallback on failure
+            parent.after(0, lambda: reset_failed_update(parent, latest_version, download_url))
+
+    def reset_failed_update(parent, latest_version, download_url):
+        dl_link_lbl.config(
+            text="❌ Update Failed. Click to try again.", 
+            fg="#EF4444", 
+            cursor="hand2"
+        )
+        # Re-bind click and hover events
+        dl_link_lbl.bind("<Button-1>", lambda e: start_update_download(parent, latest_version, download_url))
+        dl_link_lbl.bind("<Enter>", lambda e: dl_link_lbl.config(fg="#FCA5A5"))
+        dl_link_lbl.bind("<Leave>", lambda e: dl_link_lbl.config(fg="#EF4444"))
+
+    t = threading.Thread(target=do_download)
+    t.daemon = True
+    t.start()
+
+
+def trigger_update_available_ui(parent, latest_version, download_url):
+    """Replaces the releases label in the header with an update notification."""
+    global dl_link_lbl
     
-    title_lbl = tk.Label(content, text="🚀 New Update Available!", bg="#0D0B14", fg="#F59E0B", font=('Segoe UI Semibold', 13))
-    title_lbl.pack(anchor='w', pady=(0, 2))
+    # Change the link label to update action
+    dl_link_lbl.config(
+        text=f"🚀 Update to v{latest_version} available! (Click to Install)", 
+        fg="#F59E0B", 
+        font=('Segoe UI Semibold', 9, 'underline')
+    )
     
-    version_lbl = tk.Label(content, text=f"A newer version (v{latest_version}) is available. You have v{VERSION}.", bg="#0D0B14", fg="#A78BFA", font=('Segoe UI', 9, 'italic'))
-    version_lbl.pack(anchor='w', pady=(0, 10))
+    # Bind the click action to start the update process
+    dl_link_lbl.bind("<Button-1>", lambda e: start_update_download(parent, latest_version, download_url))
     
-    card = tk.Frame(content, bg="#1A1625", bd=1, relief='flat', padx=12, pady=12)
-    card.pack(fill='both', expand=True, pady=(0, 15))
-    
-    cl_title = tk.Label(card, text="Release Notes / Changelog:", bg="#1A1625", fg="#A78BFA", font=('Segoe UI Semibold', 9))
-    cl_title.pack(anchor='w', pady=(0, 5))
-    
-    text_widget = tk.Text(card, bg="#1A1625", fg="#EEEEEE", bd=0, font=('Segoe UI', 8.5), wrap='word', height=10)
-    text_widget.pack(fill='both', expand=True)
-    if changelog:
-        text_widget.insert('1.0', changelog.strip())
-    else:
-        text_widget.insert('1.0', "No release notes provided for this version.")
-    text_widget.config(state='disabled')
-    
-    btn_frame = tk.Frame(content, bg="#0D0B14")
-    btn_frame.pack(fill='x')
-    
-    def download_update():
-        import webbrowser
-        webbrowser.open(download_url)
-        dialog.destroy()
-        
-    dl_btn = tk.Button(btn_frame, text="📥 Download EXE", bg="#10B981", fg="#FFFFFF", activebackground="#059669", activeforeground="#FFFFFF", bd=0, font=('Segoe UI Semibold', 9.5), padx=20, pady=6, cursor="hand2", command=download_update)
-    dl_btn.pack(side='right', padx=5)
-    
-    cancel_btn = tk.Button(btn_frame, text="Later", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", bd=0, font=('Segoe UI Semibold', 9.5), padx=20, pady=6, cursor="hand2", command=dialog.destroy)
-    cancel_btn.pack(side='right', padx=5)
+    # Configure hover states for the update notification
+    dl_link_lbl.bind("<Enter>", lambda e: dl_link_lbl.config(fg="#FBBF24"))
+    dl_link_lbl.bind("<Leave>", lambda e: dl_link_lbl.config(fg="#F59E0B"))
+
 
 
 def check_updates_gui(parent, manual=True):
@@ -2715,7 +2754,9 @@ def check_updates_gui(parent, manual=True):
                 is_newer = True
                 
         if is_newer:
-            parent.after(0, lambda: show_update_result_dialog(parent, latest_ver, changelog, dl_url))
+            parent.after(0, lambda: trigger_update_available_ui(parent, latest_ver, dl_url))
+            if manual:
+                parent.after(0, lambda: status_label.config(text=f"New version v{latest_ver} available! Click the link at the top to install.", fg="#F59E0B"))
         else:
             if manual:
                 parent.after(0, lambda: status_label.config(text=f"Academic Paper Downloader is up to date (v{VERSION}).", fg="#10B981"))
@@ -2725,9 +2766,22 @@ def check_updates_gui(parent, manual=True):
     t.start()
 
 
+_app_mutex = None
+
+def create_app_mutex():
+    global _app_mutex
+    try:
+        import ctypes
+        _app_mutex = ctypes.windll.kernel32.CreateMutexW(None, False, "AcademicPaperDownloaderMutex")
+    except Exception:
+        pass
+
+
 def launch_gui():
     """Launch the modern dark-themed desktop GUI for Paper Downloader."""
-    global prev_btn, next_btn, page_lbl, results_frame, results_container, card_buttons, clear_res_btn, status_label
+    global prev_btn, next_btn, page_lbl, results_frame, results_container, card_buttons, clear_res_btn, status_label, dl_link_lbl
+    
+    create_app_mutex()
     
     root = tk.Tk()
     root.title(f"Premium Paper Downloader v{VERSION} by Yazid YOUCEF")
