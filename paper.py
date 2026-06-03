@@ -27,6 +27,22 @@ def get_app_dir():
     return os.path.dirname(os.path.abspath(__file__))
 
 
+def get_documents_dir():
+    """Locate the user's Windows Documents directory dynamically."""
+    try:
+        import ctypes
+        from ctypes import wintypes
+        buf = ctypes.create_unicode_buffer(wintypes.MAX_PATH)
+        # CSIDL_PERSONAL = 5 is the CSIDL for "My Documents" (handles OneDrive redirects cleanly!)
+        ctypes.windll.shell32.SHGetFolderPathW(None, 5, None, 0, buf)
+        if buf.value:
+            return buf.value
+    except Exception:
+        pass
+    # Fallback to standard home directory Documents folder
+    return os.path.join(os.path.expanduser('~'), 'Documents')
+
+
 # Mapping from document category → descriptive folder name
 _FOLDER_FOR_CATEGORY = {
     "book":   "Books",
@@ -37,7 +53,7 @@ _FOLDER_FOR_CATEGORY = {
 
 
 def get_download_dir(category="paper"):
-    """Return (and create if necessary) the Downloads subfolder for *category*.
+    """Return (and create if necessary) the Downloads subfolder inside user's Documents.
 
     Parameters
     ----------
@@ -48,10 +64,11 @@ def get_download_dir(category="paper"):
     Returns
     -------
     str
-        Absolute path to the category subfolder, guaranteed to exist.
+        Absolute path to the category subfolder inside Documents, guaranteed to exist.
     """
     folder_name = _FOLDER_FOR_CATEGORY.get(category.lower(), "Others")
-    path = os.path.join(get_app_dir(), folder_name)
+    base_dir = os.path.join(get_documents_dir(), "Academic Paper Downloader")
+    path = os.path.join(base_dir, folder_name)
     os.makedirs(path, exist_ok=True)
     return path
 
@@ -123,10 +140,20 @@ def check_for_updates():
             html_url = data.get("html_url", "https://github.com/dzmarkets/Academic-Paper-Downloader/releases/latest")
             download_url = html_url
             if "assets" in data:
+                setup_asset = None
                 for asset in data["assets"]:
-                    if asset.get("name", "").endswith(".exe"):
-                        download_url = asset.get("browser_download_url", html_url)
+                    name = asset.get("name", "")
+                    if name.endswith("_Setup.exe") or "setup" in name.lower():
+                        setup_asset = asset.get("browser_download_url")
                         break
+                
+                if setup_asset:
+                    download_url = setup_asset
+                else:
+                    for asset in data["assets"]:
+                        if asset.get("name", "").endswith(".exe"):
+                            download_url = asset.get("browser_download_url", html_url)
+                            break
             return latest_version, changelog, download_url
     except urllib.error.HTTPError as e:
         if e.code == 404:
