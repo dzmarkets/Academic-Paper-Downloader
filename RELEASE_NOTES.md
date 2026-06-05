@@ -9,6 +9,24 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 
+## v2.4.0.8
+### Release Title
+Academic Paper Downloader v2.4.0.8 — 4000 New Mapped Journals (Items 6001-10000)
+
+### Release Body
+```
+## What's New in v2.4.0.8
+
+### 🛡️ Mapped Journal Coverage (Items 6001-10000)
+- **4000 New Mapped Journals**: Appended the next 4000 candidate journals from the resolved database into the tracking status list, bringing total coverage to 10,000 tracked journals. All mapped journals are covered via standard resolver fallbacks and direct publisher heuristics.
+
+### 📦 Metadata & Build Updates
+- Bumped application version to `v2.4.0.8` across configuration, scripts, user-agent, and installer manifests.
+
+---
+**Full Changelog**: https://github.com/dzmarkets/Academic-Paper-Downloader/commits/main
+```
+
 ## v2.4.0.7
 ### Release Title
 Academic Paper Downloader v2.4.0.7 — Add total number of resolved journals (up to 50k) to console donation info
