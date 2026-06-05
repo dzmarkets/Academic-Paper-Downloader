@@ -94,7 +94,7 @@ def get_download_dir(category="paper"):
 # ---------------------------------------------------------------------------
 # Define target paper metadata
 # ---------------------------------------------------------------------------
-VERSION = "2.4.0.8"
+VERSION = "2.4.0.9"
 DOI = "10.1145/3375633"
 TITLE = "Certifying compilation with de Bruijn indices"  # Used if DOI fails or for ResearchGate search
 abort_requested = False
@@ -726,6 +726,10 @@ def search_google_scholar(query, offset=0, rows=5):
             
             if authors == "Unknown Authors" and exact_phrase:
                 authors = exact_phrase
+            
+            # Skip results that still have unknown authors after all extraction
+            if authors == "Unknown Authors":
+                continue
                 
             results.append({
                 'title': title,
@@ -3387,27 +3391,49 @@ def launch_gui():
     
     # --- Interactive Research Mode Results Frame ---
     results_frame = tk.Frame(root, bg="#0D0B14", padx=25)
-    
-    results_container = tk.Frame(results_frame, bg="#0D0B14")
-    results_container.pack(fill='both', expand=True)
-    
-    def on_container_resize(event):
-        new_width = event.width
+
+    # Scrollable canvas wrapper for results
+    _results_canvas = tk.Canvas(results_frame, bg="#0D0B14", highlightthickness=0)
+    _results_scrollbar = ttk.Scrollbar(results_frame, orient="vertical", command=_results_canvas.yview, style="Vertical.TScrollbar")
+    _results_canvas.configure(yscrollcommand=_results_scrollbar.set)
+    _results_scrollbar.pack(side="right", fill="y")
+    _results_canvas.pack(side="left", fill="both", expand=True)
+
+    results_container = tk.Frame(_results_canvas, bg="#0D0B14")
+    _results_canvas_window = _results_canvas.create_window((0, 0), window=results_container, anchor="nw")
+
+    def _on_results_frame_configure(event):
+        _results_canvas.configure(scrollregion=_results_canvas.bbox("all"))
+        # Decide canvas height: fit content up to 300px, then scroll
+        content_h = results_container.winfo_reqheight()
+        canvas_h = min(content_h, 300)
+        _results_canvas.configure(height=canvas_h)
+        # Also update wraplength on all visible cards
+        new_width = _results_canvas.winfo_width()
         new_wrap = max(300, new_width - 180)
         for card in results_container.winfo_children():
             try:
                 details_f = card.winfo_children()[0]
                 children = details_f.winfo_children()
                 if len(children) >= 1:
-                    title_lbl = children[0]
-                    title_lbl.config(wraplength=new_wrap)
+                    children[0].config(wraplength=new_wrap)
                 if len(children) >= 3:
-                    meta_lbl = children[2]
-                    meta_lbl.config(wraplength=new_wrap)
+                    children[2].config(wraplength=new_wrap)
             except Exception:
                 pass
-                
-    results_container.bind('<Configure>', on_container_resize)
+
+    def _on_canvas_width_change(event):
+        _results_canvas.itemconfig(_results_canvas_window, width=event.width)
+
+    results_container.bind("<Configure>", _on_results_frame_configure)
+    _results_canvas.bind("<Configure>", _on_canvas_width_change)
+
+    # Mouse-wheel scrolling (Windows)
+    def _on_mousewheel(event):
+        _results_canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
+    _results_canvas.bind_all("<MouseWheel>", _on_mousewheel)
+    
+    # (wraplength + scroll region handled in _on_results_frame_configure above)
     
     def clear_research_results():
         """Clear all loaded paper cards from the research view."""
@@ -3415,6 +3441,7 @@ def launch_gui():
         for widget in results_container.winfo_children():
             widget.destroy()
         card_buttons = []
+        _results_canvas.yview_moveto(0)  # Reset scroll to top
         results_frame.pack_forget()
         entry.delete(0, tk.END)
         status_label.config(text="Ready for input.", fg="#A78BFA")
@@ -3558,8 +3585,9 @@ def launch_gui():
         has_more_results = (len(results) == 5)
         
         clear_research_results()
-            
+
         results_frame.pack(fill='x', padx=25, pady=(5, 5), before=logs_frame)
+        _results_canvas.yview_moveto(0)  # Always scroll back to top on new results
         page_lbl.config(text=f"Page {page}")
         
         # Determine initial dynamic wraplength

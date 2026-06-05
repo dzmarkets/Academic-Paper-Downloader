@@ -9,6 +9,26 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 
+## v2.4.0.9
+### Release Title
+Academic Paper Downloader v2.4.0.9 — Scrollable Results Panel + Unknown Authors Filter
+
+### Release Body
+```
+## What's New in v2.4.0.9
+
+### 🖱️ Scrollable Research Results
+- **Scrollbar Added**: The research results panel now uses a Canvas-based scrollable container with a vertical scrollbar and full mouse-wheel support. Results fit up to 300px then scroll cleanly, keeping the console logs always visible below.
+
+### 🚫 Unknown Authors Filter
+- **No More Ghost Results**: Papers and results whose author information could not be resolved are now silently excluded from the results list. Only papers with real author attribution are shown, improving result quality.
+
+### 📦 Build Updates
+- Bumped version to `v2.4.0.9`.
+---
+**Full Changelog**: https://github.com/dzmarkets/Academic-Paper-Downloader/commits/main
+```
+
 ## v2.4.0.8
 ### Release Title
 Academic Paper Downloader v2.4.0.8 — 4000 New Mapped Journals (Items 6001-10000)
