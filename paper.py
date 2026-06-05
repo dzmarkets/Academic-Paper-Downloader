@@ -3434,7 +3434,7 @@ def launch_gui():
     _results_canvas.bind_all("<MouseWheel>", _on_mousewheel)
     
     # (wraplength + scroll region handled in _on_results_frame_configure above)
-    
+
     def clear_research_results():
         """Clear all loaded paper cards from the research view."""
         global card_buttons
@@ -3442,52 +3442,94 @@ def launch_gui():
             widget.destroy()
         card_buttons = []
         _results_canvas.yview_moveto(0)  # Reset scroll to top
+        nav_frame.pack_forget()          # Hide nav bar together with results
         results_frame.pack_forget()
         entry.delete(0, tk.END)
         status_label.config(text="Ready for input.", fg="#A78BFA")
-        
-    # Navigation bar for pagination
+
+
+    # Navigation bar — placed AFTER the canvas so it appears at the bottom of results
     nav_frame = tk.Frame(results_frame, bg="#0D0B14", pady=5)
-    nav_frame.pack(fill='x')
-    
+    # nav_frame packs AFTER the canvas widget — Tkinter pack order = top-to-bottom
+    # It is shown/hidden together with results_frame; packed explicitly in display_research_results
+
     def on_prev_click():
         global current_page, research_query
         if current_page > 1:
             load_research_page(research_query, current_page - 1)
-            
+
     def on_next_click():
         global current_page, research_query
         load_research_page(research_query, current_page + 1)
-        
-    prev_btn = tk.Button(nav_frame, text="◀ Previous", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI', 9), padx=12, pady=4, cursor="hand2", command=on_prev_click, state='disabled')
+
+    prev_btn = tk.Button(nav_frame, text="\u25c4 Previous", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI', 9), padx=12, pady=4, cursor="hand2", command=on_prev_click, state='disabled')
     prev_btn.pack(side='left', padx=15)
-    
+
     page_lbl = tk.Label(nav_frame, text="Page 1", bg="#0D0B14", fg="#A855F7", font=('Segoe UI Semibold', 10))
     page_lbl.pack(side='left', fill='x', expand=True)
-    
-    clear_res_btn = tk.Button(nav_frame, text="🧹 Clear Results", bg="#2E2543", fg="#EEEEEE", activebackground="#D32F2F", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI Semibold', 9), padx=12, pady=4, cursor="hand2", command=clear_research_results)
+
+    clear_res_btn = tk.Button(nav_frame, text="Clear Results", bg="#2E2543", fg="#EEEEEE", activebackground="#D32F2F", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI Semibold', 9), padx=12, pady=4, cursor="hand2", command=clear_research_results)
     clear_res_btn.pack(side='right', padx=(0, 15))
-    
-    next_btn = tk.Button(nav_frame, text="Next ▶", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI', 9), padx=12, pady=4, cursor="hand2", command=on_next_click)
+
+    next_btn = tk.Button(nav_frame, text="Next \u25ba", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI', 9), padx=12, pady=4, cursor="hand2", command=on_next_click)
     next_btn.pack(side='right', padx=15)
-    
-    # Details text area container (Always visible)
+
+    # ── Console / Logs area ────────────────────────────────────────────────────
+    # The header is always visible; the body (log_area) can be toggled.
     logs_frame = tk.Frame(root, bg="#0D0B14", padx=25)
     logs_frame.pack(fill='both', expand=True, pady=(0, 15))
-    
-    # Sleek console header with a "Clear Logs" button
+
     logs_header = tk.Frame(logs_frame, bg="#0D0B14")
-    logs_header.pack(fill='x', pady=(0, 6))
-    
-    console_lbl = tk.Label(logs_header, text="📜  Pipeline Console Logs", bg="#0D0B14", fg="#A78BFA", font=('Segoe UI Semibold', 9))
+    logs_header.pack(fill='x', pady=(0, 4))
+
+    console_lbl = tk.Label(logs_header, text="\U0001f4dc  Pipeline Console Logs",
+                           bg="#0D0B14", fg="#A78BFA", font=('Segoe UI Semibold', 9))
     console_lbl.pack(side='left')
-    
+
+    # Collapsible body frame that holds log_area + its scrollbar
+    _console_body = tk.Frame(logs_frame, bg="#0D0B14")
+    _console_body.pack(fill='both', expand=True)
+    _console_visible = [True]   # mutable flag
+
+    def _toggle_console():
+        if _console_visible[0]:
+            _console_body.pack_forget()
+            _console_visible[0] = False
+            toggle_console_btn.config(text="Show Console [+]")
+        else:
+            _console_body.pack(fill='both', expand=True)
+            _console_visible[0] = True
+            toggle_console_btn.config(text="Hide Console [-]")
+
+    def _force_show_console():
+        """Ensure the console body is visible (called by BMC button)."""
+        if not _console_visible[0]:
+            _console_body.pack(fill='both', expand=True)
+            _console_visible[0] = True
+            toggle_console_btn.config(text="Hide Console [-]")
+
     def clear_logs():
         log_area.delete('1.0', 'end')
-        
+
+    toggle_console_btn = tk.Button(
+        logs_header,
+        text="Hide Console [-]",
+        bg="#2E2543",
+        fg="#EEEEEE",
+        activebackground="#3F335C",
+        activeforeground="#FFFFFF",
+        bd=0,
+        font=('Segoe UI Semibold', 8),
+        padx=10,
+        pady=2,
+        cursor="hand2",
+        command=_toggle_console
+    )
+    toggle_console_btn.pack(side='right', padx=(6, 0))
+
     clear_btn = tk.Button(
         logs_header,
-        text="🧹 Clear Logs",
+        text="Clear Logs",
         bg="#2E2543",
         fg="#EEEEEE",
         activebackground="#3F335C",
@@ -3501,13 +3543,15 @@ def launch_gui():
         command=clear_logs
     )
     clear_btn.pack(side='right')
-    
-    log_area = tk.Text(logs_frame, bg="#1A1625", fg="#F3E8FF", insertbackground="#FFFFFF", bd=0, font=('Consolas', 9), relief='flat', height=10)
-    scrollbar = ttk.Scrollbar(logs_frame, orient="vertical", command=log_area.yview, style="Vertical.TScrollbar")
+
+    log_area = tk.Text(_console_body, bg="#1A1625", fg="#F3E8FF", insertbackground="#FFFFFF",
+                       bd=0, font=('Consolas', 9), relief='flat', height=10)
+    scrollbar = ttk.Scrollbar(_console_body, orient="vertical", command=log_area.yview,
+                               style="Vertical.TScrollbar")
     log_area.configure(yscrollcommand=scrollbar.set)
     scrollbar.pack(side="right", fill="y")
     log_area.pack(side="left", fill="both", expand=True)
-    
+
     # Setup thread synchronization events
     running_event = threading.Event()
     
@@ -3587,7 +3631,8 @@ def launch_gui():
         clear_research_results()
 
         results_frame.pack(fill='x', padx=25, pady=(5, 5), before=logs_frame)
-        _results_canvas.yview_moveto(0)  # Always scroll back to top on new results
+        nav_frame.pack(fill='x')          # nav at the bottom of results_frame
+        _results_canvas.yview_moveto(0)   # Always scroll back to top on new results
         page_lbl.config(text=f"Page {page}")
         
         # Determine initial dynamic wraplength
@@ -4033,6 +4078,8 @@ def launch_gui():
 
         # ── Write into the in-app Pipeline Console log_area ───────────────────
         try:
+            # Force the console visible first
+            _force_show_console()
             # Colour tag definitions (Tkinter colours)
             tag_colours = {
                 "gold":       "#F59E0B",
