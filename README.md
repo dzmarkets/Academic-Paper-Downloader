@@ -22,7 +22,7 @@ A premium, high-performance desktop application built in Python/Tkinter designed
 - **🚀 Background Update Checker**: Integrates an interactive update trigger (`🔄`) directly in the main header and runs a background query on startup to detect newer releases on GitHub, display release notes, and offer one-click download of the latest `.exe` file.
 - **🧹 Clear Results Button**: An instant reset utility built directly into the search results navigation bar to clear results and input fields cleanly.
 - **📦 Zero Third-Party Dependencies**: Runs purely on the native Python standard library and Tkinter framework—no bulky package installations required!
-- **📂 Smart Download Folders** *(v2.2.0)*: Downloaded files are automatically organized into named subfolders beside the `.exe` / script:
+- **📂 Smart Download Folders** *(v2.3.6)*: Downloaded files are automatically organized into named subfolders under the user's local `Documents\Academic Paper Downloader\` folder:
 
   | Document Type | Folder |
   |---|---|
@@ -50,13 +50,22 @@ cd Academic-Paper-Downloader
 python paper.py
 ```
 
-### Building a standalone executable
+### Building the application and setup installer
 
-```bash
-python -m PyInstaller --onefile --windowed --icon=app_icon.png paper.py
-```
+1. **Compile with PyInstaller** (Directory-based compilation):
+   ```bash
+   python -m PyInstaller --noconfirm paper.spec
+   ```
+   This compiles the project into a folder-based distribution in `dist\paper\` (incorporating all Python binaries and `paper.exe`). This directory-based layout eliminates startup delays by avoiding runtime extraction.
 
-The compiled `.exe` will be placed in the `dist\` folder. All downloaded files will be saved in subfolders (`Papers\`, `Books\`, `Theses\`, `Others\`) **next to the `.exe`**, not in the system temp directory.
+2. **Compile the Installer with Inno Setup**:
+   Open Inno Setup and compile `installer.iss`, or compile it via the command line:
+   ```bash
+   "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss
+   ```
+   This generates the setup executable `AcademicPaperDownloader_Setup.exe` in the `Output\` folder.
+
+All downloaded files are saved in subfolders under the user's `Documents\Academic Paper Downloader\` directory (e.g., `Papers\`, `Books\`, `Theses\`, `Others\`), keeping the installation directory clean.
 
 ---
 
@@ -65,7 +74,7 @@ The compiled `.exe` will be placed in the `dist\` folder. All downloaded files w
 - **Thread-Safe Architecture**: All HTTP calls, scraping pipelines, and network requests are executed on background worker threads (`threading.Thread`) to ensure the desktop GUI remains perfectly responsive and never freezes.
 - **Resilient Fallback Parsing**: When Python's native `urllib.request` triggers Cloudflare filters, the scraping engine spawns system `curl` subprocesses to guarantee a 100% profile lookup and thesis retrieval rate.
 - **Deduplication Engine**: Combines OpenAlex JSON API entries and raw scraped HTML elements from ResearchGate in parallel, dynamically sorting and deduplicating records by title similarity.
-- **PyInstaller-Aware Path Resolution** *(v2.2.0)*: Detects whether the app is running as a frozen bundle (`sys.frozen`) and uses `sys.executable` to resolve the correct application directory, preventing files from being saved to the temporary `_MEI...` extraction folder.
+- **Safe Windows Path Resolution**: Dynamically retrieves the user's standard Windows Documents folder using the Windows Shell API (`SHGetFolderPathW`), ensuring downloads are safely written to `Documents\Academic Paper Downloader\` rather than the temporary `_MEI...` extraction folder or protected system directories.
 
 ---
 
