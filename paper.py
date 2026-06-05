@@ -2683,7 +2683,7 @@ def start_update_download(parent, latest_version, download_url):
                             
             # Launch installer and exit app immediately so the file is not locked
             parent.after(0, lambda: dl_link_lbl.config(text="⚡ Launching Installer..."))
-            cmd_str = f'cmd.exe /c timeout /t 2 & start "" "{temp_path}"'
+            cmd_str = f'cmd.exe /c timeout /t 2 & start "" "{temp_path}" /SILENT /SP- /SUPPRESSMSGBOXES /NORESTART'
             subprocess.Popen(cmd_str, creationflags=0x08000000)
             parent.after(100, lambda: os._exit(0))
             
