@@ -9,6 +9,28 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 
+## v2.4.0.2
+### Release Title
+Academic Paper Downloader v2.4.0.2 — AIAA & INFORMS Integrations & 500 New Mapped Journals
+
+### Release Body
+```
+## What's New in v2.4.0.2
+
+### 🚀 Direct Open-Access Resolvers
+- **INFORMS (`10.1287`)**: Direct-path construction for INFORMS articles (`https://pubsonline.informs.org/doi/pdf/{doi}`).
+- **AIAA (`10.2514`)**: Direct-path resolution for American Institute of Aeronautics and Astronautics publications (`https://arc.aiaa.org/doi/pdf/{doi}`).
+
+### 🛡️ Extended Journal Coverage (Items 101-600)
+- **500 New Mapped Journals**: Appended the next 500 candidate journals from the resolved database into the tracking status lists. All mapped journals are covered via standard resolver fallbacks and direct publisher heuristics.
+
+### 📦 Metadata & Build Updates
+- Bumped application version to `v2.4.0.2` across configuration, scripts, user-agent, and installer manifests.
+
+---
+**Full Changelog**: https://github.com/dzmarkets/Academic-Paper-Downloader/commits/main
+```
+
 ## v2.4.0.1
 ### Release Title
 Academic Paper Downloader v2.4.0.1 — 50 New Publisher Integrations & Enhanced OA Heuristics

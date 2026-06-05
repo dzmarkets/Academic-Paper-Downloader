@@ -115,7 +115,7 @@ class TestResolvers(unittest.TestCase):
 
     def test_try_semantic_scholar(self):
         print("\n=== Testing Semantic Scholar Resolver ===")
-        doi = "10.1093/nar/gkab294"
+        doi = "10.7717/peerj.4797"
         title = "Semantic Scholar Test Paper"
         
         success = try_semantic_scholar(doi, title)
@@ -148,7 +148,9 @@ class TestResolvers(unittest.TestCase):
             ("10.1152/physrev.00001.2018", "APSPhysio Test Paper", "APSPhysio_APSPhysio Test Paper.pdf"),
             ("10.1128/AAC.00001-18", "ASM Test Paper", "ASM_ASM Test Paper.pdf"),
             ("10.3366/drs.2018.0001", "EUP Test Paper", "EUP_EUP Test Paper.pdf"),
-            ("10.1057/s41293-018-0001-x", "Palgrave Test Paper", "Springer_Palgrave Test Paper.pdf")
+            ("10.1057/s41293-018-0001-x", "Palgrave Test Paper", "Springer_Palgrave Test Paper.pdf"),
+            ("10.2514/1.C035000", "AIAA Test Paper", "AIAA_AIAA Test Paper.pdf"),
+            ("10.1287/mnsc.2018.0001", "INFORMS Test Paper", "INFORMS_INFORMS Test Paper.pdf")
         ]
         
         for doi, title, expected_filename in test_cases:

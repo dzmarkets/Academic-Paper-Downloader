@@ -94,7 +94,7 @@ def get_download_dir(category="paper"):
 # ---------------------------------------------------------------------------
 # Define target paper metadata
 # ---------------------------------------------------------------------------
-VERSION = "2.4.0.1"
+VERSION = "2.4.0.2"
 DOI = "10.1145/3375633"
 TITLE = "Certifying compilation with de Bruijn indices"  # Used if DOI fails or for ResearchGate search
 abort_requested = False
@@ -2338,6 +2338,8 @@ def try_publisher_direct(doi, title, status_label=None):
         (["10.1152"], "American Physiological Society", "https://journals.physiology.org/doi/pdf/{doi}", "APSPhysio_"),
         (["10.1128"], "American Society for Microbiology", "https://journals.asm.org/doi/pdf/{doi}", "ASM_"),
         (["10.3366"], "Edinburgh University Press", "https://www.euppublishing.com/doi/pdf/{doi}", "EUP_"),
+        (["10.1287"], "INFORMS", "https://pubsonline.informs.org/doi/pdf/{doi}", "INFORMS_"),
+        (["10.2514"], "AIAA", "https://arc.aiaa.org/doi/pdf/{doi}", "AIAA_"),
     ]
     
     # Handle Nature Nature-based suffixes differently since they use suffix after 10.1038/
