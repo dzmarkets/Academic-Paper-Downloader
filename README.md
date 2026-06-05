@@ -1,8 +1,8 @@
 # 📚 Academic Paper Downloader
 
-> **Version 2.4.0.9**
+> **Version 2.4.1.0**
 
-[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.4.0.9/AcademicPaperDownloader_Setup.exe)
+[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.4.1.0/AcademicPaperDownloader_Setup.exe)
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
@@ -53,7 +53,7 @@ The application features a multi-tiered search and resolution pipeline that quer
 - **Europe PMC**: Queries PubMed Central and Europe PMC mirrors to access free biomedical publications.
 - **Annual Reviews / APS / University of Chicago Press / Royal Society / ASCE / Emerald / SIAM / Pleiades**: Expanded direct open-access resolution support for 25 additional publishers.
 - **De Gruyter / World Scientific / Mary Ann Liebert / Thieme / ACM / CSIRO / American Physiological Society / ASM / Edinburgh University Press**: Expanded direct open-access resolution support for 50 additional publishers (items 51-100).
-- **AIAA / INFORMS**: Expanded direct open-access resolution support for AIAA and INFORMS publications (supporting items 101-2000).
+- **AIAA / INFORMS / Resolved Open Access Journals**: Expanded direct open-access resolution support for AIAA, INFORMS, and other publishers (supporting items 101-15000).
 
 ### 📚 Book & Large Document Sources
 - **Library Genesis (LibGen)**: Queries Library Genesis mirrors to resolve and download textbook and monograph files.
@@ -106,6 +106,10 @@ All downloaded files are saved in subfolders under the user's `Documents\Academi
 ---
 
 ## 📋 Changelog
+
+### v2.4.1.0
+- Extended the tracked journal list by 5000 candidate journals (items 10001-15000) resolved via the open-access pipeline and direct publisher heuristics.
+- Bumped application version to `v2.4.1.0` in package, installers, configuration, and user-agent string.
 
 ### v2.4.0.9
 - Scrollable Research Results

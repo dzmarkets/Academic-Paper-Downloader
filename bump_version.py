@@ -1,13 +1,14 @@
 import re
 
-OLD = "2.4.0.3"
-NEW = "2.4.0.9"
+OLD = "2.4.0.9"
+NEW = "2.4.1.0"
 
 files = [
     "file_version_info.txt",
     "installer.iss",
     "resolve_journal_links.py",
     "Important.txt",
+    "paper.py",
 ]
 
 for fname in files:
