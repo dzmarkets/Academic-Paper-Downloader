@@ -2004,7 +2004,6 @@ Use this list to track the status of integrated direct resolvers and prevent loo
 | 1998 | Demographic Research / MAX PLANCK INST DEMOGRAPHIC  RESEARCH | 1435-9871 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
 | 1999 | Aerospace Medicine And Human  Performance / AEROSPACE MEDICAL ASSOC | 2375-6314 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
 | 2000 | Revista Internacional De  Contaminacion Ambiental / CENTRO CIENCIAS ATMOSFERA  UNAM | 0188-4999 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
-
 | 2001 | INTERNATIONAL JOURNAL OF  RADIATION ONCOLOGY BIOLO / ELSEVIER SCIENCE INC | 0360-3016 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
 | 2002 | JOURNAL OF IMMUNOLOGICAL  METHODS / ELSEVIER | 0022-1759 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
 | 2003 | HUMAN BIOLOGY / WAYNE STATE UNIV PRESS | 1534-6617 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
@@ -4005,7 +4004,6 @@ Use this list to track the status of integrated direct resolvers and prevent loo
 | 3998 | JOURNAL OF COMPUTER LANGUAGES / ELSEVIER SCI LTD | 2590-1184 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
 | 3999 | Frontiers in Systems Biology Frontiers Media SA / Unknown | 2674-0702 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
 | 4000 | Rehabilitace a Fyzikalni Lekarstvi Czech Medical A / Unknown | 1805-4552 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
-
 | 4001 | INTERNATIONAL JOURNAL OF  RADIATION ONCOLOGY BIOLO / ELSEVIER SCIENCE INC | 1879-355X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
 | 4002 | JOURNAL OF IMMUNOLOGICAL  METHODS / ELSEVIER | 1872-7905 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
 | 4003 | EMERGENCY MEDICINE CLINICS OF  NORTH AMERICA / W B SAUNDERS CO-ELSEVIER INC | 1558-0539 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
