@@ -9,6 +9,57 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 
+## v2.4.0
+### Release Title
+Academic Paper Downloader v2.4.0 — 25 New Publisher Integrations & Broadened OA Resolution
+
+### Release Body
+```
+## What's New in v2.4.0
+
+### 🚀 Direct Open-Access Resolvers (Items 26-50)
+- **Annual Reviews (`10.1146`)**: Direct-path construction for Annual Reviews publications (`https://www.annualreviews.org/doi/pdf/...`).
+- **American Physical Society (APS) (`10.1103`)**: Direct-path resolution for APS journals (`https://journals.aps.org/prl/pdf/...`).
+- **University of Chicago Press (`10.1086`)**: Direct-path resolution for Chicago Press journals (`https://www.journals.uchicago.edu/doi/pdf/...`).
+- **Royal Society (`10.1098`)**: Direct-path resolution for Royal Society publishing (`https://royalsocietypublishing.org/doi/pdf/...`).
+- **ASCE (`10.1061`)**: Direct-path resolution for ASCE library (`https://ascelibrary.org/doi/pdf/...`).
+- **Emerald (`10.1108`)**: Direct-path resolution for Emerald Insight (`https://www.emerald.com/insight/content/doi/.../pdf`).
+- **SIAM (`10.1137`)**: Direct-path resolution for SIAM publications (`https://epubs.siam.org/doi/pdf/...`).
+- **Pleiades Publishing (`10.1134`)**: Integrated under Springer Open rule mappings to query Pleiades publications directly.
+
+### 🛡️ Smart Fallbacks & Loop Prevention
+- **Grouped DOI Rules**: Grouped sub-journals (MDPI, Frontiers, Nature, PLOS) under their parent DOI prefixes for maximum code efficiency.
+- **Resilient Fallback Pipeline**: Enabled auto-fallbacks to Zenodo, Unpaywall, Sci-Hub, PMC, and other repositories when publishers challenge requests with anti-bot/cookie wall measures.
+
+### 📦 Metadata & Release Management
+- Bumped application version to `v2.4.0` in `paper.py`, installer scripts (`installer.iss`, `file_version_info.txt`), User-Agent string, and development tools.
+
+---
+**Full Changelog**: https://github.com/dzmarkets/Academic-Paper-Downloader/commits/main
+```
+
+## v2.3.9
+### Release Title
+Academic Paper Downloader v2.3.9 — Stop Action Improvements & GUI Responsiveness
+
+### Release Body
+```
+## What's New in v2.3.9
+
+### ⚡ Responsive & Instant Cancel State
+- **Chunked File Downloading**: Replaced blocking direct downloads with 64KB chunk-based reads, checking the cancel state during download loops to allow immediate abortion of active downloads.
+- **Cancel checks in search API calls**: Integrated early cancel hooks inside `fetch_html_resilient`, `search_crossref`, and `search_google_scholar` network requests to prevent UI hangs during slow search queries.
+
+### 🎨 Stop Button Styling & Label Adjustments
+- Changed stop button label to `"Stop Downloading"` (instead of `"Stop"`) when the download begins.
+- Ensured button text color remains white (`#FFFFFF`) across all Stop modes and states.
+- Enabled the Stop functionality for **individual result card downloads**, keeping the main button clickable/normal instead of disabled.
+- Properly restored all default values (purple background, white text, `"Search / Download"`) when resetting GUI states.
+
+---
+**Full Changelog**: https://github.com/dzmarkets/Academic-Paper-Downloader/commits/main
+```
+
 ## v2.3.8
 ### Release Title
 Academic Paper Downloader v2.3.8 — Search Quality & Non-Academic Filter

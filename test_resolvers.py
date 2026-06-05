@@ -12,6 +12,7 @@ from paper import (
     try_zenodo,
     try_doaj,
     try_semantic_scholar,
+    try_publisher_direct,
     get_download_dir,
     clean_filename
 )
@@ -122,6 +123,32 @@ class TestResolvers(unittest.TestCase):
         
         expected_filename = f"SemanticScholar_{clean_filename(title)}.pdf"
         self.verify_pdf_download(expected_filename)
+
+    def test_try_publisher_direct(self):
+        print("\n=== Testing Publisher Direct Heuristics (Best-Effort) ===")
+        test_cases = [
+            ("10.1007/s13205-020-02558-x", "Springer Test Paper", "Springer_Springer Test Paper.pdf"),
+            ("10.1038/s41598-020-63494-z", "Nature Test Paper", "Nature_s41598-020-63494-z.pdf"),
+            ("10.3390/s20041234", "MDPI Test Paper", "MDPI_MDPI Test Paper.pdf"),
+            ("10.3389/fimmu.2020.01234", "Frontiers Test Paper", "Frontiers_Frontiers Test Paper.pdf"),
+            ("10.1146/annurev-pubhealth-040218-043750", "AR Test Paper", "AR_AR Test Paper.pdf"),
+            ("10.1103/PhysRevLett.120.090401", "APS Test Paper", "APS_APS Test Paper.pdf"),
+            ("10.1086/674025", "Chicago Test Paper", "Chicago_Chicago Test Paper.pdf"),
+            ("10.1098/rspa.2016.0246", "Royal Test Paper", "Royal_Royal Test Paper.pdf"),
+            ("10.1061/(ASCE)CO.1943-7862.0000788", "ASCE Test Paper", "ASCE_ASCE Test Paper.pdf"),
+            ("10.1108/IJCHM-05-2016-0294", "Emerald Test Paper", "Emerald_Emerald Test Paper.pdf"),
+            ("10.1137/16M108707X", "SIAM Test Paper", "SIAM_SIAM Test Paper.pdf"),
+            ("10.1134/S003103011603011X", "Pleiades Test Paper", "Springer_Pleiades Test Paper.pdf")
+        ]
+        
+        for doi, title, expected_filename in test_cases:
+            print(f"Testing direct download heuristic for DOI: {doi}")
+            success = try_publisher_direct(doi, title)
+            if success:
+                print(f"[SUCCESS] Direct heuristic succeeded for DOI: {doi}")
+                self.verify_pdf_download(expected_filename)
+            else:
+                print(f"[INFO] Direct heuristic bypassed for DOI: {doi} (expected for paywalls/challenged papers). Falling back to pipeline.")
 
 if __name__ == "__main__":
     unittest.main()

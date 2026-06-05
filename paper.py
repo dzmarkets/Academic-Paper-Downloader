@@ -94,7 +94,7 @@ def get_download_dir(category="paper"):
 # ---------------------------------------------------------------------------
 # Define target paper metadata
 # ---------------------------------------------------------------------------
-VERSION = "2.3.8"
+VERSION = "2.4.0"
 DOI = "10.1145/3375633"
 TITLE = "Certifying compilation with de Bruijn indices"  # Used if DOI fails or for ResearchGate search
 abort_requested = False
@@ -353,10 +353,16 @@ def download_file(url, filename, referer=None, cookie=None, category="paper"):
         try:
             req = urllib.request.Request(url, headers=hdrs)
             with urllib.request.urlopen(req, timeout=25) as response:
-                if abort_requested:
-                    print("[INFO] Download aborted by user.")
-                    return False
-                content = response.read()
+                chunks = []
+                while True:
+                    if abort_requested:
+                        print("[INFO] Download aborted by user.")
+                        return False
+                    chunk = response.read(65536)
+                    if not chunk:
+                        break
+                    chunks.append(chunk)
+                content = b"".join(chunks)
             # Validate immediately
             if is_pdf and content and not content.startswith(b'%PDF'):
                 content = None  # not a real PDF, try next
@@ -437,6 +443,9 @@ def resolve_title_to_doi(title):
 
 def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
     """Query Crossref API for title+author keywords, return paginated list with OA check."""
+    global abort_requested
+    if abort_requested:
+        return []
     if not query:
         return []
     # Detect exact match phrase in quotes (Google-like intelligent search)
@@ -464,8 +473,12 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
     elif type_filter == "Books":
         url += "&filter=type:book"
     try:
+        if abort_requested:
+            return []
         req = urllib.request.Request(url, headers=HEADERS)
         with urllib.request.urlopen(req, timeout=10) as response:
+            if abort_requested:
+                return []
             data = json.loads(response.read().decode())
         
         items = data.get('message', {}).get('items', [])
@@ -566,6 +579,9 @@ def search_google_scholar(query, offset=0, rows=5):
     
     This retrieves high-quality academic titles, PDF links, authors, and journal names.
     """
+    global abort_requested
+    if abort_requested:
+        return []
     if not query:
         return []
     
@@ -905,9 +921,16 @@ def search_openalex_by_author(author_name, offset=0, rows=5, type_filter="All"):
 
 def fetch_html_resilient(url):
     """Fetch HTML content from a URL using urllib first, falling back to native system curl on block/failure."""
+    global abort_requested
+    if abort_requested:
+        return ""
     try:
+        if abort_requested:
+            return ""
         req = urllib.request.Request(url, headers=HEADERS)
         with urllib.request.urlopen(req, timeout=12) as response:
+            if abort_requested:
+                return ""
             return response.read().decode('utf-8', errors='ignore')
     except Exception as e:
         print(f"[WARNING] urllib fetch failed: {e}. Trying native system curl fallback...")
@@ -2277,6 +2300,74 @@ def try_biorxiv(doi, title):
     return False
 
 
+def try_publisher_direct(doi, title, status_label=None):
+    """Strategy: Construct direct download link for known open-access publisher DOI prefixes."""
+    if not doi:
+        return False
+    if doi.startswith("http://") or doi.startswith("https://"):
+        return False
+
+    doi_lower = doi.lower()
+    
+    # Define publisher rules mapping DOI prefixes to their direct URL structures
+    # and readable names
+    rules = [
+        # (Prefixes/Keywords, Name, URL Template, Filename Prefix)
+        (["10.1007", "10.1186", "10.1134"], "Springer Open / BMC / Pleiades", "https://link.springer.com/content/pdf/{doi}.pdf", "Springer_"),
+        (["10.3390"], "MDPI", "https://www.mdpi.com/article/{doi}/pdf", "MDPI_"),
+        (["10.3389"], "Frontiers", "https://www.frontiersin.org/articles/{doi}/pdf", "Frontiers_"),
+        (["10.1002", "10.1111", "10.22541"], "Wiley (OA)", "https://onlinelibrary.wiley.com/doi/pdf/{doi}", "Wiley_"),
+        (["10.1080"], "Taylor & Francis", "https://www.tandfonline.com/doi/pdf/{doi}", "TF_"),
+        (["10.1088", "10.3847"], "IOP Science / AAS", "https://iopscience.iop.org/article/{doi}/pdf", "IOP_"),
+        (["10.1021"], "ACS (OA)", "https://pubs.acs.org/doi/pdf/{doi}", "ACS_"),
+        (["10.1093"], "Oxford Academic", "https://academic.oup.com/doi/pdf/{doi}", "OUP_"),
+        (["10.1177"], "Sage (OA)", "https://journals.sagepub.com/doi/pdf/{doi}", "Sage_"),
+        (["10.1146"], "Annual Reviews", "https://www.annualreviews.org/doi/pdf/{doi}", "AR_"),
+        (["10.1103"], "APS", "https://journals.aps.org/prl/pdf/{doi}", "APS_"),
+        (["10.1086"], "University of Chicago Press", "https://www.journals.uchicago.edu/doi/pdf/{doi}", "Chicago_"),
+        (["10.1098"], "Royal Society", "https://royalsocietypublishing.org/doi/pdf/{doi}", "Royal_"),
+        (["10.1061"], "ASCE", "https://ascelibrary.org/doi/pdf/{doi}", "ASCE_"),
+        (["10.1108"], "Emerald", "https://www.emerald.com/insight/content/doi/{doi}/pdf", "Emerald_"),
+        (["10.1137"], "SIAM", "https://epubs.siam.org/doi/pdf/{doi}", "SIAM_"),
+    ]
+    
+    # Handle Nature Nature-based suffixes differently since they use suffix after 10.1038/
+    if doi_lower.startswith("10.1038/"):
+        suffix = doi.split("10.1038/", 1)[1].strip()
+        url = f"https://www.nature.com/articles/{suffix}.pdf"
+        name = "Nature"
+        filename_prefix = "Nature_"
+        
+        print(f"\n--- [STRATEGY] Querying {name} Direct Link ---")
+        if status_label:
+            status_label.config(text=f"Querying {name} Direct...", fg="#00ADB5")
+            
+        register_discovered_url(url, f"{name} Direct PDF")
+        filename = f"{filename_prefix}{clean_filename(title if title else suffix)}.pdf"
+        print(f"[INFO] Constructing {name} direct URL: {url}")
+        if download_file(url, filename):
+            return True
+        return False
+        
+    # Standard prefix rules
+    for prefixes, name, url_template, filename_prefix in rules:
+        if any(doi_lower.startswith(p + "/") for p in prefixes):
+            print(f"\n--- [STRATEGY] Querying {name} Direct Link ---")
+            if status_label:
+                status_label.config(text=f"Querying {name} Direct...", fg="#00ADB5")
+                
+            url = url_template.replace("{doi}", doi)
+            
+            register_discovered_url(url, f"{name} Direct PDF")
+            filename = f"{filename_prefix}{clean_filename(title if title else doi.replace('/', '_'))}.pdf"
+            print(f"[INFO] Constructing {name} direct URL: {url}")
+            if download_file(url, filename):
+                return True
+            break
+            
+    return False
+
+
 def try_zenodo(doi, title):
     """Strategy: Download open access records directly from Zenodo API."""
     if not doi:
@@ -2631,7 +2722,7 @@ def reset_gui_state(run_button, entry_widget):
     """Restore the GUI button and entry box back to their idle states."""
     global is_running, prev_btn, next_btn, card_buttons
     is_running = False
-    run_button.config(text="Search / Download", bg="#8B5CF6", activebackground="#A78BFA", state='normal')
+    run_button.config(text="Search / Download", bg="#8B5CF6", activebackground="#A78BFA", fg="#FFFFFF", activeforeground="#FFFFFF", state='normal')
     entry_widget.config(state='normal')
     
     # Re-enable pagination and cards
@@ -2733,6 +2824,9 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
                 if not success and target_doi.lower().startswith("10.1101/"):
                     status_label.config(text="Querying BioRxiv/MedRxiv API...", fg="#00ADB5")
                     success = try_biorxiv(target_doi, target_title)
+
+                if not success:
+                    success = try_publisher_direct(target_doi, target_title, status_label=status_label)
 
                 # Try direct URL download first if target_doi is a direct URL (and not a ResearchGate publication url)
                 if not success and (target_doi.startswith("http://") or target_doi.startswith("https://")) and ("researchgate.net" not in target_doi or "/links/" in target_doi):
@@ -3401,7 +3495,7 @@ def launch_gui():
         abort_requested = False
         
         entry.config(state='disabled')
-        run_button.config(state='disabled')
+        run_button.config(text="Stop Downloading", bg="#D32F2F", activebackground="#EF5350", fg="#FFFFFF", activeforeground="#FFFFFF", state='normal')
         prev_btn.config(state='disabled')
         next_btn.config(state='disabled')
         clear_res_btn.config(state='disabled')
@@ -3593,7 +3687,7 @@ def launch_gui():
         
         # Disable inputs
         entry.config(state='disabled')
-        run_button.config(text="Stop Search", bg="#D32F2F", activebackground="#EF5350")
+        run_button.config(text="Stop Search", bg="#D32F2F", activebackground="#EF5350", fg="#FFFFFF", activeforeground="#FFFFFF")
         prev_btn.config(state='disabled')
         next_btn.config(state='disabled')
         clear_res_btn.config(state='disabled')
@@ -3722,7 +3816,7 @@ def launch_gui():
                 is_running = True
                 abort_requested = False
                 entry.config(state='disabled')
-                run_button.config(text="Stop", bg="#D32F2F", activebackground="#EF5350")
+                run_button.config(text="Stop Downloading", bg="#D32F2F", activebackground="#EF5350", fg="#FFFFFF", activeforeground="#FFFFFF")
                 status_label.config(text="Initializing pipeline...", fg="#A855F7")
                 running_event.set()
                 animate_loading(status_label, running_event)

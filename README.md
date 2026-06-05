@@ -1,8 +1,8 @@
 # 📚 Academic Paper Downloader
 
-> **Version 2.3.7**
+> **Version 2.4.0**
 
-[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.3.7/AcademicPaperDownloader_Setup.exe)
+[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.4.0/AcademicPaperDownloader_Setup.exe)
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
@@ -51,6 +51,7 @@ The application features a multi-tiered search and resolution pipeline that quer
 - **arXiv**: Direct PDF fetch from the arXiv repository for physics, mathematics, and computer science papers.
 - **SSRN (Social Science Research Network)**: Native abstract crawling to download social science preprints.
 - **Europe PMC**: Queries PubMed Central and Europe PMC mirrors to access free biomedical publications.
+- **Annual Reviews / APS / University of Chicago Press / Royal Society / ASCE / Emerald / SIAM / Pleiades**: Expanded direct open-access resolution support for 25 additional publishers.
 
 ### 📚 Book & Large Document Sources
 - **Library Genesis (LibGen)**: Queries Library Genesis mirrors to resolve and download textbook and monograph files.
@@ -103,6 +104,20 @@ All downloaded files are saved in subfolders under the user's `Documents\Academi
 ---
 
 ## 📋 Changelog
+
+### v2.4.0
+- Added direct open-access resolvers for 25 new publishers/journals including Annual Reviews, APS, Chicago Press, Royal Society, ASCE, Emerald, SIAM, and Pleiades Publishing (via Springer).
+- Grouped DOI prefix rules for MDPI, Frontiers, Nature, and PLOS to optimize mapping code.
+- Bumped application version to `v2.4.0` in package, installers, configuration, and user-agent string.
+
+### v2.3.9
+- Replaced blocking direct downloads with 64KB chunk-based reads, checking the cancel state during download loops to allow immediate abortion of active downloads.
+- Integrated early cancel hooks inside network request functions to prevent UI hangs.
+- Redesigned Stop button styling, state-handling, and foreground text colors.
+
+### v2.3.8
+- Implemented non-academic search results filtering (ignoring software repository/documentation sites like GitHub, PyPI, Wikipedia, etc.).
+- Fixed DuckDuckGo search result deduplication/filtering logic.
 
 ### v2.3.7
 - Integrated 5 new direct open-access paper download resolvers: PLOS, BioRxiv, Zenodo, DOAJ, and Semantic Scholar.
