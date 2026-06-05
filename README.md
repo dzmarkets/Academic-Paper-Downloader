@@ -1,8 +1,8 @@
 # 📚 Academic Paper Downloader
 
-> **Version 2.3.5**
+> **Version 2.3.6**
 
-[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.3.5/AcademicPaperDownloader_Setup.exe)
+[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.3.6/AcademicPaperDownloader_Setup.exe)
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
@@ -70,6 +70,9 @@ The compiled `.exe` will be placed in the `dist\` folder. All downloaded files w
 ---
 
 ## 📋 Changelog
+
+### v2.3.6
+- Switched from single-file compilation (`--onefile`) to directory-based compilation (`--onedir`) and packaged it via Inno Setup. This removes the runtime self-extraction delay and makes the application start instantaneously (under 0.5s).
 
 ### v2.3.5
 - Fixed subprocess argument escaping for setup installer launching by passing the execution command as a single string.

@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Academic Paper Downloader"
-#define MyAppVersion "2.3.5"
+#define MyAppVersion "2.3.6"
 #define MyAppPublisher "Yazid YOUCEF"
 #define MyAppURL "https://github.com/dzmarkets/Academic-Paper-Downloader"
 #define MyAppExeName "paper.exe"
@@ -37,7 +37,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "dist\paper\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Source: "app_icon.png"; DestDir: "{app}"; Flags: ignoreversion
 ; Note: Don't pack the downloaded folder structure since the app creates it dynamically on startup!
 
