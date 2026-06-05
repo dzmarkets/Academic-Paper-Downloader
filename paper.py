@@ -4151,7 +4151,7 @@ def launch_gui():
         """Background thread: reveal support panel only for Algerian users."""
         country = get_user_country()
         if country == 'DZ':
-            root.after(0, lambda: support_frame.pack(fill='x', side='bottom'))
+            root.after(0, lambda: support_frame.pack(fill='x', side='bottom', before=logs_frame))
     
     t_geo = threading.Thread(target=check_country_bg)
     t_geo.daemon = True
