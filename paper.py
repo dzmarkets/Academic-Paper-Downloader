@@ -94,7 +94,7 @@ def get_download_dir(category="paper"):
 # ---------------------------------------------------------------------------
 # Define target paper metadata
 # ---------------------------------------------------------------------------
-VERSION = "2.3.7"
+VERSION = "2.3.8"
 DOI = "10.1145/3375633"
 TITLE = "Certifying compilation with de Bruijn indices"  # Used if DOI fails or for ResearchGate search
 abort_requested = False
@@ -626,6 +626,42 @@ def search_google_scholar(query, offset=0, rows=5):
                 ("university" in title_lower and ("members" in title_lower or "profile" in title_lower))
             )
             if is_profile:
+                continue
+                
+            # Skip non-academic / software / documentation / social domains —
+            # only papers from academic repositories should appear in search results
+            _NON_ACADEMIC_DOMAINS = (
+                "github.com",
+                "github.io",
+                "readthedocs.io",
+                "readthedocs.org",
+                "pypi.org",
+                "stackoverflow.com",
+                "stackexchange.com",
+                "reddit.com",
+                "twitter.com",
+                "x.com",
+                "linkedin.com",
+                "facebook.com",
+                "youtube.com",
+                "medium.com",
+                "substack.com",
+                "wikipedia.org",
+                "conda-forge.org",
+                "anaconda.org",
+                "bioconductor.org",
+                "npmjs.com",
+                "cran.r-project.org",
+                "sourceforge.net",
+                "gitlab.com",
+                "bitbucket.org",
+                "docs.python.org",
+                "docs.scipy.org",
+                "galaxyproject.org",
+                "snakemake.readthedocs.io",
+            )
+            if any(nd in url_lower for nd in _NON_ACADEMIC_DOMAINS):
+                print(f"[INFO] Skipping non-academic URL: {actual_url}")
                 continue
                 
             # Snippet
