@@ -1,7 +1,7 @@
 import re
 
 OLD = "2.4.0.3"
-NEW = "2.4.0.4"
+NEW = "2.4.0.5"
 
 files = [
     "file_version_info.txt",

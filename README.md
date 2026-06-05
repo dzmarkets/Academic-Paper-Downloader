@@ -1,8 +1,8 @@
 # 📚 Academic Paper Downloader
 
-> **Version 2.4.0.4**
+> **Version 2.4.0.5**
 
-[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.4.0.4/AcademicPaperDownloader_Setup.exe)
+[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.4.0.5/AcademicPaperDownloader_Setup.exe)
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
@@ -106,6 +106,10 @@ All downloaded files are saved in subfolders under the user's `Documents\Academi
 ---
 
 ## 📋 Changelog
+
+### v2.4.0.5
+- Extended the tracked journal list by 2000 candidate journals (items 4001-6000) resolved via the open-access pipeline and direct publisher heuristics.
+- Bumped application version to `v2.4.0.5` in package, installers, configuration, and user-agent string.
 
 ### v2.4.0.4
 - Extended the tracked journal list by 2000 candidate journals (items 2001-4000) resolved via the open-access pipeline and direct publisher heuristics.

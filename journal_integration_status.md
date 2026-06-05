@@ -4005,3 +4005,2004 @@ Use this list to track the status of integrated direct resolvers and prevent loo
 | 3998 | JOURNAL OF COMPUTER LANGUAGES / ELSEVIER SCI LTD | 2590-1184 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
 | 3999 | Frontiers in Systems Biology Frontiers Media SA / Unknown | 2674-0702 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
 | 4000 | Rehabilitace a Fyzikalni Lekarstvi Czech Medical A / Unknown | 1805-4552 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+
+| 4001 | INTERNATIONAL JOURNAL OF  RADIATION ONCOLOGY BIOLO / ELSEVIER SCIENCE INC | 1879-355X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4002 | JOURNAL OF IMMUNOLOGICAL  METHODS / ELSEVIER | 1872-7905 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4003 | EMERGENCY MEDICINE CLINICS OF  NORTH AMERICA / W B SAUNDERS CO-ELSEVIER INC | 1558-0539 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4004 | Family Court Review John Wiley & Sons Inc. / Unknown | 1744-1617 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4005 | DEMOCRATIZATION / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1743-890X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4006 | LEADERSHIP & ORGANIZATION  DEVELOPMENT JOURNAL / EMERALD GROUP PUBLISHING LTD | 1472-5347 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4007 | AUSTRALIAN ARCHAEOLOGY / TAYLOR & FRANCIS LTD | 2470-0363 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4008 | CLINICAL TRIALS / SAGE PUBLICATIONS LTD | 1740-7753 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4009 | CLIMATE POLICY / TAYLOR & FRANCIS LTD | 1752-7457 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4010 | AQUACULTURAL ENGINEERING / ELSEVIER SCI LTD | 1873-5614 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4011 | INTERNATIONAL JOURNAL OF HUMAN  RIGHTS / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1744-053X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4012 | CHILD NEUROPSYCHOLOGY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1744-4136 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4013 | Journal for Nurses in Professional Development Lip / Unknown | 2169-981X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4014 | South African Journal of Clinical Nutrition Taylor / Unknown | 2221-1268 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4015 | HIGH POWER LASER SCIENCE AND  ENGINEERING / CAMBRIDGE UNIV PRESS | 2095-4719 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4016 | FUNGAL DIVERSITY / SPRINGER | 1878-9129 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4017 | JOURNAL OF INVESTIGATIVE  PSYCHOLOGY AND OFFENDER  / WILEY | 1544-4767 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4018 | EUROPEAN REVIEW OF SOCIAL  PSYCHOLOGY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1479-277X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4019 | Journal of The Institution of Engineers (India): S / Unknown | 2250-2491 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4020 | International Journal of Electronic Commerce Studi / N°   ISSN   E-ISSN | 2410-8588 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4021 | International Journal of Comparative Education and / Unknown | 2396-7404 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4022 | NEUROLOGY / LIPPINCOTT WILLIAMS & WILKINS | 1526-632X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4023 | CHEMIE INGENIEUR TECHNIK / WILEY-V C H VERLAG GMBH | 1522-2640 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4024 | INTERNATIONAL JOURNAL OF  SYSTEMATIC AND EVOLUTION / MICROBIOLOGY SOC | 1466-5034 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4025 | AMERICAN JOURNAL OF MEDICAL  GENETICS PART A / WILEY | 1552-4833 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4026 | NUCLEAR SCIENCE AND ENGINEERING / TAYLOR & FRANCIS INC | 1943-748X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4027 | PROCEEDINGS OF THE INSTITUTION OF  MECHANICAL ENGI / SAGE PUBLICATIONS LTD | 2041-305X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4028 | PERIODICA MATHEMATICA  HUNGARICA / SPRINGER | 1588-2829 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4029 | International Journal of Operational Research Inde / Unknown | 1745-7653 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4030 | JOURNAL OF RISK RESEARCH / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1466-4461 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4031 | JOURNAL OF FAMILY THERAPY / WILEY | 1467-6427 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4032 | Journal of Control, Automation and Electrical Syst / Unknown | 2195-3899 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4033 | COLLECTANEA MATHEMATICA / SPRINGER-VERLAG ITALIA SRL | 2038-4815 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4034 | JOURNAL OF EXPERIMENTAL ZOOLOGY  PART A-ECOLOGICAL / WILEY | 2471-5646 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4035 | DEVELOPING WORLD BIOETHICS / WILEY | 1471-8847 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4036 | JOURNAL OF HYMENOPTERA  RESEARCH / PENSOFT PUBLISHERS | 1314-2607 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4037 | Journal of Echocardiography Springer Japan / Unknown | 1880-344X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4038 | EUROPEAN JOURNAL OF INDUSTRIAL  RELATIONS / SAGE PUBLICATIONS LTD | 1461-7129 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4039 | Journal of Entrepreneurship in Emerging Economies  / Unknown | 2053-4612 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4040 | LANGUAGE LEARNING AND  DEVELOPMENT / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1547-5441 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4041 | Integrative and Complementary Therapies Mary Ann L / Unknown | 2768-3206 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4042 | Advances in Operations Research John Wiley and Son / Unknown | 1687-9155 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4043 | Review of Evolutionary Political Economy Springer  / Unknown | 2662-6144 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4044 | Meteorologica Centro Argentino de Meteorologos / Unknown | 1850-468X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4045 | GASTROENTEROLOGY / W B SAUNDERS CO-ELSEVIER INC | 1528-0012 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4046 | PERCEPTUAL AND MOTOR SKILLS / SAGE PUBLICATIONS INC | 1558-688X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4047 | OPHTHALMOLOGY / ELSEVIER SCIENCE INC | 1549-4713 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4048 | JOURNAL OF MEDICAL VIROLOGY / WILEY | 1096-9071 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4049 | CHILDREN AND YOUTH SERVICES  REVIEW / PERGAMON-ELSEVIER SCIENCE LTD | 1873-7765 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4050 | JOURNAL OF ARID ENVIRONMENTS / ACADEMIC PRESS LTD- ELSEVIER  SCIENCE LT | 1095-922X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4051 | GeoJournal Springer Science and Business Media Deu / Unknown | 1572-9893 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4052 | BOUNDARY-LAYER METEOROLOGY / SPRINGER | 1573-1472 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4053 | NMR IN BIOMEDICINE / WILEY | 1099-1492 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4054 | HUMAN & EXPERIMENTAL  TOXICOLOGY / SAGE PUBLICATIONS LTD | 1477-0903 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4055 | JOURNAL OF SOIL AND WATER  CONSERVATION / TAYLOR & FRANCIS LTD | 1941-3300 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4056 | INDIAN JOURNAL OF ORTHOPAEDICS / SPRINGER HEIDELBERG | 1998-3727 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4057 | INTERNATIONAL JOURNAL OF NUMBER  THEORY / WORLD SCIENTIFIC PUBL CO PTE  LTD | 1793-7310 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4058 | BREASTFEEDING MEDICINE / MARY ANN LIEBERT, INC | 1556-8342 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4059 | REVIEWS IN MEDICAL VIROLOGY / WILEY | 1099-1654 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4060 | Scientia Sinica Mathematica Science Press / Unknown | 2095-9427 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4061 | INTERNATIONAL JOURNAL OF  CIRCUMPOLAR HEALTH / TAYLOR & FRANCIS LTD | 2242-3982 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4062 | JOURNAL OF REAL-TIME IMAGE  PROCESSING / SPRINGER HEIDELBERG | 1861-8219 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4063 | CRITICAL REVIEWS IN ANALYTICAL  CHEMISTRY / TAYLOR & FRANCIS INC | 1547-6510 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4064 | DATA MINING AND KNOWLEDGE  DISCOVERY / SPRINGER | 1573-756X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4065 | NATURAL RESOURCE MODELING / WILEY | 1939-7445 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4066 | CURRENT COMPUTER-AIDED DRUG  DESIGN / BENTHAM SCIENCE PUBL LTD | 1875-6697 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4067 | SCHOOL PSYCHOLOGY / EDUCATIONAL PUBLISHING  FOUNDATION-AMERI | 2578-4226 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4068 | MEDICINA DELLO SPORT / EDIZIONI MINERVA MEDICA | 1827-1863 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4069 | ADVANCES IN ASTRONOMY / WILEY | 1687-7977 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4070 | Economic History of Developing Regions Taylor and  / Unknown | 2078-0397 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4071 | International Journal of Chinese Linguistics John  / Unknown | 2213-8714 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4072 | CROP SCIENCE / WILEY | 1435-0653 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4073 | ATMOSPHERIC ENVIRONMENT / PERGAMON-ELSEVIER SCIENCE LTD | 1873-2844 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4074 | INTERNATIONAL RELATIONS / SAGE PUBLICATIONS LTD | 1741-2862 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4075 | EUROPEAN JOURNAL OF FOREST  RESEARCH / SPRINGER | 1612-4677 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4076 | JOURNAL OF BIOMATERIALS SCIENCE- POLYMER EDITION / TAYLOR & FRANCIS LTD | 1568-5624 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4077 | OCEAN DYNAMICS / SPRINGER HEIDELBERG | 1616-7341 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4078 | NUCLEAR DATA SHEETS / ACADEMIC PRESS INC ELSEVIER  SCIENCE | 1095-9904 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4079 | INTERNATIONAL JOURNAL OF  COMPUTER INTEGRATED  MAN / TAYLOR & FRANCIS LTD | 1362-3052 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4080 | JOURNAL OF SOUTHERN AFRICAN  STUDIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1465-3893 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4081 | Strabismus Taylor and Francis Ltd. / Unknown | 1744-5132 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4082 | IRAN-JOURNAL OF THE BRITISH  INSTITUTE OF PERSIAN  / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 2396-9202 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4083 | OPEN HOUSE INTERNATIONAL- SUSTAINABLE & SMART ARCH / EMERALD GROUP PUBLISHING LTD | 2633-9838 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4084 | Medicinal Plants - International Journal of Phytom / Unknown | 0975-6892 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4085 | JOURNAL OF DESTINATION  MARKETING & MANAGEMENT / ELSEVIER | 2212-5752 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4086 | Journal of Historical Research in Marketing Emeral / Unknown | 1755-7518 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4087 | ACOUSTICS AUSTRALIA / SPRINGER SINGAPORE PTE LTD | 1839-2571 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4088 | International Journal of Noncommunicable Diseases  / Unknown | 2468-8835 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4089 | HONG KONG JOURNAL OF  OCCUPATIONAL THERAPY / SAGE PUBLICATIONS LTD | 1876-4398 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4090 | JOURNAL OF MATHEMATICS AND  MUSIC / TAYLOR & FRANCIS LTD | 1745-9745 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4091 | Chinese Journal of Academic Radiology Springer / Unknown | 2520-8993 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4092 | Study Abroad Research in Second Language Acquisiti / Unknown | 2405-5530 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4093 | JOURNAL OF MATERIALS ENGINEERING  AND PERFORMANCE / SPRINGER | 1544-1024 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4094 | IEEE JOURNAL OF SELECTED TOPICS IN  APPLIED EARTH  / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 2151-1535 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4095 | PANCREATOLOGY / ELSEVIER | 1424-3911 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4096 | ACTAS UROLOGICAS ESPANOLAS / ELSEVIER ESPANA | 1699-7980 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4097 | DEVELOPMENT GROWTH &  DIFFERENTIATION / WILEY | 1440-169X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4098 | STATISTICAL METHODS IN MEDICAL  RESEARCH / SAGE PUBLICATIONS LTD | 1477-0334 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4099 | AQUACULTURE NUTRITION / WILEY | 1365-2095 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4100 | Enfermeria Clinica Elsevier Espana S.L.U / Unknown | 1579-2013 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4101 | CIRCULATION-ARRHYTHMIA AND  ELECTROPHYSIOLOGY / LIPPINCOTT WILLIAMS & WILKINS | 1941-3149 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4102 | JOURNAL OF EDUCATIONAL  ADMINISTRATION / EMERALD GROUP PUBLISHING LTD | 1758-7395 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4103 | ZEITSCHRIFT FUR ASSYRIOLOGIE UND  VORDERASIATISCHE / WALTER DE GRUYTER GMBH | 1613-1150 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4104 | Journal of Financial Crime Emerald Group Publishin / Unknown | 1758-7239 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4105 | JOURNAL OF AGING STUDIES / ELSEVIER SCIENCE INC | 1879-193X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4106 | SEXUALITY RESEARCH AND SOCIAL  POLICY / SPRINGER | 1868-9884 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4107 | INTERNATIONAL JOURNAL OF SPORT  NUTRITION AND EXER / HUMAN KINETICS PUBL INC | 1543-2742 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4108 | Twentieth Century British History Oxford Universit / Unknown | 1477-4674 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4109 | Journal of Health Management Sage Publications Ind / Unknown | 0973-0729 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4110 | MULTIDIMENSIONAL SYSTEMS AND  SIGNAL PROCESSING / SPRINGER | 1573-0824 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4111 | AUSTRALIAN SYSTEMATIC BOTANY / CSIRO PUBLISHING | 1446-5701 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4112 | COMMUNITY ECOLOGY / SPRINGER HEIDELBERG | 1588-2756 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4113 | COMPARATIVE EUROPEAN POLITICS / PALGRAVE MACMILLAN LTD | 1740-388X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4114 | Environmental Processes Springer Science and Busin / Unknown | 2198-7505 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4115 | Asian Review of Accounting Emerald Group Publishin / Unknown | 1758-8863 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4116 | International Journal of Reconfigurable and Embedd / Unknown | 2722-2608 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4117 | HOME CULTURES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1751-7427 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4118 | Bridge Structures SAGE Publications Ltd / Unknown | 1744-8999 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4119 | GEOGRAPHICAL JOURNAL / WILEY | 1475-4959 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4120 | JOURNAL OF BONE AND MINERAL  RESEARCH / OXFORD UNIV PRESS | 1523-4681 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4121 | PRAKTISCHE METALLOGRAPHIE- PRACTICAL METALLOGRAPHY / WALTER DE GRUYTER GMBH | 2195-8599 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4122 | BRITISH JOURNAL OF EDUCATIONAL  PSYCHOLOGY / WILEY | 2044-8279 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4123 | MINERALIUM DEPOSITA / SPRINGER | 1432-1866 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4124 | Art Documentation University of Chicago Press / Unknown | 2161-9417 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4125 | LANGUAGE SCIENCES / ELSEVIER SCI LTD | 1873-5746 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4126 | SOUTH AFRICAN JOURNAL OF  PSYCHOLOGY / SAGE PUBLICATIONS LTD | 2078-208X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4127 | JOURNAL OF HEALTH POPULATION  AND NUTRITION / BMC | 2072-1315 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4128 | JOURNAL OF CHILDRENS  ORTHOPAEDICS / SAGE PUBLICATIONS INC | 1863-2548 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4129 | Reading Psychology Taylor and Francis Ltd. / Unknown | 1521-0685 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4130 | INTERNATIONAL JOURNAL OF LAW IN  CONTEXT / CAMBRIDGE UNIV PRESS | 1744-5531 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4131 | LOGOPEDICS PHONIATRICS VOCOLOGY / TAYLOR & FRANCIS LTD | 1651-2022 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4132 | STOCHASTIC MODELS / TAYLOR & FRANCIS INC | 1532-6349 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4133 | International Journal of Technology, Policy and Ma / Unknown | 1741-5292 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4134 | JOURNAL OF SPECTRAL THEORY / EUROPEAN MATHEMATICAL SOC- EMS | 1664-0403 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4135 | Journal of Patient Safety and Risk Management SAGE / Unknown | 2516-0443 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4136 | Journal of European Tort Law Walter de Gruyter Gmb / Unknown | 1868-9620 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4137 | THROMBOSIS RESEARCH / PERGAMON-ELSEVIER SCIENCE LTD | 1879-2472 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4138 | BRAIN STIMULATION / ELSEVIER SCIENCE INC | 1935-861X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4139 | BULLETIN DU CANCER / ELSEVIER MASSON, CORPORATION  OFFICE | 1769-6917 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4140 | INTERNATIONAL JOURNAL OF APPLIED  CERAMIC TECHNOLO / WILEY | 1744-7402 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4141 | ERKENNTNIS / SPRINGER | 1572-8420 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4142 | RESEARCH IN NURSING & HEALTH / WILEY | 1098-240X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4143 | CLINICS IN PERINATOLOGY / W B SAUNDERS CO-ELSEVIER INC | 1557-9840 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4144 | INTERNATIONAL JOURNAL OF  COSMETIC SCIENCE / WILEY | 1468-2494 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4145 | GIFTED CHILD QUARTERLY / SAGE PUBLICATIONS INC | 1934-9041 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4146 | ACM SIGCOMM COMPUTER  COMMUNICATION REVIEW / ASSOC COMPUTING MACHINERY | 1943-5819 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4147 | SLAS DISCOVERY / ELSEVIER SCIENCE INC | 2472-5560 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4148 | International Studies Sage Publications India Pvt. / Unknown | 0973-0702 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4149 | EDUCATIONAL PSYCHOLOGIST / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1532-6985 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4150 | Journal of Chiropractic Medicine Elsevier Inc. / Unknown | 1556-3715 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4151 | SHAW-THE JOURNAL OF BERNARD  SHAW STUDIES / PENN STATE UNIV PRESS | 1529-1480 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4152 | Journal of Small Business and Entrepreneurship Tay / N°   ISSN   E-ISSN | 2169-2610 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4153 | History of Economics Review Informa:  Taylor & Fra / Unknown | 1838-6318 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4154 | Veterinary Medicine International John Wiley and S / Unknown | 2090-8113 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4155 | Pratique Neurologique - FMC Elsevier Masson s.r.l. / Unknown | 1878-7770 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4156 | TRAINING AND EDUCATION IN  PROFESSIONAL PSYCHOLOGY / EDUCATIONAL PUBLISHING  FOUNDATION-AMERI | 1931-3926 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4157 | GEOTECTONICS / PLEIADES PUBLISHING INC | 1556-1976 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4158 | International Journal of Security and Networks Ind / Unknown | 1747-8413 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4159 | Society and Business Review Emerald Group Publishi / Unknown | 1746-5699 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4160 | IET Networks John Wiley & Sons Inc. / Unknown | 2047-4962 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4161 | Journal for the Study of the Pseudepigrapha SAGE P / Unknown | 1745-5286 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4162 | HEALTH PSYCHOLOGY REVIEW / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1743-7202 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4163 | CLASSICAL REVIEW / CAMBRIDGE UNIV PRESS | 1464-3561 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4164 | JOURNAL OF NEUROLOGICAL SURGERY  PART B-SKULL BASE / THIEME MEDICAL PUBL INC | 2193-634X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4165 | CONCURRENCY AND COMPUTATION- PRACTICE & EXPERIENCE / WILEY | 1532-0634 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4166 | IEEE TRANSACTIONS ON CYBERNETICS / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 2168-2275 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4167 | JOURNAL OF NURSING EDUCATION / SLACK INC | 1938-2421 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4168 | CELL TRANSPLANTATION / SAGE PUBLICATIONS INC | 1555-3892 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4169 | GLYCOBIOLOGY / OXFORD UNIV PRESS INC | 1460-2423 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4170 | JOURNALS OF GERONTOLOGY SERIES  B-PSYCHOLOGICAL SC / OXFORD UNIV PRESS INC | 1758-5368 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4171 | RESEARCH IN SOCIAL &  ADMINISTRATIVE PHARMACY / ELSEVIER SCIENCE INC | 1934-8150 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4172 | NANOMEDICINE / TAYLOR & FRANCIS LTD | 1748-6963 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4173 | GLOBAL ECOLOGY AND  BIOGEOGRAPHY / WILEY | 1466-8238 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4174 | VETERINARY ANAESTHESIA AND  ANALGESIA / ELSEVIER | 1467-2995 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4175 | COUNSELING PSYCHOLOGIST / SAGE PUBLICATIONS INC | 1552-3861 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4176 | MINERALOGY AND PETROLOGY / SPRINGER WIEN | 1438-1168 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4177 | Physics of Particles and Nuclei Letters Pleiades P / Unknown | 1547-4771 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4178 | JOURNAL OF AUSTRALIAN STUDIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1835-6419 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4179 | LIBRI-INTERNATIONAL JOURNAL OF  LIBRARIES AND INFO / WALTER DE GRUYTER GMBH | 1865-8423 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4180 | MECHANICS BASED DESIGN OF  STRUCTURES AND MACHINES / TAYLOR & FRANCIS INC | 1539-7742 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4181 | EUROPEAN JOURNAL OF CELL BIOLOGY / ELSEVIER GMBH | 1618-1298 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4182 | ARCHIVES OF WOMENS MENTAL  HEALTH / SPRINGER WIEN | 1435-1102 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4183 | QUEUEING SYSTEMS / SPRINGER | 1572-9443 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4184 | LIMNOLOGICA / ELSEVIER GMBH | 1873-5851 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4185 | KI - Kunstliche Intelligenz Springer International / Unknown | 1610-1987 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4186 | ARABIC SCIENCES AND PHILOSOPHY / CAMBRIDGE UNIV PRESS | 1474-0524 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4187 | JOURNAL ON MULTIMODAL USER  INTERFACES / SPRINGER | 1783-8738 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4188 | JOURNAL OF ELECTRONIC MATERIALS / SPRINGER | 1543-186X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4189 | PEPTIDES / ELSEVIER SCIENCE INC | 1873-5169 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4190 | JOURNAL OF CRITICAL CARE / W B SAUNDERS CO-ELSEVIER INC | 1557-8615 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4191 | BIOSYSTEMS ENGINEERING / ACADEMIC PRESS INC ELSEVIER  SCIENCE | 1537-5129 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4192 | CURRENT OPINION IN CARDIOLOGY / LIPPINCOTT WILLIAMS & WILKINS | 1531-7080 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4193 | JOURNAL OF CONSUMER RESEARCH / OXFORD UNIV PRESS INC | 1537-5277 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4194 | BULLETIN OF THE INSTITUTE OF  CLASSICAL STUDIES / OXFORD UNIV PRESS | 2041-5370 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4195 | NEUROCIRUGIA / ELSEVIER ESPANA SLU | 2340-6305 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4196 | ANNALS OF DIAGNOSTIC PATHOLOGY / ELSEVIER SCIENCE INC | 1532-8198 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4197 | ACTA ZOOLOGICA / WILEY | 1463-6395 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4198 | MINERVA / SPRINGER | 1573-1871 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4199 | PROGRESS IN POLYMER SCIENCE / PERGAMON-ELSEVIER SCIENCE LTD | 1873-1619 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4200 | Oral and Maxillofacial Surgery Springer Verlag / Unknown | 1865-1569 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4201 | INSTRUCTIONAL SCIENCE / SPRINGER | 1573-1952 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4202 | SINGAPORE JOURNAL OF TROPICAL  GEOGRAPHY / WILEY | 1467-9493 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4203 | BEHAVIOURAL NEUROLOGY / WILEY | 1875-8584 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4204 | HAU-JOURNAL OF ETHNOGRAPHIC  THEORY / UNIV CHICAGO PRESS | 2575-1433 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4205 | JOURNAL OF OCCUPATIONAL HEALTH  PSYCHOLOGY / EDUCATIONAL PUBLISHING  FOUNDATION-AMERI | 1939-1307 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4206 | JOURNAL OF AGRARIAN CHANGE / WILEY | 1471-0366 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4207 | Journal of Cross-Cultural Gerontology Springer New / Unknown | 1573-0719 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4208 | Journal of Pediatric Rehabilitation Medicine SAGE  / Unknown | 1875-8894 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4209 | JOURNAL OF MATHEMATICS TEACHER  EDUCATION / SPRINGER | 1573-1820 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4210 | HUMAN PERFORMANCE / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1532-7043 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4211 | INFORMATION SYSTEMS AND E- BUSINESS MANAGEMENT / SPRINGER HEIDELBERG | 1617-9854 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4212 | International Journal of Agile Systems and Managem / Unknown | 1741-9182 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4213 | International Journal of Space Science and Enginee / Unknown | 2048-8467 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4214 | JOURNAL OF FORENSIC SCIENCES / WILEY | 1556-4029 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4215 | BIOLOGICAL TRACE ELEMENT  RESEARCH / SPRINGERNATURE | 1559-0720 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4216 | GEOTECHNIQUE / EMERALD GROUP PUBLISHING LTD | 1751-7656 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4217 | JOURNAL OF AMERICAN COLLEGE  HEALTH / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1940-3208 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4218 | Uniform Law Review Oxford University Press / Unknown | 2050-9065 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4219 | JOURNAL OF ANALYTICAL METHODS IN  CHEMISTRY / WILEY | 2090-8873 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4220 | STUDIES IN CHRISTIAN ETHICS / SAGE PUBLICATIONS LTD | 1745-5235 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4221 | JOURNAL OF ENGINEERING DESIGN / TAYLOR & FRANCIS LTD | 1466-1837 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4222 | ASIA PACIFIC BUSINESS REVIEW / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1743-792X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4223 | STYLE / PENN STATE UNIV PRESS | 2374-6629 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4224 | AQUATIC INSECTS / TAYLOR & FRANCIS LTD | 1744-4152 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4225 | PERIODONTOLOGY 2000 / WILEY | 1600-0757 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4226 | MANAGEMENT AND ORGANIZATION  REVIEW / CAMBRIDGE UNIV PRESS | 1740-8784 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4227 | ITALIAN JOURNAL OF DERMATOLOGY  AND VENEREOLOGY / EDIZIONI MINERVA MEDICA | 2784-8671 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4228 | EURASIAN GEOGRAPHY AND  ECONOMICS / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1938-2863 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4229 | BRIEFINGS IN FUNCTIONAL GENOMICS / OXFORD UNIV PRESS | 2041-2657 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4230 | BRITISH POLITICS / PALGRAVE MACMILLAN LTD | 1746-9198 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4231 | Mathematische Semesterberichte Springer Verlag / Unknown | 1432-1815 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4232 | Chemistry, Didactics, Ecology, Metrology Sciendo / Unknown | 2084-4506 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4233 | Current Gerontology and Geriatrics Research John W / Unknown | 1687-7071 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4234 | Fatigue of Aircraft Structures De Gruyter Open Ltd / Unknown | 2300-7591 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4235 | EUROPEAN JOURNAL OF CLINICAL  INVESTIGATION / WILEY | 1365-2362 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4236 | FITOTERAPIA / ELSEVIER | 1873-6971 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4237 | CELL PROLIFERATION / WILEY | 1365-2184 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4238 | AQUATIC BOTANY / ELSEVIER | 1879-1522 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4239 | CONTEMPORARY PHYSICS / TAYLOR & FRANCIS LTD | 1366-5812 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4240 | JOURNAL OF COMPARATIVE  PHYSIOLOGY B-BIOCHEMICAL S / SPRINGER HEIDELBERG | 1432-136X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4241 | JOURNAL OF IMMIGRANT AND  MINORITY HEALTH / SPRINGER | 1557-1920 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4242 | WATER RESOURCES / MAIK  NAUKA/INTERPERIODICA/SPRINGER | 1608-344X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4243 | SCOTTISH JOURNAL OF POLITICAL  ECONOMY / WILEY | 1467-9485 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4244 | SYSTEMATIC ENTOMOLOGY / WILEY | 1365-3113 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4245 | Asian Journal of Civil Engineering Springer Nature / Unknown | 2522-011X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4246 | SPORTS HEALTH-A MULTIDISCIPLINARY  APPROACH / SAGE PUBLICATIONS INC | 1941-7381 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4247 | WETLANDS ECOLOGY AND  MANAGEMENT / SPRINGER | 1572-9834 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4248 | AFRICAN DEVELOPMENT REVIEW- REVUE AFRICAINE DE DEV / WILEY | 1467-8268 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4249 | International Journal of Continuing Engineering Ed / Unknown | 1741-5055 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4250 | JOURNAL OF ARABIC LITERATURE / BRILL | 1570-064X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4251 | International Journal of Biometrics Inderscience E / Unknown | 1755-831X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4252 | Competition and Regulation in Network Industries S / Unknown | 2399-2956 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4253 | ANNUAL REVIEW OF ANALYTICAL  CHEMISTRY / ANNUAL REVIEWS | 1936-1335 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4254 | International Journal of Fluid Mechanics Research  / Unknown | 2152-5110 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4255 | ANNUAL REVIEW OF ORGANIZATIONAL  PSYCHOLOGY AND OR / ANNUAL REVIEWS | 2327-0616 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4256 | Journal of Second Language Studies John Benjamins  / Unknown | 2542-3843 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4257 | JOURNAL OF ANTIBIOTICS / SPRINGERNATURE | 1881-1469 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4258 | IMMUNOLOGY AND CELL BIOLOGY / WILEY | 1440-1711 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4259 | NEUROGASTROENTEROLOGY AND  MOTILITY / WILEY | 1365-2982 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4260 | JOURNAL OF HISTOTECHNOLOGY / TAYLOR & FRANCIS LTD | 2046-0236 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4261 | INTEGRATION-THE VLSI JOURNAL / ELSEVIER | 1872-7522 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4262 | INTERNATIONAL JOURNAL OF  PHYTOREMEDIATION / TAYLOR & FRANCIS INC | 1549-7879 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4263 | IEEE-CAA JOURNAL OF AUTOMATICA  SINICA / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 2329-9274 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4264 | ENVIRONMENT AND URBANIZATION / SAGE PUBLICATIONS LTD | 1746-0301 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4265 | EVOLUTIONARY ANTHROPOLOGY / WILEY | 1520-6505 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4266 | JOURNAL OF WORLD BUSINESS / ELSEVIER SCIENCE INC | 1878-5573 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4267 | JOURNAL OF VETERINARY DENTISTRY / SAGE PUBLICATIONS INC | 2470-4083 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4268 | HISTORY OF SCIENCE / SAGE PUBLICATIONS LTD | 1753-8564 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4269 | FRONTIERS IN  NEUROENDOCRINOLOGY / ACADEMIC PRESS INC ELSEVIER  SCIENCE | 1095-6808 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4270 | Human Affairs Walter de Gruyter GmbH / Unknown | 1337-401X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4271 | CURRENT GENE THERAPY / BENTHAM SCIENCE PUBL LTD | 1875-5631 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4272 | CHILDHOOD-A GLOBAL JOURNAL OF  CHILD RESEARCH / SAGE PUBLICATIONS LTD | 1461-7013 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4273 | FEMINIST THEOLOGY / SAGE PUBLICATIONS LTD | 1745-5189 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4274 | JOURNAL OF INNATE IMMUNITY / KARGER | 1662-8128 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4275 | Renaissance Drama University of Chicago Press / Unknown | 2164-3415 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4276 | AMERICAN JOURNAL OF PHYSICAL  MEDICINE & REHABILIT / LIPPINCOTT WILLIAMS & WILKINS | 1537-7385 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4277 | POLAR RECORD / CAMBRIDGE UNIV PRESS | 1475-3057 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4278 | EUROPEAN JOURNAL OF PAIN / WILEY | 1532-2149 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4279 | XENOBIOTICA / TAYLOR & FRANCIS LTD | 1366-5928 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4280 | EXPERIMENTAL AND MOLECULAR  PATHOLOGY / ACADEMIC PRESS INC ELSEVIER  SCIENCE | 1096-0945 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4281 | MEDICINAL CHEMISTRY RESEARCH / SPRINGER BIRKHAUSER | 1554-8120 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4282 | STEREOTACTIC AND FUNCTIONAL  NEUROSURGERY / KARGER | 1423-0372 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4283 | JOURNAL OF INTERVENTIONAL  CARDIAC ELECTROPHYSIOLO / SPRINGER | 1572-8595 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4284 | EUROPEAN JOURNAL OF ONCOLOGY  NURSING / ELSEVIER SCI LTD | 1532-2122 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4285 | VETERINARY AND COMPARATIVE  ORTHOPAEDICS AND TRAUM / GEORG THIEME VERLAG KG | 2567-6911 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4286 | KINETICS AND CATALYSIS / PLEIADES PUBLISHING INC | 1608-3210 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4287 | EATING DISORDERS / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1532-530X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4288 | JOURNAL OF DIGESTIVE DISEASES / WILEY | 1751-2980 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4289 | LANGUAGE TEACHING RESEARCH / SAGE PUBLICATIONS LTD | 1477-0954 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4290 | COSTUME-THE JOURNAL OF THE  COSTUME SOCIETY / EDINBURGH UNIV PRESS | 1749-6306 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4291 | ASIA PACIFIC VIEWPOINT / WILEY | 1467-8373 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4292 | JOURNAL OF LITERARY SEMANTICS / DE GRUYTER MOUTON | 1613-3838 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4293 | TEXTILE-CLOTH AND CULTURE / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1751-8350 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4294 | ECOLOGICAL CHEMISTRY AND  ENGINEERING S-CHEMIA I I / SCIENDO | 2084-4549 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4295 | Journal of Experimental Political Science Cambridg / Unknown | 2052-2649 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4296 | Law, Innovation and Technology Taylor and Francis  / N°   ISSN   E-ISSN | 1757-997X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4297 | South Asian Journal of Human Resources Management  / Unknown | 2349-5790 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4298 | Carbon Neutrality Springer / Unknown | 2788-8614 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4299 | WATER REUSE / IWA PUBLISHING | 2709-6106 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4300 | AMERICAN JOURNAL OF  GASTROENTEROLOGY / LIPPINCOTT WILLIAMS & WILKINS | 1572-0241 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4301 | PROTOPLASMA / SPRINGER WIEN | 1615-6102 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4302 | IEEE TRANSACTIONS ON ULTRASONICS  FERROELECTRICS A / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 1525-8955 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4303 | JOURNAL OF COMPOSITE MATERIALS / SAGE PUBLICATIONS LTD | 1530-793X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4304 | INFECTION / SPRINGER HEIDELBERG | 1439-0973 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4305 | APPLIED SOIL ECOLOGY / ELSEVIER | 1873-0272 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4306 | TEACHING AND TEACHER EDUCATION / PERGAMON-ELSEVIER SCIENCE LTD | 1879-2480 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4307 | BASIC & CLINICAL PHARMACOLOGY &  TOXICOLOGY / WILEY | 1742-7843 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4308 | CELL RESEARCH / SPRINGERNATURE | 1748-7838 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4309 | CONTEMPORARY CLINICAL TRIALS / ELSEVIER SCIENCE INC | 1559-2030 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4310 | JOURNAL OF CHINESE PHILOSOPHY / BRILL | 1540-6253 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4311 | CLINICAL IMPLANT DENTISTRY AND  RELATED RESEARCH / WILEY | 1708-8208 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4312 | JOURNAL OF MANAGEMENT &  ORGANIZATION / CAMBRIDGE UNIV PRESS | 1839-3527 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4313 | Journal of Indian Prosthodontic Society Wolters Kl / Unknown | 1998-4057 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4314 | JOURNAL OF FOREST RESEARCH / TAYLOR & FRANCIS LTD | 1610-7403 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4315 | DEVELOPMENTAL NEUROPSYCHOLOGY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 8756-5641 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4316 | GERMAN JOURNAL OF HUMAN  RESOURCE MANAGEMENT- ZEIT / SAGE PUBLICATIONS INC | 2397-0030 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4317 | JOURNAL OF HOSPITALITY AND  TOURISM MANAGEMENT / ELSEVIER | 1839-5260 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4318 | INTERNATIONAL JOURNAL OF  SYSTEMATIC THEOLOGY / WILEY | 1468-2400 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4319 | JPAD-JOURNAL OF PREVENTION OF  ALZHEIMERS DISEASE / ELSEVIER | 2426-0266 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4320 | CAMERA OBSCURA / DUKE UNIV PRESS | 1529-1510 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4321 | BRAIN CONNECTIVITY / MARY ANN LIEBERT, INC | 2158-0022 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4322 | International Journal of Arts and Technology Inder / Unknown | 1754-8861 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4323 | International Journal of Foresight and Innovation  / Unknown | 1740-2824 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4324 | INTERNATIONAL JOURNAL OF  OPTOMECHATRONICS / TAYLOR & FRANCIS INC | 1559-9620 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4325 | POWDER TECHNOLOGY / ELSEVIER | 1873-328X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4326 | PHARMACOLOGICAL RESEARCH / ACADEMIC PRESS LTD- ELSEVIER  SCIENCE LT | 1096-1186 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4327 | LUNG / SPRINGER | 1432-1750 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4328 | JOURNAL OF MICROSCOPY / WILEY | 1365-2818 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4329 | STOCHASTIC PROCESSES AND THEIR  APPLICATIONS / ELSEVIER | 1879-209X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4330 | NATURE REVIEWS MICROBIOLOGY / NATURE PORTFOLIO | 1740-1534 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4331 | IEEE INTERNET COMPUTING / IEEE COMPUTER SOC | 1941-0131 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4332 | CONSERVATION GENETICS / SPRINGER | 1572-9737 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4333 | CNS & NEUROLOGICAL DISORDERS- DRUG TARGETS / BENTHAM SCIENCE PUBL | 1996-3181 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4334 | FRONTIERS OF INFORMATION  TECHNOLOGY & ELECTRONIC  / ZHEJIANG UNIV PRESS | 2095-9230 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4335 | Journal of Personal Selling and Sales Management T / Unknown | 1557-7813 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4336 | SEED SCIENCE RESEARCH / CAMBRIDGE UNIV PRESS | 1475-2735 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4337 | IRBM / ELSEVIER SCIENCE INC | 1959-0318 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4338 | PLANT BIOTECHNOLOGY REPORTS / SPRINGER | 1863-5474 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4339 | INTERNATIONAL JOURNAL OF PUBLIC  THEOLOGY / BRILL | 1872-5171 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4340 | Mental Health and Social Inclusion Emerald Group P / N°   ISSN   E-ISSN | 2042-8316 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4341 | ACM TRANSACTIONS ON STORAGE / ASSOC COMPUTING MACHINERY | 1553-3093 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4342 | Journal of Family Business Management Emerald Grou / Unknown | 2043-6246 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4343 | Asian Journal of Legal Education SAGE Publications / Unknown | 2348-2451 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4344 | JOURNAL OF PHYTOPATHOLOGY / WILEY | 1439-0434 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4345 | Abstract and Applied Analysis John Wiley and Sons  / Unknown | 1687-0409 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4346 | FAMILY & COMMUNITY HEALTH / LIPPINCOTT WILLIAMS & WILKINS | 1550-5057 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4347 | CLINICAL AUTONOMIC RESEARCH / SPRINGER HEIDELBERG | 1619-1560 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4348 | JOURNAL OF SCHOOL NURSING / SAGE PUBLICATIONS INC | 1546-8364 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4349 | JOURNAL FOR THE THEORY OF SOCIAL  BEHAVIOUR / WILEY | 1468-5914 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4350 | European archives of paediatric dentistry : offici / Unknown | 1996-9805 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4351 | CHILDRENS LITERATURE IN EDUCATION / SPRINGER | 1573-1693 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4352 | Nuclear Physics News Taylor and Francis Ltd. / N°   ISSN   E-ISSN | 1931-7336 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4353 | CHILDRENS GEOGRAPHIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1473-3285 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4354 | Journal of Environmental Studies and Sciences Spri / Unknown | 2190-6491 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4355 | ECONOMIC CHANGE AND  RESTRUCTURING / SPRINGER | 1574-0277 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4356 | Philosophy and Technology Springer Netherlands / Unknown | 2210-5441 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4357 | JOURNAL OF RENAL CARE / WILEY | 1755-6686 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4358 | CONSUMPTION MARKETS & CULTURE / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1477-223X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4359 | RESEARCH IN DANCE EDUCATION / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1470-1111 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4360 | DYNAMIC GAMES AND APPLICATIONS / SPRINGER BIRKHAUSER | 2153-0793 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4361 | International Journal of Services, Economics and M / Unknown | 1753-0830 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4362 | INTERNATIONAL JOURNAL OF  COMPUTER-SUPPORTED  COLL / SPRINGER | 1556-1615 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4363 | Journal of Computational Social Science Springer N / Unknown | 2432-2725 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4364 | Advances in Fuzzy Systems John Wiley and Sons Ltd / Unknown | 1687-711X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4365 | Journal of Global Operations and Strategic Sourcin / Unknown | 2398-5372 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4366 | APPLIED SOFT COMPUTING / ELSEVIER | 1872-9681 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4367 | VETERINARY MICROBIOLOGY / ELSEVIER | 1873-2542 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4368 | EXPERIMENTAL AND CLINICAL  ENDOCRINOLOGY & DIABETE / GEORG THIEME VERLAG KG | 1439-3646 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4369 | STEEL RESEARCH INTERNATIONAL / WILEY-V C H VERLAG GMBH | 1869-344X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4370 | CLUSTER COMPUTING-THE JOURNAL  OF NETWORKS SOFTWAR / SPRINGER | 1573-7543 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4371 | ANNALS OF TELECOMMUNICATIONS / SPRINGER INT PUBL AG | 1958-9395 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4372 | INTERNATIONAL JOURNAL OF  OBSTETRIC ANESTHESIA / ELSEVIER SCI LTD | 1532-3374 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4373 | INTERNATIONAL JOURNAL OF  INTELLIGENT SYSTEMS / WILEY | 1098-111X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4374 | INTERDISCIPLINARY SCIENCE REVIEWS / SAGE PUBLICATIONS INC | 1743-2790 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4375 | JOURNAL OF FIELD ARCHAEOLOGY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 2042-4582 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4376 | JOURNAL OF MATERIAL CYCLES AND  WASTE MANAGEMENT / SPRINGER | 1611-8227 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4377 | Annales de Cardiologie et d'Angeiologie Elsevier M / Unknown | 1768-3181 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4378 | BOUNDARY 2-AN INTERNATIONAL  JOURNAL OF LITERATURE / DUKE UNIV PRESS | 1527-2141 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4379 | EXPERT REVIEW OF CLINICAL  IMMUNOLOGY / TAYLOR & FRANCIS LTD | 1744-8409 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4380 | Manuelle Medizin Springer Verlag / Unknown | 1433-0466 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4381 | JOURNAL DE MATHEMATIQUES PURES  ET APPLIQUEES / ELSEVIER | 1776-3371 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4382 | CYBERNETICS AND SYSTEMS / TAYLOR & FRANCIS INC | 1087-6553 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4383 | BIOSTATISTICS / OXFORD UNIV PRESS | 1468-4357 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4384 | INDUSTRIAL ARCHAEOLOGY REVIEW / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1745-8196 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4385 | INTERNATIONAL JOURNAL OF SPEECH- LANGUAGE PATHOLOG / TAYLOR & FRANCIS LTD | 1754-9515 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4386 | Monte Carlo Methods and Applications Walter de Gru / Unknown | 1569-3961 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4387 | Studies in Gender and Sexuality Taylor and Francis / Unknown | 1940-9206 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4388 | RESEARCH AND PRACTICE FOR  PERSONS WITH SEVERE DIS / SAGE PUBLICATIONS INC | 2169-2408 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4389 | International Journal of Geosynthetics and Ground  / Unknown | 2199-9279 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4390 | ARCHNET-IJAR INTERNATIONAL  JOURNAL OF ARCHITECTUR / EMERALD GROUP PUBLISHING LTD | 2631-6862 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4391 | GENETIC PROGRAMMING AND  EVOLVABLE MACHINES / SPRINGER | 1573-7632 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4392 | Journal of Advances in Management Research Emerald / Unknown | 2049-3207 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4393 | Pedagogy in Health Promotion SAGE Publications Inc / Unknown | 2373-3802 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4394 | Word Structure Edinburgh University Press / Unknown | 1755-2036 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4395 | Visual Informatics Elsevier B.V. / Unknown | 2543-2656 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4396 | APPLIED MATHEMATICS AND  COMPUTATION / ELSEVIER SCIENCE INC | 1873-5649 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4397 | PLANETARY AND SPACE SCIENCE / PERGAMON-ELSEVIER SCIENCE LTD | 1873-5088 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4398 | JOURNAL OF PSYCHOLOGY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1940-1019 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4399 | PHARMACOLOGY & THERAPEUTICS / PERGAMON-ELSEVIER SCIENCE LTD | 1879-016X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4400 | JOURNAL OF MIDWIFERY & WOMENS  HEALTH / WILEY | 1542-2011 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4401 | JOURNAL OF INTERNATIONAL  ECONOMICS / ELSEVIER | 1873-0353 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4402 | FLOW MEASUREMENT AND  INSTRUMENTATION / ELSEVIER SCI LTD | 1873-6998 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4403 | SOCIAL SCIENCE RESEARCH / ACADEMIC PRESS INC ELSEVIER  SCIENCE | 1096-0317 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4404 | MOBILE NETWORKS & APPLICATIONS / SPRINGER | 1572-8153 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4405 | CURRENT PSYCHIATRY REPORTS / SPRINGER | 1535-1645 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4406 | AIR QUALITY ATMOSPHERE AND  HEALTH / SPRINGER | 1873-9326 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4407 | JOURNAL OF ENERGY ENGINEERING / ASCE-AMER SOC CIVIL ENGINEERS | 1943-7897 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4408 | JOURNAL OF AUTOMATED REASONING / SPRINGER | 1573-0670 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4409 | JOURNAL OF HIGHER EDUCATION  POLICY AND MANAGEMENT / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1469-9508 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4410 | JOURNAL OF APPLIED ANIMAL  WELFARE SCIENCE / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1532-7604 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4411 | Jeunesse: Young People, Texts, Cultures University / Unknown | 1920-261X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4412 | SOCIOLOGY OF RACE AND ETHNICITY / SAGE PUBLICATIONS INC | 2332-6506 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4413 | Court Historian Taylor and Francis Ltd. / Unknown | 2056-3450 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4414 | JOURNAL OF INTEGRATIVE AND  COMPLEMENTARY MEDICINE / MARY ANN LIEBERT, INC | 2768-3613 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4415 | Journal of Intelligent Systems and Internet of Thi / Unknown | 2769-786X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4416 | APPLIED SURFACE SCIENCE / ELSEVIER | 1873-5584 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4417 | JOURNAL OF BACTERIOLOGY / AMER SOC MICROBIOLOGY | 1098-5530 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4418 | INTERNATIONAL JOURNAL / SAGE PUBLICATIONS LTD | 2052-465X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4419 | JOURNAL OF ENVIRONMENTAL  RADIOACTIVITY / ELSEVIER SCI LTD | 1879-1700 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4420 | NEUROPHYSIOLOGIE CLINIQUE- CLINICAL NEUROPHYSIOLOG / ELSEVIER FRANCE-EDITIONS  SCIENTIFIQUES  | 1769-7131 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4421 | EUROPEAN JOURNAL OF AGRONOMY / ELSEVIER | 1873-7331 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4422 | JOURNAL OF THE AMERICAN ACADEMY  OF AUDIOLOGY / THIEME MEDICAL PUBL INC | 2157-3107 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4423 | JOURNAL OF VIBRATION ENGINEERING  & TECHNOLOGIES / SPRINGER HEIDELBERG | 2523-3939 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4424 | INQUIRY-THE JOURNAL OF HEALTH  CARE ORGANIZATION P / SAGE PUBLICATIONS INC | 1945-7243 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4425 | MABS / TAYLOR & FRANCIS INC | 1942-0870 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4426 | Journal of Applied Laboratory Medicine Oxford Univ / Unknown | 2576-9456 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4427 | Labour John Wiley and Sons Inc / Unknown | 1467-9914 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4428 | INFORMATION TECHNOLOGY FOR  DEVELOPMENT / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1554-0170 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4429 | Oncology Reviews Frontiers Media SA / Unknown | 1970-5565 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4430 | Interfacial Phenomena and Heat Transfer Begell Hou / Unknown | 2169-2785 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4431 | MICROBIAL RISK ANALYSIS / ELSEVIER | 2352-3530 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4432 | WSEAS Transactions on Fluid Mechanics World Scient / Unknown | 2224-347X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4433 | AMERICAN NATURALIST / UNIV CHICAGO PRESS | 1537-5323 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4434 | HUMAN MOLECULAR GENETICS / OXFORD UNIV PRESS | 1460-2083 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4435 | BIOMEDICAL ENGINEERING- BIOMEDIZINISCHE TECHNIK / WALTER DE GRUYTER GMBH | 1862-278X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4436 | EUROPEAN JOURNAL OF CLINICAL  PHARMACOLOGY / SPRINGER HEIDELBERG | 1432-1041 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4437 | CANADIAN JOURNAL OF PLANT  SCIENCE / CANADIAN SCIENCE PUBLISHING | 1918-1833 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4438 | JOURNAL OF THE CHINESE CHEMICAL  SOCIETY / WILEY-V C H VERLAG GMBH | 2192-6549 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4439 | JOURNAL OF SOL-GEL SCIENCE AND  TECHNOLOGY / SPRINGER | 1573-4846 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4440 | IEEE TRANSACTIONS ON FUZZY  SYSTEMS / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 1941-0034 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4441 | BRITISH JOURNAL FOR THE HISTORY OF  SCIENCE / CAMBRIDGE UNIV PRESS | 1474-001X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4442 | INTERNATIONAL JOURNAL OF CIRCUIT  THEORY AND APPLI / WILEY | 1097-007X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4443 | EUROPEAN JOURNAL OF  COMBINATORICS / ACADEMIC PRESS LTD- ELSEVIER  SCIENCE LT | 1095-9971 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4444 | BEHAVIORAL ECOLOGY / OXFORD UNIV PRESS INC | 1465-7279 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4445 | CLAY MINERALS / CAMBRIDGE UNIV PRESS | 1471-8030 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4446 | MOLECULAR ONCOLOGY / WILEY | 1878-0261 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4447 | TRANSPORTATION / SPRINGER | 1572-9435 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4448 | ACM TRANSACTIONS ON MULTIMEDIA  COMPUTING COMMUNIC / ASSOC COMPUTING MACHINERY | 1551-6865 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4449 | IET ELECTRIC POWER APPLICATIONS / WILEY | 1751-8679 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4450 | JOURNAL OF BRYOLOGY / TAYLOR & FRANCIS LTD | 1743-2820 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4451 | PSYCHOLOGICAL METHODS / AMER PSYCHOLOGICAL ASSOC | 1939-1463 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4452 | BILINGUALISM-LANGUAGE AND  COGNITION / CAMBRIDGE UNIV PRESS | 1469-1841 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4453 | GEO-SPATIAL INFORMATION SCIENCE / TAYLOR & FRANCIS LTD | 1993-5153 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4454 | VEGETATION HISTORY AND  ARCHAEOBOTANY / SPRINGER | 1617-6278 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4455 | GLOBAL FINANCE JOURNAL / ELSEVIER | 1873-5665 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4456 | WILEY INTERDISCIPLINARY REVIEWS- COGNITIVE SCIENCE / WILEY | 1939-5086 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4457 | Journal of Humanitarian Logistics and Supply Chain / Unknown | 2042-6755 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4458 | COMPUTATIONAL MATERIALS SCIENCE / ELSEVIER | 1879-0801 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4459 | JOURNAL OF PERSONALITY / WILEY | 1467-6494 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4460 | EUROPEAN STROKE JOURNAL / SAGE PUBLICATIONS LTD | 2396-9881 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4461 | PHYSIOLOGICAL ENTOMOLOGY / WILEY | 1365-3032 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4462 | HORTICULTURE RESEARCH / OXFORD UNIV PRESS INC | 2662-6810 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4463 | INTERNATIONAL BUSINESS REVIEW / ELSEVIER | 1873-6149 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4464 | SUGAR TECH / SPRINGER INDIA | 0974-0740 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4465 | British Journal of Visual Impairment SAGE Publicat / Unknown | 1744-5809 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4466 | INTERNATIONAL JOURNAL OF  PSYCHIATRY IN CLINICAL P / TAYLOR & FRANCIS LTD | 1471-1788 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4467 | Scientia Pharmaceutica Multidisciplinary Digital P / Unknown | 2218-0532 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4468 | MEDICAL LAW REVIEW / OXFORD UNIV PRESS | 1464-3790 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4469 | International Journal of Grid and Utility Computin / Unknown | 1741-8488 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4470 | INTERNATIONAL JOURNAL ON  SOFTWARE TOOLS FOR TECHN / SPRINGER HEIDELBERG | 1433-2787 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4471 | AlterNative SAGE Publications Inc. / Unknown | 1177-1801 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4472 | Law, Culture and the Humanities SAGE Publications  / Unknown | 1743-9752 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4473 | Moscow University Mathematics Bulletin Pleiades Pu / Unknown | 1934-8444 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4474 | MULTINATIONAL BUSINESS REVIEW / EMERALD GROUP PUBLISHING LTD | 2054-1686 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4475 | JOURNAL OF HOSPITALITY AND  TOURISM TECHNOLOGY / EMERALD GROUP PUBLISHING LTD | 1757-9899 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4476 | CANADIAN JOURNAL OF FILM STUDIES- REVUE CANADIENNE / UNIV TORONTO PRESS INC | 2561-424X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4477 | SURFACE INNOVATIONS / EMERALD GROUP PUBLISHING LTD | 2050-6260 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4478 | JOURNAL OF CHINESE LITERATURE AND  CULTURE / DUKE UNIV PRESS | 2329-0056 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4479 | AMERICAN JOURNAL OF THE MEDICAL  SCIENCES / ELSEVIER SCIENCE INC | 1538-2990 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4480 | NUCLEAR ENGINEERING AND DESIGN / ELSEVIER SCIENCE SA | 1872-759X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4481 | PEDIATRIC PULMONOLOGY / WILEY | 8755-6863 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4482 | GEODERMA / ELSEVIER | 1872-6259 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4483 | RISK ANALYSIS / WILEY | 1539-6924 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4484 | CHEMISTRY AND PHYSICS OF LIPIDS / ELSEVIER IRELAND LTD | 1873-2941 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4485 | INTERNATIONAL JOURNAL OF  COLORECTAL DISEASE / SPRINGER | 1432-1262 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4486 | ADDITIVE MANUFACTURING / ELSEVIER | 2214-8604 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4487 | CLINICAL DRUG INVESTIGATION / ADIS INT LTD | 1179-1918 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4488 | International Journal of Modelling, Identification / Unknown | 1746-6180 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4489 | CHILD ABUSE REVIEW / WILEY | 1099-0852 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4490 | MEXICAN STUDIES-ESTUDIOS  MEXICANOS / UNIV CALIFORNIA PRESS | 1533-8320 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4491 | TOPICS IN EARLY CHILDHOOD SPECIAL  EDUCATION / SAGE PUBLICATIONS INC | 1538-4845 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4492 | SEMINARS IN IMMUNOPATHOLOGY / SPRINGER HEIDELBERG | 1863-2300 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4493 | CELLULAR AND MOLECULAR  BIOENGINEERING / SPRINGER | 1865-5033 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4494 | INVERTEBRATE SYSTEMATICS / CSIRO PUBLISHING | 1447-2600 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4495 | AMERICAN JOURNAL OF HEALTH  ECONOMICS / UNIV CHICAGO PRESS | 2332-3507 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4496 | COCHRANE DATABASE OF SYSTEMATIC  REVIEWS / WILEY | 1469-493X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4497 | International Journal of Persian Literature Penn S / Unknown | 2376-5755 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4498 | INTERNATIONAL JOURNAL OF  BIOLOGICAL MACROMOLECULE / ELSEVIER | 1879-0003 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4499 | RENAISSANCE QUARTERLY / CAMBRIDGE UNIV PRESS | 1935-0236 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4500 | IEEE ANTENNAS AND WIRELESS  PROPAGATION LETTERS / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 1548-5757 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4501 | BULLETIN OF THE ATOMIC SCIENTISTS / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1938-3282 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4502 | JOURNAL OF INTEGRATIVE PLANT  BIOLOGY / WILEY | 1744-7909 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4503 | DIGITAL SIGNAL PROCESSING / ACADEMIC PRESS INC ELSEVIER  SCIENCE | 1095-4333 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4504 | COMPARATIVE BIOCHEMISTRY AND  PHYSIOLOGY B-BIOCHEM / ELSEVIER SCIENCE INC | 1879-1107 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4505 | STRATEGIC MANAGEMENT JOURNAL / WILEY | 1097-0266 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4506 | INDIAN JOURNAL OF PSYCHIATRY / WOLTERS KLUWER MEDKNOW  PUBLICATIONS | 1998-3794 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4507 | ECOTOXICOLOGY / SPRINGER | 1573-3017 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4508 | ACM COMPUTING SURVEYS / ASSOC COMPUTING MACHINERY | 1557-7341 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4509 | AUTISM / SAGE PUBLICATIONS LTD | 1461-7005 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4510 | JOURNAL OF ECONOMIC EDUCATION / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 2152-4068 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4511 | TRANSACTIONS IN GIS / WILEY | 1467-9671 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4512 | ANNALS OF FUNCTIONAL ANALYSIS / SPRINGER BASEL AG | 2639-7390 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4513 | ACTA OECONOMICA / AKADEMIAI KIADO ZRT | 1588-2659 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4514 | JOURNAL OF VISUAL CULTURE / SAGE PUBLICATIONS INC | 1741-2994 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4515 | FOREIGN POLICY ANALYSIS / OXFORD UNIV PRESS | 1743-8594 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4516 | Global Intellectual History Taylor and Francis Ltd / Unknown | 2380-1891 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4517 | INTERFACES AND FREE BOUNDARIES / EUROPEAN MATHEMATICAL SOC- EMS | 1463-9971 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4518 | Advances in Mental Health Taylor and Francis Ltd. / N°   ISSN   E-ISSN | 1838-7357 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4519 | European Journal of Management and Business Econom / Unknown | 2444-8494 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4520 | Green Energy and Intelligent Transportation Elsevi / N°   ISSN   E-ISSN | 2097-2512 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4521 | NUCLEAR INSTRUMENTS & METHODS  IN PHYSICS RESEARCH / ELSEVIER | 1872-9584 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4522 | IEEE TRANSACTIONS ON ELECTRON  DEVICES / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 1557-9646 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4523 | ANALYTICAL BIOCHEMISTRY / ACADEMIC PRESS INC ELSEVIER  SCIENCE | 1096-0309 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4524 | COMMUNICATIONS IN ALGEBRA / TAYLOR & FRANCIS INC | 1532-4125 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4525 | CHEMBIOCHEM / WILEY-V C H VERLAG GMBH | 1439-7633 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4526 | Indian Journal of Otolaryngology and Head and Neck / Unknown | 2231-3796 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4527 | PROTEINS-STRUCTURE FUNCTION AND  BIOINFORMATICS / WILEY | 1097-0134 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4528 | INTERNATIONAL JOURNAL FOR  NUMERICAL METHODS IN FL / WILEY | 1097-0363 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4529 | HISPANIC REVIEW / UNIV PENNSYLVANIA PRESS | 1553-0639 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4530 | DRUG SAFETY / ADIS INT LTD | 1179-1942 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4531 | INTERNATIONAL JOURNAL OF  SURGICAL PATHOLOGY / SAGE PUBLICATIONS INC | 1940-2465 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4532 | ACTA MATHEMATICAE APPLICATAE  SINICA-ENGLISH SERIE / SPRINGER HEIDELBERG | 1618-3932 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4533 | LIGHT-SCIENCE & APPLICATIONS / SPRINGERNATURE | 2095-5545 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4534 | ENVIRONMENTAL VALUES / SAGE PUBLICATIONS INC | 1752-7015 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4535 | HEALTH PROMOTION JOURNAL OF  AUSTRALIA / WILEY | 2201-1617 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4536 | NUKLEONIKA / SCIENDO | 1508-5791 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4537 | NEW DIRECTIONS FOR CHILD AND  ADOLESCENT DEVELOPME / WILEY | 1534-8687 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4538 | JAPAN JOURNAL OF NURSING SCIENCE / WILEY | 1742-7932 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4539 | OXFORD LITERARY REVIEW / EDINBURGH UNIV PRESS | 1757-1634 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4540 | Journal of the Operations Research Society of Chin / Unknown | 2194-6698 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4541 | PHILOSOPHICAL PERSPECTIVES / WILEY | 1758-2245 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4542 | WMU Journal of Maritime Affairs Springer Science a / Unknown | 1654-1642 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4543 | INTERNATIONAL JOURNAL FOR  UNCERTAINTY QUANTIFICAT / BEGELL HOUSE INC | 2152-5099 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4544 | Acta Historica Universitatis Klaipedensis Institut / Unknown | 2351-6526 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4545 | Translation and Translanguaging in Multilingual Co / Unknown | 2352-1813 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4546 | LGBTQ FAMILY-AN INTERDISCIPLINARY  JOURNAL / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 2770-338X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4547 | IEEE TRANSACTIONS ON MICROWAVE  THEORY AND TECHNIQ / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 1557-9670 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4548 | HEART LUNG AND CIRCULATION / ELSEVIER SCIENCE INC | 1444-2892 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4549 | IEEE TRANSACTIONS ON SIGNAL  PROCESSING / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 1941-0476 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4550 | HISTOPATHOLOGY / WILEY | 1365-2559 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4551 | JOURNAL OF THE AMERICAN COLLEGE  OF RADIOLOGY / ELSEVIER SCIENCE INC | 1558-349X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4552 | BIOTECHNOLOGY PROGRESS / WILEY | 8756-7938 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4553 | AMERICAN JOURNAL OF ECONOMICS  AND SOCIOLOGY / WILEY | 1536-7150 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4554 | KNEE / ELSEVIER | 1873-5800 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4555 | OPERATIONS RESEARCH LETTERS / ELSEVIER | 1872-7468 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4556 | AGING & MENTAL HEALTH / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1364-6915 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4557 | CURRENT OPINION IN  OPHTHALMOLOGY / LIPPINCOTT WILLIAMS & WILKINS | 1531-7021 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4558 | JOURNAL OF GENETIC COUNSELING / WILEY | 1573-3599 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4559 | EXPERIMENTAL AND CLINICAL  PSYCHOPHARMACOLOGY / AMER PSYCHOLOGICAL ASSOC | 1936-2293 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4560 | JOURNAL OF FAMILY VIOLENCE / SPRINGER/PLENUM PUBLISHERS | 1573-2851 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4561 | JOURNAL OF INDUSTRIAL ECONOMICS / WILEY | 1467-6451 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4562 | Home Health Care Management and Practice SAGE Publ / Unknown | 1552-6739 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4563 | FOOD REVIEWS INTERNATIONAL / TAYLOR & FRANCIS INC | 8755-9129 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4564 | JOURNAL OF URBAN PLANNING AND  DEVELOPMENT / ASCE-AMER SOC CIVIL ENGINEERS | 1943-5444 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4565 | JOURNAL OF HEALTH SERVICES  RESEARCH & POLICY / SAGE PUBLICATIONS INC | 1758-1060 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4566 | CRITICAL CRIMINOLOGY / SPRINGER | 1572-9877 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4567 | Physician Assistant Clinics Elsevier Inc. / Unknown | 2405-8009 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4568 | CRITICAL REVIEWS IN THERAPEUTIC  DRUG CARRIER SYST / BEGELL HOUSE INC | 2162-660X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4569 | JOURNAL OF PHOTOCHEMISTRY AND  PHOTOBIOLOGY C-PHOT / ELSEVIER | 1873-2739 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4570 | IET BIOMETRICS / WILEY | 2047-4946 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4571 | Strategy Science INFORMS Institute for Operations  / Unknown | 2333-2077 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4572 | Mediterranean Geoscience Reviews Springer Nature / Unknown | 2661-8648 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4573 | European Journal of Environmental Sciences Charles / Unknown | 2336-1964 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4574 | ANNALS OF THE RHEUMATIC DISEASES / ELSEVIER | 1468-2060 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4575 | CLINICAL INFECTIOUS DISEASES / OXFORD UNIV PRESS INC | 1537-6591 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4576 | CHEMICAL ENGINEERING SCIENCE / PERGAMON-ELSEVIER SCIENCE LTD | 1873-4405 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4577 | COMMUNICATIONS IN  MATHEMATICAL PHYSICS / SPRINGER | 1432-0916 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4578 | JOURNAL OF SHOULDER AND ELBOW  SURGERY / MOSBY-ELSEVIER | 1532-6500 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4579 | AMERICAN STATISTICIAN / TAYLOR & FRANCIS INC | 1537-2731 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4580 | CANCER RADIOTHERAPIE / ELSEVIER | 1769-6658 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4581 | EDUCATION AND TRAINING / EMERALD GROUP PUBLISHING LTD | 1758-6127 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4582 | BIOTROPICA / WILEY | 1744-7429 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4583 | INTERNATIONAL SOCIAL WORK / SAGE PUBLICATIONS LTD | 1461-7234 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4584 | QUARTERLY JOURNAL OF  EXPERIMENTAL PSYCHOLOGY / SAGE PUBLICATIONS LTD | 1747-0226 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4585 | ITALIAN JOURNAL OF PEDIATRICS / BMC | 1824-7288 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4586 | JOURNAL OF DRUG ISSUES / SAGE PUBLICATIONS INC | 1945-1369 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4587 | JOURNAL OF AGING AND PHYSICAL  ACTIVITY / HUMAN KINETICS PUBL INC | 1543-267X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4588 | HONG KONG JOURNAL OF EMERGENCY  MEDICINE / WILEY | 2309-5407 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4589 | PRAXIS DER KINDERPSYCHOLOGIE UND  KINDERPSYCHIATRI / BRILL DEUTSCHLAND GMBH | 2196-8225 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4590 | JOURNAL OF ORTHOPAEDICS AND  TRAUMATOLOGY / SPRINGER | 1590-9999 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4591 | International Journal of Business Performance Mana / Unknown | 1741-5039 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4592 | Journal of Control Science and Engineering John Wi / Unknown | 1687-5257 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4593 | Journal of Classical Sociology SAGE Publications L / Unknown | 1741-2897 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4594 | Comparative Exercise Physiology Brill Wageningen A / Unknown | 1755-2559 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4595 | Asian Journal of Comparative Law Cambridge Univers / Unknown | 2194-6078 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4596 | FORUM (The Netherlands) John Benjamins Publishing  / Unknown | 2451-909X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4597 | Journal of Scleroderma and Related Disorders SAGE  / Unknown | 2397-1991 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4598 | Sankhya B Springer India / Unknown | 0976-8394 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4599 | INTERNATIONAL JOURNAL OF SPRAY  AND COMBUSTION DYN / SAGE PUBLICATIONS INC | 1756-8285 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4600 | Acta Phlebologica Edizioni Minerva Medica S.p.A. / Unknown | 1827-1766 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4601 | SYNTHESIS-STUTTGART / GEORG THIEME VERLAG KG | 1437-210X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4602 | INTERNATIONAL BIODETERIORATION &  BIODEGRADATION / ELSEVIER SCI LTD | 1879-0208 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4603 | AURIS NASUS LARYNX / ELSEVIER SCI LTD | 1879-1476 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4604 | TELECOMMUNICATIONS POLICY / ELSEVIER SCI LTD | 1879-3258 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4605 | AFFILIA-FEMINIST INQUIRY IN SOCIAL  WORK / SAGE PUBLICATIONS INC | 1552-3020 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4606 | ENERGY FOR SUSTAINABLE  DEVELOPMENT / ELSEVIER | 2352-4669 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4607 | LAW AND HUMAN BEHAVIOR / EDUCATIONAL PUBLISHING  FOUNDATION-AMERI | 1573-661X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4608 | JOURNAL OF VASCULAR RESEARCH / KARGER | 1423-0135 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4609 | ULTRASOUND QUARTERLY / LIPPINCOTT WILLIAMS & WILKINS | 1536-0253 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4610 | COMPLEMENTARY THERAPIES IN  CLINICAL PRACTICE / ELSEVIER SCI LTD | 1873-6947 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4611 | Annals of the ICRP SAGE Publications Inc. / Unknown | 1872-969X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4612 | OXFORD ART JOURNAL / OXFORD UNIV PRESS | 1741-7287 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4613 | CHINESE STUDIES IN HISTORY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1558-0407 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4614 | EUROPEAN EARLY CHILDHOOD  EDUCATION RESEARCH JOURN / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1752-1807 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4615 | SCANDINAVIAN JOURNAL OF SURGERY / SAGE PUBLICATIONS LTD | 1799-7267 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4616 | ANALYSIS AND MATHEMATICAL  PHYSICS / SPRINGER BASEL AG | 1664-2368 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4617 | Journal of Applied Research in Higher Education Em / Unknown | 2050-7003 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4618 | Psiquiatria Biologica Elsevier Espana S.L.U / Unknown | 1578-8962 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4619 | REVIEW OF ACCOUNTING STUDIES / SPRINGER | 1573-7136 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4620 | CITY & COMMUNITY / SAGE PUBLICATIONS INC | 1540-6040 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4621 | Scrutiny2 Taylor and Francis Ltd. / Unknown | 1812-5441 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4622 | ACM TRANSACTIONS ON COMPUTER  SYSTEMS / ASSOC COMPUTING MACHINERY | 1557-7333 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4623 | Hand Therapy SAGE Publications Inc. / Unknown | 1758-9991 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4624 | Autoimmune Diseases John Wiley and Sons Ltd / Unknown | 2090-0430 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4625 | Journal of Business Cycle Research Springer Intern / Unknown | 2509-7970 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4626 | JOURNAL OF MATERIALS PROCESSING  TECHNOLOGY / ELSEVIER SCIENCE SA | 1873-4774 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4627 | MONATSHEFTE FUR CHEMIE / SPRINGER WIEN | 1434-4475 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4628 | SYNTHETIC COMMUNICATIONS / TAYLOR & FRANCIS INC | 1532-2432 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4629 | IEEE COMMUNICATIONS MAGAZINE / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 1558-1896 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4630 | JOURNAL OF THROMBOSIS AND  HAEMOSTASIS / ELSEVIER SCIENCE INC | 1538-7933 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4631 | JOURNAL OF INDUSTRIAL AND  ENGINEERING CHEMISTRY / ELSEVIER SCIENCE INC | 1876-794X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4632 | TRENDS IN PHARMACOLOGICAL  SCIENCES / CELL PRESS | 1873-3735 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4633 | Journal of Risk and Financial Management Multidisc / Unknown | 1911-8074 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4634 | Adoption and Fostering SAGE Publications Ltd / Unknown | 1740-469X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4635 | TOURISM ECONOMICS / SAGE PUBLICATIONS LTD | 2044-0375 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4636 | JOURNAL OF BUSINESS AND  PSYCHOLOGY / SPRINGER | 1573-353X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4637 | TOPICS IN GERIATRIC REHABILITATION / LIPPINCOTT WILLIAMS & WILKINS | 1550-2414 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4638 | CLINICAL NEURORADIOLOGY / SPRINGER HEIDELBERG | 1869-1447 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4639 | RESEARCH IN PHENOMENOLOGY / BRILL | 1569-1640 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4640 | JOURNAL OF POLICY AND PRACTICE IN  INTELLECTUAL DI / WILEY | 1741-1130 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4641 | MENTAL HEALTH AND PHYSICAL  ACTIVITY / ELSEVIER SCI LTD | 1878-0199 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4642 | EARTH SURFACE DYNAMICS / COPERNICUS GESELLSCHAFT MBH | 2196-632X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4643 | TRANSPORTMETRICA B-TRANSPORT  DYNAMICS / TAYLOR & FRANCIS LTD | 2168-0582 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4644 | Journal of Horticultural Research Sciendo / Unknown | 2353-3978 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4645 | ANNUAL REVIEW OF STATISTICS AND  ITS APPLICATION / ANNUAL REVIEWS | 2326-831X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4646 | Journal of Globalization and Development Walter de / Unknown | 2194-6353 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4647 | AAPPS Bulletin Springer / Unknown | 2309-4710 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4648 | EVOLUTION / OXFORD UNIV PRESS | 1558-5646 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4649 | FOOD RESEARCH INTERNATIONAL / ELSEVIER | 1873-7145 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4650 | LAB ON A CHIP / ROYAL SOC CHEMISTRY | 1473-0197 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4651 | COMMUNICATIONS IN SOIL SCIENCE  AND PLANT ANALYSIS / TAYLOR & FRANCIS INC | 1532-2416 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4652 | AGRICULTURAL WATER MANAGEMENT / ELSEVIER | 1873-2283 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4653 | JAPANESE JOURNAL OF CLINICAL  ONCOLOGY / OXFORD UNIV PRESS | 1465-3621 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4654 | COMPUTERS & GRAPHICS-UK / PERGAMON-ELSEVIER SCIENCE LTD | 1873-7684 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4655 | IEEE JOURNAL OF EMERGING AND  SELECTED TOPICS IN P / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 2168-6785 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4656 | TRIBOLOGY TRANSACTIONS / TAYLOR & FRANCIS INC | 1547-397X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4657 | LETTERS IN ORGANIC CHEMISTRY / BENTHAM SCIENCE PUBL LTD | 1875-6255 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4658 | SCANDINAVIAN JOURNAL OF  ECONOMICS / WILEY | 1467-9442 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4659 | JOURNAL OF WATERWAY PORT  COASTAL AND OCEAN ENGINE / ASCE-AMER SOC CIVIL ENGINEERS | 1943-5460 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4660 | Journal of Indian Association of Pediatric Surgeon / Unknown | 1998-3891 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4661 | JOURNAL OF MEDICAL BIOGRAPHY / SAGE PUBLICATIONS INC | 1758-1087 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4662 | ARCHIV FUR PAPYRUSFORSCHUNG  UND VERWANDTE GEBIETE / WALTER DE GRUYTER GMBH | 1867-1551 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4663 | ADVANCES IN CEMENT RESEARCH / EMERALD GROUP PUBLISHING LTD | 1751-7605 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4664 | ECONOMICS OF INNOVATION AND  NEW TECHNOLOGY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1476-8364 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4665 | RUSSIAN LINGUISTICS / SPRINGER | 1572-8714 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4666 | PERSONALITY AND MENTAL HEALTH / WILEY | 1932-863X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4667 | International Journal of Accounting, Auditing and  / Unknown | 1740-8016 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4668 | International Journal of Tourism Cities Emerald Gr / Unknown | 2056-5615 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4669 | Control Theory and Technology Springer Science + B / Unknown | 2198-0942 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4670 | European Journal for Sport and Society Taylor and  / Unknown | 2380-5919 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4671 | JOURNAL OF MANAGEMENT  ANALYTICS / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 2327-0039 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4672 | London Review of International Law Oxford Universi / Unknown | 2050-6333 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4673 | ROBOTIC INTELLIGENCE AND  AUTOMATION / EMERALD GROUP PUBLISHING LTD | 2754-6977 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4674 | REVUE DE MEDECINE INTERNE / ELSEVIER FRANCE-EDITIONS  SCIENTIFIQUES  | 1768-3122 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4675 | NEUROPSYCHOPHARMACOLOGY / SPRINGERNATURE | 1740-634X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4676 | ANALYSIS / OXFORD UNIV PRESS | 1467-8284 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4677 | WEED SCIENCE / CAMBRIDGE UNIV PRESS | 1550-2759 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4678 | INTERMETALLICS / ELSEVIER SCI LTD | 1879-0216 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4679 | JOURNAL OF PEDIATRIC AND  ADOLESCENT GYNECOLOGY / ELSEVIER SCIENCE INC | 1873-4332 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4680 | CRITICAL REVIEWS IN ONCOLOGY  HEMATOLOGY / ELSEVIER SCIENCE INC | 1879-0461 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4681 | QUALITY AND RELIABILITY  ENGINEERING INTERNATIONAL / WILEY | 1099-1638 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4682 | INSURANCE MATHEMATICS &  ECONOMICS / ELSEVIER | 1873-5959 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4683 | EXPERT OPINION ON INVESTIGATIONAL  DRUGS / TAYLOR & FRANCIS LTD | 1744-7658 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4684 | IEEE TRANSACTIONS ON EDUCATION / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 1557-9638 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4685 | COMPUTATIONAL MATHEMATICS AND  MATHEMATICAL PHYSIC / PLEIADES PUBLISHING INC | 1555-6662 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4686 | THEATRE RESEARCH INTERNATIONAL / CAMBRIDGE UNIV PRESS | 1474-0672 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4687 | IEEE JOURNAL OF SELECTED TOPICS IN  SIGNAL PROCESS / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 1941-0484 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4688 | International Social Security Review Wiley-Blackwe / Unknown | 1468-246X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4689 | AFRICAN STUDIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1469-2872 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4690 | JOURNAL OF SEISMOLOGY / SPRINGER | 1573-157X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4691 | EXPERIMENTAL AGING RESEARCH / TAYLOR & FRANCIS INC | 1096-4657 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4692 | Queue Association for Computing Machinery (ACM) / Unknown | 1542-7749 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4693 | MARKETING LETTERS / SPRINGER | 1573-059X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4694 | International Journal of Computing Science and Mat / Unknown | 1752-5063 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4695 | WILEY INTERDISCIPLINARY REVIEWS- CLIMATE CHANGE / WILEY | 1757-7799 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4696 | Quality in Ageing and Older Adults Emerald Group P / Unknown | 2042-8766 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4697 | Studies in Documentary Film Taylor and Francis Ltd / Unknown | 1750-3299 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4698 | SOCIETY AND MENTAL HEALTH / SAGE PUBLICATIONS INC | 2156-8731 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4699 | EUROPEAN JOURNAL OF  ANAESTHESIOLOGY / LIPPINCOTT WILLIAMS & WILKINS | 1365-2346 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4700 | NATURE METHODS / NATURE PORTFOLIO | 1548-7105 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4701 | JOURNAL OF MANIPULATIVE AND  PHYSIOLOGICAL THERAPE / MOSBY-ELSEVIER | 1532-6586 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4702 | AUSTRALIAN SOCIAL WORK / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1447-0748 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4703 | REVIEW OF INCOME AND WEALTH / WILEY | 1475-4991 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4704 | NATURAL RESOURCES RESEARCH / SPRINGER | 1573-8981 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4705 | ZOOLOGY IN THE MIDDLE EAST / TAYLOR & FRANCIS LTD | 2326-2680 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4706 | TEXTILE HISTORY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1743-2952 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4707 | COGNITIVE PSYCHOLOGY / ACADEMIC PRESS INC ELSEVIER  SCIENCE | 1095-5623 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4708 | Limnology and Oceanography Bulletin Wiley-Blackwel / Unknown | 1539-6088 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4709 | INTERNATIONAL POLITICAL SCIENCE  REVIEW / SAGE PUBLICATIONS LTD | 1460-373X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4710 | SEMINARS IN PLASTIC SURGERY / THIEME MEDICAL PUBL INC | 1536-0067 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4711 | BRAZILIAN JOURNAL OF  ANESTHESIOLOGY / ELSEVIER SCIENCE INC | 2352-2291 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4712 | JOURNAL OF ENHANCED HEAT  TRANSFER / BEGELL HOUSE INC | 1563-5074 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4713 | JOURNAL OF APPLIED RESEARCH IN  MEMORY AND COGNITI / AMER PSYCHOLOGICAL ASSOC | 2211-369X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4714 | FOUNDATIONS OF COMPUTATIONAL  MATHEMATICS / SPRINGER | 1615-3383 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4715 | American Political Thought University of Chicago P / Unknown | 2161-1599 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4716 | International Journal of Intelligent Robotics and  / Unknown | 2366-598X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4717 | International Journal of Water Inderscience Enterp / Unknown | 1741-5322 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4718 | Illinois Classical Studies University of Illinois  / Unknown | 2328-5265 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4719 | International Journal of Technoentrepreneurship In / Unknown | 1746-5389 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4720 | PEDIATRIC RESEARCH / SPRINGERNATURE | 1530-0447 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4721 | JOURNAL OF INVESTIGATIVE  DERMATOLOGY / ELSEVIER SCIENCE INC | 1523-1747 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4722 | GEOCHIMICA ET COSMOCHIMICA ACTA / PERGAMON-ELSEVIER SCIENCE LTD | 1872-9533 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4723 | GACETA SANITARIA / ELSEVIER | 1578-1283 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4724 | MOLECULAR CARCINOGENESIS / WILEY | 1098-2744 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4725 | PHILOSOPHICAL MAGAZINE LETTERS / TAYLOR & FRANCIS LTD | 1362-3036 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4726 | THERAPIE / ELSEVIER | 1958-5578 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4727 | PAEDAGOGICA HISTORICA / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1477-674X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4728 | NUCLEAR SCIENCE AND TECHNIQUES / SPRINGER SINGAPORE PTE LTD | 2210-3147 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4729 | EUROPEAN JOURNAL OF  PROTISTOLOGY / ELSEVIER GMBH | 1618-0429 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4730 | CURRENT ALZHEIMER RESEARCH / BENTHAM SCIENCE PUBL LTD | 1875-5828 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4731 | INTERNATIONAL JOURNAL OF  PSYCHIATRY IN MEDICINE / SAGE PUBLICATIONS INC | 1541-3527 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4732 | JOURNAL OF MANAGERIAL  PSYCHOLOGY / EMERALD GROUP PUBLISHING LTD | 1758-7778 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4733 | JOURNAL OF X-RAY SCIENCE AND  TECHNOLOGY / IOS PRESS | 1095-9114 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4734 | Counselling and Psychotherapy Research Wiley-Black / Unknown | 1746-1405 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4735 | PROCEEDINGS OF THE INSTITUTION OF  CIVIL ENGINEERS / EMERALD GROUP PUBLISHING LTD | 1751-7710 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4736 | Apeiron Walter de Gruyter GmbH / N°   ISSN   E-ISSN | 2156-7093 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4737 | HEALTH CARE ANALYSIS / SPRINGER | 1573-3394 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4738 | ASIAN ECONOMIC JOURNAL / WILEY | 1467-8381 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4739 | NEW REVIEW OF FILM AND TELEVISION  STUDIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1740-7923 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4740 | INTERNATIONAL JOURNAL OF  HYPERTENSION / WILEY | 2090-0392 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4741 | Natural Products and Bioprospecting Springer Singa / Unknown | 2192-2209 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4742 | International Journal of Manufacturing Research In / Unknown | 1750-0605 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4743 | POLITICS PHILOSOPHY & ECONOMICS / SAGE PUBLICATIONS INC | 1741-3060 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4744 | SPINE / LIPPINCOTT WILLIAMS & WILKINS | 1528-1159 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4745 | ASAIO JOURNAL / LIPPINCOTT WILLIAMS & WILKINS | 1538-943X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4746 | JOURNAL OF THE AMERICAN MEDICAL  DIRECTORS ASSOCIA / ELSEVIER SCIENCE INC | 1538-9375 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4747 | JOURNAL OF GASTROINTESTINAL  SURGERY / ELSEVIER SCIENCE INC | 1873-4626 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4748 | INTERNATIONAL JOURNAL FOR  PARASITOLOGY / ELSEVIER SCI LTD | 1879-0135 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4749 | APPLIED INTELLIGENCE / SPRINGER | 1573-7497 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4750 | JOURNAL OF THE AMERICAN  PHARMACISTS ASSOCIATION / ELSEVIER | 1544-3450 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4751 | Jahrbuch fur Wirtschaftsgeschichte Walter de Gruyt / Unknown | 2196-6842 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4752 | CURRENT OPINION IN  PHARMACOLOGY / ELSEVIER SCI LTD | 1471-4973 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4753 | TRANSLATIONAL LUNG CANCER  RESEARCH / AME PUBLISHING COMPANY | 2226-4477 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4754 | JOURNAL OF BIOPHARMACEUTICAL  STATISTICS / TAYLOR & FRANCIS INC | 1520-5711 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4755 | Value in Health Regional Issues Elsevier Inc. / Unknown | 2212-1102 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4756 | Journal of Basic and Clinical Physiology and Pharm / Unknown | 2191-0286 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4757 | SOUTH AFRICAN HISTORICAL JOURNAL / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1726-1686 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4758 | RUSSIAN JOURNAL OF MARINE  BIOLOGY / MAIK  NAUKA/INTERPERIODICA/SPRINGER | 1608-3377 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4759 | Antitrust Bulletin SAGE Publications Inc. / Unknown | 1930-7969 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4760 | MYCOBIOLOGY / TAYLOR & FRANCIS LTD | 2092-9323 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4761 | NBER MACROECONOMICS ANNUAL / UNIV CHICAGO PRESS | 1537-2642 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4762 | COGNITIVE PROCESSING / SPRINGER HEIDELBERG | 1612-4790 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4763 | Journal of Industrial and Business Economics Sprin / Unknown | 1972-4977 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4764 | European Journal of Political Theory SAGE Publicat / Unknown | 1741-2730 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4765 | USER MODELING AND USER-ADAPTED  INTERACTION / SPRINGER | 1573-1391 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4766 | INFORMATICS FOR HEALTH & SOCIAL  CARE / TAYLOR & FRANCIS INC | 1753-8165 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4767 | International Journal of Information Systems in th / Unknown | 1935-5696 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4768 | Palgrave Studies in Prisons and Penology Springer: / Unknown | 2753-0612 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4769 | Complex Psychiatry S. Karger AG / Unknown | 2673-3005 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4770 | SIAM JOURNAL ON MATHEMATICAL  ANALYSIS / SIAM PUBLICATIONS | 1095-7154 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4771 | SPECTROSCOPY LETTERS / TAYLOR & FRANCIS INC | 1532-2289 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4772 | JOURNAL OF GRAPH THEORY / WILEY | 1097-0118 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4773 | SOCIETY & NATURAL RESOURCES / TAYLOR & FRANCIS INC | 1521-0723 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4774 | JOURNAL OF THE NATIONAL MEDICAL  ASSOCIATION / ELSEVIER SCIENCE INC | 1943-4693 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4775 | SOCIAL COGNITIVE AND AFFECTIVE  NEUROSCIENCE / OXFORD UNIV PRESS | 1749-5024 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4776 | TOXICOLOGY RESEARCH / OXFORD UNIV PRESS | 2045-4538 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4777 | Polymer Science - Series D Pleiades Publishing / Unknown | 1995-4220 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4778 | HEALTH INFORMATION AND LIBRARIES  JOURNAL / WILEY | 1471-1842 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4779 | JAPANESE ECONOMIC REVIEW / SPRINGER HEIDELBERG | 1468-5876 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4780 | COLONIAL LATIN AMERICAN REVIEW / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1466-1802 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4781 | Interventional Cardiology Clinics Elsevier Inc. / N°   ISSN   E-ISSN | 2211-7466 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4782 | EUROPEAN PHYSICAL EDUCATION  REVIEW / SAGE PUBLICATIONS LTD | 1741-2749 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4783 | Review of Philosophy and Psychology Springer Verla / Unknown | 1878-5166 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4784 | PROGRESS IN CRYSTAL GROWTH AND  CHARACTERIZATION O / PERGAMON-ELSEVIER SCIENCE LTD | 1878-4208 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4785 | MODERNIST CULTURES / EDINBURGH UNIV PRESS | 2041-1022 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4786 | International Journal of Childbirth Springer Publi / Unknown | 2156-5295 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4787 | Minerva Dental and Oral Science Edizioni Minerva M / Unknown | 2724-6337 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4788 | JOURNAL OF QUANTITATIVE  SPECTROSCOPY & RADIATIVE  / PERGAMON-ELSEVIER SCIENCE LTD | 1879-1352 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4789 | ECOLOGICAL ECONOMICS / ELSEVIER | 1873-6106 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4790 | NUTRITION AND CANCER-AN  INTERNATIONAL JOURNAL / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1532-7914 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4791 | POTATO RESEARCH / SPRINGER | 1871-4528 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4792 | JOURNAL OF AGRICULTURAL  ECONOMICS / WILEY | 1477-9552 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4793 | JOURNAL OF THE AMERICAN SOCIETY  OF BREWING CHEMIS / TAYLOR & FRANCIS LTD | 1943-7854 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4794 | JOURNAL OF COMPARATIVE  ECONOMICS / ACADEMIC PRESS INC ELSEVIER  SCIENCE | 1095-7227 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4795 | JOURNAL OF THE KOREAN CERAMIC  SOCIETY / SPRINGER HEIDELBERG | 2234-0491 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4796 | PSYCHOANALYTIC DIALOGUES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1940-9222 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4797 | TOPOI-AN INTERNATIONAL REVIEW OF  PHILOSOPHY / SPRINGER | 1572-8749 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4798 | COMMUNICATIONS IN  CONTEMPORARY MATHEMATICS / WORLD SCIENTIFIC PUBL CO PTE  LTD | 1793-6683 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4799 | FRENCH HISTORICAL STUDIES / DUKE UNIV PRESS | 1527-5493 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4800 | JOURNAL OF EXOTIC PET MEDICINE / ELSEVIER SCIENCE INC | 1931-6283 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4801 | JOURNAL OF RETAILING / ELSEVIER SCIENCE INC | 1873-3271 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4802 | JOURNAL OF SPECIAL EDUCATION  TECHNOLOGY / SAGE PUBLICATIONS INC | 2381-3121 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4803 | Parliaments, Estates and Representation Taylor and / Unknown | 1947-248X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4804 | POLIS / BRILL | 2051-2996 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4805 | EXTREMES / SPRINGER | 1572-915X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4806 | Obstetrics and Gynecology International John Wiley / N°   ISSN   E-ISSN | 1687-9597 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4807 | International Journal of Nanoparticles Inderscienc / Unknown | 1753-2515 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4808 | Composites: Mechanics, Computations, Applications  / Unknown | 2152-2073 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4809 | Journal of Environmental Economics and Policy Tayl / Unknown | 2160-6552 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4810 | Interest Groups and Advocacy Palgrave Macmillan Lt / Unknown | 2047-7422 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4811 | ATHEROSCLEROSIS PLUS / ELSEVIER | 2667-0909 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4812 | Ocean Systems Engineering Techno-Press / Unknown | 2093-677X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4813 | JOURNAL OF CHROMATOGRAPHY A / ELSEVIER | 1873-3778 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4814 | COLLOIDS AND SURFACES A- PHYSICOCHEMICAL AND ENGIN / ELSEVIER | 1873-4359 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4815 | JOURNAL OF EXPERIMENTAL BOTANY / OXFORD UNIV PRESS | 1460-2431 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4816 | COMPUTERS & CHEMICAL  ENGINEERING / PERGAMON-ELSEVIER SCIENCE LTD | 1873-4375 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4817 | MOLECULAR BIOLOGY AND  EVOLUTION / OXFORD UNIV PRESS | 1537-1719 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4818 | AESTHETIC SURGERY JOURNAL / OXFORD UNIV PRESS INC | 1527-330X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4819 | EUROPEAN PHYSICAL JOURNAL- SPECIAL TOPICS / SPRINGER HEIDELBERG | 1951-6401 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4820 | TRANSPORTATION RESEARCH PART A- POLICY AND PRACTIC / PERGAMON-ELSEVIER SCIENCE LTD | 1879-2375 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4821 | JOURNAL OF LOSS PREVENTION IN THE  PROCESS INDUSTR / ELSEVIER SCI LTD | 1873-3352 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4822 | ACTA HISTOCHEMICA / ELSEVIER GMBH | 1618-0372 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4823 | PRIMARY CARE / W B SAUNDERS CO-ELSEVIER INC | 1558-299X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4824 | VIOLENCE AGAINST WOMEN / SAGE PUBLICATIONS INC | 1552-8448 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4825 | NEW ZEALAND JOURNAL OF CROP AND  HORTICULTURAL SCI / TAYLOR & FRANCIS LTD | 1175-8783 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4826 | REVISTA DE LA REAL ACADEMIA DE  CIENCIAS EXACTAS F / SPRINGER-VERLAG ITALIA SRL | 1579-1505 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4827 | Medical Journal of Babylon Wolters Kluwer Medknow  / Unknown | 2312-6760 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4828 | DENDROCHRONOLOGIA / ELSEVIER GMBH | 1612-0051 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4829 | JOURNAL OF SPORT & SOCIAL ISSUES / SAGE PUBLICATIONS INC | 1552-7638 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4830 | ATTACHMENT & HUMAN  DEVELOPMENT / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1469-2988 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4831 | ARID LAND RESEARCH AND  MANAGEMENT / TAYLOR & FRANCIS INC | 1532-4990 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4832 | Religion and Education Taylor and Francis Ltd. / N°   ISSN   E-ISSN | 1949-8381 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4833 | PharmacoEconomics - Open Springer International Pu / Unknown | 2509-4262 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4834 | International Journal of Human Rights in Healthcar / Unknown | 2056-4910 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4835 | PEDIATRIC CLINICS OF NORTH  AMERICA / W B SAUNDERS CO-ELSEVIER INC | 1557-8240 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4836 | NATURAL PRODUCT  COMMUNICATIONS / SAGE PUBLICATIONS INC | 1934-578X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4837 | ZOOLOGICAL JOURNAL OF THE  LINNEAN SOCIETY / OXFORD UNIV PRESS | 1096-3642 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4838 | ABDOMINAL RADIOLOGY / SPRINGER | 2366-0058 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4839 | ACTA PHARMACOLOGICA SINICA / NATURE PUBL GROUP | 1745-7254 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4840 | METABOLIC BRAIN DISEASE / SPRINGER/PLENUM PUBLISHERS | 1573-7365 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4841 | JOURNAL OF SYSTEMS ARCHITECTURE / ELSEVIER | 1873-6165 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4842 | STATISTICS / TAYLOR & FRANCIS LTD | 1029-4910 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4843 | Optoelectronics Letters Springer Verlag / Unknown | 1993-5013 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4844 | SOCIOLOGY OF RELIGION / OXFORD UNIV PRESS INC | 1759-8818 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4845 | SOIL RESEARCH / CSIRO PUBLISHING | 1838-6768 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4846 | DRUG METABOLISM REVIEWS / TAYLOR & FRANCIS LTD | 1097-9883 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4847 | INTERNATIONAL JOURNAL OF TURBO &  JET-ENGINES / WALTER DE GRUYTER GMBH | 2191-0332 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4848 | Annali dell'Universita di Ferrara Springer-Verlag  / Unknown | 1827-1510 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4849 | GROUP DECISION AND NEGOTIATION / SPRINGER | 1572-9907 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4850 | AZANIA-ARCHAEOLOGICAL RESEARCH  IN AFRICA / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1945-5534 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4851 | ANNALS OF DYSLEXIA / SPRINGER | 1934-7243 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4852 | HYPERTENSION IN PREGNANCY / TAYLOR & FRANCIS INC | 1525-6065 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4853 | Journal of Nursing Measurement Springer Publishing / Unknown | 1945-7049 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4854 | Journal of Clinical Neuromuscular Disease Lippinco / Unknown | 1537-1611 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4855 | KANTIAN REVIEW / CAMBRIDGE UNIV PRESS | 2044-2394 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4856 | Frontiers of Law in China Higher Education Press L / Unknown | 1673-3541 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4857 | Bioelectricity Mary Ann Liebert Inc. / Unknown | 2576-3113 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4858 | Computability SAGE Publications Ltd / Unknown | 2211-3576 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4859 | CCF Transactions on High Performance Computing Spr / Unknown | 2524-4930 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4860 | JOURNAL OF THE ATMOSPHERIC  SCIENCES / AMER METEOROLOGICAL SOC | 1520-0469 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4861 | CELLULOSE / SPRINGER | 1572-882X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4862 | SCOTTISH MEDICAL JOURNAL / SAGE PUBLICATIONS LTD | 2045-6441 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4863 | EXPLICATOR / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1939-926X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4864 | INTERNATIONAL JOURNAL OF  NURSING STUDIES / PERGAMON-ELSEVIER SCIENCE LTD | 1873-491X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4865 | MENDELEEV COMMUNICATIONS / ELSEVIER | 1364-551X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4866 | Aktuelle Ernahrungsmedizin Klinik und Praxis Georg / Unknown | 1438-9916 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4867 | AMERICAN JOURNAL ON ADDICTIONS / WILEY | 1521-0391 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4868 | TWIN RESEARCH AND HUMAN  GENETICS / CAMBRIDGE UNIV PRESS | 1839-2628 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4869 | FOLIA LINGUISTICA / WALTER DE GRUYTER GMBH | 1614-7308 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4870 | PERSPECTIVES IN PUBLIC HEALTH / SAGE PUBLICATIONS LTD | 1757-9147 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4871 | JOURNAL OF MOLECULAR HISTOLOGY / SPRINGER | 1567-2387 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4872 | SOCIAL DEVELOPMENT / WILEY | 1467-9507 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4873 | JOURNAL OF MEDICAL SCREENING / SAGE PUBLICATIONS LTD | 1475-5793 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4874 | JOURNAL OF CHILD SEXUAL ABUSE / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1547-0679 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4875 | JOURNAL OF FRENCH LANGUAGE  STUDIES / CAMBRIDGE UNIV PRESS | 1474-0079 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4876 | ASSAY AND DRUG DEVELOPMENT  TECHNOLOGIES / MARY ANN LIEBERT, INC | 1557-8127 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4877 | NANOTECHNOLOGY REVIEWS / DE GRUYTER POLAND SP Z O O | 2191-9097 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4878 | PHENOMENOLOGY AND THE  COGNITIVE SCIENCES / SPRINGER | 1572-8676 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4879 | South Asia Research Sage Publications India Pvt. L / N°   ISSN   E-ISSN | 1741-3141 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4880 | Radiological Physics and Technology Springer Japan / Unknown | 1865-0341 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4881 | MAIN GROUP CHEMISTRY / IOS PRESS | 1745-1167 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4882 | Advances in Radio Science Copernicus Publications / Unknown | 1684-9973 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4883 | Intractable and Rare Diseases Research Internation / Unknown | 2186-3644 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4884 | International Journal of Enterprise Information Sy / Unknown | 1548-1123 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4885 | Avicenna Journal of Clinical Microbiology and Infe / Unknown | 2383-0301 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4886 | Manuscript Studies University of Pennsylvania Pres / Unknown | 2381-5329 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4887 | JOURNAL OF VIROLOGY / AMER SOC MICROBIOLOGY | 1098-5514 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4888 | EPILEPSIA / WILEY | 1528-1167 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4889 | JOURNAL OF THE LONDON  MATHEMATICAL SOCIETY-SECOND / WILEY | 1469-7750 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4890 | MATERIALS CHARACTERIZATION / ELSEVIER SCIENCE INC | 1873-4189 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4891 | ZEITSCHRIFT FUR SLAWISTIK / WALTER DE GRUYTER GMBH | 2196-7016 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4892 | Agricultural Engineering De Gruyter Open Ltd. / Unknown | 2449-5999 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4893 | INTERNATIONAL JOURNAL OF  ACAROLOGY / TAYLOR & FRANCIS INC | 1945-3892 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4894 | PSYCHOTHERAPY RESEARCH / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1468-4381 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4895 | INTEGRAL TRANSFORMS AND SPECIAL  FUNCTIONS / TAYLOR & FRANCIS LTD | 1476-8291 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4896 | E-POLYMERS / DE GRUYTER POLAND SP Z O O | 2197-4586 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4897 | INTERNATIONAL REVIEW FOR THE  SOCIOLOGY OF SPORT / SAGE PUBLICATIONS LTD | 1461-7218 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4898 | COGNITIVE DEVELOPMENT / ELSEVIER SCIENCE INC | 1879-226X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4899 | POLITICAL COMMUNICATION / TAYLOR & FRANCIS INC | 1091-7675 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4900 | CHEMICAL AND PROCESS  ENGINEERING-NEW FRONTIERS / POLSKA AKAD NAUK, POLISH ACAD  SCIENCES | 2300-1925 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4901 | INTERNATIONAL JOURNAL OF SOCIAL  PSYCHOLOGY / SAGE PUBLICATIONS INC | 1579-3680 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4902 | SCHOOL MENTAL HEALTH / SPRINGER | 1866-2633 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4903 | FOLIA HORTICULTURAE / SCIENDO | 2083-5965 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4904 | RESEARCH IN ENGINEERING DESIGN / SPRINGER HEIDELBERG | 1435-6066 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4905 | Journal of Obstetrics, Gynecology and Cancer Resea / Unknown | 2645-3991 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4906 | RIVISTA DEL NUOVO CIMENTO / SPRINGERNATURE | 1826-9850 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4907 | New Journal of European Criminal Law SAGE Publicat / Unknown | 2399-293X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4908 | International Journal of Disaster Resilience in th / Unknown | 1759-5916 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4909 | Advances in Human-Computer Interaction John Wiley  / N°   ISSN   E-ISSN | 1687-5907 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4910 | Urban Rail Transit Springer Science and Business M / Unknown | 2199-6687 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4911 | JOURNAL OF LANGUAGE LITERATURE  AND CULTURE / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 2051-2864 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4912 | CHROMATOGRAPHIA / SPRINGER HEIDELBERG | 1612-1112 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4913 | GERIATRIC NURSING / MOSBY-ELSEVIER | 1528-3984 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4914 | IMMUNOBIOLOGY / ELSEVIER GMBH | 1878-3279 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4915 | ETHNIC AND RACIAL STUDIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1466-4356 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4916 | JOURNAL OF BIOLOGICAL EDUCATION / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 2157-6009 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4917 | COGNITION & EMOTION / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1464-0600 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4918 | JOURNAL OF OCCUPATIONAL HEALTH / OXFORD UNIV PRESS | 1348-9585 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4919 | GENES TO CELLS / WILEY | 1365-2443 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4920 | JOURNAL OF HYDROMETEOROLOGY / AMER METEOROLOGICAL SOC | 1525-755X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4921 | JOURNAL OF MUSCLE RESEARCH AND  CELL MOTILITY / SPRINGER | 1573-2657 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4922 | PALAEONTOLOGY / WILEY | 1475-4983 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4923 | EUROPEAN JOURNAL OF  INTERNATIONAL MANAGEMENT / INDERSCIENCE ENTERPRISES LTD | 1751-6765 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4924 | Journal of Patient Experience SAGE Publications In / Unknown | 2374-3743 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4925 | VIRTUAL AND PHYSICAL PROTOTYPING / TAYLOR & FRANCIS LTD | 1745-2767 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4926 | Behaviour Change Cambridge University Press / Unknown | 2049-7768 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4927 | RENEWABLE AGRICULTURE AND FOOD  SYSTEMS / CAMBRIDGE UNIV PRESS | 1742-1713 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4928 | BEN JONSON JOURNAL / EDINBURGH UNIV PRESS | 1755-165X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4929 | INTERNATIONAL JOURNAL OF  HOUSING POLICY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1949-1255 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4930 | INTERNATIONAL JOURNAL OF ORAL  SCIENCE / SPRINGERNATURE | 2049-3169 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4931 | Journal of High Speed Networks SAGE Publications L / Unknown | 1875-8940 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4932 | International Journal of Engineering Systems Model / Unknown | 1755-9766 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4933 | International Journal of Electronic Marketing and  / Unknown | 1741-1033 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4934 | WSEAS Transactions on Power Systems World Scientif / Unknown | 2224-350X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4935 | International Journal of Revenue Management Inders / Unknown | 1741-8186 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4936 | CHEST / ELSEVIER | 1931-3543 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4937 | WATER SCIENCE AND TECHNOLOGY / IWA PUBLISHING | 1996-9732 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4938 | JOURNAL OF GEOLOGY / UNIV CHICAGO PRESS | 1537-5269 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4939 | CHEMICAL SOCIETY REVIEWS / ROYAL SOC CHEMISTRY | 1460-4744 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4940 | CANCER IMMUNOLOGY RESEARCH / AMER ASSOC CANCER RESEARCH | 2326-6074 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4941 | NEW ZEALAND JOURNAL OF BOTANY / TAYLOR & FRANCIS LTD | 1175-8643 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4942 | HISTORY OF PHOTOGRAPHY / TAYLOR & FRANCIS LTD | 2150-7295 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4943 | MOLECULAR DIVERSITY / SPRINGER | 1573-501X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4944 | CAMBRIDGE QUARTERLY OF  HEALTHCARE ETHICS / CAMBRIDGE UNIV PRESS | 1469-2147 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4945 | TRANSACTIONS OF THE PHILOLOGICAL  SOCIETY / WILEY | 1467-968X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4946 | JOURNAL OF FIELD ROBOTICS / WILEY | 1556-4967 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4947 | POETICS / ELSEVIER | 1872-7514 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4948 | PEDIATRIC OBESITY / WILEY | 2047-6310 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4949 | Arbitration International Oxford University Press / Unknown | 1875-8398 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4950 | JOURNAL OF RESEARCH IN CRIME AND  DELINQUENCY / SAGE PUBLICATIONS INC | 1552-731X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4951 | JOURNAL OF MATHEMATICAL FLUID  MECHANICS / SPRINGER BASEL AG | 1422-6952 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4952 | RACE ETHNICITY AND EDUCATION / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1470-109X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4953 | JOURNAL OF APPLIED SPORT  PSYCHOLOGY / TAYLOR & FRANCIS LTD | 1533-1571 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4954 | HISTORY OF PSYCHOLOGY / EDUCATIONAL PUBLISHING  FOUNDATION-AMERI | 1939-0610 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4955 | PROGRESS IN PLANNING / PERGAMON-ELSEVIER SCIENCE LTD | 1873-4510 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4956 | Journal of Defense Modeling and Simulation SAGE Pu / Unknown | 1557-380X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4957 | ACTA ORIENTALIA ACADEMIAE  SCIENTIARUM HUNGARICAE / AKADEMIAI KIADO ZRT | 1588-2667 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4958 | International Journal of Innovation Science Emeral / Unknown | 1757-2231 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4959 | International Journal of Cloud Computing Inderscie / Unknown | 2043-9997 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4960 | Therapeutic Advances in Cardiovascular Disease SAG / Unknown | 1753-9455 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4961 | Information and Learning Science Emerald Publishin / Unknown | 2398-5356 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4962 | Pulmonary Therapy Adis / Unknown | 2364-1754 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4963 | Agriculture (Pol'nohospodarstvo) Sciendo / Unknown | 1338-4376 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4964 | Studies in Graduate and Postdoctoral Education Eme / Unknown | 2398-4694 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4965 | AMERICAN HISTORICAL REVIEW / OXFORD UNIV PRESS | 1937-5239 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4966 | EUROPEAN JOURNAL OF CANCER / ELSEVIER SCI LTD | 1879-0852 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4967 | ECOLOGY / WILEY | 1939-9170 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4968 | HEALTH EDUCATION JOURNAL / SAGE PUBLICATIONS LTD | 1748-8176 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4969 | JOURNAL OF GENERAL PSYCHOLOGY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1940-0888 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4970 | ARCHIVES OF INSECT BIOCHEMISTRY  AND PHYSIOLOGY / WILEY | 1520-6327 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4971 | NANO TODAY / ELSEVIER SCI LTD | 1878-044X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4972 | CHINA ECONOMIC REVIEW / ELSEVIER SCIENCE INC | 1873-7781 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4973 | INTERNATIONAL JOURNAL OF  IMMUNOPATHOLOGY AND  PHA / SAGE PUBLICATIONS INC | 2058-7384 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4974 | JOURNALISM / SAGE PUBLICATIONS INC | 1741-3001 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4975 | CURRENT HYPERTENSION REPORTS / SPRINGER | 1534-3111 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4976 | SHIPS AND OFFSHORE STRUCTURES / TAYLOR & FRANCIS LTD | 1754-212X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4977 | JOURNAL OF VETERINARY MEDICAL  EDUCATION / UNIV TORONTO PRESS INC | 1943-7218 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4978 | DRUG DELIVERY AND TRANSLATIONAL  RESEARCH / SPRINGER HEIDELBERG | 2190-3948 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4979 | SCOTTISH HISTORICAL REVIEW / EDINBURGH UNIV PRESS | 1750-0222 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4980 | Reflective Practice Taylor and Francis Ltd. / Unknown | 1470-1103 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4981 | Foresight Emerald Publishing / Unknown | 1465-9832 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4982 | International Journal of Information Technology an / Unknown | 2074-9015 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4983 | Applied Microscopy Springer Nature / Unknown | 2287-5123 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4984 | Journal of Herbs, Spices and Medicinal Plants Tayl / Unknown | 1540-3580 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4985 | GAMES AND CULTURE / SAGE PUBLICATIONS INC | 1555-4139 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4986 | ANTHROPOLOGICAL THEORY / SAGE PUBLICATIONS LTD | 1741-2641 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4987 | INTERNATIONAL JOURNAL OF CLINICAL  AND HEALTH PSYC / ELSEVIER SCIENCE INC | 2174-0852 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4988 | Speech, Language and Hearing Taylor and Francis Lt / Unknown | 2050-5728 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4989 | Advances in Urology John Wiley and Sons Ltd / Unknown | 1687-6377 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4990 | ACTA GEODAETICA ET GEOPHYSICA / SPRINGER | 2213-5820 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4991 | ALGEBRAIC GEOMETRY / EUROPEAN MATHEMATICAL SOC- EMS | 2313-1691 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4992 | Theatre and Performance Design Taylor and Francis  / Unknown | 2332-2578 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4993 | JOURNAL OF EDUCATIONAL  PSYCHOLOGY / AMER PSYCHOLOGICAL ASSOC | 1939-2176 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4994 | ECONOMETRIC REVIEWS / TAYLOR & FRANCIS INC | 1532-4168 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4995 | THEORETICAL AND APPLIED FRACTURE  MECHANICS / ELSEVIER | 1872-7638 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4996 | CLINICAL AND EXPERIMENTAL  OPHTHALMOLOGY / WILEY | 1442-9071 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4997 | Intereconomics Sciendo / Unknown | 1613-964X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4998 | SCANDINAVIAN JOURNAL OF  PSYCHOLOGY / WILEY | 1467-9450 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 4999 | COMPUTER STANDARDS & INTERFACES / ELSEVIER | 1872-7018 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5000 | JOURNAL OF MEDICAL PRIMATOLOGY / WILEY | 1600-0684 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5001 | STRUCTURAL HEALTH MONITORING- AN INTERNATIONAL JOU / SAGE PUBLICATIONS LTD | 1741-3168 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5002 | Politics and the Life Sciences Cambridge Universit / Unknown | 1471-5457 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5003 | Urology Practice Lippincott Williams and Wilkins / Unknown | 2352-0787 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5004 | STRUCTURAL CHANGE AND ECONOMIC  DYNAMICS / ELSEVIER | 1873-6017 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5005 | ORGANIZATION / SAGE PUBLICATIONS LTD | 1461-7323 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5006 | AMERICAN BUSINESS LAW JOURNAL / WILEY | 1744-1714 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5007 | AUSTRALIAN FEMINIST STUDIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1465-3303 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5008 | Criminal Justice Policy Review SAGE Publications I / Unknown | 1552-3586 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5009 | ADVANCED FIBER MATERIALS / SPRINGERNATURE | 2524-793X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5010 | Psychology of Consciousness: Theory Research, and  / Unknown | 2326-5531 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5011 | Journal of Eastern Mediterranean Archaeology and H / Unknown | 2166-3556 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5012 | INTERNATIONAL JOURNAL OF SYSTEMS  SCIENCE-OPERATIO / TAYLOR & FRANCIS LTD | 2330-2682 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5013 | Global Journal of Emerging Market Economies SAGE P / Unknown | 0975-2730 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5014 | Phenomics Springer / Unknown | 2730-5848 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5015 | EUROPEAN JOURNAL OF  ENDOCRINOLOGY / OXFORD UNIV PRESS | 1479-683X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5016 | CHEMICAL PHYSICS / ELSEVIER | 1873-4421 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5017 | CHEMOTHERAPY / KARGER | 1421-9794 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5018 | CALCIFIED TISSUE INTERNATIONAL / SPRINGER | 1432-0827 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5019 | AEU-INTERNATIONAL JOURNAL OF  ELECTRONICS AND COMM / ELSEVIER GMBH | 1618-0399 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5020 | SIGNAL PROCESSING-IMAGE  COMMUNICATION / ELSEVIER | 1879-2677 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5021 | PHYSIOLOGICAL RESEARCH / ACAD SCIENCES CZECH REPUBLIC,  INST PHYS | 1802-9973 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5022 | JOURNAL OF KNOT THEORY AND ITS  RAMIFICATIONS / WORLD SCIENTIFIC PUBL CO PTE  LTD | 1793-6527 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5023 | CHILD & YOUTH CARE FORUM / SPRINGER | 1573-3319 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5024 | Economic Research-Ekonomska Istrazivanja Taylor an / Unknown | 1848-9664 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5025 | CHINESE GEOGRAPHICAL SCIENCE / SPRINGER | 1993-064X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5026 | CHINA INFORMATION / SAGE PUBLICATIONS INC | 1741-590X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5027 | Journal of Clinical Ethics University of Chicago P / Unknown | 1945-5879 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5028 | Review of Black Political Economy Springer New Yor / N°   ISSN   E-ISSN | 1936-4814 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5029 | ATOMIC DATA AND NUCLEAR DATA  TABLES / ACADEMIC PRESS INC ELSEVIER  SCIENCE | 1090-2090 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5030 | JOURNAL OF ENVIRONMENTAL LAW / OXFORD UNIV PRESS | 1464-374X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5031 | INTERNATIONAL JOURNAL OF HIGH  PERFORMANCE COMPUTI / SAGE PUBLICATIONS LTD | 1741-2846 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5032 | ASSESSING WRITING / ELSEVIER SCI LTD | 1873-5916 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5033 | THERAPEUTIC ADVANCES IN  RESPIRATORY DISEASE / SAGE PUBLICATIONS LTD | 1753-4666 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5034 | APPLIED FRUIT SCIENCE / SPRINGER | 2948-2631 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5035 | Electronic Government Inderscience Enterprises Ltd / Unknown | 1740-7508 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5036 | MARKETING THEORY / SAGE PUBLICATIONS INC | 1741-301X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5037 | Review of Law and Economics Walter de Gruyter GmbH / Unknown | 2194-6000 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5038 | International Journal of Vehicle Noise and Vibrati / Unknown | 1479-148X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5039 | International Journal of Accounting World Scientif / Unknown | 2213-3933 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5040 | Journal of Property, Planning and Environmental La / N°   ISSN   E-ISSN | 2514-9415 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5041 | JOURNAL OF PEDIATRIC  GASTROENTEROLOGY AND NUTRITI / WILEY | 1536-4801 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5042 | CLINICAL CANCER RESEARCH / AMER ASSOC CANCER RESEARCH | 1557-3265 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5043 | Measurement Techniques Springer Science and Busine / Unknown | 1573-8906 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5044 | Feddes Repertorium Wiley-Blackwell / Unknown | 1522-239X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5045 | ART JOURNAL / TAYLOR & FRANCIS INC | 2325-5307 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5046 | ANTICANCER RESEARCH / INT INST ANTICANCER RESEARCH | 1791-7530 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5047 | JOURNAL OF MARRIAGE AND FAMILY / WILEY | 1741-3737 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5048 | TRANSLATIONAL CANCER RESEARCH / AME PUBLISHING COMPANY | 2219-6803 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5049 | CANADIAN MATHEMATICAL BULLETIN- BULLETIN CANADIEN  / CAMBRIDGE UNIV PRESS | 1496-4287 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5050 | CHRONOBIOLOGY INTERNATIONAL / TAYLOR & FRANCIS INC | 1525-6073 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5051 | JOURNAL OF THROMBOSIS AND  THROMBOLYSIS / SPRINGER | 1573-742X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5052 | APIDOLOGIE / SPRINGER FRANCE | 1297-9678 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5053 | SCIENCE & EDUCATION / SPRINGER | 1573-1901 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5054 | ASTIN BULLETIN-THE JOURNAL OF THE  INTERNATIONAL A / CAMBRIDGE UNIV PRESS | 1783-1350 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5055 | JOURNAL OF INFORMETRICS / ELSEVIER | 1875-5879 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5056 | JOURNAL OF AGRICULTURAL  BIOLOGICAL AND ENVIRONMEN / SPRINGER | 1537-2693 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5057 | REVIEWS OF ENVIRONMENTAL  CONTAMINATION AND TOXICO / SPRINGER | 2197-6554 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5058 | SCHOOL EFFECTIVENESS AND SCHOOL  IMPROVEMENT / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1744-5124 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5059 | JOURNAL OF SERVICE RESEARCH / SAGE PUBLICATIONS INC | 1552-7379 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5060 | Indian Journal of Microbiology Research IP Innovat / Unknown | 2394-5478 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5061 | CHINA FOUNDRY / SPRINGER SINGAPORE PTE LTD | 2365-9459 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5062 | Legal Theory Cambridge University Press / Unknown | 1469-8048 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5063 | INFORMATION TECHNOLOGY &  MANAGEMENT / SPRINGER | 1573-7667 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5064 | International Journal of Christianity and Educatio / Unknown | 2056-998X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5065 | INTERNATIONAL DATA PRIVACY LAW / OXFORD UNIV PRESS | 2044-4001 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5066 | Cybernetics and Physics Institute of Problems of M / Unknown | 2226-4116 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5067 | HIV RESEARCH & CLINICAL PRACTICE / TAYLOR & FRANCIS LTD | 2578-7489 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5068 | Muslim World Journal of Human Rights Walter de Gru / Unknown | 2194-6558 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5069 | JOURNAL OF THE FRANKLIN INSTITUTE / PERGAMON-ELSEVIER SCIENCE LTD | 1879-2693 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5070 | School Science and Mathematics John Wiley & Sons I / Unknown | 1949-8594 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5071 | CANADIAN JOURNAL OF FISHERIES  AND AQUATIC SCIENCE / CANADIAN SCIENCE PUBLISHING | 1205-7533 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5072 | MRS BULLETIN / SPRINGER HEIDELBERG | 1938-1425 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5073 | JOURNAL OF CHILD PSYCHOLOGY AND  PSYCHIATRY / WILEY | 1469-7610 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5074 | JOURNAL OF ETHNIC AND MIGRATION  STUDIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1469-9451 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5075 | INTERNATIONAL JOURNAL OF URBAN  AND REGIONAL RESEA / WILEY | 1468-2427 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5076 | JOURNAL OF MOUNTAIN SCIENCE / SCIENCE PRESS | 1993-0321 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5077 | GEOGRAPHICAL RESEARCH / WILEY | 1745-5871 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5078 | REGIONAL SCIENCE AND URBAN  ECONOMICS / ELSEVIER | 1879-2308 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5079 | AUSTRALIAN JOURNAL OF PRIMARY  HEALTH / CSIRO PUBLISHING | 1836-7399 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5080 | POSITIVITY / SPRINGER | 1572-9281 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5081 | JOURNAL OF BIOLOGICAL SYSTEMS / WORLD SCIENTIFIC PUBL CO PTE  LTD | 1793-6470 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5082 | Revista de Filologia de la Universidad de La Lagun / Unknown | 2530-8548 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5083 | BENEFICIAL MICROBES / BRILL | 1876-2891 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5084 | QUARTERLY REVIEWS OF BIOPHYSICS / CAMBRIDGE UNIV PRESS | 1469-8994 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5085 | AFTERALL / UNIV CHICAGO PRESS | 2156-4914 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5086 | International Journal of Self-Propagating High-Tem / Unknown | 1934-788X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5087 | ANNUAL REVIEW OF APPLIED  LINGUISTICS / CAMBRIDGE UNIV PRESS | 1471-6356 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5088 | JOURNAL OF AMBIENT INTELLIGENCE  AND SMART ENVIRON / IOS PRESS | 1876-1372 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5089 | Gender Issues Springer New York / Unknown | 1936-4717 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5090 | Unmanned Systems World Scientific / Unknown | 2301-3869 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5091 | Pacific Accounting Review Emerald Group Publishing / Unknown | 2041-5494 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5092 | REVISTA ROMANA DE MEDICINA DE  LABORATOR / SCIENDO | 2284-5623 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5093 | Archives of Mental Health Wolters Kluwer Medknow P / Unknown | 2589-918X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5094 | Journal of Planning History SAGE Publications Inc. / Unknown | 1552-6585 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5095 | AMERICAN JOURNAL OF CULTURAL  SOCIOLOGY / PALGRAVE MACMILLAN LTD | 2049-7121 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5096 | Korean Language in America Penn State University P / Unknown | 2374-670X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5097 | MAYO CLINIC PROCEEDINGS / ELSEVIER SCIENCE INC | 1942-5546 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5098 | JOURNAL OF THE OPERATIONAL  RESEARCH SOCIETY / TAYLOR & FRANCIS LTD | 1476-9360 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5099 | OBESITY SURGERY / SPRINGER | 1708-0428 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5100 | CRYSTAL RESEARCH AND TECHNOLOGY / WILEY-V C H VERLAG GMBH | 1521-4079 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5101 | EUROPEAN JOURNAL OF INTERNAL  MEDICINE / ELSEVIER | 1879-0828 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5102 | LINGUA / ELSEVIER | 1872-6135 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5103 | CRITICAL REVIEWS IN FOOD SCIENCE  AND NUTRITION / TAYLOR & FRANCIS INC | 1549-7852 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5104 | NEW ZEALAND VETERINARY JOURNAL / TAYLOR & FRANCIS LTD | 1176-0710 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5105 | COLD REGIONS SCIENCE AND  TECHNOLOGY / ELSEVIER | 1872-7441 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5106 | CANADIAN GEOGRAPHIES- GEOGRAPHIES CANADIENNES / WILEY | 1541-0064 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5107 | FEMINIST REVIEW / SAGE PUBLICATIONS LTD | 1466-4380 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5108 | MELUS / OXFORD UNIV PRESS INC | 1946-3170 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5109 | JOURNAL OF RELIGION IN AFRICA / BRILL | 1570-0666 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5110 | JOURNAL OF HAPPINESS STUDIES / SPRINGER | 1573-7780 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5111 | American Journal of Lifestyle Medicine SAGE Public / Unknown | 1559-8284 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5112 | Journal of Law and Religion Cambridge University P / Unknown | 2163-3088 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5113 | World Leisure Journal Taylor and Francis Ltd. / Unknown | 2333-4509 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5114 | Administrative Theory and Praxis Taylor and Franci / N°   ISSN   E-ISSN | 1949-0461 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5115 | PROCEEDINGS OF THE INSTITUTION OF  CIVIL ENGINEERS / EMERALD GROUP PUBLISHING LTD | 1751-7729 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5116 | ENVIRONMENTAL ARCHAEOLOGY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1749-6314 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5117 | DIFFERENCES-A JOURNAL OF FEMINIST  CULTURAL STUDIE / DUKE UNIV PRESS | 1527-1986 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5118 | EVOLVING SYSTEMS / SPRINGER HEIDELBERG | 1868-6486 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5119 | International Journal of Knowledge Management Stud / Unknown | 1743-8276 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5120 | Studia Poliana / Unknown | 2387-1822 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5121 | Anesthesiology Research and Practice John Wiley an / Unknown | 1687-6970 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5122 | AMS Review Springer New York / N°   ISSN   E-ISSN | 1869-8182 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5123 | JOURNAL OF COMPUTER LANGUAGES / ELSEVIER SCI LTD | 2665-9182 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5124 | Studies in International Criminal Law Brill / Unknown | 2666-903X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5125 | MOLECULAR NUTRITION & FOOD  RESEARCH / WILEY | 1613-4125 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5126 | AMBIO / SPRINGER | 0044-7447 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5127 | JOURNAL OF PRODUCT INNOVATION  MANAGEMENT / WILEY | 0737-6782 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5128 | Revista Mexicana de Ciencias Agricolas National In / Unknown | 2007-9230 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5129 | PERFORMANCE RESEARCH / TAYLOR & FRANCIS LTD | 1352-8165 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5130 | ARCHIVES OF NATURAL HISTORY / EDINBURGH UNIV PRESS | 0260-9541 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5131 | BMC MEDICAL IMAGING / BMC | 1471-2342 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5132 | Gigiena i Sanitariya Federal Scientific Center of  / Unknown | 2412-0650 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5133 | Financial and Credit Activity: Problems of Theory  / Unknown | 2306-4994 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5134 | ELEMENTS / MINERALOGICAL SOC AMER | 1811-5217 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5135 | ALLERGOLOGY INTERNATIONAL / JAPANESE SOC ALLERGOLOGY | 1440-1592 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5136 | Personal and Ubiquitous Computing Springer London / Unknown | 1617-4909 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5137 | Journal of Disaster Research Fuji Technology Press / Unknown | 1883-8030 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5138 | BRITISH ACCOUNTING REVIEW / ELSEVIER SCI LTD | 0890-8389 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5139 | JOURNAL OF HUMAN KINETICS / TERMEDIA PUBLISHING HOUSE LTD | 1640-5544 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5140 | JMV-Journal de Medecine Vasculaire Elsevier Masson / Unknown | 2542-4513 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5141 | JOURNAL OF ECUMENICAL STUDIES / JOURNAL ECUMENICAL STUDIES | 2162-3937 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5142 | Jisuanji Xuebao/Chinese Journal of Computers Scien / Unknown | 0254-4164 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5143 | GROUP & ORGANIZATION  MANAGEMENT / SAGE PUBLICATIONS INC | 1059-6011 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5144 | ACM TRANSACTIONS ON SENSOR  NETWORKS / ASSOC COMPUTING MACHINERY | 1550-4859 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5145 | JOURNAL OF PHYSICAL AND CHEMICAL  REFERENCE DATA / AIP PUBLISHING | 0047-2689 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5146 | GESTA-INTERNATIONAL CENTER OF  MEDIEVAL ART / UNIV CHICAGO PRESS | 0016-920X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5147 | JOURNAL OF INTELLECTUAL  DISABILITIES / SAGE PUBLICATIONS LTD | 1744-6295 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5148 | ICHNOS-AN INTERNATIONAL JOURNAL  FOR PLANT AND ANI / TAYLOR & FRANCIS INC | 1042-0940 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5149 | Journal of Oral Research Universidad de Concepcion / Unknown | 0719-2479 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5150 | Global Social Policy SAGE Publications Ltd / Unknown | 1468-0181 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5151 | RHEUMATOLOGY AND THERAPY / SPRINGER | 2198-6576 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5152 | Functiones et Approximatio, Commentarii Mathematic / Unknown | 2080-9433 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5153 | Turkish Journal of Surgery Turkish Surgical Societ / Unknown | 2564-7032 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5154 | Asian Journal of International Law Cambridge Unive / Unknown | 2044-2513 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5155 | Journal of Parasitology Research John Wiley and So / Unknown | 2090-0023 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5156 | Rozhledy v Chirurgii Czech Medical Association J.E / Unknown | 1805-4579 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5157 | International Journal of Informatics and Communica / Unknown | 2722-2616 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5158 | Agronomia Colombiana Universidad Nacional de Colom / Unknown | 2357-3732 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5159 | Geodesy and Cartography Vilnius Gediminas Technica / Unknown | 2029-7009 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5160 | Logos: Revista de Linguistica, Filosofia y Literat / Unknown | 0719-3262 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5161 | Samarah Universitas Islam Negeri Ar-Raniry / Unknown | 2549-3167 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5162 | International Journal of Information Systems and C / Unknown | 1479-3121 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5163 | NEUROLOGICAL SCIENCES AND  NEUROPHYSIOLOGY / WOLTERS KLUWER MEDKNOW  PUBLICATIONS | 2636-865X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5164 | Sustainability and Climate Change Mary Ann Liebert / Unknown | 2692-2924 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5165 | Folia Cryptogamica Estonica Estonian Naturalists'  / Unknown | 1736-7786 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5166 | Journal of Studies in International Education SAGE / Unknown | 2789-634X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5167 | Journal of Gems and Gemmology Editorial Department / Unknown | 2096-9120 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5168 | METALS / MDPI | 2075-4701 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5169 | KOREAN JOURNAL OF CHEMICAL  ENGINEERING / KOREAN INSTITUTE CHEMICAL   ENGINEERS | 1975-7220 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5170 | MEAT SCIENCE / ELSEVIER SCI LTD | 0309-1740 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5171 | SUPERCONDUCTOR SCIENCE &  TECHNOLOGY / IOP PUBLISHING LTD | 1361-6668 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5172 | ZOOKEYS / PENSOFT PUBLISHERS | 1313-2970 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5173 | COMPLEXITY / WILEY | 1076-2787 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5174 | Infrared and Laser Engineering Science Press / Unknown | 1007-2276 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5175 | JOURNAL OF SPEECH LANGUAGE AND  HEARING RESEARCH / AMER SPEECH-LANGUAGE-HEARING  ASSOC | 1558-9102 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5176 | REVIEW OF PALAEOBOTANY AND  PALYNOLOGY / ELSEVIER | 0034-6667 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5177 | APPLIED ECOLOGY AND  ENVIRONMENTAL RESEARCH / ALOKI APPLIED ECOLOGICAL  RESEARCH AND F | 1785-0037 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5178 | TAIWANESE JOURNAL OF OBSTETRICS  & GYNECOLOGY / ELSEVIER TAIWAN | 1028-4559 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5179 | URBAN HISTORY / CAMBRIDGE UNIV PRESS | 0963-9268 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5180 | SOCIAL COMPASS / SAGE PUBLICATIONS LTD | 0037-7686 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5181 | ADMINISTRATION AND POLICY IN  MENTAL HEALTH AND ME / SPRINGER | 0894-587X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5182 | Journal of Experimental Zoology India DR. P. R. YA / Unknown | 0976-1780 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5183 | INTERNATIONAL JOURNAL OF  MEDICINAL MUSHROOMS / BEGELL HOUSE INC | 1521-9437 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5184 | Medical News of North Caucasus Stavropol State Med / Unknown | 2073-8145 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5185 | Rehabilitacion Ediciones Doyma, S.L. / Unknown | 1578-3278 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5186 | JOURNAL OF NONLINEAR OPTICAL  PHYSICS & MATERIALS / WORLD SCIENTIFIC PUBL CO PTE  LTD | 0218-8635 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5187 | Nanosystems: Physics, Chemistry, Mathematics ITMO  / Unknown | 2220-8054 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5188 | Transactions of Japanese Society for Medical and B / Unknown | 1881-4379 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5189 | JOURNAL OF LATIN AMERICAN  CULTURAL STUDIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1356-9325 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5190 | International Journal of Trichology Wolters Kluwer / Unknown | 0974-7753 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5191 | PATHOGENS AND GLOBAL HEALTH / TAYLOR & FRANCIS LTD | 2047-7724 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5192 | Brazilian Journal of Oral Sciences Universidade Es / Unknown | 1677-3225 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5193 | EUROPEAN JOURNAL OF ENGLISH  STUDIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1382-5577 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5194 | Journal of Youth Development Clemson University/Ti / Unknown | 2325-4009 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5195 | ARCHAEOLOGICAL DIALOGUES / CAMBRIDGE UNIV PRESS | 1380-2038 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5196 | CODESIGN-INTERNATIONAL JOURNAL  OF COCREATION IN D / TAYLOR & FRANCIS LTD | 1571-0882 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5197 | Drugs in Context BioExcel Publishing Ltd. / Unknown | 1745-1981 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5198 | AUTISM IN ADULTHOOD / MARY ANN LIEBERT, INC | 2573-9581 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5199 | International Journal of Literary Humanities Commo / Unknown | 2327-8676 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5200 | INTERNATIONAL JOURNAL OF  HUMANITIES AND ARTS COMP / EDINBURGH UNIV PRESS | 1753-8548 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5201 | @GRH Association Francophone de Gestion des Relati / Unknown | 2295-9149 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5202 | ADVANCES IN METHODS AND  PRACTICES IN PSYCHOLOGICA / SAGE PUBLICATIONS INC | 2515-2459 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5203 | English Text Construction John Benjamins Publishin / Unknown | 1874-8767 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5204 | AUSTRAL JOURNAL OF VETERINARY  SCIENCES / UNIV AUSTRAL CHILE, FAC CIENCIAS  VETERI | 0719-8132 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5205 | Biostatistics and Epidemiology Taylor and Francis  / Unknown | 2470-9360 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5206 | FASEB JOURNAL / WILEY | 0892-6638 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5207 | PEDIATRICS / AMER ACAD PEDIATRICS | 1098-4275 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5208 | ECONOMIC HISTORY REVIEW / WILEY | 0013-0117 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5209 | FRONTIERS IN NUTRITION / FRONTIERS MEDIA SA | 2296-861X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5210 | COMPUTERS & INDUSTRIAL  ENGINEERING / PERGAMON-ELSEVIER SCIENCE LTD | 0360-8352 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5211 | NUCLEAR TECHNOLOGY / TAYLOR & FRANCIS INC | 0029-5450 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5212 | PROCEEDINGS OF THE INSTITUTION OF  MECHANICAL ENGI / SAGE PUBLICATIONS LTD | 0954-4070 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5213 | Brazilian Journal of Biology Instituto Internacion / Unknown | 1678-4375 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5214 | ZYGON / OPEN LIBRARY HUMANITIES | 1467-9744 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5215 | PLATELETS / TAYLOR & FRANCIS INC | 0953-7104 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5216 | IEEE JOURNAL OF PHOTOVOLTAICS / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 2156-3381 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5217 | JOURNAL OF AGRICULTURAL  METEOROLOGY / SOC AGRICULTURAL METEOROLOGY  JAPAN | 0021-8588 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5218 | CRIMINOLOGY / WILEY | 0011-1384 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5219 | UPDATES IN SURGERY / SPRINGER-VERLAG ITALIA SRL | 2038-131X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5220 | SEMINARS IN INTERVENTIONAL  RADIOLOGY / THIEME MEDICAL PUBL INC | 0739-9529 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5221 | JOURNAL OF INTERNATIONAL  FINANCIAL MARKETS INSTIT / ELSEVIER | 1042-4431 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5222 | BRITISH JOURNAL FOR THE HISTORY OF  PHILOSOPHY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 0960-8788 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5223 | BIOLOGICAL PSYCHIATRY-COGNITIVE  NEUROSCIENCE AND  / ELSEVIER | 2451-9022 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5224 | Media Asia Taylor and Francis Ltd. / Unknown | 0129-6612 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5225 | BULLETIN OF SPANISH STUDIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1475-3820 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5226 | CANADIAN JOURNAL OF  ADMINISTRATIVE SCIENCES-REVUE / WILEY | 0825-0383 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5227 | NATURE ELECTRONICS / NATURE PORTFOLIO | 2520-1131 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5228 | JOURNAL OF THE AMERICAN  MOSQUITO CONTROL ASSOCIAT / AMER MOSQUITO CONTROL ASSOC | 8756-971X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5229 | Journal of Occupational Science Taylor and Francis / Unknown | 1442-7591 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5230 | Journal of Structured Finance Portfolio Management / Unknown | 2374-1325 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5231 | Journal of Horticultural Sciences Society for Prom / Unknown | 2582-4899 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5232 | JOURNAL OF CONTEXTUAL  BEHAVIORAL SCIENCE / ELSEVIER | 2212-1447 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5233 | JOURNAL OF MUSICOLOGICAL  RESEARCH / TAYLOR & FRANCIS LTD | 0141-1896 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5234 | INTERNATIONAL JOURNAL OF  CHILDRENS SPIRITUALITY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1364-436X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5235 | Geologija Geological Survey of Slovenia / Unknown | 1854-620X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5236 | REVIEW OF SYMBOLIC LOGIC / CAMBRIDGE UNIV PRESS | 1755-0203 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5237 | Oral Oncology Reports Elsevier Ltd / Unknown | 2772-9060 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5238 | Journal of Literary and Cultural Disability Studie / Unknown | 1757-6458 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5239 | Journal of HIV/AIDS and Social Services Routledge / Unknown | 1538-151X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5240 | Schole Novosibirskij Gosudarstvennyj Universitet / Unknown | 1995-4336 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5241 | METACOGNITION AND LEARNING / SPRINGER | 1556-1623 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5242 | Ethical Thought RAS Institute of Philosophy / Unknown | 2074-4897 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5243 | Ethics and Bioethics (in Central Europe) Sciendo / Unknown | 1338-5615 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5244 | Clinical Transplantation and Research Korean Socie / Unknown | 3022-7712 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5245 | JOURNAL OF HIGH ENERGY PHYSICS / SPRINGER | 1029-8479 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5246 | Journal of High Energy Physics / Unknown | 1127-2236 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5247 | MOLECULAR MICROBIOLOGY / WILEY | 0950-382X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5248 | PALAEOGEOGRAPHY  PALAEOCLIMATOLOGY  PALAEOECOLOGY / ELSEVIER | 0031-0182 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5249 | METABOLITES / MDPI | 2218-1989 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5250 | Peabody Journal of Education Taylor and Francis Lt / Unknown | 0161-956X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5251 | GONDWANA RESEARCH / ELSEVIER | 1342-937X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5252 | ETHNOHISTORY / DUKE UNIV PRESS | 0014-1801 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5253 | AMERICAN FAMILY PHYSICIAN / AMER ACAD FAMILY PHYSICIANS | 1532-0650 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5254 | American family physician / Unknown | 1532-0669 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5255 | WOOD SCIENCE AND TECHNOLOGY / SPRINGER | 0043-7719 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5256 | SURGICAL ONCOLOGY-OXFORD / ELSEVIER SCI LTD | 0960-7404 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5257 | Estudos Avancados Instituto de Estudos Avancados d / Unknown | 1806-9592 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5258 | JOURNAL DE MYCOLOGIE MEDICALE / MASSON EDITEUR | 1773-0449 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5259 | TURKISH JOURNAL OF MATHEMATICS / TUBITAK SCIENTIFIC &  TECHNOLOGICAL RESE | 1303-6149 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5260 | URBAN HISTORY REVIEW-REVUE D  HISTOIRE URBAINE / UNIV TORONTO PRESS INC | 0703-0428 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5261 | ENTOMOLOGICAL SCIENCE / WILEY | 1343-8786 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5262 | METABOLIC SYNDROME AND RELATED  DISORDERS / MARY ANN LIEBERT, INC | 1540-4196 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5263 | TRANSLATIONAL STROKE RESEARCH / SPRINGER | 1868-4483 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5264 | Alzheimer's and Dementia: Diagnosis, Assessment an / Unknown | 2352-8729 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5265 | JOURNAL OF ETHNOBIOLOGY AND  ETHNOMEDICINE / BMC | 1746-4269 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5266 | Journal of Wine Research Routledge / N°   ISSN   E-ISSN | 1469-9672 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5267 | Pediatric Reports Multidisciplinary Digital Publis / Unknown | 2036-749X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5268 | EXPOSITIONES MATHEMATICAE / ELSEVIER GMBH | 0723-0869 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5269 | Sante Mentale et Droit Elsevier Masson s.r.l. / Unknown | 2772-9710 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5270 | REVISTA DE ECONOMIA MUNDIAL / UNIV HUELVA, SERV  PUBLICACIONES | 2340-4264 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5271 | International Journal of Sport Policy and Politics / Unknown | 1940-6940 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5272 | Financial History Review Cambridge University Pres / Unknown | 0968-5650 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5273 | Pakistan Journal of Phytopathology Pakistan Phytop / Unknown | 2305-0284 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5274 | Forum Geografi Muhammadiyah University of Surakart / Unknown | 2460-3945 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5275 | International Journal of Web Information Systems E / Unknown | 1744-0084 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5276 | Per Linguam Department of General Linguistics, Ste / Unknown | 2224-0012 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5277 | Mongolian Studies Kalmyk Scientific Centre of Russ / Unknown | 2712-8059 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5278 | Adverse Drug Reaction Bulletin Lippincott Williams / Unknown | 0044-6394 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5279 | Journal of Tropical Crop Science IPB University De / Unknown | 2356-0177 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5280 | Sustainable Environment Taylor and Francis Ltd. / Unknown | 2765-8511 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5281 | Southern African Journal of Entrepreneurship and S / Unknown | 2522-7343 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5282 | Jahr University of Rijeka, Faculty of Medicine / N°   ISSN   E-ISSN | 1848-7874 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5283 | TAPA Johns Hopkins University Press / Unknown | 2575-7199 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5284 | LOGI - Scientific Journal on Transport and Logisti / Unknown | 2336-3037 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5285 | Town and Regional Planning University of the Free  / Unknown | 2415-0495 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5286 | Afghanistan Edinburgh University Press / Unknown | 2399-357X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5287 | Croatian Economic Survey Institute of Economics (Z / Unknown | 1846-3878 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5288 | PAMATKY ARCHEOLOGICKE / ACAD SCIENCES CZECH REP, INST  ARCHAEOLO | 2570-9496 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5289 | Precision Nutrition Lippincott Williams and Wilkin / N°   ISSN   E-ISSN | 2993-8139 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5290 | CURRENT BIOLOGY / CELL PRESS | 0960-9822 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5291 | EMBO JOURNAL / SPRINGERNATURE | 0261-4189 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5292 | JOURNAL OF MAMMALOGY / OXFORD UNIV PRESS INC | 0022-2372 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5293 | GEOLOGY / GEOLOGICAL SOC AMER, INC | 1943-2682 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5294 | ARCHIVES OF VIROLOGY / SPRINGER WIEN | 0304-8608 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5295 | WIRELESS PERSONAL  COMMUNICATIONS / SPRINGER | 0929-6212 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5296 | NEUROUROLOGY AND URODYNAMICS / WILEY | 0733-2467 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5297 | INTERNATIONAL JOURNAL OF  ELECTRONICS / TAYLOR & FRANCIS LTD | 0020-7217 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5298 | HEALTH PSYCHOLOGY / AMER PSYCHOLOGICAL ASSOC | 0278-6133 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5299 | AMERICAN JOURNAL OF NEPHROLOGY / KARGER | 0250-8095 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5300 | JOURNAL OF POROUS MATERIALS / SPRINGER | 1380-2224 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5301 | ADVANCED ROBOTICS / TAYLOR & FRANCIS LTD | 0169-1864 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5302 | JOURNAL OF WORLD TRADE / KLUWER LAW INT | 2210-2795 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5303 | PHYSIOLOGICAL GENOMICS / AMER PHYSIOLOGICAL SOC | 1094-8341 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5304 | JOURNAL OF EDUCATIONAL  MEASUREMENT / WILEY | 0022-0655 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5305 | BATTERIES & SUPERCAPS / WILEY-V C H VERLAG GMBH | 2566-6223 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5306 | METROECONOMICA / WILEY | 0026-1386 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5307 | HARVARD EDUCATIONAL REVIEW / HARVARD GRADUATE SCHOOL  EDUCATION | 1943-5045 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5308 | Journal of Oral and Maxillofacial Surgery, Medicin / Unknown | 2212-5558 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5309 | Economy of Regions Institute of Economics, The Ura / Unknown | 2411-1406 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5310 | Miznarodnij Endokrinologicnij Zurnal Zaslavsky Pub / Unknown | 2307-1427 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5311 | JOURNAL OF THE INTERNATIONAL  PHONETIC ASSOCIATION / CAMBRIDGE UNIV PRESS | 0025-1003 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5312 | ARCHIVES OF SUICIDE RESEARCH / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1381-1118 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5313 | ENGINEERING MANAGEMENT  JOURNAL / TAYLOR & FRANCIS LTD | 1042-9247 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5314 | Journal of Pediatric Neurosciences Wolters Kluwer  / Unknown | 1817-1745 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5315 | Sleep Medicine Clinics W.B. Saunders / N°   ISSN   E-ISSN | 1556-4088 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5316 | EDUCATIONAL RESEARCH REVIEW / ELSEVIER SCI LTD | 1747-938X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5317 | Psychological Science and Education Moscow State U / Unknown | 1814-2052 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5318 | MASS COMMUNICATION AND SOCIETY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1520-5436 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5319 | JOURNAL OF ENGLISH LINGUISTICS / SAGE PUBLICATIONS INC | 0075-4242 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5320 | EAST ASIAN SCIENCE TECHNOLOGY  AND SOCIETY-AN INTE / TAYLOR & FRANCIS INC | 1875-2152 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5321 | NEUROLOGY-GENETICS / LIPPINCOTT WILLIAMS & WILKINS | 2376-7839 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5322 | Geotechnik Wiley-Blackwell / N°   ISSN   E-ISSN | 0172-6145 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5323 | Filolog (Banja Luka) Faculty of Philology Banja Lu / Unknown | 2233-1158 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5324 | SCIENCE AND TECHNOLOGY OF  NUCLEAR INSTALLATIONS / WILEY | 1687-6075 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5325 | JOURNAL OF THEORETICAL POLITICS / SAGE PUBLICATIONS LTD | 0951-6298 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5326 | GERIATRIC ORTHOPAEDIC SURGERY &  REHABILITATION / SAGE PUBLICATIONS INC | 2151-4585 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5327 | NPJ GENOMIC MEDICINE / NATURE PORTFOLIO | 2056-7944 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5328 | Childhood and Philosophy State Univ of Rio de Jane / Unknown | 2525-5061 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5329 | International Journal of Cell Biology John Wiley a / Unknown | 1687-8876 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5330 | Heart International Touch Medical Media / Unknown | 2036-2579 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5331 | Perspectives on Public Management and Governance O / Unknown | 2398-4910 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5332 | AATCC Review / Unknown | 2330-5525 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5333 | Statistika Czech Statistical Office / Unknown | 1804-8765 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5334 | Extreme Medicine Federal Medical Biological Agency / Unknown | 2713-2765 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5335 | Theory Workshop Brill / Unknown | 2590-1869 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5336 | NEPHROLOGY DIALYSIS  TRANSPLANTATION / OXFORD UNIV PRESS | 0931-0509 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5337 | TUMORI JOURNAL / SAGE PUBLICATIONS LTD | 0300-8916 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5338 | HASTINGS CENTER REPORT / WILEY | 0093-0334 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5339 | JOURNAL OF INHERITED METABOLIC  DISEASE / WILEY | 0141-8955 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5340 | ECONOMIC MODELLING / ELSEVIER | 0264-9993 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5341 | BRITISH JOURNAL OF HOSPITAL  MEDICINE / MA HEALTHCARE LTD | 1759-7390 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5342 | CIRCULATION-CARDIOVASCULAR  QUALITY AND OUTCOMES / LIPPINCOTT WILLIAMS & WILKINS | 1941-7705 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5343 | TRANSPORT IN POROUS MEDIA / SPRINGER | 0169-3913 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5344 | Mathematical Biosciences and Engineering American  / Unknown | 1551-0018 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5345 | ALLERGOLOGIA ET  IMMUNOPATHOLOGIA / CODON PUBLICATIONS | 1578-1267 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5346 | IMMUNOTHERAPY / TAYLOR & FRANCIS LTD | 1750-743X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5347 | EPIGENETICS / TAYLOR & FRANCIS INC | 1559-2294 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5348 | JOURNAL OF AGING AND HEALTH / SAGE PUBLICATIONS INC | 0898-2643 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5349 | IAWA JOURNAL / BRILL | 2294-1932 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5350 | LATIN AMERICAN POLITICS AND  SOCIETY / CAMBRIDGE UNIV PRESS | 1531-426X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5351 | EMERGENCIAS / SOC ESPANOLA MEDICINA  URGENCIAS & EMERG | 2386-5857 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5352 | Teoria y Realidad Constitucional Univ Nacional de  / Unknown | 2174-8950 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5353 | International Forum of Psychoanalysis Routledge / Unknown | 1651-2324 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5354 | IEEE GEOSCIENCE AND REMOTE  SENSING MAGAZINE / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 2168-6831 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5355 | IEEE Geoscience and Remote Sensing Magazine / Unknown | 2373-7468 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5356 | IRANIAN JOURNAL OF PEDIATRICS / BRIEFLANDS | 2008-2150 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5357 | ASIAN JOURNAL OF SOCIAL  PSYCHOLOGY / WILEY | 1367-2223 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5358 | JOURNAL OF SCIENCE-ADVANCED  MATERIALS AND DEVICES / VIETNAM NATL UNIV | 2468-2284 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5359 | CLINICAL AND INVESTIGATIVE  MEDICINE / CANADIAN SOC CLINICAL  INVESTIGATION | 1488-2353 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5360 | Revista de la Educacion Superior Asociacion Nacion / Unknown | 2395-9037 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5361 | Patologiya Krovoobrashcheniya i Kardiokhirurgiya M / Unknown | 2500-3119 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5362 | Journal of Internet Commerce Routledge / Unknown | 1533-287X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5363 | Researches in Mathematics Oles Honchar Dnipro Nati / Unknown | 2664-5009 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5364 | Archivos de Historia del Movimiento Obrero y la Iz / Unknown | 2683-9601 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5365 | Architecture Multidisciplinary Digital Publishing  / Unknown | 2673-8945 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5366 | International Journal of High Performance Systems  / N°   ISSN   E-ISSN | 1751-6528 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5367 | Marine Systems and Ocean Technology Springer Natur / Unknown | 1679-396X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5368 | Journal of Geometric Mechanics American Institute  / Unknown | 1941-4897 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5369 | SUBSTANCE USE & ADDICTION  JOURNAL / SAGE PUBLICATIONS INC | 2976-7342 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5370 | Organizations and Markets in Emerging Economies Vi / Unknown | 2345-0037 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5371 | International Journal of Design in Society Common  / Unknown | 2325-1360 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5372 | Genus Springer International Publishing AG / Unknown | 0016-6987 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5373 | Moral Philosophy and Politics Walter de Gruyter Gm / Unknown | 2194-5616 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5374 | Journal of Islamic and Muslim Studies Indiana Univ / Unknown | 2470-7074 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5375 | Constitutional Review  Center for Research and Cas / Unknown | 2548-3870 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5376 | JOURNAL OF COATINGS TECHNOLOGY  AND RESEARCH / SPRINGER | 1547-0091 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5377 | SURFACE SCIENCE / ELSEVIER | 0039-6028 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5378 | POLYHEDRON / PERGAMON-ELSEVIER SCIENCE LTD | 0277-5387 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5379 | ENGINEERING STRUCTURES / ELSEVIER SCI LTD | 0141-0296 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5380 | APPETITE / ACADEMIC PRESS LTD- ELSEVIER  SCIENCE LT | 0195-6663 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5381 | JOURNAL OF ANALYTICAL AND APPLIED  PYROLYSIS / ELSEVIER | 0165-2370 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5382 | QUALITY OF LIFE RESEARCH / SPRINGER | 0962-9343 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5383 | THEORY OF PROBABILITY AND ITS  APPLICATIONS / SIAM PUBLICATIONS | 0040-585X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5384 | AMERICAN EDUCATIONAL RESEARCH  JOURNAL / SAGE PUBLICATIONS INC | 0002-8312 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5385 | JOURNAL OF PEACE RESEARCH / SAGE PUBLICATIONS LTD | 0022-3433 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5386 | ALGORITHMICA / SPRINGER | 0178-4617 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5387 | NIGERIAN JOURNAL OF CLINICAL  PRACTICE / WOLTERS KLUWER MEDKNOW  PUBLICATIONS | 1119-3077 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5388 | CURRENT PHARMACEUTICAL  BIOTECHNOLOGY / BENTHAM SCIENCE PUBL LTD | 1389-2010 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5389 | ANGLE ORTHODONTIST / E H ANGLE EDUCATION RESEARCH  FOUNDATION | 1945-7103 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5390 | IEEE TRANSACTIONS ON  EVOLUTIONARY COMPUTATION / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 1089-778X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5391 | Psychological Perspectives Taylor and Francis Ltd. / Unknown | 0033-2925 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5392 | SOLAR SYSTEM RESEARCH / PLEIADES PUBLISHING INC | 0038-0946 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5393 | Vox Patrum John Paul II Catholic University of Lub / N°   ISSN   E-ISSN | 2719-3586 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5394 | JOURNAL OF SOCIAL PHILOSOPHY / WILEY | 0047-2786 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5395 | JOURNAL OF ORGANIZATIONAL  CHANGE MANAGEMENT / EMERALD GROUP PUBLISHING LTD | 0953-4814 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5396 | GEOGRAFISKA ANNALER SERIES B- HUMAN GEOGRAPHY / TAYLOR & FRANCIS LTD | 0435-3684 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5397 | Journal of Education for Library and Information S / Unknown | 0748-5786 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5398 | SOFTWARE AND SYSTEMS MODELING / SPRINGER HEIDELBERG | 1619-1366 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5399 | Revue d'Ethique et de Theologie Morale Editions du / N°   ISSN   E-ISSN | 2118-4518 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5400 | Quebec Studies Liverpool University Press / Unknown | 0737-3759 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5401 | Nashim Indiana University Press / Unknown | 1565-5288 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5402 | Journal of Punjab Academy of Forensic Medicine and / Unknown | 0974-083X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5403 | INFORMATION VISUALIZATION / SAGE PUBLICATIONS LTD | 1473-8716 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5404 | Energy and AI Elsevier B.V. / Unknown | 2666-5468 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5405 | Short Film Studies Intellect Ltd. / Unknown | 2042-7832 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5406 | Manusya Chulalongkorn University / Unknown | 2665-9077 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5407 | Atom Indonesia National Nuclear Energy Agency / Unknown | 2356-5322 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5408 | Particles Multidisciplinary Digital Publishing Ins / Unknown | 2571-712X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5409 | Law and Humanities Taylor and Francis Ltd. / Unknown | 1752-1483 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5410 | Jurnal Kajian Bali Udayana University / Unknown | 2580-0698 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5411 | Childhood in the Past Taylor and Francis Ltd. / Unknown | 1758-5716 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5412 | UUM Journal of Legal Studies Universiti Utara Mala / Unknown | 2229-984X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5413 | AsiaIntervention Europa Group / Unknown | 2491-0929 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5414 | Lurralde: Investigacion y Espacio Instituto Geogra / Unknown | 1697-3070 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5415 | CHEMICAL SCIENCE / ROYAL SOC CHEMISTRY | 2041-6520 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5416 | INTERNATIONAL JOURNAL OF  PEDIATRIC OTORHINOLARYNG / ELSEVIER IRELAND LTD | 0165-5876 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5417 | AMERICAN JOURNAL OF PREVENTIVE  MEDICINE / ELSEVIER SCIENCE INC | 0749-3797 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5418 | ANTIQUARIES JOURNAL / CAMBRIDGE UNIV PRESS | 0003-5815 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5419 | MODERN PHILOLOGY / UNIV CHICAGO PRESS | 0026-8232 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5420 | IMMUNITY / CELL PRESS | 1074-7613 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5421 | GENETIC RESOURCES AND CROP  EVOLUTION / SPRINGER | 0925-9864 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5422 | COGNITIVE SCIENCE / WILEY | 0364-0213 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5423 | Revue Francaise d'Allergologie Elsevier Masson s.r / Unknown | 1877-0312 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5424 | REVUE FRANCAISE D ALLERGOLOGIE / ELSEVIER MASSON, CORPORATION  OFFICE | 1877-0320 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5425 | CNS SPECTRUMS / CAMBRIDGE UNIV PRESS | 1092-8529 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5426 | JOURNAL OF THE ROYAL SOCIETY  INTERFACE / ROYAL SOC | 1742-5662 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5427 | HYPATIA-A JOURNAL OF FEMINIST  PHILOSOPHY / CAMBRIDGE UNIV PRESS | 0887-5367 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5428 | ARCHIVES OF PSYCHIATRIC NURSING / W B SAUNDERS CO-ELSEVIER INC | 0883-9417 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5429 | Anales del Instituto de Investigaciones Esteticas  / Unknown | 1870-3062 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5430 | JOURNAL OF BIOMATERIALS  APPLICATIONS / SAGE PUBLICATIONS LTD | 0885-3282 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5431 | INTERNATIONAL STUDIES REVIEW / OXFORD UNIV PRESS | 1468-2486 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5432 | Nefrologia Elsevier Espana S.L.U / Unknown | 2013-2514 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5433 | Egyptian Journal of Histology Egyptian Society of  / Unknown | 2090-2417 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5434 | PARALLAX / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1353-4645 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5435 | NINETEENTH-CENTURY MUSIC REVIEW / CAMBRIDGE UNIV PRESS | 1479-4098 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5436 | JOURNAL OF VECTOR BORNE DISEASES / WOLTERS KLUWER MEDKNOW  PUBLICATIONS | 0972-9062 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5437 | RHODORA / NEW ENGLAND BOTANICAL CLUB  INC | 1938-3401 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5438 | INTERNATIONAL JOURNAL OF  ANALYTICAL CHEMISTRY / WILEY | 1687-8760 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5439 | International Journal of Intelligent Systems Techn / Unknown | 1740-8865 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5440 | Journal of Web Librarianship Routledge / Unknown | 1932-2917 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5441 | International Journal of Healthcare Information Sy / Unknown | 1555-3396 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5442 | ARIEL-A REVIEW OF INTERNATIONAL  ENGLISH LITERATUR / JOHNS HOPKINS UNIV PRESS | 1920-1222 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5443 | Waste Management Bulletin Elsevier B.V. / Unknown | 2949-7507 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5444 | ZEITSCHRIFT FUR FRANZOSISCHE  SPRACHE UND LITERATU / FRANZ STEINER VERLAG GMBH | 2366-2425 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5445 | Medicina y Laboratorio Universidad de Antioquia / N°   ISSN   E-ISSN | 2500-7106 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5446 | Journal of Electrical Bioimpedance Sciendo / Unknown | 1891-5469 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5447 | CHANGE OVER TIME-AN  INTERNATIONAL JOURNAL OF  CON / UNIV PENNSYLVANIA PRESS | 2153-053X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5448 | Alloys MDPI Multidisciplinary Digital Publishing I / Unknown | 2674-063X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5449 | Northeast Journal of Complex Systems Binghamton Un / N°   ISSN   E-ISSN | 2577-8439 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5450 | Asian Journal of Anesthesiology Taiwan Society of  / Unknown | 2468-824X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5451 | Veterinary Record Open John Wiley & Sons Inc. / Unknown | 2399-2050 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5452 | AMERICAN ANTHROPOLOGIST / WILEY | 0002-7294 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5453 | AMERICAN SURGEON / SAGE PUBLICATIONS INC | 0003-1348 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5454 | TECHNICAL PHYSICS LETTERS / MAIK  NAUKA/INTERPERIODICA/SPRINGER | 1063-7850 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5455 | JOURNAL OF DENTISTRY / ELSEVIER SCI LTD | 0300-5712 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5456 | FUTURES / ELSEVIER SCI LTD | 0016-3287 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5457 | ISME JOURNAL / OXFORD UNIV PRESS | 1751-7362 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5458 | BIOTECHNOLOGY &  BIOTECHNOLOGICAL EQUIPMENT / TAYLOR & FRANCIS LTD | 1310-2818 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5459 | IEEE JOURNAL OF OCEANIC  ENGINEERING / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 0364-9059 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5460 | IEEE Journal of Oceanic Engineering / Unknown | 2373-7786 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5461 | JOURNAL OF PHYSICAL ACTIVITY &  HEALTH / HUMAN KINETICS PUBL INC | 1543-3080 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5462 | JOURNAL OF TRAVEL MEDICINE / OXFORD UNIV PRESS INC | 1195-1982 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5463 | INTERNATIONAL JOURNAL OF STROKE / SAGE PUBLICATIONS LTD | 1747-4930 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5464 | International journal of intelligent engineering a / Unknown | 1882-708X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5465 | International Journal of Intelligent Engineering a / Unknown | 2185-310X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5466 | CANADIAN PUBLIC ADMINISTRATION- ADMINISTRATION PUB / WILEY | 0008-4840 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5467 | COMPUTER-AIDED CIVIL AND  INFRASTRUCTURE ENGINEERI / WILEY | 1093-9687 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5468 | GROUND WATER MONITORING AND  REMEDIATION / WILEY | 1069-3629 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5469 | International Journal of Productivity and Performa / Unknown | 1741-0401 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5470 | Journal of Extra-Corporeal Technology EDP Sciences / Unknown | 0022-1058 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5471 | CANCER IMAGING / BMC | 1470-7330 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5472 | EDUCATIONAL ADMINISTRATION  QUARTERLY / SAGE PUBLICATIONS INC | 0013-161X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5473 | ODONTOLOGY / SPRINGER | 1618-1247 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5474 | FISHERIES OCEANOGRAPHY / WILEY | 1054-6006 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5475 | INTERNATIONAL JOURNAL OF LOW- CARBON TECHNOLOGIES / OXFORD UNIV PRESS | 1748-1317 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5476 | ANNUAL REVIEW OF NEUROSCIENCE / ANNUAL REVIEWS | 0147-006X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5477 | FACIES / SPRINGER | 0172-9179 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5478 | Innovar Universidad Nacional de Colombia / N°   ISSN   E-ISSN | 2248-6968 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5479 | QUATERNAIRE / SOC GEOLOGIQUE FRANCE | 1965-0795 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5480 | Asian Ethnicity Routledge / Unknown | 1469-2953 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5481 | QUALITY ASSURANCE AND SAFETY OF  CROPS & FOODS / CODON PUBLICATIONS | 1757-837X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5482 | REVISTA DE LA UNION MATEMATICA  ARGENTINA / UNION MATEMATICA ARGENTINA | 1669-9637 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5483 | Mathematical Proceedings of the Royal Irish Academ / Unknown | 2009-0021 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5484 | JOURNAL OF SURVEY STATISTICS AND  METHODOLOGY / OXFORD UNIV PRESS INC | 2325-0984 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5485 | Digital Diagnostics Eco-Vector LLC / Unknown | 2712-8962 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5486 | Surfaces Multidisciplinary Digital Publishing Inst / Unknown | 2571-9637 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5487 | Regional Anesthesia and Acute Pain Management Eco- / Unknown | 2687-1394 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5488 | Journal of Moravian History Penn State University  / Unknown | 1933-6632 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5489 | Journal of Japanese and Korean Cinema Taylor and F / Unknown | 1756-4905 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5490 | International Journal of Computer Games Technology / N°   ISSN   E-ISSN | 1687-7047 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5491 | Studies in Ancient Art and Civilization Ksiegarnia / Unknown | 2449-867X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5492 | History of European Political and Constitutional T / Unknown | 2589-5966 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5493 | LINEAR ALGEBRA AND ITS  APPLICATIONS / ELSEVIER SCIENCE INC | 0024-3795 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5494 | COMPUTER METHODS IN APPLIED  MECHANICS AND ENGINEE / ELSEVIER SCIENCE SA | 0045-7825 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5495 | AFRICAN STUDIES REVIEW / CAMBRIDGE UNIV PRESS | 0002-0206 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5496 | PERITONEAL DIALYSIS INTERNATIONAL / SAGE PUBLICATIONS INC | 0896-8608 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5497 | BUSINESS HORIZONS / ELSEVIER | 0007-6813 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5498 | REVISTA DE SAUDE PUBLICA / REVISTA DE SAUDE PUBLICA | 1518-8787 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5499 | ACTA PHYSIOLOGIAE PLANTARUM / SPRINGER HEIDELBERG | 0137-5881 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5500 | PSYCHOANALYTIC QUARTERLY / TAYLOR & FRANCIS INC | 0033-2828 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5501 | CONSCIOUSNESS AND COGNITION / ACADEMIC PRESS INC ELSEVIER  SCIENCE | 1053-8100 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5502 | RADIOPROTECTION / EDP SCIENCES S A | 0033-8451 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5503 | DIX-SEPTIEME SIECLE / SOC ETUD 17 SIECLE | 1969-6965 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5504 | PROCEEDINGS OF THE INSTITUTION OF  MECHANICAL ENGI / SAGE PUBLICATIONS LTD | 0954-4097 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5505 | Brazilian Journal of Nephrology Sociedade Brasilei / N°   ISSN   E-ISSN | 2175-8239 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5506 | Preventive Nutrition and Food Science Korean Socie / Unknown | 2287-8602 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5507 | Revue d'Histoire des Sciences Cairn France / Unknown | 1969-6582 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5508 | PLASTICS RUBBER AND COMPOSITES / SAGE PUBLICATIONS INC | 1465-8011 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5509 | REVIEWS IN THE NEUROSCIENCES / WALTER DE GRUYTER GMBH | 0334-1763 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5510 | ASIA PACIFIC JOURNAL OF EDUCATION / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 0218-8791 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5511 | Ambiente & sociedade / Unknown | 1983-0211 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5512 | Zhurnal Mikrobiologii Epidemiologii i Immunobiolog / Unknown | 2686-7613 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5513 | Journal of Police and Criminal Psychology Springer / Unknown | 0882-0783 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5514 | Journal of Patient-Reported Outcomes Springer Inte / Unknown | 2509-8020 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5515 | ANNUAL REVIEWS IN CONTROL / PERGAMON-ELSEVIER SCIENCE LTD | 1367-5788 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5516 | Revista Facultad de Medicina Universidad Nacional  / Unknown | 2357-3848 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5517 | Methods and Protocols Multidisciplinary Digital Pu / Unknown | 2409-9279 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5518 | TROPICAL ECOLOGY / SPRINGERNATURE | 0564-3295 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5519 | Cryptography Multidisciplinary Digital Publishing  / N°   ISSN   E-ISSN | 2410-387X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5520 | Journal of Cerebrovascular and Endovascular Neuros / N°   ISSN   E-ISSN | 2287-3139 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5521 | International Journal of Electronic Governance Ind / Unknown | 1742-7509 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5522 | International Journal of Information Systems and S / Unknown | 1935-5726 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5523 | WOUNDS-A COMPENDIUM OF  CLINICAL RESEARCH AND PRAC / H M P COMMUNICATIONS | 1943-2704 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5524 | Dicenda Universidad Complutense Madrid / Unknown | 1988-2556 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5525 | Journal of Asian Security and International Affair / Unknown | 2347-7970 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5526 | Advances in Applied Energy Elsevier Ltd / Unknown | 2666-7924 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5527 | ARCHIVES OF ASIAN ART / DUKE UNIV PRESS | 0066-6637 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5528 | Infectious Diseases and Immunity Wolters Kluwer He / Unknown | 2693-8839 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5529 | Progress in Landslide Research and Technology Spri / Unknown | 2731-3794 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5530 | Acta Linguistica Lithuanica Institute of the Lithu / Unknown | 2669-218X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5531 | HARVARD LAW REVIEW / HARVARD LAW REV ASSOC | 2161-976X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5532 | Zeitschrift der Savigny-Stiftung fur Rechtsgeschic / Unknown | 0323-4045 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5533 | WASTE MANAGEMENT / PERGAMON-ELSEVIER SCIENCE LTD | 0956-053X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5534 | JOURNAL OF PERIODONTOLOGY / WILEY | 0022-3492 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5535 | WIT Transactions on Ecology and the Environment WI / Unknown | 1746-448X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5536 | JOURNAL OF MICROMECHANICS AND  MICROENGINEERING / IOP PUBLISHING LTD | 1361-6439 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5537 | Folia Pharmacologica Japonica Japanese Pharmacolog / Unknown | 1347-8397 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5538 | JOURNAL OF NATURAL HISTORY / TAYLOR & FRANCIS LTD | 0022-2933 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5539 | Egyptian Journal of Chemistry NIDOC (Nat.Inform.Do / Unknown | 2357-0245 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5540 | BEHAVIOURAL PHARMACOLOGY / LIPPINCOTT WILLIAMS & WILKINS | 0955-8810 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5541 | JOURNAL OF CIRCUITS SYSTEMS AND  COMPUTERS / WORLD SCIENTIFIC PUBL CO PTE  LTD | 0218-1266 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5542 | Eurasip Journal on Advances in Signal Processing S / Unknown | 1687-6172 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5543 | EURASIP JOURNAL ON ADVANCES IN  SIGNAL PROCESSING / SPRINGER | 1687-6180 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5544 | JOURNAL OF ENZYME INHIBITION AND  MEDICINAL CHEMIS / TAYLOR & FRANCIS LTD | 1475-6366 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5545 | JAMA CARDIOLOGY / AMER MEDICAL ASSOC | 2380-6583 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5546 | MIDDLE EAST JOURNAL / MIDDLE EAST INST | 1940-3461 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5547 | Roeper Review Taylor and Francis Ltd. / Unknown | 0278-3193 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5548 | LITERARY IMAGINATION / OXFORD UNIV PRESS | 1523-9012 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5549 | MATHEMATICS AND MECHANICS OF  SOLIDS / SAGE PUBLICATIONS LTD | 1081-2865 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5550 | BIOLOGY & PHILOSOPHY / SPRINGER | 0169-3867 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5551 | Revista de  Administracao Publica Fundacao Getulio / Unknown | 1982-3134 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5552 | JOURNAL OF SHIP RESEARCH / SOC NAVAL ARCHITECTS & MARINE  ENGINEERS | 1542-0604 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5553 | ADVANCED QUANTUM TECHNOLOGIES / WILEY | 2511-9044 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5554 | ADVANCES IN HIGH ENERGY PHYSICS / WILEY | 1687-7357 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5555 | GEMS & GEMOLOGY / GEMOLOGICAL INST AMER | 0016-626X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5556 | RESEARCH EVALUATION / OXFORD UNIV PRESS | 0958-2029 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5557 | High Temperature Material Processes Begell House I / Unknown | 1093-3611 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5558 | Public Health and Life Environment Federal Center  / Unknown | 2619-0788 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5559 | FAMILY BUSINESS REVIEW / SAGE PUBLICATIONS INC | 0894-4865 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5560 | CHINA & WORLD ECONOMY / WILEY | 1671-2234 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5561 | International Journal of Knowledge-Based and Intel / N°   ISSN   E-ISSN | 1327-2314 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5562 | International Journal of Technology Marketing Inde / Unknown | 1741-878X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5563 | EARTH SCIENCES RESEARCH JOURNAL / UNIV NACIONAL DE COLOMBIA | 2339-3459 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5564 | JOURNAL OF AFRICAN MEDIA STUDIES / INTELLECT LTD | 2040-199X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5565 | Anthropological Journal of European Cultures Bergh / Unknown | 1755-2931 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5566 | Chinese Medicine and Culture Lippincott Williams a / Unknown | 2589-9473 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5567 | Boyhood Studies Berghahn Journals / Unknown | 2375-9267 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5568 | Aloma Facultat de Psicologia, Ciencies de l'Educac / Unknown | 2339-9694 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5569 | Patristica et Mediaevalia Institute of Philosophy  / N°   ISSN   E-ISSN | 2683-9636 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5570 | Latin American Legal Studies Universidad Adolfo Ib / Unknown | 0719-9112 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5571 | EUROPACE / OXFORD UNIV PRESS | 1099-5129 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5572 | CHEMICAL GEOLOGY / ELSEVIER | 0009-2541 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5573 | INTERNATIONAL JOURNAL OF LEGAL  MEDICINE / SPRINGER | 0937-9827 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5574 | JOURNAL OF BIOMOLECULAR  STRUCTURE & DYNAMICS / TAYLOR & FRANCIS INC | 0739-1102 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5575 | JOURNAL OF ASIAN EARTH SCIENCES / PERGAMON-ELSEVIER SCIENCE LTD | 1367-9120 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5576 | BIOLOGIA PLANTARUM / ACAD SCIENCES CZECH REPUBLIC,  INST EXPE | 1573-8264 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5577 | SYSTEM / ELSEVIER SCI LTD | 0346-251X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5578 | PHYTOCHEMISTRY LETTERS / ELSEVIER | 1874-3900 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5579 | Nursing Administration Quarterly Lippincott Willia / Unknown | 0363-9568 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5580 | BMB REPORTS / KOREAN SOCIETY BIOCHEMISTRY &  MOLECULAR | 1976-670X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5581 | International Journal of Learning, Teaching and Ed / Unknown | 1694-2493 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5582 | Cahiers du Monde Russe Editions EHESS: Ecole des H / Unknown | 1777-5388 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5583 | GPS SOLUTIONS / SPRINGER HEIDELBERG | 1080-5370 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5584 | CALIFORNIA AGRICULTURE / UNIV CALIFORNIA, OAKLAND,  DIVISION AGRI | 2160-8091 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5585 | COMMUNICATIONS CHEMISTRY / NATURE PORTFOLIO | 2399-3669 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5586 | Proceedings of the ACM on Interactive, Mobile, Wea / Unknown | 2474-9567 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5587 | APPLIED PSYCHOPHYSIOLOGY AND  BIOFEEDBACK / SPRINGER/PLENUM PUBLISHERS | 1090-0586 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5588 | Vestnik Volgogradskogo Gosudarstvennogo Universite / Unknown | 2312-8704 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5589 | Allelopathy Journal International Allelopathy Foun / Unknown | 0974-1240 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5590 | Journal of Asia-Pacific Biodiversity National Scie / Unknown | 2287-9544 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5591 | ENVIRONMENT AND HISTORY / WHITE HORSE PRESS | 1752-7023 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5592 | ASCLEPIO-REVISTA DE HISTORIA DE LA  MEDICINA Y DE  / CONSEJO SUPERIOR  INVESTIGACIONES CIENTI | 1988-3102 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5593 | INTERNATIONAL JOURNAL FOR  MULTISCALE COMPUTATIONA / BEGELL HOUSE INC | 1543-1649 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5594 | INTERNATIONAL JOURNAL OF LAW  POLICY AND THE FAMIL / OXFORD UNIV PRESS | 1360-9939 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5595 | Análise Psicológica / Unknown | 2182-2980 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5596 | NUCLEUS / TAYLOR & FRANCIS INC | 1949-1034 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5597 | Women's Health Reports Mary Ann Liebert Inc. / Unknown | 2688-4844 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5598 | DECISION ANALYSIS / INFORMS | 1545-8490 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5599 | Journal of Asian Pacific Communication John Benjam / Unknown | 0957-6851 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5600 | International Journal of Automotive Engineering So / Unknown | 2185-0992 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5601 | Journal of the Association for Consumer Research U / Unknown | 2378-1815 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5602 | Frontiers in Research Metrics and Analytics Fronti / Unknown | 2504-0537 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5603 | CENTRAL EUROPE / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1479-0963 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5604 | FRONTIERS OF MATHEMATICS / SPRINGER HEIDELBERG | 2731-8648 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5605 | Computer Methods and Programs in Biomedicine Updat / Unknown | 2666-9900 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5606 | Clinical Medicine Insights: Arthritis and Musculos / Unknown | 1179-5441 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5607 | Bulletin of Atmospheric Science and Technology Spr / Unknown | 2662-1495 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5608 | Miscellanea Hadriatica et Mediterranea University  / Unknown | 2718-1170 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5609 | GAS SCIENCE AND ENGINEERING / ELSEVIER | 2949-9097 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5610 | SIXTEENTH CENTURY JOURNAL / UNIV CHICAGO PRESS | 0361-0160 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5611 | FRONTIERS IN CELL AND  DEVELOPMENTAL BIOLOGY / FRONTIERS MEDIA SA | 2296-634X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5612 | CLINICAL CARDIOLOGY / WILEY | 0160-9289 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5613 | JOURNAL OF AUTISM AND  DEVELOPMENTAL DISORDERS / SPRINGER/PLENUM PUBLISHERS | 0162-3257 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5614 | JOURNAL OF NANOPARTICLE  RESEARCH / SPRINGER | 1388-0764 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5615 | Urologia Journal Sage Publications / Unknown | 0391-5603 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5616 | TOXICOLOGY IN VITRO / PERGAMON-ELSEVIER SCIENCE LTD | 0887-2333 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5617 | European Journal of Lipid Science and Technology W / Unknown | 1438-7697 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5618 | EUROPEAN JOURNAL OF LIPID SCIENCE  AND TECHNOLOGY / WILEY | 1438-9312 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5619 | RUSI Journal Routledge / Unknown | 1744-0378 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5620 | CURRENT ORGANIC CHEMISTRY / BENTHAM SCIENCE PUBL LTD | 1385-2728 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5621 | INSECT SCIENCE / WILEY | 1672-9609 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5622 | CURRENT OPINION IN  OTOLARYNGOLOGY & HEAD AND NECK / LIPPINCOTT WILLIAMS & WILKINS | 1068-9508 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5623 | Scientia Sinica Technologica Science Press / Unknown | 1674-7259 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5624 | Food Processing: Techniques and Technology Kemerov / Unknown | 2313-1748 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5625 | SEMINARS IN DIAGNOSTIC PATHOLOGY / W B SAUNDERS CO-ELSEVIER INC | 0740-2570 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5626 | JOURNAL OF BELIEFS & VALUES- STUDIES IN RELIGION & / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1361-7672 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5627 | JOURNAL OF BIOINFORMATICS AND  COMPUTATIONAL BIOLO / WORLD SCIENTIFIC PUBL CO PTE  LTD | 0219-7200 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5628 | Urology Times Advanstar Communications Inc. / Unknown | 2150-7384 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5629 | REVUE INTERNATIONALE DE  PHILOSOPHIE / REVUE INT PHILOSOPHIE | 2033-0138 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5630 | CANADIAN JOURNAL OF  EXPERIMENTAL PSYCHOLOGY-REVUE / CANADIAN PSYCHOLOGICAL  ASSOC | 1196-1961 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5631 | DYNAMICAL SYSTEMS-AN  INTERNATIONAL JOURNAL / TAYLOR & FRANCIS LTD | 1468-9367 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5632 | RESOURCE AND ENERGY ECONOMICS / ELSEVIER | 0928-7655 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5633 | EMPIRICA / SPRINGER | 0340-8744 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5634 | Journal of the Canadian Society of Forensic Scienc / Unknown | 0008-5030 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5635 | Journal of the Turkish German Gynecology Associati / Unknown | 1309-0399 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5636 | Hormone Molecular Biology and Clinical Investigati / Unknown | 1868-1883 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5637 | Journal of Crop Science and Biotechnology Springer / Unknown | 1975-9479 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5638 | CANNABIS AND CANNABINOID  RESEARCH / MARY ANN LIEBERT, INC | 2378-8763 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5639 | INTERNATIONAL JOURNAL OF  FORENSIC MENTAL HEALTH / SAGE PUBLICATIONS LTD | 1499-9013 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5640 | Decision Science Letters Growing Science / Unknown | 1929-5812 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5641 | Critical Inquiry in Language Studies Routledge / Unknown | 1542-7595 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5642 | Malaysian Journal of Syariah and Law Faculty of Sy / Unknown | 2590-4396 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5643 | Maternal-Fetal Medicine Wolters Kluwer Health / Unknown | 2641-5895 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5644 | International Journal of Electronic Customer Relat / Unknown | 1750-0664 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5645 | Biophysics Reports Science China Press / Unknown | 2364-3439 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5646 | Smart Energy Elsevier Ltd / Unknown | 2666-9552 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5647 | Food Studies Common Ground Research Networks / Unknown | 2160-1941 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5648 | Crossings Intellect Ltd. / Unknown | 2040-4352 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5649 | ANNUAL REVIEW OF VISION SCIENCE / ANNUAL REVIEWS | 2374-4642 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5650 | Suma de Negocios Fundacion Universitaria Konrad Lo / Unknown | 2215-910X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5651 | Nonlinear Phenomena in Complex Systems Education a / Unknown | 1561-4085 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5652 | Teologicka Reflexe Karolinum - Nakladatelstvi Univ / Unknown | 2788-0796 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5653 | APPLIED ENERGY / ELSEVIER SCI LTD | 0306-2619 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5654 | FRONTIERS IN NEUROLOGY / FRONTIERS MEDIA SA | 1664-2295 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5655 | CHEMICAL ENGINEERING &  TECHNOLOGY / WILEY-V C H VERLAG GMBH | 0930-7516 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5656 | JOURNAL OF AAPOS / MOSBY-ELSEVIER | 1091-8531 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5657 | ENERGY & ENVIRONMENTAL SCIENCE / ROYAL SOC CHEMISTRY | 1754-5692 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5658 | MOLECULAR CANCER RESEARCH / AMER ASSOC CANCER RESEARCH | 1541-7786 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5659 | MEDICINE SCIENCE AND THE LAW / SAGE PUBLICATIONS INC | 0025-8024 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5660 | JOURNAL OF HOSPITAL MEDICINE / WILEY | 1553-5592 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5661 | JOURNAL OF GEOGRAPHICAL SCIENCES / SCIENCE PRESS | 1009-637X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5662 | NEUROSCIENCE BULLETIN / SPRINGER | 1673-7067 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5663 | STOCHASTIC ANALYSIS AND  APPLICATIONS / TAYLOR & FRANCIS INC | 0736-2994 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5664 | EMPLOYEE RELATIONS / EMERALD GROUP PUBLISHING LTD | 0142-5455 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5665 | INTERNATIONAL JOURNAL OF  RESEARCH IN MARKETING / ELSEVIER | 0167-8116 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5666 | Acta Botanica Malacitana Universidad de Malaga / Unknown | 2340-5074 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5667 | INTERNATIONAL JOURNAL OF GAME  THEORY / SPRINGER HEIDELBERG | 0020-7276 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5668 | JOURNAL OF CONSUMER AFFAIRS / WILEY | 0022-0078 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5669 | GENEVA PAPERS ON RISK AND  INSURANCE-ISSUES AND PR / PALGRAVE MACMILLAN LTD | 1018-5895 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5670 | FOLK LIFE-JOURNAL OF ETHNOLOGICAL  STUDIES / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 0430-8778 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5671 | MINDS AND MACHINES / SPRINGER | 0924-6495 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5672 | Budownictwo i Architektura Politechnika Lubelska / Unknown | 2544-3275 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5673 | Public Policy and Administration Mykolo Romerio Un / Unknown | 2029-2872 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5674 | Oncology in Clinical Practice Wydawnictwo Via Medi / Unknown | 2450-6478 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5675 | DISCOVER NANO / SPRINGER | 2731-9229 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5676 | Journal of Orthoptera Research Orthopterists' Soci / Unknown | 1937-2426 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5677 | PHOTOACOUSTICS / ELSEVIER GMBH | 2213-5979 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5678 | JOURNAL OF WINE ECONOMICS / CAMBRIDGE UNIV PRESS | 1931-4361 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5679 | ARDEA / NEDERLANDSE ORNITHOLOGISCHE  UNIE | 2213-1175 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5680 | Journal of Ophthalmic Inflammation and Infection S / Unknown | 1869-5760 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5681 | ACM TRANSACTIONS ON  RECONFIGURABLE TECHNOLOGY AND / ASSOC COMPUTING MACHINERY | 1936-7406 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5682 | Cuadernos de Historia Moderna Universidad Complute / Unknown | 1988-2475 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5683 | Green Analytical Chemistry Elsevier B.V. / Unknown | 2772-5774 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5684 | Journal of Cognitive Enhancement Springer Nature / Unknown | 2509-3290 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5685 | International Journal of Emergency Services Emeral / Unknown | 2047-0894 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5686 | Acta Iadertina University of Zadar / Unknown | 1849-1243 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5687 | Jurnal Hukum Islam Faculty of Sharia, Universitas  / Unknown | 2502-7719 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5688 | Revue Francaise d'Ethique Appliquee ERES / Unknown | 2494-5757 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5689 | International Journal of Legal Discourse De Gruyte / Unknown | 2364-8821 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5690 | Internet Pragmatics John Benjamins Publishing Comp / Unknown | 2542-3851 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5691 | Categories and General Algebraic Structures with A / Unknown | 2345-5861 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5692 | BEST PRACTICE & RESEARCH-CLINICAL  ANAESTHESIOLOGY / ELSEVIER | 1878-1608 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5693 | BIORESOURCE TECHNOLOGY / ELSEVIER SCI LTD | 0960-8524 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5694 | INTERNATIONAL JOURNAL OF SOLIDS  AND STRUCTURES / PERGAMON-ELSEVIER SCIENCE LTD | 0020-7683 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5695 | ZEITSCHRIFT FUR KRISTALLOGRAPHIE- CRYSTALLINE MATE / WALTER DE GRUYTER GMBH | 2194-4946 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5696 | REVISTA DE NEUROLOGIA / IMR PRESS | 1576-6578 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5697 | CHEMMEDCHEM / WILEY-V C H VERLAG GMBH | 1860-7179 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5698 | JOURNAL OF PEDIATRIC  OPHTHALMOLOGY & STRABISMUS / SLACK INC | 0191-3913 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5699 | OIL & GAS JOURNAL / PENNWELL PUBL CO ENERGY  GROUP | 0030-1388 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5700 | COMPUTING / SPRINGER WIEN | 0010-485X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5701 | FUNDAMENTAL & CLINICAL  PHARMACOLOGY / WILEY | 0767-3981 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5702 | Neuro-Ophthalmology Taylor and Francis Ltd. / Unknown | 0165-8107 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5703 | Oncology Issues Slack Incorporated / Unknown | 1046-3356 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5704 | JOURNAL OF AEROSPACE  ENGINEERING / ASCE-AMER SOC CIVIL ENGINEERS | 0893-1321 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5705 | PUBLICATIONS OF THE RESEARCH  INSTITUTE FOR MATHEM / EUROPEAN MATHEMATICAL SOC- EMS | 0034-5318 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5706 | BLOOD PRESSURE MONITORING / LIPPINCOTT WILLIAMS & WILKINS | 1359-5237 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5707 | MICROBIAL GENOMICS / MICROBIOLOGY SOC | 2057-5858 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5708 | Communications Materials Springer Nature / Unknown | 2662-4443 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5709 | DIACHRONICA / JOHN BENJAMINS PUBLISHING CO | 0176-4225 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5710 | Research in Economics Academic Press / N°   ISSN   E-ISSN | 1090-9451 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5711 | JOURNAL OF ORGANIZATIONAL  BEHAVIOR MANAGEMENT / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 0160-8061 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5712 | MEDICAL MOLECULAR MORPHOLOGY / SPRINGER JAPAN KK | 1860-1480 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5713 | Psychoanalytic Perspectives Routledge / Unknown | 2163-6958 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5714 | International Journal of Hydrology Science and Tec / Unknown | 2042-7808 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5715 | Economic Annals-XXI Institute of Society Transform / Unknown | 1728-6239 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5716 | Integrated Science Springer / Unknown | 2662-9461 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5717 | STATE POLITICS & POLICY QUARTERLY / CAMBRIDGE UNIV PRESS | 1532-4400 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5718 | Journal of Biologically Active Products from Natur / Unknown | 2231-1866 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5719 | Evidence-based HRM Emerald Publishing / N°   ISSN   E-ISSN | 2049-3983 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5720 | ASAP Journal Johns Hopkins University Press / Unknown | 2381-4721 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5721 | MATHEMATICS AND FINANCIAL  ECONOMICS / SPRINGER HEIDELBERG | 1862-9660 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5722 | Biologie Aujourd'hui EDP Sciences / Unknown | 2105-0678 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5723 | MUSICA HODIE / UNIV FEDERAL GOIAS | 2317-6776 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5724 | Journal of Theoretical and Applied Mechanics (Bulg / Unknown | 0861-6663 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5725 | Proceedings of the Institution of Civil Engineers: / Unknown | 2043-9911 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5726 | ADOLESCENT RESEARCH REVIEW / SPRINGER INT PUBL AG | 2363-8346 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5727 | Journal of Holistic Nursing and Midwifery Guilan U / Unknown | 2588-3720 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5728 | Philologia Classica Saint Petersburg State Univers / Unknown | 2618-6969 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5729 | International Journal of Environmental Sustainabil / Unknown | 2325-1085 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5730 | JOURNAL OF FRACTAL GEOMETRY / EUROPEAN MATHEMATICAL SOC- EMS | 2308-1309 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5731 | Demografie Cesky Statisticky Urad / Unknown | 1805-2991 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5732 | ORGANIC LETTERS / AMER CHEMICAL SOC | 1523-7060 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5733 | PHYSIOLOGIA PLANTARUM / WILEY | 0031-9317 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5734 | POLYMER ENGINEERING AND SCIENCE / WILEY | 0032-3888 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5735 | BURNS / ELSEVIER SCI LTD | 0305-4179 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5736 | PSYCHOLOGICAL BULLETIN / AMER PSYCHOLOGICAL ASSOC | 0033-2909 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5737 | JOURNAL OF AIRCRAFT / AMER INST AERONAUTICS   ASTRONAUTICS | 1533-3868 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5738 | NURSE EDUCATION TODAY / CHURCHILL LIVINGSTONE | 1532-2793 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5739 | SURFACE ENGINEERING / SAGE PUBLICATIONS INC | 0267-0844 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5740 | DIALECTICA / PHILOSOPHIE.CH | 1746-8361 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5741 | Dirasat: Human and Social Sciences The University  / Unknown | 2663-6190 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5742 | Canadian Journal of Hospital Pharmacy Canadian Soc / Unknown | 1920-2903 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5743 | BIOMEDICAL MICRODEVICES / SPRINGER | 1387-2176 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5744 | JOURNAL OF VINYL & ADDITIVE  TECHNOLOGY / WILEY | 1083-5601 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5745 | BOIS ET FORETS DES TROPIQUES / CIRAD-CENTRE COOPERATION INT  RECHERCHE  | 1777-5760 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5746 | PATHOBIOLOGY / KARGER | 1015-2008 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5747 | RILCE-REVISTA DE FILOLOGIA  HISPANICA / UNIV NAVARRA, SERVICIO  PUBLICACIONES | 2174-0917 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5748 | LITERATURE COMPASS / WILEY | 1741-4113 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5749 | IEEE INTELLIGENT TRANSPORTATION  SYSTEMS MAGAZINE / IEEE-INST ELECTRICAL ELECTRONICS  ENGINE | 1939-1390 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5750 | MIND & LANGUAGE / WILEY | 0268-1064 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5751 | BIOCELL / TECH SCIENCE PRESS | 0327-9545 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5752 | Inra Productions Animales Institut national de rec / Unknown | 2273-7766 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5753 | ECONOMIC SYSTEMS / ELSEVIER | 0939-3625 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5754 | COMPUTATIONAL PARTICLE  MECHANICS / SPRINGER INT PUBL AG | 2196-4378 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5755 | Tizard Learning Disability Review Emerald Group Pu / Unknown | 1359-5474 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5756 | SCOTTISH GEOGRAPHICAL JOURNAL / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1470-2541 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5757 | Global Society Taylor and Francis Ltd. / Unknown | 1360-0826 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5758 | Logistique et Management Informa UK Ltd / Unknown | 2377-9640 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5759 | MOTIVATION SCIENCE / EDUCATIONAL PUBLISHING  FOUNDATION-AMERI | 2333-8113 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5760 | European Company and Financial Law Review Walter d / Unknown | 1613-2548 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5761 | Neuroscience Journal of Shefaye Khatam Shefa Neuro / Unknown | 2345-4814 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5762 | HISTORIA AGRARIA / UNIV MURCIA | 2340-3659 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5763 | Izvestiya Vuzov. Poroshkovaya Metallurgiya i Funkt / Unknown | 2412-8767 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5764 | Scottish Archaeological Journal Edinburgh Universi / Unknown | 1471-5767 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5765 | Proceedings of the Institution of Civil Engineers: / Unknown | 1755-0785 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5766 | Computer Science AGH University of Science and Tec / Unknown | 2300-7036 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5767 | Revista Criminalidad Policia Nacional de Colombia / Unknown | 2256-5531 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5768 | Revista Colombiana de Matematicas Universidad Naci / Unknown | 2357-4100 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5769 | Problems of Applied Mathematics and Mathematical M / Unknown | 2074-5893 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5770 | Sleep Medicine: X Elsevier B.V. / Unknown | 2590-1427 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5771 | Mathematical Statistics and Learning European Math / Unknown | 2520-2324 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5772 | JOURNAL OF CLINICAL INVESTIGATION / AMER SOC CLINICAL  INVESTIGATION INC | 1558-8238 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5773 | Current Developments in Nutrition Elsevier B.V. / Unknown | 2475-2991 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5774 | PUBLIC ADMINISTRATION REVIEW / WILEY | 0033-3352 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5775 | SOIL & TILLAGE RESEARCH / ELSEVIER | 0167-1987 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5776 | JOURNAL OF APPLIED TOXICOLOGY / WILEY | 0260-437X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5777 | CHINESE JOURNAL OF AERONAUTICS / ELSEVIER SCIENCE INC | 1000-9361 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5778 | ECONOMIC RECORD / WILEY | 0013-0249 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5779 | REVISTA PANAMERICANA DE SALUD  PUBLICA-PAN AMERICA / PAN AMER HEALTH ORGANIZATION | 1680-5348 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5780 | EARLY CHILDHOOD EDUCATION  JOURNAL / SPRINGER | 1082-3301 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5781 | EUROPEAN JOURNAL OF MARKETING / EMERALD GROUP PUBLISHING LTD | 0309-0566 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5782 | REVIEW OF METAPHYSICS / PHILOSOPHY EDUCATION SOC, INC | 2154-1302 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5783 | ASIAN STUDIES REVIEW / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1035-7823 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5784 | CELLULAR & MOLECULAR BIOLOGY  LETTERS / BMC | 1425-8153 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5785 | Baltistica Vilnius University, Department of Balti / Unknown | 2345-0045 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5786 | Apunts. Educacion Fisica y Deportes Institut Nacio / Unknown | 2014-0983 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5787 | DYNAMICS OF ATMOSPHERES AND  OCEANS / ELSEVIER | 0377-0265 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5788 | SOCIAL PSYCHOLOGY OF EDUCATION / SPRINGER | 1381-2890 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5789 | Tourism and Hospitality Research SAGE Publications / Unknown | 1467-3584 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5790 | International Journal of Rotating Machinery John W / Unknown | 1023-621X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5791 | Clinical Dentistry (Russia) Clinical Dentistry LLC / Unknown | 2713-2846 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5792 | Biologicni Studii Ivan Franko National University  / Unknown | 2311-0783 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5793 | EPIDEMIOLOGIC REVIEWS / OXFORD UNIV PRESS INC | 0193-936X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5794 | Kavkazskij Entomologiceskij Bulleten Southern Scie / Unknown | 2713-1785 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5795 | Journal of Agricultural Extension Agricultural Ext / Unknown | 2408-6851 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5796 | MIKROBIYOLOJI BULTENI / ANKARA MICROBIOLOGY SOC | 0374-9096 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5797 | INTERNATIONAL JOURNAL OF ISLAMIC  AND MIDDLE EASTE / EMERALD GROUP PUBLISHING LTD | 1753-8394 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5798 | CANADIAN JOURNAL OF CRIMINOLOGY  AND CRIMINAL JUST / UNIV TORONTO PRESS INC | 1707-7753 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5799 | SOFT MATERIALS / TAYLOR & FRANCIS INC | 1539-445X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5800 | Comunicacion y Sociedad (Mexico) Universidad de Gu / Unknown | 2448-9042 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5801 | INTERNATIONAL JOURNAL OF  BUSINESS COMMUNICATION / SAGE PUBLICATIONS INC | 2329-4884 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5802 | HBRC Journal Taylor and Francis Ltd. / Unknown | 1687-4048 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5803 | INTERNATIONAL JOURNAL OF  PHYSICAL MODELLING IN  G / EMERALD GROUP PUBLISHING LTD | 1346-213X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5804 | Journal of Endometriosis and Pelvic Pain Disorders / Unknown | 2284-0273 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5805 | ANNUAL REVIEW OF CONDENSED  MATTER PHYSICS / ANNUAL REVIEWS | 1947-5454 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5806 | Infection Ecology and Epidemiology Taylor and Fran / Unknown | 2000-8686 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5807 | Journal of Thyroid Research John Wiley and Sons Lt / Unknown | 2042-0072 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5808 | Memoria e Ricerca Societa Editrice Il Mulino / N°   ISSN   E-ISSN | 1972-523X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5809 | APPLIED MATHEMATICS IN SCIENCE  AND ENGINEERING / TAYLOR & FRANCIS LTD | 2769-0911 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5810 | Anuario de Psicologia Universitat de Barcelona / Unknown | 1988-5253 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5811 | NEUROMUSCULAR DISORDERS / PERGAMON-ELSEVIER SCIENCE LTD | 0960-8966 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5812 | MONATSHEFTE FUR MATHEMATIK / SPRINGER WIEN | 0026-9255 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5813 | CORROSION / NATL ASSOC CORROSION ENG | 1938-159X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5814 | EUROPEAN JOURNAL OF ORAL  SCIENCES / WILEY | 0909-8836 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5815 | LANGUAGE IN SOCIETY / CAMBRIDGE UNIV PRESS | 0047-4045 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5816 | GENETICS RESEARCH / WILEY | 0016-6723 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5817 | ETHNOMUSICOLOGY / SOC ETHNOMUSICOLOGY INC | 2156-7417 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5818 | ENTERPRISE & SOCIETY / CAMBRIDGE UNIV PRESS | 1467-2227 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5819 | JOURNAL OF DEMOCRACY / JOHNS HOPKINS UNIV PRESS | 1086-3214 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5820 | THEORY OF COMPUTING SYSTEMS / SPRINGER | 1432-4350 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5821 | JOURNAL OF THE ANATOMICAL  SOCIETY OF INDIA / WOLTERS KLUWER MEDKNOW  PUBLICATIONS | 0003-2778 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5822 | Journal of the Korean Society for Railway Korean S / Unknown | 2288-2235 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5823 | SCHOOL PSYCHOLOGY INTERNATIONAL / SAGE PUBLICATIONS LTD | 0143-0343 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5824 | OXFORD REVIEW OF ECONOMIC  POLICY / OXFORD UNIV PRESS | 0266-903X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5825 | INTERNATIONAL JOURNAL OF  PERIODONTICS & RESTORATI / QUINTESSENCE PUBLISHING CO INC | 1945-3388 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5826 | EUROPEAN JOURNAL OF APPLIED  MATHEMATICS / CAMBRIDGE UNIV PRESS | 0956-7925 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5827 | Bulletin for International Taxation International  / Unknown | 2352-9202 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5828 | KNOWLEDGE ENGINEERING REVIEW / CAMBRIDGE UNIV PRESS | 0269-8889 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5829 | SOCIAL PHILOSOPHY AND POLICY / CAMBRIDGE UNIV PRESS | 0265-0525 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5830 | Production Associacao Brasileira de Engenharia de  / Unknown | 1980-5411 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5831 | Journal of Long-Term Effects of Medical Implants B / Unknown | 1050-6934 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5832 | CLINICAL AND EXPERIMENTAL  OTORHINOLARYNGOLOGY / KOREAN SOC OTORHINOLARYNGOL | 2005-0720 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5833 | Housing and Society Taylor and Francis Ltd. / Unknown | 0888-2746 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5834 | EUROPEAN SPORT MANAGEMENT  QUARTERLY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1618-4742 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5835 | Philip Roth Studies Purdue University Press / N°   ISSN   E-ISSN | 1940-5278 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5836 | Journal of Digital and Social Media Marketing Henr / Unknown | 2050-0084 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5837 | Archaeologiai Ertesito Akademiai Kiado / Unknown | 0003-8032 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5838 | Turismo y Sociedad Universidad Externado de Colomb / Unknown | 2346-206X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5839 | East Asian Archives of Psychiatry Hong Kong Academ / Unknown | 2224-7041 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5840 | Annals of Maxillofacial Surgery Wolters Kluwer Med / Unknown | 2249-3816 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5841 | BULLETIN OF THE AMERICAN SOCIETY  OF OVERSEAS RESE / UNIV CHICAGO PRESS | 2769-3589 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5842 | Journal of Hydrology X Elsevier B.V. / Unknown | 2589-9155 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5843 | Cornova Institute of Czech Literature Czech Academ / Unknown | 2787-9151 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5844 | JOURNAL OF ORGANIC CHEMISTRY / AMER CHEMICAL SOC | 1520-6904 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5845 | ANNALS OF THE NEW YORK ACADEMY  OF SCIENCES / WILEY | 0077-8923 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5846 | JOURNAL OF ENVIRONMENTAL  CHEMICAL ENGINEERING / ELSEVIER SCI LTD | 2213-2929 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5847 | HISTORISCHE ZEITSCHRIFT / WALTER DE GRUYTER GMBH | 0018-2613 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5848 | Leading Edge Society of Exploration Geophysicists / Unknown | 1938-3789 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5849 | Journal of Physical Education, Recreation and Danc / Unknown | 0730-3084 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5850 | INORGANIC MATERIALS / MAIK  NAUKA/INTERPERIODICA/SPRINGER | 0020-1685 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5851 | MACROMOLECULAR BIOSCIENCE / WILEY-V C H VERLAG GMBH | 1616-5187 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5852 | AMERICAN JOURNAL OF CHINESE  MEDICINE / WORLD SCIENTIFIC PUBL CO PTE  LTD | 0192-415X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5853 | ARCHAEOMETRY / WILEY | 0003-813X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5854 | CHILD PSYCHIATRY & HUMAN  DEVELOPMENT / SPRINGER | 0009-398X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5855 | FACIAL PLASTIC SURGERY / THIEME MEDICAL PUBL INC | 0736-6825 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5856 | CONTRIBUTIONS TO INDIAN  SOCIOLOGY / SAGE PUBLICATIONS INDIA  PVT LTD | 0069-9659 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5857 | EUROPEAN UROLOGY FOCUS / ELSEVIER | 2405-4569 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5858 | Revista Mexicana de Urologia Sociedad Mexicana de  / Unknown | 2007-4085 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5859 | CLINICS IN LIVER DISEASE / W B SAUNDERS CO-ELSEVIER INC | 1089-3261 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5860 | Breathe European Respiratory Society / Unknown | 2073-4735 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5861 | STUDIES IN PSYCHOLOGY / SAGE PUBLICATIONS INC | 0210-9395 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5862 | EUROPEAN PSYCHOLOGIST / HOGREFE PUBLISHING CORP | 1016-9040 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5863 | ALLERGY ASTHMA & IMMUNOLOGY  RESEARCH / KOREAN ACAD ASTHMA ALLERGY &  CLINICAL I | 2092-7363 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5864 | JOURNAL OF REAL ESTATE RESEARCH / TAYLOR & FRANCIS INC | 0896-5803 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5865 | Natural Language Engineering Cambridge University  / Unknown | 1351-3249 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5866 | Annals of Clinical and Experimental Neurology Eco- / Unknown | 2409-2533 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5867 | World Review of Entrepreneurship, Management and   / Unknown | 1746-0573 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5868 | JOURNAL OF SYSTEMATIC  PALAEONTOLOGY / TAYLOR & FRANCIS LTD | 1477-2019 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5869 | JOURNAL OF ADVANCED  PROSTHODONTICS / KOREAN ACAD PROSTHODONTICS | 2005-7814 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5870 | JOURNAL OF SCHOOL VIOLENCE / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1538-8220 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5871 | Review of Korean Studies The Academy of Korean Stu / Unknown | 2733-9351 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5872 | Wildlife Society Bulletin Wiley-Blackwell / Unknown | 0091-7648 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5873 | Psychological Injury and Law Springer New York / Unknown | 1938-971X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5874 | Archiwum Kryminologii  Institute of Law Studies of / Unknown | 2719-4280 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5875 | Military Behavioral Health Taylor and Francis Ltd. / Unknown | 2163-5781 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5876 | Network Science Cambridge University Press / N°   ISSN   E-ISSN | 2050-1242 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5877 | ACM Transactions on Management Information Systems / N°   ISSN   E-ISSN | 2158-656X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5878 | Current Sleep Medicine Reports Springer Internatio / Unknown | 2198-6401 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5879 | Advances in Ophthalmology and Optometry Elsevier I / Unknown | 2452-1760 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5880 | Acta Universitatis Sapientiae, Mathematica Springe / Unknown | 1844-6094 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5881 | Journal of Alloys and Metallurgical Systems Elsevi / Unknown | 2949-9178 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5882 | Journal of Interventional Medicine KeAi Publishing / Unknown | 2590-0293 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5883 | Language Teaching for Young Learners John Benjamin / Unknown | 2589-2053 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5884 | Lasers in Engineering / Unknown | 1026-7069 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5885 | LASERS IN ENGINEERING / OLD CITY PUBLISHING INC | 1029-029X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5886 | PLANT PHYSIOLOGY / OXFORD UNIV PRESS INC | 0032-0889 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5887 | LANCET ONCOLOGY / ELSEVIER SCIENCE INC | 1470-2045 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5888 | Educational Forum Taylor and Francis Ltd. / Unknown | 0013-1725 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5889 | BMGN-THE LOW COUNTRIES  HISTORICAL REVIEW / KONINKLIJK NEDERLANDS  HISTORISCH GENOOT | 2211-2898 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5890 | FOLIA MICROBIOLOGICA / SPRINGER | 0015-5632 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5891 | Town Planning Review Liverpool University Press / Unknown | 0041-0020 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5892 | INTERNATIONAL JOURNAL OF  ADHESION AND ADHESIVES / ELSEVIER SCI LTD | 0143-7496 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5893 | BIOANALYSIS / TAYLOR & FRANCIS LTD | 1757-6180 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5894 | EUROPEAN JOURNAL OF TRAUMA AND  EMERGENCY SURGERY / SPRINGER HEIDELBERG | 1863-9933 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5895 | ENVIRONMENTAL ENGINEERING  SCIENCE / MARY ANN LIEBERT, INC | 1092-8758 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5896 | JOURNAL OF MOLECULAR  ENDOCRINOLOGY / BIOSCIENTIFICA LTD | 1479-6813 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5897 | Scopus: Journal of East African Ornithology Nature / Unknown | 0250-4162 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5898 | EARTHQUAKE ENGINEERING AND  ENGINEERING VIBRATION / SPRINGER | 1671-3664 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5899 | POLICING & SOCIETY / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1043-9463 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5900 | e-Prime - Advances in Electrical Engineering, Elec / Unknown | 2772-6711 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5901 | Research Journal of Chemistry and Environment Worl / Unknown | 2278-4527 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5902 | PROCEEDINGS OF THE INSTITUTION OF  MECHANICAL ENGI / SAGE PUBLICATIONS LTD | 1475-0902 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5903 | International Journal of Services, Technology and  / Unknown | 1460-6720 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5904 | Espacio, Tiempo y Forma, Serie VII: Historia del A / Unknown | 2340-1478 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5905 | Ukrainian Botanical Journal Publishing House Akade / Unknown | 2415-8860 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5906 | MATHEMATICS OF CONTROL SIGNALS  AND SYSTEMS / SPRINGER LONDON LTD | 0932-4194 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5907 | Theology and Sexuality Taylor and Francis Ltd. / Unknown | 1355-8358 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5908 | ANIMAL BIODIVERSITY AND  CONSERVATION / MUSEU DE CIENCIES NATURALS- ZOOLOGIA | 2014-928X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5909 | Spatial and Spatio-temporal Epidemiology Elsevier  / Unknown | 1877-5845 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5910 | Soudobe Dejiny Institute of Contemporary History o / Unknown | 2695-0952 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5911 | Journal of Structural Fire Engineering Emerald Gro / Unknown | 2040-2317 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5912 | Contemporary Review of the Middle East SAGE Public / Unknown | 2347-7989 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5913 | INTERNATIONAL JOURNAL OF  MULTIMEDIA INFORMATION   / SPRINGER | 2192-6611 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5914 | Giant Elsevier B.V. / Unknown | 2666-5425 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5915 | INFORMATION AND INFERENCE-A  JOURNAL OF THE IMA / OXFORD UNIV PRESS | 2049-8764 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5916 | Learning and Teaching Berghahn Journals / Unknown | 1755-2281 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5917 | Journal of Comparative Asian Development IGI Globa / Unknown | 2150-5403 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5918 | Harmonia: Journal of Arts Research and Education U / Unknown | 2541-2426 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5919 | Rakenteiden Mekaniikka Aalto-yliopisto - Rakennust / Unknown | 1797-5301 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5920 | Avicenna Journal of Medical Biotechnology Avicenna / Unknown | 2008-4625 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5921 | Soil and Environment Soil Science Society of Pakis / Unknown | 2075-1141 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5922 | Scandinavian Journal of Information Systems  The I / Unknown | 0905-0167 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5923 | Open Mathematics Walter de Gruyter GmbH / Unknown | 1874-1045 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5924 | MICHIGAN LAW REVIEW / MICH LAW REV ASSOC | 1939-8557 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5925 | PHILOSOPHY AND  PHENOMENOLOGICAL RESEARCH / WILEY | 0031-8205 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5926 | CANCER SCIENCE / WILEY | 1347-9032 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5927 | JOURNAL OF ENGINEERING  THERMOPHYSICS / PLEIADES PUBLISHING INC | 1810-2328 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5928 | Jurnal Teknologi Penerbit UTM Press / Unknown | 2180-3722 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5929 | EUROPEAN ECONOMIC REVIEW / ELSEVIER | 0014-2921 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5930 | INTERNATIONAL JOURNAL OF  NEUROPSYCHOPHARMACOLOGY / OXFORD UNIV PRESS | 1461-1457 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5931 | JOURNAL OF NEUROINTERVENTIONAL  SURGERY / BMJ PUBLISHING GROUP | 1759-8486 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5932 | JOURNAL OF INTERNATIONAL  BUSINESS STUDIES / PALGRAVE MACMILLAN LTD | 0047-2506 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5933 | Journal of Maxillofacial and Oral Surgery Springer / Unknown | 0972-8279 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5934 | Oxidation of Metals Springer / Unknown | 0030-770X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5935 | LEIDEN JOURNAL OF INTERNATIONAL  LAW / CAMBRIDGE UNIV PRESS | 0922-1565 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5936 | JOURNAL OF ZOOLOGICAL  SYSTEMATICS AND EVOLUTIONAR / WILEY | 0947-5745 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5937 | LEARNING & MEMORY / COLD SPRING HARBOR LAB PRESS,  PUBLICATI | 1549-5485 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5938 | REVISTA DE HISTORIA ECONOMICA- JOURNAL OF IBERIAN  / CAMBRIDGE UNIV PRESS | 0212-6109 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5939 | ANIMAL BIOTECHNOLOGY / TAYLOR & FRANCIS INC | 1049-5398 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5940 | POETICA-ZEITSCHRIFT FUR SPRACH- UND LITERATURWISSE / BRILL | 0303-4178 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5941 | HEC FORUM / SPRINGER | 0956-2737 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5942 | LEARNING DISABILITIES RESEARCH &  PRACTICE / SAGE PUBLICATIONS INC | 0938-8982 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5943 | JOURNAL OF THE HISTORY OF  SEXUALITY / UNIV TEXAS PRESS | 1535-3605 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5944 | Current Trends in Biotechnology and Pharmacy Assoc / Unknown | 2230-7303 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5945 | RAIRO-OPERATIONS RESEARCH / EDP SCIENCES S A | 2804-7303 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5946 | Issues and Studies World Scientific Publishing Co. / Unknown | 1013-2511 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5947 | Water Science and Engineering Editorial Office of  / Unknown | 2405-8106 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5948 | Journal of Integrated Circuits and Systems Brazili / Unknown | 1807-1953 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5949 | SOLDAGEM & INSPECAO / ASSOC BRASIL SOLDAGEM | 1980-6973 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5950 | GREY SYSTEMS-THEORY AND  APPLICATION / EMERALD GROUP PUBLISHING LTD | 2043-9377 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5951 | International Journal of Computational Biology and / Unknown | 1756-0756 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5952 | Obrana a Strategie University of Defence / Unknown | 1802-7199 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5953 | Epigenomes Multidisciplinary Digital Publishing In / Unknown | 2075-4655 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5954 | De Jure: Jurnal Hukum dan Syar'iah Maulana Malik I / Unknown | 2528-1658 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5955 | Produccion y Limpia Corporacion Universitaria Lasa / Unknown | 2323-0703 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5956 | JOURNAL OF HOLY LAND AND  PALESTINE STUDIES / EDINBURGH UNIV PRESS | 2054-1988 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5957 | MODERN CHINESE LITERATURE AND  CULTURE / FOREIGN LANGUAGE PUBL | 2328-966X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5958 | Victoriographies Edinburgh University Press / Unknown | 2364-4583 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5959 | JOURNAL OF THE ASSOCIATION FOR  INFORMATION SYSTEM / ASSOC INFORMATION SYSTEMS | 1558-3457 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5960 | Saudi Endodontic Journal Wolters Kluwer Medknow Pu / Unknown | 2320-1495 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5961 | MICROWAVE AND OPTICAL  TECHNOLOGY LETTERS / WILEY | 0895-2477 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5962 | PHYSIOLOGY & BEHAVIOR / PERGAMON-ELSEVIER SCIENCE LTD | 0031-9384 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5963 | BIOORGANIC & MEDICINAL CHEMISTRY / PERGAMON-ELSEVIER SCIENCE LTD | 0968-0896 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5964 | Journal of Fish Biology Wiley-Blackwell Publishing / Unknown | 0022-1112 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5965 | JOURNAL OF FISH BIOLOGY / WILEY | 1095-8649 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5966 | MEDICAL HYPOTHESES / ELSEVIER | 0306-9877 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5967 | MATHEMATICAL PROCEEDINGS OF THE  CAMBRIDGE PHILOSO / CAMBRIDGE UNIV PRESS | 0305-0041 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5968 | REPRODUCTIVE BIOMEDICINE ONLINE / ELSEVIER SCI LTD | 1472-6483 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5969 | JOURNAL OF CLINICAL LIPIDOLOGY / ELSEVIER SCIENCE INC | 1876-4789 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5970 | Philippine Studies: Historical and Ethnographic Vi / Unknown | 2244-1638 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5971 | INTERNATIONAL JOURNAL OF CLINICAL  ONCOLOGY / SPRINGER JAPAN KK | 1341-9625 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5972 | JOURNAL OF BEHAVIOR THERAPY AND  EXPERIMENTAL PSYC / PERGAMON-ELSEVIER SCIENCE LTD | 0005-7916 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5973 | LANGUAGE SPEECH AND HEARING  SERVICES IN SCHOOLS / AMER SPEECH-LANGUAGE-HEARING  ASSOC | 1558-9129 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5974 | MARINE MICROPALEONTOLOGY / ELSEVIER | 0377-8398 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5975 | APPLIED MATHEMATICS AND  OPTIMIZATION / SPRINGER | 0095-4616 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5976 | Geographica Helvetica Copernicus Publications / Unknown | 0016-7312 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5977 | ECOLOGY OF FOOD AND NUTRITION / TAYLOR & FRANCIS INC | 0367-0244 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5978 | PATTERN ANALYSIS AND APPLICATIONS / SPRINGER | 1433-7541 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5979 | ANNALES DE L INSTITUT HENRI  POINCARE-PROBABILITES / INST MATHEMATICAL STATISTICS- IMS | 1778-7017 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5980 | RIDE-THE JOURNAL OF APPLIED  THEATRE AND PERFORMAN / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1356-9783 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5981 | MANAGEMENT LEARNING / SAGE PUBLICATIONS LTD | 1350-5076 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5982 | Crop Research Gaurav Publications / N°   ISSN   E-ISSN | 2454-1761 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5983 | REVIEW OF FAITH & INTERNATIONAL  AFFAIRS / ROUTLEDGE JOURNALS, TAYLOR &  FRANCIS LT | 1557-0274 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5984 | MICROBIOLOGY AND MOLECULAR  BIOLOGY REVIEWS / AMER SOC MICROBIOLOGY | 1092-2172 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5985 | CHRONIC RESPIRATORY DISEASE / SAGE PUBLICATIONS LTD | 1479-9723 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5986 | JOURNAL OF OBSESSIVE-COMPULSIVE  AND RELATED DISOR / ELSEVIER | 2211-3649 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5987 | ZEITSCHRIFT DER DEUTSCHEN  GESELLSCHAFT FUR  GEOWI / E SCHWEIZERBARTSCHE  VERLAGSBUCHHANDLUNG | 1861-4094 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5988 | Moscow University Biological Sciences Bulletin Ple / Unknown | 0096-3925 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5989 | CYTOJOURNAL / SCIENTIFIC SCHOLAR LLC | 1742-6413 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5990 | Advances in Geo-Energy Research Yandy Scientific P / Unknown | 2208-598X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5991 | Paradigmi Societa Editrice Il Mulino / Unknown | 2035-357X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5992 | Sibirskiy Psikhologicheskiy Zhurnal Tomsk State Un / Unknown | 2411-0809 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5993 | Zeitschrift fur Technikfolgenabschatzung in Theori / Unknown | 2568-020X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5994 | Journal of Politics in Latin America SAGE Publicat / Unknown | 1866-802X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5995 | Mizan Law Review St Mary's University / Unknown | 2309-902X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5996 | Population Review Sociological Demography Press / Unknown | 1549-0955 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5997 | AJO International Elsevier B.V. / Unknown | 2950-2535 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5998 | REVISTA MEXICANA DE CIENCIAS  GEOLOGICAS / CENTRO GEOCIENCIAS UNAM | 2007-2902 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 5999 | Studia Historica, Historia Antigua Ediciones Unive / Unknown | 2530-4100 (ISSN) | Verified | Verified fallback to Open Access Pipeline |
+| 6000 | Journal of Pharmaceutical and Biomedical Analysis  / Unknown | 2949-771X (ISSN) | Verified | Verified fallback to Open Access Pipeline |
