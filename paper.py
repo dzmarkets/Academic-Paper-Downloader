@@ -2125,6 +2125,259 @@ def try_libgen(doi, title):
     return False
 
 
+def try_plos(doi, title):
+    """Strategy: Construct direct download link for PLOS (Public Library of Science) journals."""
+    if not doi:
+        return False
+    if doi.startswith("http://") or doi.startswith("https://"):
+        return False
+        
+    # PLOS DOIs always start with 10.1371/
+    if not doi.lower().startswith("10.1371/"):
+        return False
+        
+    print("\n--- [STRATEGY] Querying PLOS Journal Direct Link ---")
+    download_url = f"https://journals.plos.org/plosone/article/file?id={urllib.parse.quote(doi)}&type=printable"
+    register_discovered_url(download_url, "PLOS Printable PDF")
+    
+    filename = f"PLOS_{clean_filename(title if title else doi.replace('/', '_'))}.pdf"
+    print(f"[INFO] Constructing PLOS direct URL: {download_url}")
+    if download_file(download_url, filename):
+        return True
+    return False
+
+
+def try_biorxiv(doi, title):
+    """Strategy: Retrieve preprints from BioRxiv / MedRxiv API and download the PDF."""
+    if not doi:
+        return False
+    if doi.startswith("http://") or doi.startswith("https://"):
+        return False
+        
+    # BioRxiv/MedRxiv DOIs start with 10.1101/
+    if not doi.lower().startswith("10.1101/"):
+        return False
+        
+    print("\n--- [STRATEGY] Querying BioRxiv API ---")
+    suffix = doi.split("10.1101/", 1)[1].strip()
+    
+    # Try biorxiv details API first, fall back to medrxiv details API
+    collection = []
+    for endpoint in ("biorxiv", "medrxiv"):
+        query_url = f"https://api.biorxiv.org/details/{endpoint}/{urllib.parse.quote(doi)}"
+        try:
+            res_text = fetch_html_resilient(query_url)
+            if res_text:
+                data = json.loads(res_text)
+                collection = data.get('collection', [])
+                if collection:
+                    print(f"[INFO] Found metadata collection via {endpoint} endpoint.")
+                    break
+        except Exception as e:
+            print(f"[WARNING] BioRxiv {endpoint} API query failed: {e}")
+            
+    register_discovered_url(f"https://www.biorxiv.org/content/{doi}", "BioRxiv Page")
+    filename = f"BioRxiv_{clean_filename(title if title else doi.replace('/', '_'))}.pdf"
+    
+    try:
+        if collection:
+            # Retrieve version number from latest entry
+            latest = collection[-1]
+            version = latest.get('version', '1')
+            download_url = f"https://www.biorxiv.org/content/10.1101/{suffix}v{version}.full.pdf"
+            print(f"[INFO] Discovered BioRxiv PDF URL (v{version}): {download_url}")
+            register_discovered_url(download_url, "BioRxiv PDF")
+            if download_file(download_url, filename):
+                return True
+            
+            # Fallback to v1 if the guessed version fails
+            if version != '1':
+                fallback_url = f"https://www.biorxiv.org/content/10.1101/{suffix}v1.full.pdf"
+                print(f"[INFO] Trying BioRxiv fallback PDF (v1): {fallback_url}")
+                register_discovered_url(fallback_url, "BioRxiv v1 PDF")
+                if download_file(fallback_url, filename):
+                    return True
+        else:
+            # Direct construction fallback if API collection is empty
+            fallback_url = f"https://www.biorxiv.org/content/10.1101/{suffix}v1.full.pdf"
+            print(f"[INFO] No API collection; trying default path: {fallback_url}")
+            register_discovered_url(fallback_url, "BioRxiv v1 PDF")
+            if download_file(fallback_url, filename):
+                return True
+    except Exception as e:
+        print(f"[WARNING] BioRxiv lookup failed: {e}")
+        # Try direct construct fallback on exception
+        try:
+            fallback_url = f"https://www.biorxiv.org/content/10.1101/{suffix}v1.full.pdf"
+            if download_file(fallback_url, filename):
+                return True
+        except:
+            pass
+            
+    return False
+
+
+def try_zenodo(doi, title):
+    """Strategy: Download open access records directly from Zenodo API."""
+    if not doi:
+        return False
+    if doi.startswith("http://") or doi.startswith("https://"):
+        return False
+        
+    print("\n--- [STRATEGY] Querying Zenodo API ---")
+    
+    # Extract Zenodo Record ID if it's a Zenodo DOI
+    record_id = None
+    if "zenodo." in doi.lower():
+        parts = doi.lower().split("zenodo.", 1)
+        if len(parts) > 1:
+            m = re.match(r'^(\d+)', parts[1].strip())
+            if m:
+                record_id = m.group(1)
+                
+    files = []
+    
+    # If it is a Zenodo DOI, query the direct record API. Otherwise, query the search API.
+    if record_id:
+        query_url = f"https://zenodo.org/api/records/{record_id}"
+        record_page = f"https://zenodo.org/records/{record_id}"
+        register_discovered_url(record_page, "Zenodo Record Page")
+        print(f"[INFO] Querying Zenodo Record API: {query_url}")
+        try:
+            res_text = fetch_html_resilient(query_url)
+            if res_text:
+                data = json.loads(res_text)
+                files = data.get('files', [])
+        except Exception as e:
+            print(f"[WARNING] Zenodo record lookup failed: {e}")
+    else:
+        query_url = f"https://zenodo.org/api/records?q=doi:\"{urllib.parse.quote(doi)}\""
+        register_discovered_url(query_url, "Zenodo Search Query")
+        print(f"[INFO] Querying Zenodo Search API: {query_url}")
+        try:
+            res_text = fetch_html_resilient(query_url)
+            if res_text:
+                data = json.loads(res_text)
+                hits = data.get('hits', {}).get('hits', [])
+                if hits:
+                    files = hits[0].get('files', [])
+        except Exception as e:
+            print(f"[WARNING] Zenodo search query failed: {e}")
+            
+    if files:
+        for f in files:
+            # Look for pdf files
+            key = f.get('key', '').lower()
+            if key.endswith('.pdf') or f.get('type', '') == 'pdf':
+                download_url = f.get('links', {}).get('self')
+                if download_url:
+                    print(f"[INFO] Discovered Zenodo PDF URL: {download_url}")
+                    register_discovered_url(download_url, "Zenodo PDF")
+                    filename = f"Zenodo_{clean_filename(title if title else doi.replace('/', '_'))}.pdf"
+                    if download_file(download_url, filename):
+                        return True
+        print("[INFO] Zenodo record contains no PDF files.")
+    else:
+        print("[INFO] Zenodo API returned no record data.")
+        
+    return False
+
+
+def try_doaj(doi, title):
+    """Strategy: Query DOAJ API for article metadata containing direct fulltext links."""
+    if not doi:
+        return False
+    if doi.startswith("http://") or doi.startswith("https://"):
+        return False
+        
+    print("\n--- [STRATEGY] Querying DOAJ API ---")
+    query_url = f"https://doaj.org/api/v2/search/articles/doi:{urllib.parse.quote(doi)}"
+    register_discovered_url(query_url, "DOAJ API Query")
+    
+    try:
+        res_text = fetch_html_resilient(query_url)
+        if res_text:
+            data = json.loads(res_text)
+            results = data.get('results', [])
+            if results:
+                article = results[0]
+                bibjson = article.get('bibjson', {})
+                links = bibjson.get('link', [])
+                
+                # Sort links to prioritize direct PDFs first
+                sorted_links = []
+                for l in links:
+                    url = l.get('url', '')
+                    content_type = l.get('content_type', '').lower()
+                    
+                    # Direct PDF check
+                    if content_type == 'application/pdf' or url.lower().endswith('.pdf'):
+                        sorted_links.insert(0, l)
+                    else:
+                        sorted_links.append(l)
+                        
+                for l in sorted_links:
+                    download_url = l.get('url')
+                    if not download_url:
+                        continue
+                        
+                    content_type = l.get('content_type', '').lower()
+                    is_pdf = content_type == 'application/pdf' or download_url.lower().endswith('.pdf')
+                    
+                    # If it's an MDPI landing page, construct the PDF URL directly
+                    if not is_pdf and "mdpi.com" in download_url.lower() and not download_url.lower().endswith('/pdf'):
+                        download_url = download_url.rstrip('/') + '/pdf'
+                        is_pdf = True
+                        
+                    print(f"[INFO] DOAJ link candidate: {download_url} (is_pdf={is_pdf})")
+                    register_discovered_url(download_url, "DOAJ Link")
+                    
+                    filename = f"DOAJ_{clean_filename(title if title else doi.replace('/', '_'))}.pdf"
+                    if download_file(download_url, filename):
+                        return True
+            else:
+                print("[INFO] DOAJ API returned no results for this DOI.")
+    except Exception as e:
+        print(f"[WARNING] DOAJ lookup failed: {e}")
+        
+    return False
+
+
+def try_semantic_scholar(doi, title):
+    """Strategy: Query Semantic Scholar API for open access PDF links."""
+    if not doi:
+        return False
+    if doi.startswith("http://") or doi.startswith("https://"):
+        return False
+        
+    print("\n--- [STRATEGY] Querying Semantic Scholar API ---")
+    query_url = f"https://api.semanticscholar.org/graph/v1/paper/DOI:{urllib.parse.quote(doi)}?fields=isOpenAccess,openAccessPdf"
+    register_discovered_url(f"https://www.semanticscholar.org/paper/{urllib.parse.quote(doi)}", "Semantic Scholar Page")
+    
+    try:
+        res_text = fetch_html_resilient(query_url)
+        if res_text:
+            data = json.loads(res_text)
+            if data.get('isOpenAccess') and data.get('openAccessPdf'):
+                download_url = data['openAccessPdf'].get('url')
+                if download_url:
+                    print(f"[INFO] Discovered Semantic Scholar PDF URL: {download_url}")
+                    register_discovered_url(download_url, "Semantic Scholar PDF")
+                    filename = f"SemanticScholar_{clean_filename(title if title else doi.replace('/', '_'))}.pdf"
+                    if download_file(download_url, filename):
+                        return True
+            else:
+                print("[INFO] Semantic Scholar records indicate paper is not Open Access.")
+    except Exception as e:
+        # Avoid print-spamming if it's just a 404 (not found in Semantic Scholar)
+        if "HTTP Error 404" in str(e):
+            print("[INFO] Paper not found in Semantic Scholar index.")
+        else:
+            print(f"[WARNING] Semantic Scholar lookup failed: {e}")
+            
+    return False
+
+
 def try_researchgate(doi, title):
     """Strategy 3: Automated extraction from ResearchGate."""
     if not doi and not title:
@@ -2412,8 +2665,17 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
             success = try_download_book(target_doi, target_title, status_label=status_label, root_widget=root_widget)
         else:
             if target_doi:
+                # Try fast-path pattern matching (PLOS, BioRxiv) before requesting APIs
+                if not success and target_doi.lower().startswith("10.1371/"):
+                    status_label.config(text="Querying PLOS Database...", fg="#00ADB5")
+                    success = try_plos(target_doi, target_title)
+                    
+                if not success and target_doi.lower().startswith("10.1101/"):
+                    status_label.config(text="Querying BioRxiv/MedRxiv API...", fg="#00ADB5")
+                    success = try_biorxiv(target_doi, target_title)
+
                 # Try direct URL download first if target_doi is a direct URL (and not a ResearchGate publication url)
-                if (target_doi.startswith("http://") or target_doi.startswith("https://")) and ("researchgate.net" not in target_doi or "/links/" in target_doi):
+                if not success and (target_doi.startswith("http://") or target_doi.startswith("https://")) and ("researchgate.net" not in target_doi or "/links/" in target_doi):
                     status_label.config(text="Directly Downloading URL...", fg="#00ADB5")
                     success = download_file(target_doi, clean_filename(target_title or "Downloaded_Paper") + ".pdf")
                     if success:
@@ -2427,6 +2689,27 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
                 if not success:
                     status_label.config(text="Querying Unpaywall Database...", fg="#00ADB5")
                     success = try_unpaywall(target_doi)
+
+                if abort_requested:
+                    raise InterruptedError("Cancelled by user")
+
+                if not success:
+                    status_label.config(text="Querying Semantic Scholar...", fg="#00ADB5")
+                    success = try_semantic_scholar(target_doi, target_title)
+
+                if abort_requested:
+                    raise InterruptedError("Cancelled by user")
+
+                if not success:
+                    status_label.config(text="Querying Zenodo...", fg="#00ADB5")
+                    success = try_zenodo(target_doi, target_title)
+
+                if abort_requested:
+                    raise InterruptedError("Cancelled by user")
+
+                if not success:
+                    status_label.config(text="Querying DOAJ...", fg="#00ADB5")
+                    success = try_doaj(target_doi, target_title)
 
                 if abort_requested:
                     raise InterruptedError("Cancelled by user")
@@ -3576,8 +3859,14 @@ if __name__ == "__main__":
             success = try_download_book(target_doi, target_title)
         else:
             if target_doi:
+                # Try fast-path pattern matching (PLOS, BioRxiv) before requesting APIs
+                if not success and target_doi.lower().startswith("10.1371/"):
+                    success = try_plos(target_doi, target_title)
+                if not success and target_doi.lower().startswith("10.1101/"):
+                    success = try_biorxiv(target_doi, target_title)
+
                 # Try direct URL download first if target_doi is a direct URL (and not a ResearchGate publication url)
-                if (target_doi.startswith("http://") or target_doi.startswith("https://")) and ("researchgate.net" not in target_doi or "/links/" in target_doi):
+                if not success and (target_doi.startswith("http://") or target_doi.startswith("https://")) and ("researchgate.net" not in target_doi or "/links/" in target_doi):
                     success = download_file(target_doi, clean_filename(target_title or "Downloaded_Paper") + ".pdf")
                     if success:
                         print(f"[SUCCESS] Directly downloaded PDF from URL: {target_doi}")
@@ -3587,6 +3876,12 @@ if __name__ == "__main__":
                     success = try_download_taylorfrancis(target_doi, target_title)
                 if not success:
                     success = try_unpaywall(target_doi)
+                if not success:
+                    success = try_semantic_scholar(target_doi, target_title)
+                if not success:
+                    success = try_zenodo(target_doi, target_title)
+                if not success:
+                    success = try_doaj(target_doi, target_title)
                 if not success:
                     success = try_core(target_doi, target_title)
                 if not success:
