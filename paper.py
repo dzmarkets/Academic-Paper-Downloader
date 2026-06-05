@@ -3962,65 +3962,108 @@ def launch_gui():
     bmc_frame.pack(side='left', fill='both', expand=True, padx=(20, 0))
     
     def open_bmc():
-        import webbrowser
         import re
         import os
-        webbrowser.open("https://buymeacoffee.com/yazidyoucef")
-        
+
+        # ── Enable ANSI in Windows terminal ───────────────────────────────────
         if os.name == 'nt':
             try:
                 os.system('')
             except Exception:
                 pass
-                
-        GOLD = "\033[1;33m"
-        PURPLE = "\033[1;35m"
-        CYAN = "\033[1;36m"
-        GREEN = "\033[1;32m"
+
+        # ── ANSI colours for terminal ──────────────────────────────────────────
+        GOLD       = "\033[1;33m"
+        PURPLE     = "\033[1;35m"
+        CYAN       = "\033[1;36m"
+        GREEN      = "\033[1;32m"
         WHITE_BOLD = "\033[1;37m"
-        RESET = "\033[0m"
-        
+        RESET      = "\033[0m"
+
         terminal_width = 80
-        
-        message_lines = [
-            "",
-            f"{GOLD}* ------------------------------------------------------------- *{RESET}",
-            f"{PURPLE}Soutenir l'Innovation Locale / Support Local Innovation [DZ]{RESET}",
-            f"{GOLD}* ------------------------------------------------------------- *{RESET}",
-            "",
-            f"Puisque {WHITE_BOLD}Buy Me a Coffee{RESET} ne fonctionne pas directement en Algerie,",
-            "vous pouvez encourager ce travail par transfert local (Baridimob / CCP).",
-            "",
-            f"Cette application {CYAN}reduit considerablement votre temps de recherche{RESET}",
-            f"en interrogeant simultanement plus de {GREEN}11 sources academiques{RESET} majeures et",
-            f"en resolvant jusqu'a {GREEN}50 000 journaux{RESET} scientifiques en 1 seul clic !",
-            "",
-            "Votre contribution permet de perenniser le developpement de cet outil gratuit.",
-            "",
-            f"{WHITE_BOLD}Informations de Transfert / Donation Details :{RESET}",
-            "-------------------------------------------------------------",
-            f"Nom Complet :   {CYAN}Yazid Youcef{RESET}",
-            f"RIP CCP :       {GREEN}00799999000605964735{RESET}",
-            "-------------------------------------------------------------",
-            "",
-            f"Merci infiniment pour votre generosite et votre soutien ! {GOLD}<3{RESET}",
-            f"{GOLD}* ------------------------------------------------------------- *{RESET}",
-            ""
+
+        # Plain text lines (stripped of ANSI) for in-app console
+        # Each entry: (plain_text, tag_name)  tag_name=None means default colour
+        styled_lines = [
+            ("", None),
+            ("* ------------------------------------------------------------- *", "gold"),
+            ("  Soutenir l'Innovation Locale / Support Local Innovation [DZ]  ", "purple"),
+            ("* ------------------------------------------------------------- *", "gold"),
+            ("", None),
+            ("Buy Me a Coffee ne fonctionne pas directement en Algerie.", "white_bold"),
+            ("Encouragez ce travail par transfert local (Baridimob / CCP).", None),
+            ("", None),
+            ("Cette application reduit considerablement votre temps de recherche", "cyan"),
+            ("en interrogeant simultanement plus de 11 sources academiques majeures", "cyan"),
+            ("et en resolvant jusqu'a 50 000 journaux scientifiques en 1 seul clic !", "green"),
+            ("", None),
+            ("Votre contribution permet de perenniser le developpement de cet outil gratuit.", None),
+            ("", None),
+            ("Informations de Transfert / Donation Details :", "white_bold"),
+            ("-------------------------------------------------------------", None),
+            ("Nom Complet :   Yazid Youcef", "cyan"),
+            ("RIP CCP :       00799999000605964735", "green"),
+            ("-------------------------------------------------------------", None),
+            ("", None),
+            ("Merci infiniment pour votre generosite et votre soutien ! <3", "gold"),
+            ("* ------------------------------------------------------------- *", "gold"),
+            ("", None),
         ]
-        
-        for line in message_lines:
+
+        # ── Print to terminal (with ANSI) ──────────────────────────────────────
+        ansi_map = {
+            "gold":       GOLD,
+            "purple":     PURPLE,
+            "cyan":       CYAN,
+            "green":      GREEN,
+            "white_bold": WHITE_BOLD,
+            None:         "",
+        }
+        for plain, tag in styled_lines:
+            colour = ansi_map.get(tag, "")
+            raw_line = f"{colour}{plain}{RESET}" if colour else plain
             try:
-                visual_line = re.sub(r'\033\[[0-9;]*m', '', line)
-                padding = max(0, (terminal_width - len(visual_line)) // 2)
-                print(" " * padding + line)
+                padding = max(0, (terminal_width - len(plain)) // 2)
+                print(" " * padding + raw_line)
             except Exception:
                 try:
-                    print(line)
+                    print(plain)
                 except Exception:
                     pass
 
+        # ── Write into the in-app Pipeline Console log_area ───────────────────
+        try:
+            # Colour tag definitions (Tkinter colours)
+            tag_colours = {
+                "gold":       "#F59E0B",
+                "purple":     "#A855F7",
+                "cyan":       "#22D3EE",
+                "green":      "#10B981",
+                "white_bold": "#FFFFFF",
+            }
+            # Configure tags once (safe to call multiple times)
+            for tag_name, hex_colour in tag_colours.items():
+                log_area.tag_configure(
+                    f"bmc_{tag_name}",
+                    foreground=hex_colour,
+                    font=('Consolas', 9, 'bold')
+                )
+            log_area.tag_configure("bmc_normal", foreground="#F3E8FF", font=('Consolas', 9))
 
-        
+            log_area.config(state='normal')
+            log_area.delete('1.0', 'end')   # Clear logs first for a clean donation display
+
+            for plain, tag in styled_lines:
+                padding = max(0, (terminal_width - len(plain)) // 2)
+                centered = " " * padding + plain
+                tk_tag = f"bmc_{tag}" if tag else "bmc_normal"
+                log_area.insert('end', centered + "\n", tk_tag)
+
+            log_area.see('end')
+        except Exception:
+            pass
+
+
     # Title for coffee column
     coffee_title = tk.Label(bmc_frame, text="☕  Soutenir mon Travail",
                             bg="#120F1E", fg="#A855F7", font=('Segoe UI Semibold', 9))
