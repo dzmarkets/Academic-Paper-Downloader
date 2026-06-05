@@ -49,7 +49,7 @@ def main():
         return
 
     headers = {
-        "User-Agent": "AcademicPaperDownloader/2.4.0.6 (https://github.com/dzmarkets/Academic-Paper-Downloader; mailto:yazid.academic@example.com)"
+        "User-Agent": "AcademicPaperDownloader/2.4.0.7 (https://github.com/dzmarkets/Academic-Paper-Downloader; mailto:yazid.academic@example.com)"
     }
     
     batch_size = 50

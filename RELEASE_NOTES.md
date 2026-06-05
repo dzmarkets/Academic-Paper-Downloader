@@ -9,6 +9,24 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 
+## v2.4.0.7
+### Release Title
+Academic Paper Downloader v2.4.0.7 — Add total number of resolved journals (up to 50k) to console donation info
+
+### Release Body
+```
+## What's New in v2.4.0.7
+
+### ☕ Buy Me a Coffee Support Enhancements
+- **Resolved Journals Count**: Added mention of the ability to resolve up to 50,000 journals to the centered payment details console message.
+
+### 📦 Metadata & Build Updates
+- Bumped application version to `v2.4.0.7` across configuration, scripts, user-agent, and installer manifests.
+
+---
+**Full Changelog**: https://github.com/dzmarkets/Academic-Paper-Downloader/commits/main
+```
+
 ## v2.4.0.6
 ### Release Title
 Academic Paper Downloader v2.4.0.6 — Buy Me a Coffee console integration for local transfers

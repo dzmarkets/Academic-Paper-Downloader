@@ -29,12 +29,12 @@ VSVersionInfo(
         '040904b0',
         [StringStruct('CompanyName', 'Yazid YOUCEF'),
         StringStruct('FileDescription', 'Academic Paper Downloader'),
-        StringStruct('FileVersion', '2.4.0.6'),
+        StringStruct('FileVersion', '2.4.0.7'),
         StringStruct('InternalName', 'Academic Paper Downloader'),
         StringStruct('LegalCopyright', 'Copyright (c) 2026 Yazid YOUCEF'),
         StringStruct('OriginalFilename', 'paper.exe'),
         StringStruct('ProductName', 'Academic Paper Downloader'),
-        StringStruct('ProductVersion', '2.4.0.6')])
+        StringStruct('ProductVersion', '2.4.0.7')])
       ]), 
     VarFileInfo([VarStruct('Translation', [1033, 1200])])
   ]

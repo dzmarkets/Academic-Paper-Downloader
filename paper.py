@@ -94,7 +94,7 @@ def get_download_dir(category="paper"):
 # ---------------------------------------------------------------------------
 # Define target paper metadata
 # ---------------------------------------------------------------------------
-VERSION = "2.4.0.6"
+VERSION = "2.4.0.7"
 DOI = "10.1145/3375633"
 TITLE = "Certifying compilation with de Bruijn indices"  # Used if DOI fails or for ResearchGate search
 abort_requested = False
@@ -3964,8 +3964,8 @@ def launch_gui():
             "vous pouvez encourager ce travail par transfert local (Baridimob / CCP).",
             "",
             f"Cette application {CYAN}reduit considerablement votre temps de recherche{RESET}",
-            f"en interrogeant simultanement plus de {GREEN}11 sources academiques{RESET} majeures",
-            "(ResearchGate, OpenAlex, Sci-Hub, Semantic Scholar, Unpaywall, PMC, Crossref, etc.) en 1 seul clic !",
+            f"en interrogeant simultanement plus de {GREEN}11 sources academiques{RESET} majeures et",
+            f"en resolvant jusqu'a {GREEN}50 000 journaux{RESET} scientifiques en 1 seul clic !",
             "",
             "Votre contribution permet de perenniser le developpement de cet outil gratuit.",
             "",
