@@ -468,9 +468,7 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
     else:
         return []
     url += f"&rows={crossref_rows}&offset=0"
-    if type_filter == "Papers":
-        url += "&filter=type:journal-article"
-    elif type_filter == "Books":
+    if type_filter == "Books":
         url += "&filter=type:book"
     try:
         if abort_requested:
@@ -484,6 +482,12 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
         items = data.get('message', {}).get('items', [])
         filtered_items = []
         for item in items:
+            # If type_filter is Papers, only keep journal-article, proceedings-article, and posted-content (preprints)
+            if type_filter == "Papers":
+                allowed = ("journal-article", "proceedings-article", "posted-content")
+                if item.get('type') not in allowed:
+                    continue
+
             doi = item.get('DOI', '')
             if not doi:
                 continue
