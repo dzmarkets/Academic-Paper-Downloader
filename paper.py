@@ -94,7 +94,7 @@ def get_download_dir(category="paper"):
 # ---------------------------------------------------------------------------
 # Define target paper metadata
 # ---------------------------------------------------------------------------
-VERSION = "2.4.0.5"
+VERSION = "2.4.0.6"
 DOI = "10.1145/3375633"
 TITLE = "Certifying compilation with de Bruijn indices"  # Used if DOI fails or for ResearchGate search
 abort_requested = False
@@ -3935,7 +3935,63 @@ def launch_gui():
     
     def open_bmc():
         import webbrowser
+        import re
+        import os
         webbrowser.open("https://buymeacoffee.com/yazidyoucef")
+        
+        if os.name == 'nt':
+            try:
+                os.system('')
+            except Exception:
+                pass
+                
+        GOLD = "\033[1;33m"
+        PURPLE = "\033[1;35m"
+        CYAN = "\033[1;36m"
+        GREEN = "\033[1;32m"
+        WHITE_BOLD = "\033[1;37m"
+        RESET = "\033[0m"
+        
+        terminal_width = 80
+        
+        message_lines = [
+            "",
+            f"{GOLD}* ------------------------------------------------------------- *{RESET}",
+            f"{PURPLE}Soutenir l'Innovation Locale / Support Local Innovation [DZ]{RESET}",
+            f"{GOLD}* ------------------------------------------------------------- *{RESET}",
+            "",
+            f"Puisque {WHITE_BOLD}Buy Me a Coffee{RESET} ne fonctionne pas directement en Algerie,",
+            "vous pouvez encourager ce travail par transfert local (Baridimob / CCP).",
+            "",
+            f"Cette application {CYAN}reduit considerablement votre temps de recherche{RESET}",
+            f"en interrogeant simultanement plus de {GREEN}11 sources academiques{RESET} majeures",
+            "(ResearchGate, OpenAlex, Sci-Hub, Semantic Scholar, Unpaywall, PMC, Crossref, etc.) en 1 seul clic !",
+            "",
+            "Votre contribution permet de perenniser le developpement de cet outil gratuit.",
+            "",
+            f"{WHITE_BOLD}Informations de Transfert / Donation Details :{RESET}",
+            "-------------------------------------------------------------",
+            f"Nom Complet :   {CYAN}Yazid Youcef{RESET}",
+            f"RIP CCP :       {GREEN}00799999000605964735{RESET}",
+            "-------------------------------------------------------------",
+            "",
+            f"Merci infiniment pour votre generosite et votre soutien ! {GOLD}<3{RESET}",
+            f"{GOLD}* ------------------------------------------------------------- *{RESET}",
+            ""
+        ]
+        
+        for line in message_lines:
+            try:
+                visual_line = re.sub(r'\033\[[0-9;]*m', '', line)
+                padding = max(0, (terminal_width - len(visual_line)) // 2)
+                print(" " * padding + line)
+            except Exception:
+                try:
+                    print(line)
+                except Exception:
+                    pass
+
+
         
     # Title for coffee column
     coffee_title = tk.Label(bmc_frame, text="☕  Soutenir mon Travail",
