@@ -9,6 +9,36 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 
+## v2.4.0.1
+### Release Title
+Academic Paper Downloader v2.4.0.1 — 50 New Publisher Integrations & Enhanced OA Heuristics
+
+### Release Body
+```
+## What's New in v2.4.0.1
+
+### 🚀 Expanded Direct Open-Access Resolvers (Items 51-100)
+- **De Gruyter (`10.1515`)**: Direct-path construction for De Gruyter publications (`https://www.degruyter.com/document/doi/{doi}/pdf`).
+- **World Scientific (`10.1142`)**: Direct-path resolution for World Scientific publishing (`https://www.worldscientific.com/doi/pdf/{doi}`).
+- **Mary Ann Liebert (`10.1089`)**: Direct-path resolution for Mary Ann Liebert publications (`https://www.liebertpub.com/doi/pdf/{doi}`).
+- **Georg Thieme (`10.1055`)**: Direct-path resolution for Georg Thieme e-journals (`https://www.thieme-connect.com/products/ejournals/pdf/{doi}.pdf`).
+- **ACM (`10.1145`)**: Direct-path resolution for Association for Computing Machinery articles (`https://dl.acm.org/doi/pdf/{doi}`).
+- **CSIRO (`10.1071`)**: Direct-path resolution for CSIRO Publishing (`https://www.publish.csiro.au/pdf/{doi}`).
+- **American Physiological Society (`10.1152`)**: Direct-path resolution for APS journals (`https://journals.physiology.org/doi/pdf/{doi}`).
+- **American Society for Microbiology (`10.1128`)**: Direct-path resolution for ASM publications (`https://journals.asm.org/doi/pdf/{doi}`).
+- **Edinburgh University Press (`10.3366`)**: Direct-path resolution for EUP journals (`https://www.euppublishing.com/doi/pdf/{doi}`).
+- **Palgrave Macmillan (`10.1057`)**: Integrated under the Springer Open template rules.
+
+### 🛡️ Pipeline & Fallback Validation
+- **Unified Trackings**: Mapped and verified 40 additional publisher sub-journals and prefixes (LWW, Brill, Bentham, Cell Press, Duke Press, Wolters Kluwer, Sciendo, etc.) to fallback to Zenodo, Unpaywall, Sci-Hub, PMC, and other mirrors.
+
+### 📦 Metadata & Build Updates
+- Incremented application version to `v2.4.0.1` inside all codebase, installer, user-agent, and git tag definitions.
+
+---
+**Full Changelog**: https://github.com/dzmarkets/Academic-Paper-Downloader/commits/main
+```
+
 ## v2.4.0
 ### Release Title
 Academic Paper Downloader v2.4.0 — 25 New Publisher Integrations & Broadened OA Resolution

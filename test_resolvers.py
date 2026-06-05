@@ -138,7 +138,17 @@ class TestResolvers(unittest.TestCase):
             ("10.1061/(ASCE)CO.1943-7862.0000788", "ASCE Test Paper", "ASCE_ASCE Test Paper.pdf"),
             ("10.1108/IJCHM-05-2016-0294", "Emerald Test Paper", "Emerald_Emerald Test Paper.pdf"),
             ("10.1137/16M108707X", "SIAM Test Paper", "SIAM_SIAM Test Paper.pdf"),
-            ("10.1134/S003103011603011X", "Pleiades Test Paper", "Springer_Pleiades Test Paper.pdf")
+            ("10.1134/S003103011603011X", "Pleiades Test Paper", "Springer_Pleiades Test Paper.pdf"),
+            ("10.1515/sem-2018-0001", "DeGruyter Test Paper", "DeGruyter_DeGruyter Test Paper.pdf"),
+            ("10.1142/S021827181850001X", "WorldScientific Test Paper", "WorldScientific_WorldScientific Test Paper.pdf"),
+            ("10.1089/ast.2018.0001", "Liebert Test Paper", "Liebert_Liebert Test Paper.pdf"),
+            ("10.1055/s-0001-0001", "Thieme Test Paper", "Thieme_Thieme Test Paper.pdf"),
+            ("10.1145/3375633", "ACM Test Paper", "ACM_ACM Test Paper.pdf"),
+            ("10.1071/AN18001", "CSIRO Test Paper", "CSIRO_CSIRO Test Paper.pdf"),
+            ("10.1152/physrev.00001.2018", "APSPhysio Test Paper", "APSPhysio_APSPhysio Test Paper.pdf"),
+            ("10.1128/AAC.00001-18", "ASM Test Paper", "ASM_ASM Test Paper.pdf"),
+            ("10.3366/drs.2018.0001", "EUP Test Paper", "EUP_EUP Test Paper.pdf"),
+            ("10.1057/s41293-018-0001-x", "Palgrave Test Paper", "Springer_Palgrave Test Paper.pdf")
         ]
         
         for doi, title, expected_filename in test_cases:

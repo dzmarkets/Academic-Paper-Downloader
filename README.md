@@ -1,8 +1,8 @@
 # 📚 Academic Paper Downloader
 
-> **Version 2.4.0**
+> **Version 2.4.0.1**
 
-[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.4.0/AcademicPaperDownloader_Setup.exe)
+[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.4.0.1/AcademicPaperDownloader_Setup.exe)
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
@@ -52,6 +52,7 @@ The application features a multi-tiered search and resolution pipeline that quer
 - **SSRN (Social Science Research Network)**: Native abstract crawling to download social science preprints.
 - **Europe PMC**: Queries PubMed Central and Europe PMC mirrors to access free biomedical publications.
 - **Annual Reviews / APS / University of Chicago Press / Royal Society / ASCE / Emerald / SIAM / Pleiades**: Expanded direct open-access resolution support for 25 additional publishers.
+- **De Gruyter / World Scientific / Mary Ann Liebert / Thieme / ACM / CSIRO / American Physiological Society / ASM / Edinburgh University Press**: Expanded direct open-access resolution support for 50 additional publishers (items 51-100).
 
 ### 📚 Book & Large Document Sources
 - **Library Genesis (LibGen)**: Queries Library Genesis mirrors to resolve and download textbook and monograph files.
@@ -104,6 +105,11 @@ All downloaded files are saved in subfolders under the user's `Documents\Academi
 ---
 
 ## 📋 Changelog
+
+### v2.4.0.1
+- Added direct open-access resolvers for 50 new publishers/journals (items 51-100) including De Gruyter, World Scientific, Mary Ann Liebert, Georg Thieme, ACM, CSIRO, American Physiological Society, American Society for Microbiology (ASM), and Edinburgh University Press.
+- Added Palgrave Macmillan prefix to Springer template mappings.
+- Bumped application version to `v2.4.0.1` in package, installers, configuration, and user-agent string.
 
 ### v2.4.0
 - Added direct open-access resolvers for 25 new publishers/journals including Annual Reviews, APS, Chicago Press, Royal Society, ASCE, Emerald, SIAM, and Pleiades Publishing (via Springer).
