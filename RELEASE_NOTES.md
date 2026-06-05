@@ -9,6 +9,24 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 
+## v2.4.0.3
+### Release Title
+Academic Paper Downloader v2.4.0.3 — 1400 New Mapped Journals & Version Bump
+
+### Release Body
+```
+## What's New in v2.4.0.3
+
+### 🛡️ Mapped Journal Coverage (Items 601-2000)
+- **1400 New Mapped Journals**: Appended the next 1400 candidate journals from the resolved database into the tracking status lists. All mapped journals are covered via standard resolver fallbacks and direct publisher heuristics.
+
+### 📦 Metadata & Build Updates
+- Bumped application version to `v2.4.0.3` across configuration, scripts, user-agent, and installer manifests.
+
+---
+**Full Changelog**: https://github.com/dzmarkets/Academic-Paper-Downloader/commits/main
+```
+
 ## v2.4.0.2
 ### Release Title
 Academic Paper Downloader v2.4.0.2 — AIAA & INFORMS Integrations & 500 New Mapped Journals
