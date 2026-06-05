@@ -3392,9 +3392,13 @@ def launch_gui():
     # --- Interactive Research Mode Results Frame ---
     results_frame = tk.Frame(root, bg="#0D0B14", padx=25)
 
+    # Sub-frame for canvas + scrollbar to separate from pagination and prevent packing squeeze
+    canvas_frame = tk.Frame(results_frame, bg="#0D0B14")
+    canvas_frame.pack(side='top', fill='both', expand=True)
+
     # Scrollable canvas wrapper for results
-    _results_canvas = tk.Canvas(results_frame, bg="#0D0B14", highlightthickness=0)
-    _results_scrollbar = ttk.Scrollbar(results_frame, orient="vertical", command=_results_canvas.yview, style="Vertical.TScrollbar")
+    _results_canvas = tk.Canvas(canvas_frame, bg="#0D0B14", highlightthickness=0)
+    _results_scrollbar = ttk.Scrollbar(canvas_frame, orient="vertical", command=_results_canvas.yview, style="Vertical.TScrollbar")
     _results_canvas.configure(yscrollcommand=_results_scrollbar.set)
     _results_scrollbar.pack(side="right", fill="y")
     _results_canvas.pack(side="left", fill="both", expand=True)
@@ -3447,7 +3451,6 @@ def launch_gui():
         entry.delete(0, tk.END)
         status_label.config(text="Ready for input.", fg="#A78BFA")
 
-
     # Navigation bar — placed AFTER the canvas so it appears at the bottom of results
     nav_frame = tk.Frame(results_frame, bg="#0D0B14", pady=5)
     # nav_frame packs AFTER the canvas widget — Tkinter pack order = top-to-bottom
@@ -3494,19 +3497,24 @@ def launch_gui():
     def _toggle_console():
         if _console_visible[0]:
             _console_body.pack_forget()
+            logs_frame.pack_configure(expand=False, fill='x')
             _console_visible[0] = False
             toggle_console_btn.config(text="Show Console [+]")
         else:
             _console_body.pack(fill='both', expand=True)
+            logs_frame.pack_configure(expand=True, fill='both')
             _console_visible[0] = True
             toggle_console_btn.config(text="Hide Console [-]")
+        root.update_idletasks()
 
     def _force_show_console():
         """Ensure the console body is visible (called by BMC button)."""
         if not _console_visible[0]:
             _console_body.pack(fill='both', expand=True)
+            logs_frame.pack_configure(expand=True, fill='both')
             _console_visible[0] = True
             toggle_console_btn.config(text="Hide Console [-]")
+            root.update_idletasks()
 
     def clear_logs():
         log_area.delete('1.0', 'end')
@@ -3631,7 +3639,7 @@ def launch_gui():
         clear_research_results()
 
         results_frame.pack(fill='x', padx=25, pady=(5, 5), before=logs_frame)
-        nav_frame.pack(fill='x')          # nav at the bottom of results_frame
+        nav_frame.pack(side='bottom', fill='x', pady=5)          # nav at the bottom of results_frame
         _results_canvas.yview_moveto(0)   # Always scroll back to top on new results
         page_lbl.config(text=f"Page {page}")
         
