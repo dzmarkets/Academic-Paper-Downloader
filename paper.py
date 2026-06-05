@@ -10,6 +10,24 @@ from tkinter import ttk
 from tkinter import scrolledtext
 import threading
 
+GUI_MODE = False
+
+def open_in_explorer(filepath):
+    """Open the directory containing the file in Windows Explorer and select the file."""
+    try:
+        import subprocess
+        abs_path = os.path.abspath(filepath).replace('/', '\\')
+        if os.path.exists(abs_path):
+            print(f"[INFO] Opening explorer to highlight file: {abs_path}")
+            def run_explorer():
+                subprocess.run(f'explorer /select,"{abs_path}"', shell=True)
+            t = threading.Thread(target=run_explorer)
+            t.daemon = True
+            t.start()
+    except Exception as e:
+        print(f"[WARNING] Failed to open explorer: {e}")
+
+
 # ---------------------------------------------------------------------------
 # PyInstaller-aware path resolution
 # ---------------------------------------------------------------------------
@@ -76,7 +94,7 @@ def get_download_dir(category="paper"):
 # ---------------------------------------------------------------------------
 # Define target paper metadata
 # ---------------------------------------------------------------------------
-VERSION = "2.3.6"
+VERSION = "2.3.7"
 DOI = "10.1145/3375633"
 TITLE = "Certifying compilation with de Bruijn indices"  # Used if DOI fails or for ResearchGate search
 abort_requested = False
@@ -388,6 +406,8 @@ def download_file(url, filename, referer=None, cookie=None, category="paper"):
         out_file.write(content)
     print(f"[SUCCESS] Saved flawlessly inside Downloads folder: '{os.path.basename(filename)}'")
     print(f"[INFO] Absolute Location: {filename}")
+    if GUI_MODE:
+        open_in_explorer(filename)
     return True
 
 
@@ -1514,6 +1534,8 @@ def try_download_ia_pages(ia_id, pdf_path, title, status_label=None, root_widget
             status_label.config(text="Stitching page images into PDF...", fg="#00ADB5")
         compile_jpegs_to_pdf(valid_jpegs, pdf_path)
         success_compiled = True
+        if GUI_MODE:
+            open_in_explorer(pdf_path)
     elif abort_requested:
         print("[INFO] Download aborted by user.")
     else:
@@ -1627,6 +1649,8 @@ def try_download_taylorfrancis(doi, title):
         
         r.close()
         print(f"[SUCCESS] T&F PDF saved: '{filename}' ({byte_count:,} bytes)")
+        if GUI_MODE:
+            open_in_explorer(pdf_path)
         return True
     except _req.exceptions.Timeout:
         print("[WARNING] T&F API request timed out (30s).")
@@ -3096,6 +3120,8 @@ def create_app_mutex():
 
 def launch_gui():
     """Launch the modern dark-themed desktop GUI for Paper Downloader."""
+    global GUI_MODE
+    GUI_MODE = True
     global prev_btn, next_btn, page_lbl, results_frame, results_container, card_buttons, clear_res_btn, status_label, dl_link_lbl
     
     create_app_mutex()

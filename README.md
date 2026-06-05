@@ -1,8 +1,8 @@
 # 📚 Academic Paper Downloader
 
-> **Version 2.3.6**
+> **Version 2.3.7**
 
-[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.3.6/AcademicPaperDownloader_Setup.exe)
+[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.3.7/AcademicPaperDownloader_Setup.exe)
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
@@ -103,6 +103,13 @@ All downloaded files are saved in subfolders under the user's `Documents\Academi
 ---
 
 ## 📋 Changelog
+
+### v2.3.7
+- Integrated 5 new direct open-access paper download resolvers: PLOS, BioRxiv, Zenodo, DOAJ, and Semantic Scholar.
+- Implemented robust Cloudflare and WAF bypassing for JSON APIs by utilizing `fetch_html_resilient` to fallback to system `curl` on blocks.
+- Synchronized GUI and CLI pipelines to run the new resolvers.
+- Created an automated integration test suite (`test_resolvers.py`) to verify all download strategies against live repositories.
+- Improved UX by automatically highlighting newly downloaded papers in Windows Explorer.
 
 ### v2.3.6
 - Switched from single-file compilation (`--onefile`) to directory-based compilation (`--onedir`) and packaged it via Inno Setup. This removes the runtime self-extraction delay and makes the application start instantaneously (under 0.5s).
