@@ -76,7 +76,7 @@ def get_download_dir(category="paper"):
 # ---------------------------------------------------------------------------
 # Define target paper metadata
 # ---------------------------------------------------------------------------
-VERSION = "2.3.4"
+VERSION = "2.3.5"
 DOI = "10.1145/3375633"
 TITLE = "Certifying compilation with de Bruijn indices"  # Used if DOI fails or for ResearchGate search
 abort_requested = False
