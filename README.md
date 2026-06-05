@@ -35,6 +35,30 @@ A premium, high-performance desktop application built in Python/Tkinter designed
 
 ---
 
+## 🌐 Supported Download Sources
+
+The application features a multi-tiered search and resolution pipeline that queries the following open science repositories, search indices, and archives to find direct download links:
+
+### 📄 Academic Paper Sources
+- **Sci-Hub**: Accesses global research mirror networks for paywalled academic papers.
+- **ResearchGate**: Native crawler that extracts self-archived publications and preprints directly from researcher profiles.
+- **Semantic Scholar**: Utilizes the Semantic Scholar Graph API to retrieve open-access PDF targets.
+- **Unpaywall**: Queries the Unpaywall open science database containing millions of free journal articles.
+- **CORE (core.ac.uk)**: Searches the world's largest aggregator of open access research papers.
+- **DOAJ (Directory of Open Access Journals)**: Direct index searches for peer-reviewed open access papers.
+- **PLOS Journals**: Direct, fast-path printable PDF link construction for Public Library of Science articles.
+- **BioRxiv & MedRxiv**: Directly queries bioRxiv details API to download medical and biological preprint PDFs.
+- **arXiv**: Direct PDF fetch from the arXiv repository for physics, mathematics, and computer science papers.
+- **SSRN (Social Science Research Network)**: Native abstract crawling to download social science preprints.
+- **Europe PMC**: Queries PubMed Central and Europe PMC mirrors to access free biomedical publications.
+
+### 📚 Book & Large Document Sources
+- **Library Genesis (LibGen)**: Queries Library Genesis mirrors to resolve and download textbook and monograph files.
+- **Internet Archive**: Native book deobfuscator that downloads public-domain books page-by-page and compiles them into a single PDF.
+- **OpenLibrary**: Provides structural metadata for book lookup and title-to-author matching.
+
+---
+
 ## 🛠️ Installation & Setup
 
 Since this application is built entirely using the Python standard library, there are **no external library dependencies** to install. Simply clone the repository and run:
