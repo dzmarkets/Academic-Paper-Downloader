@@ -11,14 +11,32 @@
 
 ## v2.4.1.0
 ### Release Title
-Academic Paper Downloader v2.4.1.0 — 5000 New Mapped Journals (Items 10001-15000)
+Academic Paper Downloader v2.4.1.0 — Dynamic Pagination, Side-by-Side UI, and 5000 New Mapped Journals
 
 ### Release Body
 ```
 ## What's New in v2.4.1.0
 
+### 🖥️ Side-by-Side Grid UI & Modern Layout
+- **Dynamic Grid Layout**: Re-architected results frame (2/3 width) and logs frame (1/3 width) as grid columns. If the console log is hidden, the results frame expands seamlessly to full width.
+- **Log Auto-Reveal**: Configured the console log to reveal automatically on downloading to display processing/download pipelines.
+- **Maximized Startup**: Restored maximized window state (`zoomed`) on startup.
+- **Consolidated Controls**: Relocated the console toggle button directly next to the search button.
+
+### 🔢 Dynamic Sliding Range & Visibility Pagination
+- **Sliding Range Windows**: Pagination range shifts dynamically forward (e.g. `10..19`, `19..28`) on block-end activation and backward (e.g. back to `1..10`) when moving below the start page.
+- **Smart Placeholders & Visibility Control**: Shows 10 buttons (disabled placeholders if not cached) by default. If the search query completes and finds no more results (e.g. only 3 pages), empty buttons are hidden, displaying only the actual available pages (e.g. buttons 1 to 3).
+- **Background Caching**: Skips already cached pages and prefetches subsequent ranges in a background thread to maintain high responsiveness.
+
+### 🔍 Search & Scraper Enhancements
+- **OpenAlex Category Schemas**: Restructured keywords search and filters to align with OpenAlex's updated types schema.
+- **ResearchGate Deduplication**: Implemented title-level deduplication for ResearchGate scraper profiles and matches.
+
+### ⚡ Suppressed CMD Window Flashes on Windows
+- Passed `creationflags=0x08000000` (`CREATE_NO_WINDOW`) to all system `subprocess.run` calls (native curl and explorer fallbacks), preventing any transient console windows from flashing on Windows.
+
 ### 🛡️ Mapped Journal Coverage (Items 10001-15000)
-- **5000 New Mapped Journals**: Appended the next 5000 candidate journals from the resolved database into the tracking status list, bringing total coverage to 15,000 tracked journals. All mapped journals are covered via standard resolver fallbacks and direct publisher heuristics.
+- **5000 New Mapped Journals**: Appended the next 5000 candidate journals from the resolved database into the tracking status list, bringing total coverage to 15,000 tracked journals.
 
 ### 📦 Metadata & Build Updates
 - Bumped application version to `v2.4.1.0` across configuration, scripts, user-agent, and installer manifests.
