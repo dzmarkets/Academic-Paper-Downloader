@@ -468,7 +468,9 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
     else:
         return []
     url += f"&rows={crossref_rows}&offset=0"
-    if type_filter == "Books":
+    if type_filter == "Papers":
+        url += "&filter=type:journal-article,type:proceedings-article,type:posted-content"
+    elif type_filter == "Books":
         url += "&filter=type:book"
     try:
         if abort_requested:
@@ -871,9 +873,9 @@ def search_openalex_by_author(author_name, offset=0, rows=5, type_filter="All"):
         try:
             filter_parts = [f"authorships.author.id:{author_id}"]
             if type_filter == "Papers":
-                filter_parts.append("type:journal-article")
+                filter_parts.append("type:article|preprint|review")
             elif type_filter == "Books":
-                filter_parts.append("type:book")
+                filter_parts.append("type:book|book-chapter")
             filter_str = ",".join(filter_parts)
             
             works_url = (f"https://api.openalex.org/works"
@@ -925,6 +927,65 @@ def search_openalex_by_author(author_name, offset=0, rows=5, type_filter="All"):
     for idx, item in enumerate(page_items):
         item['original_index'] = idx
     return page_items
+
+
+def search_openalex_keyword(query, offset=0, rows=5, type_filter="All"):
+    """Search OpenAlex for works matching a keyword query."""
+    if not query:
+        return []
+    
+    page = (offset // rows) + 1
+    oa_headers = {**HEADERS, 'User-Agent': f'PaperDownloader/2.1 (mailto:{UNPAYWALL_EMAIL})'}
+    
+    filter_parts = []
+    if type_filter == "Papers":
+        filter_parts.append("type:article|preprint|review")
+    elif type_filter == "Books":
+        filter_parts.append("type:book|book-chapter")
+        
+    filter_str = ""
+    if filter_parts:
+        filter_str = f"&filter={urllib.parse.quote(','.join(filter_parts))}"
+        
+    url = (f"https://api.openalex.org/works"
+           f"?search={urllib.parse.quote(query)}"
+           f"&page={page}&per_page={rows}"
+           f"{filter_str}")
+           
+    results = []
+    try:
+        req = urllib.request.Request(url, headers=oa_headers)
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            data = json.loads(resp.read().decode())
+        works = data.get('results', [])
+        for work in works:
+            title = work.get('title', '')
+            if not title:
+                continue
+            doi = work.get('doi', '') or ''
+            if doi.startswith('https://doi.org/'):
+                doi = doi[len('https://doi.org/'):]
+            authorships = work.get('authorships', [])
+            auth_names = [a.get('author', {}).get('display_name', '')
+                          for a in authorships if a.get('author', {}).get('display_name')]
+            year = str(work.get('publication_year', 'n.d.'))
+            primary_loc = work.get('primary_location') or {}
+            source = primary_loc.get('source') or {}
+            journal = source.get('display_name', 'Unknown Journal')
+            is_oa = (work.get('open_access') or {}).get('is_oa', False)
+            results.append({
+                'title': title,
+                'doi': doi,
+                'authors': ', '.join(auth_names[:4]),
+                'year': year,
+                'journal': journal,
+                'is_oa': is_oa,
+                'source': 'openalex'
+            })
+    except Exception as e:
+        print(f"[WARNING] OpenAlex keyword search failed: {e}")
+        
+    return results
 
 
 def fetch_html_resilient(url):
@@ -2734,6 +2795,14 @@ prev_btn = None
 next_btn = None
 page_lbl = None
 results_frame = None
+results_visible = False
+
+# Caching and prefetching variables
+cached_research_results = {}
+prefetched_pages = set()
+active_search_query = ""
+page_buttons = []
+page_num_frame = None
 results_container = None
 
 
@@ -2756,7 +2825,7 @@ def reset_gui_state(run_button, entry_widget):
 
 def update_pagination_states():
     """Helper to update the enabled/disabled states of pagination controls."""
-    global current_page, prev_btn, next_btn, has_more_results
+    global current_page, prev_btn, next_btn, cached_research_results
     if not prev_btn or not next_btn:
         return
         
@@ -2765,7 +2834,7 @@ def update_pagination_states():
     else:
         prev_btn.config(state='normal')
         
-    if has_more_results:
+    if (current_page + 1) in cached_research_results:
         next_btn.config(state='normal')
     else:
         next_btn.config(state='disabled')
@@ -3049,8 +3118,15 @@ def fetch_yazid_rg_publications():
                     'source': 'yazid_profile'
                 })
             if parsed_results:
-                print(f"[INFO] Successfully retrieved {len(parsed_results)} publications dynamically from Yazid Youcef's profile.")
-                return parsed_results
+                seen_titles = set()
+                deduped = []
+                for p in parsed_results:
+                    t_low = p['title'].lower().strip()
+                    if t_low not in seen_titles:
+                        seen_titles.add(t_low)
+                        deduped.append(p)
+                print(f"[INFO] Successfully retrieved {len(deduped)} publications dynamically from Yazid Youcef's profile.")
+                return deduped
     except Exception as e:
         print(f"[WARNING] Live ResearchGate profile query bypassed/failed: {e}")
         
@@ -3271,7 +3347,7 @@ def launch_gui():
     """Launch the modern dark-themed desktop GUI for Paper Downloader."""
     global GUI_MODE
     GUI_MODE = True
-    global prev_btn, next_btn, page_lbl, results_frame, results_container, card_buttons, clear_res_btn, status_label, dl_link_lbl
+    global prev_btn, next_btn, page_lbl, results_frame, results_container, card_buttons, clear_res_btn, status_label, dl_link_lbl, results_visible, main_container, toggle_console_btn
     
     create_app_mutex()
     
@@ -3319,6 +3395,10 @@ def launch_gui():
     y = (hs/2) - (h/2)
     root.geometry('%dx%d+%d+%d' % (w, h, x, y))
     root.resizable(True, True)
+    try:
+        root.state('zoomed')
+    except Exception:
+        pass
     
     # Header Section (Centered)
     header_frame = tk.Frame(root, bg="#0D0B14", pady=12)
@@ -3378,6 +3458,14 @@ def launch_gui():
     card_frame = tk.Frame(root, bg="#1A1625", bd=1, relief='flat', padx=20, pady=15)
     card_frame.pack(fill='x', padx=25, pady=(5, 5))
     
+    # Side-by-side main container
+    global main_container
+    main_container = tk.Frame(root, bg="#0D0B14")
+    main_container.pack(fill='both', expand=True, pady=(0, 10))
+    main_container.grid_columnconfigure(0, weight=2)
+    main_container.grid_columnconfigure(1, weight=1)
+    main_container.grid_rowconfigure(0, weight=1)
+    
     input_lbl = tk.Label(card_frame, text="Enter DOI or Keywords:", bg="#1A1625", fg="#EEEEEE", font=('Segoe UI Semibold', 10))
     input_lbl.pack(anchor='center', pady=(8, 5))
     
@@ -3394,7 +3482,7 @@ def launch_gui():
     status_label.pack(pady=5, anchor='center')
     
     # --- Interactive Research Mode Results Frame ---
-    results_frame = tk.Frame(root, bg="#0D0B14", padx=25)
+    results_frame = tk.Frame(main_container, bg="#0D0B14", padx=25)
 
     # Sub-frame for canvas + scrollbar to separate from pagination and prevent packing squeeze
     canvas_frame = tk.Frame(results_frame, bg="#0D0B14")
@@ -3443,17 +3531,27 @@ def launch_gui():
     
     # (wraplength + scroll region handled in _on_results_frame_configure above)
 
-    def clear_research_results():
+    def clear_research_results(clear_cache=True):
         """Clear all loaded paper cards from the research view."""
-        global card_buttons
+        global card_buttons, cached_research_results, prefetched_pages, active_search_query
         for widget in results_container.winfo_children():
             widget.destroy()
         card_buttons = []
         _results_canvas.yview_moveto(0)  # Reset scroll to top
-        nav_frame.pack_forget()          # Hide nav bar together with results
-        results_frame.pack_forget()
-        entry.delete(0, tk.END)
-        status_label.config(text="Ready for input.", fg="#A78BFA")
+        
+        if clear_cache:
+            nav_frame.pack_forget()          # Hide nav bar together with results
+            global results_visible
+            results_visible = False
+            _update_grid_layout()
+            entry.delete(0, tk.END)
+            status_label.config(text="Ready for input.", fg="#A78BFA")
+            
+            # Clear search cache and reset page numbers UI
+            cached_research_results.clear()
+            prefetched_pages.clear()
+            active_search_query = ""
+            reset_page_buttons_ui()
 
     # Navigation bar — placed AFTER the canvas so it appears at the bottom of results
     nav_frame = tk.Frame(results_frame, bg="#0D0B14", pady=5)
@@ -3472,8 +3570,36 @@ def launch_gui():
     prev_btn = tk.Button(nav_frame, text="\u25c4 Previous", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI', 9), padx=12, pady=4, cursor="hand2", command=on_prev_click, state='disabled')
     prev_btn.pack(side='left', padx=15)
 
-    page_lbl = tk.Label(nav_frame, text="Page 1", bg="#0D0B14", fg="#A855F7", font=('Segoe UI Semibold', 10))
-    page_lbl.pack(side='left', fill='x', expand=True)
+    global page_buttons, page_num_frame, page_lbl
+    page_buttons = []
+    page_num_frame = tk.Frame(nav_frame, bg="#0D0B14")
+    page_num_frame.pack(side='left', fill='x', expand=True)
+
+    page_subframe = tk.Frame(page_num_frame, bg="#0D0B14")
+    page_subframe.pack(anchor='center')
+
+    page_lbl = tk.Label(page_subframe, text="Page", bg="#0D0B14", fg="#8E8A9F", font=('Segoe UI Semibold', 9))
+    page_lbl.pack(side='left', padx=(0, 6))
+
+    for p in range(1, 11):
+        btn = tk.Button(
+            page_subframe,
+            text=str(p),
+            bg="#1E1A2B",
+            fg="#6B7280",
+            activebackground="#3F335C",
+            activeforeground="#FFFFFF",
+            disabledforeground="#4B5563",
+            bd=0,
+            font=('Segoe UI Semibold', 9),
+            padx=8,
+            pady=3,
+            cursor="hand2",
+            state='disabled',
+            command=lambda p_idx=p: load_cached_page(p_idx)
+        )
+        btn.pack(side='left', padx=3)
+        page_buttons.append(btn)
 
     clear_res_btn = tk.Button(nav_frame, text="Clear Results", bg="#2E2543", fg="#EEEEEE", activebackground="#D32F2F", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI Semibold', 9), padx=12, pady=4, cursor="hand2", command=clear_research_results)
     clear_res_btn.pack(side='right', padx=(0, 15))
@@ -3483,8 +3609,7 @@ def launch_gui():
 
     # ── Console / Logs area ────────────────────────────────────────────────────
     # The header is always visible; the body (log_area) can be toggled.
-    logs_frame = tk.Frame(root, bg="#0D0B14", padx=25)
-    logs_frame.pack(fill='both', expand=True, pady=(0, 15))
+    logs_frame = tk.Frame(main_container, bg="#0D0B14", padx=25)
 
     logs_header = tk.Frame(logs_frame, bg="#0D0B14")
     logs_header.pack(fill='x', pady=(0, 4))
@@ -3498,46 +3623,45 @@ def launch_gui():
     _console_body.pack(fill='both', expand=True)
     _console_visible = [True]   # mutable flag
 
+    def _update_grid_layout():
+        try:
+            results_frame.grid_forget()
+            logs_frame.grid_forget()
+            
+            is_results_visible = results_visible
+            is_logs_visible = _console_visible[0]
+            
+            if is_results_visible and is_logs_visible:
+                main_container.grid_columnconfigure(0, weight=2)
+                main_container.grid_columnconfigure(1, weight=1)
+                results_frame.grid(row=0, column=0, sticky='nsew', padx=(25, 10))
+                logs_frame.grid(row=0, column=1, sticky='nsew', padx=(10, 25))
+            elif is_results_visible and not is_logs_visible:
+                main_container.grid_columnconfigure(0, weight=1)
+                results_frame.grid(row=0, column=0, columnspan=2, sticky='nsew', padx=25)
+            elif not is_results_visible and is_logs_visible:
+                main_container.grid_columnconfigure(0, weight=1)
+                logs_frame.grid(row=0, column=0, columnspan=2, sticky='nsew', padx=25)
+        except Exception as e:
+            print(f"[ERROR] Grid update failed: {e}")
+
     def _toggle_console():
         if _console_visible[0]:
-            _console_body.pack_forget()
-            logs_frame.pack_configure(expand=False, fill='x')
             _console_visible[0] = False
             toggle_console_btn.config(text="Show Console [+]")
         else:
-            _console_body.pack(fill='both', expand=True)
-            logs_frame.pack_configure(expand=True, fill='both')
             _console_visible[0] = True
             toggle_console_btn.config(text="Hide Console [-]")
-        root.update_idletasks()
+        _update_grid_layout()
 
     def _force_show_console():
-        """Ensure the console body is visible (called by BMC button)."""
         if not _console_visible[0]:
-            _console_body.pack(fill='both', expand=True)
-            logs_frame.pack_configure(expand=True, fill='both')
             _console_visible[0] = True
             toggle_console_btn.config(text="Hide Console [-]")
-            root.update_idletasks()
+            _update_grid_layout()
 
     def clear_logs():
         log_area.delete('1.0', 'end')
-
-    toggle_console_btn = tk.Button(
-        logs_header,
-        text="Hide Console [-]",
-        bg="#2E2543",
-        fg="#EEEEEE",
-        activebackground="#3F335C",
-        activeforeground="#FFFFFF",
-        bd=0,
-        font=('Segoe UI Semibold', 8),
-        padx=10,
-        pady=2,
-        cursor="hand2",
-        command=_toggle_console
-    )
-    toggle_console_btn.pack(side='right', padx=(6, 0))
 
     clear_btn = tk.Button(
         logs_header,
@@ -3597,6 +3721,7 @@ def launch_gui():
             btn.config(state='disabled')
             
         status_label.config(text="Downloading paper...", fg="#A855F7")
+        _force_show_console()
         running_event.set()
         animate_loading(status_label, running_event)
         
@@ -3615,6 +3740,185 @@ def launch_gui():
         t.daemon = True
         t.start()
         
+    def reset_page_buttons_ui():
+        global page_buttons
+        for p in range(1, 11):
+            if p == 1:
+                page_buttons[0].config(state='normal', bg="#8B5CF6", fg="#FFFFFF")
+            else:
+                page_buttons[p-1].config(state='disabled', bg="#1E1A2B", fg="#6B7280")
+
+    def enable_page_button(page_idx):
+        global page_buttons
+        if 1 <= page_idx <= 10:
+            page_buttons[page_idx-1].config(state='normal', bg="#2E2543", fg="#EEEEEE")
+            update_pagination_states()
+
+    def update_page_buttons_style(active_page):
+        global page_buttons, cached_research_results
+        for p in range(1, 11):
+            if p == active_page:
+                page_buttons[p-1].config(bg="#8B5CF6", fg="#FFFFFF")
+            elif p in cached_research_results:
+                page_buttons[p-1].config(bg="#2E2543", fg="#EEEEEE", state='normal')
+            else:
+                page_buttons[p-1].config(bg="#1E1A2B", fg="#6B7280", state='disabled')
+
+    def load_cached_page(page_idx):
+        global current_page, research_query, cached_research_results
+        if page_idx in cached_research_results:
+            display_research_results(cached_research_results[page_idx], research_query, page_idx)
+
+    def on_prefetch_complete(query):
+        global active_search_query, abort_requested
+        if active_search_query == query:
+            if abort_requested:
+                status_label.config(text="Search stopped by user.", fg="#F44336")
+            else:
+                pages_found = len(cached_research_results)
+                if pages_found > 0:
+                    status_label.config(text=f"Search complete. Found {pages_found} pages of results.", fg="#4CAF50")
+                else:
+                    status_label.config(text="No matching documents found.", fg="#F44336")
+            reset_gui_state(run_button, entry)
+            reset_inputs()
+
+    def start_background_prefetch(query):
+        global active_search_query, cached_research_results, prefetched_pages
+        active_search_query = query
+        cached_research_results.clear()
+        prefetched_pages.clear()
+        
+        # Reset page buttons UI
+        reset_page_buttons_ui()
+        
+        def prefetch_loop():
+            global abort_requested, active_search_query
+            
+            for p in range(1, 11):
+                if abort_requested:
+                    break
+                if active_search_query != query:
+                    break
+                    
+                try:
+                    # 1. Fetch priority works
+                    yazid_works = fetch_yazid_rg_publications()
+                    assma_works = fetch_assma_publications()
+                    priority_works = yazid_works + assma_works
+                    
+                    # Deduplicate priority works by title to prevent duplicates
+                    seen_priority = set()
+                    unique_priority = []
+                    for w in priority_works:
+                        t_low = w['title'].lower().strip()
+                        if t_low not in seen_priority:
+                            seen_priority.add(t_low)
+                            unique_priority.append(w)
+                    priority_works = unique_priority
+                    
+                    # 2. Check for matches against keywords
+                    stripped = query.strip()
+                    is_exact = (stripped.startswith('"') and stripped.endswith('"')) or (stripped.startswith("'") and stripped.endswith("'"))
+                    exact_phrase = stripped.strip('"').strip("'").strip() if is_exact else None
+                    
+                    matching_priority = []
+                    query_words = [w.lower() for w in re.split(r'\W+', query) if len(w) > 2]
+                    
+                    for work in priority_works:
+                        title_lower = work['title'].lower()
+                        authors_lower = work['authors'].lower()
+                        is_match = False
+                        
+                        if not query_words:
+                            is_match = True
+                        elif "yazid" in query.lower() or "youcef" in query.lower():
+                            if "yazid" in authors_lower or "youcef" in authors_lower:
+                                is_match = True
+                        elif "assma" in query.lower() or "derdoukh" in query.lower():
+                            if "assma" in authors_lower or "derdoukh" in authors_lower:
+                                is_match = True
+                        elif exact_phrase:
+                            phrase = exact_phrase.lower()
+                            if (phrase in title_lower) or (phrase in authors_lower):
+                                is_match = True
+                        else:
+                            for word in query_words:
+                                if word in title_lower or word in authors_lower:
+                                    is_match = True
+                                    break
+                                    
+                        if is_match:
+                            matching_priority.append(work)
+                    
+                    effective_priority = min(5, len(matching_priority))
+                    if p == 1:
+                        adjusted_offset = 0
+                    else:
+                        adjusted_offset = (p - 1) * 5 - effective_priority
+                        
+                    # Fetch results from Crossref, OpenAlex, and Scholar
+                    crossref_results = search_crossref(query, offset=adjusted_offset, rows=5, type_filter="Papers", author="")
+                    openalex_results = search_openalex_keyword(query, offset=adjusted_offset, rows=5, type_filter="Papers")
+                    scholar_results = search_google_scholar(query, offset=adjusted_offset, rows=5)
+                    
+                    results = []
+                    results.extend(crossref_results)
+                    for r in openalex_results:
+                        if not any(r['title'].lower() in x['title'].lower() or x['title'].lower() in r['title'].lower() or (r['doi'] and r['doi'] == x['doi']) for x in results):
+                            results.append(r)
+                    for r in scholar_results:
+                        if not any(r['title'].lower() in x['title'].lower() or x['title'].lower() in r['title'].lower() or (r['doi'] and r['doi'] == x['doi']) for x in results):
+                            results.append(r)
+                            
+                    if p == 1 and matching_priority:
+                        cleaned_results = []
+                        for r in results:
+                            if not any(y['title'].lower() in r['title'].lower() or r['title'].lower() in y['title'].lower() for y in matching_priority):
+                                cleaned_results.append(r)
+                        results = matching_priority + cleaned_results
+                        
+                    results = results[:5]
+                    
+                    if abort_requested or active_search_query != query:
+                        break
+                        
+                    cached_research_results[p] = results
+                    prefetched_pages.add(p)
+                    
+                    if p == 1:
+                        running_event.clear()  # Stop loading animation
+                        if results:
+                            root.after(0, lambda r=results: display_research_results(r, query, 1))
+                            root.after(0, lambda: status_label.config(text="Page 1 loaded. Fetching subsequent pages in background...", fg="#10B981"))
+                        else:
+                            root.after(0, lambda: display_research_results([], query, 1))
+                            break
+                    else:
+                        if results:
+                            root.after(0, lambda p_idx=p: enable_page_button(p_idx))
+                        else:
+                            break
+                            
+                except Exception as e:
+                    print(f"[WARNING] Prefetch page {p} failed: {e}")
+                    if p == 1:
+                        running_event.clear()
+                        root.after(0, lambda: status_label.config(text="Failed to fetch search results.", fg="#F44336"))
+                        root.after(0, lambda: reset_gui_state(run_button, entry))
+                        root.after(0, reset_inputs)
+                        break
+                        
+                import time
+                time.sleep(0.5)
+                
+            running_event.clear()
+            root.after(0, lambda: on_prefetch_complete(query))
+            
+        t_prefetch = threading.Thread(target=prefetch_loop)
+        t_prefetch.daemon = True
+        t_prefetch.start()
+
     def display_research_results(results, query, page):
         """Render the 5 results cards dynamically into the results frame."""
         global current_page, research_query, card_buttons, has_more_results
@@ -3623,8 +3927,7 @@ def launch_gui():
             if page > 1:
                 status_label.config(text="No more results available.", fg="#FBBF24")
                 current_page = page - 1
-                page_lbl.config(text=f"Page {current_page}")
-                has_more_results = False
+                update_page_buttons_style(current_page)
                 update_pagination_states()
                 reset_gui_state(run_button, entry)
                 return
@@ -3640,12 +3943,15 @@ def launch_gui():
         card_buttons = []
         has_more_results = (len(results) == 5)
         
-        clear_research_results()
+        clear_research_results(clear_cache=False)
 
-        results_frame.pack(fill='x', padx=25, pady=(5, 5), before=logs_frame)
+        global results_visible
+        results_visible = True
+        _update_grid_layout()
         nav_frame.pack(side='bottom', fill='x', pady=5)          # nav at the bottom of results_frame
         _results_canvas.yview_moveto(0)   # Always scroll back to top on new results
-        page_lbl.config(text=f"Page {page}")
+        update_page_buttons_style(page)
+        update_pagination_states()
         
         # Determine initial dynamic wraplength
         current_wrap = max(380, results_container.winfo_width() - 180)
@@ -3769,19 +4075,23 @@ def launch_gui():
         # Update navigation buttons state
         update_pagination_states()
         
-        # Re-enable search button
-        status_label.config(text="Research matches loaded successfully.", fg="#4CAF50")
-        reset_gui_state(run_button, entry)
-        reset_inputs()
-        
     def load_research_page(query, page):
-        """Fetch keyword search results for a page offset in a background thread."""
-        global is_running, abort_requested
+        """Fetch keyword search results for a page offset.
+        Uses cached results if query matches the current active query;
+        otherwise triggers background prefetching for pages 1-10.
+        """
+        global is_running, abort_requested, active_search_query, cached_research_results
         
+        # If this page is already cached for the active query, display it instantly!
+        if active_search_query == query and page in cached_research_results:
+            load_cached_page(page)
+            return
+            
+        # Otherwise, this is a new query. Start background prefetching!
         is_running = True
         abort_requested = False
         
-        # Disable inputs
+        # Disable entry and change search button to stop
         entry.config(state='disabled')
         run_button.config(text="Stop Search", bg="#D32F2F", activebackground="#EF5350", fg="#FFFFFF", activeforeground="#FFFFFF")
         prev_btn.config(state='disabled')
@@ -3789,97 +4099,12 @@ def launch_gui():
         clear_res_btn.config(state='disabled')
         for btn in card_buttons:
             btn.config(state='disabled')
-        
+            
         status_label.config(text="Searching Crossref & OpenAlex...", fg="#A855F7")
         running_event.set()
         animate_loading(status_label, running_event)
         
-        offset = (page - 1) * 5
-
-        def fetch_thread(title_q):
-            try:
-                # 1. Fetch priority works (Yazid Youcef & Assma Derdoukh fallback profiles)
-                yazid_works = fetch_yazid_rg_publications()
-                assma_works = fetch_assma_publications()
-                priority_works = yazid_works + assma_works
-                
-                # 2. Check for matches against keywords (Google-like intelligent search)
-                stripped = title_q.strip()
-                is_exact = (stripped.startswith('"') and stripped.endswith('"')) or (stripped.startswith("'") and stripped.endswith("'"))
-                exact_phrase = stripped.strip('"').strip("'").strip() if is_exact else None
-                
-                matching_priority = []
-                query_words = [w.lower() for w in re.split(r'\W+', title_q) if len(w) > 2]
-                
-                for work in priority_works:
-                    title_lower = work['title'].lower()
-                    authors_lower = work['authors'].lower()
-                    is_match = False
-                    
-                    if not query_words:
-                        is_match = True
-                    elif "yazid" in title_q.lower() or "youcef" in title_q.lower():
-                        if "yazid" in authors_lower or "youcef" in authors_lower:
-                            is_match = True
-                    elif "assma" in title_q.lower() or "derdoukh" in title_q.lower():
-                        if "assma" in authors_lower or "derdoukh" in authors_lower:
-                            is_match = True
-                    elif exact_phrase:
-                        phrase = exact_phrase.lower()
-                        if (phrase in title_lower) or (phrase in authors_lower):
-                            is_match = True
-                    else:
-                        for word in query_words:
-                            if word in title_lower or word in authors_lower:
-                                is_match = True
-                                break
-                                
-                    if is_match:
-                        matching_priority.append(work)
-                
-                # 3. Pull regular Crossref and Google Scholar results
-                crossref_results = search_crossref(title_q, offset=offset, rows=5, type_filter="Papers", author="")
-                scholar_results = search_google_scholar(title_q, offset=offset, rows=5)
-                
-                # Combine results
-                results = []
-                results.extend(crossref_results)
-                for r in scholar_results:
-                    # De-duplicate by title or URL/DOI similarity
-                    if not any(r['title'].lower() in x['title'].lower() or x['title'].lower() in r['title'].lower() or r['doi'] == x['doi'] for x in results):
-                        results.append(r)
-                
-                # 4. If on page 1, prepend matching priority works at the very top of results!
-                if page == 1 and matching_priority:
-                    # Remove duplicates if same title is returned by other queries
-                    cleaned_results = []
-                    for r in results:
-                        if not any(y['title'].lower() in r['title'].lower() or r['title'].lower() in y['title'].lower() for y in matching_priority):
-                            cleaned_results.append(r)
-                    
-                    # Combine: show priority works first, then the remaining slots (up to 5 total)
-                    results = matching_priority + cleaned_results
-                
-                results = results[:5]  # Keep exactly 5 results per page
-                
-                if abort_requested:
-                    root.after(0, lambda: reset_gui_state(run_button, entry))
-                    root.after(0, reset_inputs)
-                    return
-                    
-                root.after(0, lambda: display_research_results(results, query, page))
-            except Exception as e:
-                root.after(0, lambda err=e: log_area.insert('end', f"\n[ERROR] Search failed: {err}\n"))
-                root.after(0, lambda: log_area.see('end'))
-                root.after(0, lambda: status_label.config(text="Failed to fetch search results.", fg="#F44336"))
-                root.after(0, lambda: reset_gui_state(run_button, entry))
-                root.after(0, reset_inputs)
-            finally:
-                running_event.clear()
-                
-        t = threading.Thread(target=fetch_thread, args=(query,))
-        t.daemon = True
-        t.start()
+        start_background_prefetch(query)
         
     def run_thread(identifier):
         try:
@@ -3914,6 +4139,7 @@ def launch_gui():
                 entry.config(state='disabled')
                 run_button.config(text="Stop Downloading", bg="#D32F2F", activebackground="#EF5350", fg="#FFFFFF", activeforeground="#FFFFFF")
                 status_label.config(text="Initializing pipeline...", fg="#A855F7")
+                _force_show_console()
                 running_event.set()
                 animate_loading(status_label, running_event)
                 log_area.delete('1.0', 'end')
@@ -3934,7 +4160,10 @@ def launch_gui():
     btn_frame.pack(anchor='center', pady=(10, 0))
     
     run_button = tk.Button(btn_frame, text="Search / Download", bg="#8B5CF6", fg="#FFFFFF", activebackground="#A78BFA", activeforeground="#FFFFFF", disabledforeground="#8E8A9F", bd=0, font=('Segoe UI Semibold', 10), padx=25, pady=8, cursor="hand2", command=handle_button_click)
-    run_button.pack(anchor='center')
+    run_button.pack(side='left', padx=10)
+    
+    toggle_console_btn = tk.Button(btn_frame, text="Hide Console [-]", bg="#2E2543", fg="#EEEEEE", activebackground="#3F335C", activeforeground="#FFFFFF", bd=0, font=('Segoe UI Semibold', 10), padx=20, pady=8, cursor="hand2", command=_toggle_console)
+    toggle_console_btn.pack(side='left', padx=10)
     
     # Style button hover bindings
     def on_btn_enter(e):
@@ -4155,13 +4384,14 @@ def launch_gui():
         """Background thread: reveal support panel only for Algerian users."""
         country = get_user_country()
         if country == 'DZ':
-            root.after(0, lambda: support_frame.pack(fill='x', side='bottom', before=logs_frame))
+            root.after(0, lambda: support_frame.pack(fill='x', side='bottom'))
     
     t_geo = threading.Thread(target=check_country_bg)
     t_geo.daemon = True
     t_geo.start()
     # ─────────────────────────────────────────────────────────────────────────
     
+    _update_grid_layout()
     root.mainloop()
 
 
