@@ -20,7 +20,8 @@ def open_in_explorer(filepath):
         if os.path.exists(abs_path):
             print(f"[INFO] Opening explorer to highlight file: {abs_path}")
             def run_explorer():
-                subprocess.run(f'explorer /select,"{abs_path}"', shell=True)
+                extra_kwargs = {'creationflags': 0x08000000} if os.name == 'nt' else {}
+                subprocess.run(f'explorer /select,"{abs_path}"', shell=True, **extra_kwargs)
             t = threading.Thread(target=run_explorer)
             t.daemon = True
             t.start()
@@ -386,7 +387,8 @@ def download_file(url, filename, referer=None, cookie=None, category="paper"):
             if cookie:
                 cmd += ["-H", f"Cookie: {cookie}"]
             cmd += ["-o", filename, url]
-            res = subprocess.run(cmd, capture_output=True)
+            extra_kwargs = {'creationflags': 0x08000000} if os.name == 'nt' else {}
+            res = subprocess.run(cmd, capture_output=True, **extra_kwargs)
             if res.returncode == 0 and os.path.exists(filename):
                 with open(filename, "rb") as f:
                     content = f.read()
@@ -1006,7 +1008,8 @@ def fetch_html_resilient(url):
         try:
             import subprocess
             cmd = ["curl", "-s", "-L", "-H", f"User-Agent: {HEADERS['User-Agent']}", "-H", f"Accept: {HEADERS['Accept']}", url]
-            res = subprocess.run(cmd, capture_output=True)
+            extra_kwargs = {'creationflags': 0x08000000} if os.name == 'nt' else {}
+            res = subprocess.run(cmd, capture_output=True, **extra_kwargs)
             if res.returncode == 0:
                 return res.stdout.decode('utf-8', errors='ignore')
             else:
