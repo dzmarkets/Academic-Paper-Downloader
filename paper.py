@@ -2796,6 +2796,8 @@ next_btn = None
 page_lbl = None
 results_frame = None
 results_visible = False
+pagination_start_page = 1
+max_available_page = None
 
 # Caching and prefetching variables
 cached_research_results = {}
@@ -3533,7 +3535,7 @@ def launch_gui():
 
     def clear_research_results(clear_cache=True):
         """Clear all loaded paper cards from the research view."""
-        global card_buttons, cached_research_results, prefetched_pages, active_search_query
+        global card_buttons, cached_research_results, prefetched_pages, active_search_query, max_available_page
         for widget in results_container.winfo_children():
             widget.destroy()
         card_buttons = []
@@ -3551,6 +3553,7 @@ def launch_gui():
             cached_research_results.clear()
             prefetched_pages.clear()
             active_search_query = ""
+            max_available_page = None
             reset_page_buttons_ui()
 
     # Navigation bar — placed AFTER the canvas so it appears at the bottom of results
@@ -3740,29 +3743,61 @@ def launch_gui():
         t.daemon = True
         t.start()
         
-    def reset_page_buttons_ui():
-        global page_buttons
-        for p in range(1, 11):
-            if p == 1:
-                page_buttons[0].config(state='normal', bg="#8B5CF6", fg="#FFFFFF")
+    def update_pagination_buttons_ui():
+        global page_buttons, pagination_start_page, current_page, cached_research_results, max_available_page
+        if not page_buttons:
+            return
+            
+        # Unpack all buttons first to maintain correct sequence
+        for btn in page_buttons:
+            btn.pack_forget()
+            
+        # Pack and style visible buttons based on cache / active page
+        for i in range(10):
+            p = pagination_start_page + i
+            btn = page_buttons[i]
+            
+            # Rebind button configuration dynamically
+            btn.config(text=str(p), command=lambda p_idx=p: load_cached_page(p_idx))
+            
+            # Determine visibility:
+            # We show a button if:
+            # - p is <= max_available_page (if max_available_page is set)
+            # - OR max_available_page is None (we show all 10 buttons of the current block)
+            show_btn = False
+            if max_available_page is None:
+                show_btn = True
             else:
-                page_buttons[p-1].config(state='disabled', bg="#1E1A2B", fg="#6B7280")
+                if p <= max_available_page:
+                    show_btn = True
+                    
+            if show_btn:
+                btn.pack(side='left', padx=3)
+                if p in cached_research_results:
+                    if p == current_page:
+                        btn.config(state='normal', bg="#8B5CF6", fg="#FFFFFF")
+                    else:
+                        btn.config(state='normal', bg="#2E2543", fg="#EEEEEE")
+                else:
+                    # Not cached yet
+                    if p == current_page:
+                        btn.config(state='normal', bg="#8B5CF6", fg="#FFFFFF")
+                    else:
+                        btn.config(state='disabled', bg="#1E1A2B", fg="#6B7280")
+
+    def reset_page_buttons_ui():
+        global pagination_start_page, current_page, max_available_page
+        pagination_start_page = 1
+        current_page = 1
+        max_available_page = None
+        update_pagination_buttons_ui()
 
     def enable_page_button(page_idx):
-        global page_buttons
-        if 1 <= page_idx <= 10:
-            page_buttons[page_idx-1].config(state='normal', bg="#2E2543", fg="#EEEEEE")
-            update_pagination_states()
+        update_pagination_buttons_ui()
+        update_pagination_states()
 
     def update_page_buttons_style(active_page):
-        global page_buttons, cached_research_results
-        for p in range(1, 11):
-            if p == active_page:
-                page_buttons[p-1].config(bg="#8B5CF6", fg="#FFFFFF")
-            elif p in cached_research_results:
-                page_buttons[p-1].config(bg="#2E2543", fg="#EEEEEE", state='normal')
-            else:
-                page_buttons[p-1].config(bg="#1E1A2B", fg="#6B7280", state='disabled')
+        update_pagination_buttons_ui()
 
     def load_cached_page(page_idx):
         global current_page, research_query, cached_research_results
@@ -3782,24 +3817,37 @@ def launch_gui():
                     status_label.config(text="No matching documents found.", fg="#F44336")
             reset_gui_state(run_button, entry)
             reset_inputs()
+            # Final update to ensure buttons visibility aligns with search completeness
+            update_pagination_buttons_ui()
 
-    def start_background_prefetch(query):
-        global active_search_query, cached_research_results, prefetched_pages
+    def start_background_prefetch(query, clear_cache=True):
+        global active_search_query, cached_research_results, prefetched_pages, pagination_start_page, max_available_page
         active_search_query = query
-        cached_research_results.clear()
-        prefetched_pages.clear()
-        
-        # Reset page buttons UI
-        reset_page_buttons_ui()
+        if clear_cache:
+            cached_research_results.clear()
+            prefetched_pages.clear()
+            pagination_start_page = 1
+            max_available_page = None
+            reset_page_buttons_ui()
+        else:
+            max_available_page = None
+            update_pagination_buttons_ui()
         
         def prefetch_loop():
-            global abort_requested, active_search_query
+            global abort_requested, active_search_query, max_available_page
             
-            for p in range(1, 11):
+            start_p = pagination_start_page
+            end_p = pagination_start_page + 9
+            
+            for p in range(start_p, end_p + 1):
                 if abort_requested:
                     break
                 if active_search_query != query:
                     break
+                    
+                # Skip already cached pages (e.g. page 10 when shifting to 10-19 range)
+                if p in cached_research_results and cached_research_results[p]:
+                    continue
                     
                 try:
                     # 1. Fetch priority works
@@ -3892,12 +3940,15 @@ def launch_gui():
                             root.after(0, lambda r=results: display_research_results(r, query, 1))
                             root.after(0, lambda: status_label.config(text="Page 1 loaded. Fetching subsequent pages in background...", fg="#10B981"))
                         else:
+                            max_available_page = 1
                             root.after(0, lambda: display_research_results([], query, 1))
                             break
                     else:
                         if results:
                             root.after(0, lambda p_idx=p: enable_page_button(p_idx))
                         else:
+                            max_available_page = p - 1
+                            root.after(0, update_pagination_buttons_ui)
                             break
                             
                 except Exception as e:
@@ -3921,7 +3972,7 @@ def launch_gui():
 
     def display_research_results(results, query, page):
         """Render the 5 results cards dynamically into the results frame."""
-        global current_page, research_query, card_buttons, has_more_results
+        global current_page, research_query, card_buttons, has_more_results, pagination_start_page
         
         if not results:
             if page > 1:
@@ -3938,6 +3989,15 @@ def launch_gui():
                 reset_inputs()
                 return
                 
+        # Shift pagination range if necessary
+        if page == pagination_start_page + 9:
+            pagination_start_page = page
+            # Prefetch the next window of pages (e.g. from page + 1 to page + 9)
+            start_background_prefetch(query, clear_cache=False)
+        elif page < pagination_start_page:
+            pagination_start_page = max(1, page - 8)
+            start_background_prefetch(query, clear_cache=False)
+            
         current_page = page
         research_query = query
         card_buttons = []
