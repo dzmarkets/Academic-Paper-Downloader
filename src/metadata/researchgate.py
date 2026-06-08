@@ -51,6 +51,24 @@ def resolve_researchgate_profile(author_name):
     except Exception as e:
         print(f"[WARNING] DuckDuckGo profile resolution failed: {e}")
         
+    # Method 3: Google Search (Best Effort fallback)
+    print(f"[INFO] Resolving ResearchGate profile for '{clean_name}' via Google (Best Effort)...")
+    try:
+        search_query = f'"{clean_name}" site:researchgate.net/profile/'
+        google_url = f"https://www.google.com/search?q={urllib.parse.quote(search_query)}"
+        html = fetch_html_resilient(google_url)
+        if html:
+            links = re.findall(r'url\?q=(https://(?:www\.)?researchgate\.net/profile/[^&"]+)', html)
+            if links:
+                resolved = urllib.parse.unquote(links[0])
+                profile_match = re.match(r'(https?://(?:www\.)?researchgate\.net/profile/[^/]+)', resolved)
+                if profile_match:
+                    resolved_profile = profile_match.group(1)
+                    print(f"[INFO] Google resolved profile: {resolved_profile}")
+                    return resolved_profile
+    except Exception as e:
+        print(f"[WARNING] Google profile resolution failed: {e}")
+        
     return None
 
 

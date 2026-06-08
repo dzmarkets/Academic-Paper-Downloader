@@ -174,6 +174,21 @@ def try_researchgate(doi, title):
                     results.append(link)
             return results
 
+        def _collect_google(html_body):
+            """Extract ResearchGate publication URLs from Google HTML."""
+            results = []
+            seen = set()
+            links = re.findall(r'url\?q=(https://(?:www\.)?researchgate\.net/publication/[^&"()]+)', html_body)
+            for link in links:
+                unquoted = urllib.parse.unquote(link)
+                m = re.match(r'(https?://(?:www\.)?researchgate\.net/publication/\d+_[^/&?"]+)', unquoted)
+                if not m:
+                    m = re.match(r'(https?://(?:www\.)?researchgate\.net/publication/\d+[^/&?"]*)', unquoted)
+                if m and m.group(1) not in seen:
+                    seen.add(m.group(1))
+                    results.append(m.group(1))
+            return results
+
         def _try_validate(candidates, engine_name):
             """Run title-similarity pre-check + page validation on a list of candidates.
             Returns (accepted_url, accepted_html) on first match, or (None, None)."""
@@ -237,6 +252,23 @@ def try_researchgate(doi, title):
                         print(f"[INFO] Bing resolved and validated ResearchGate publication: {rg_profile_url}")
             except Exception as e:
                 print(f"[WARNING] Bing ResearchGate publication search failed: {e}")
+                
+            if rg_profile_url:
+                break
+                
+            # ── Google ────────────────────────────────────────────────────────────
+            print(f"[INFO] Searching ResearchGate for {repr(search_query)} via Google (Best Effort)...")
+            try:
+                google_url = f"https://www.google.com/search?q={urllib.parse.quote(search_query + ' site:researchgate.net/publication/')}"
+                html = fetch_html_resilient(google_url)
+                if html:
+                    accepted_url, accepted_html = _try_validate(_collect_google(html), "Google")
+                    if accepted_url:
+                        rg_profile_url = accepted_url
+                        rg_page_source = accepted_html
+                        print(f"[INFO] Google resolved and validated ResearchGate publication: {rg_profile_url}")
+            except Exception as e:
+                print(f"[WARNING] Google ResearchGate publication search failed: {e}")
             
     if rg_profile_url:
         register_discovered_url(rg_profile_url, "ResearchGate Profile Page")
