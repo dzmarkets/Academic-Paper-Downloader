@@ -29,21 +29,47 @@ SolidCompression=yes
 WizardStyle=modern
 AppMutex=AcademicPaperDownloaderMutex
 
-
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
-[Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-
 [Files]
-Source: "dist\paper\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "dist\paper\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs; AfterInstall: LogInstallFile
 ; Source: "app_icon.png"; DestDir: "{app}"; Flags: ignoreversion
 ; Note: Don't pack the downloaded folder structure since the app creates it dynamically on startup!
 
 [Icons]
 Name: "{userprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"
-Name: "{userdesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"; Tasks: desktopicon
+Name: "{userdesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"; Flags: nowait
+
+[Code]
+var
+  DetailMemo: TNewMemo;
+
+procedure InitializeWizard;
+begin
+  // Create detail memo on the Installing page
+  DetailMemo := TNewMemo.Create(WizardForm);
+  DetailMemo.Parent := WizardForm.InstallingPage;
+  DetailMemo.Left := WizardForm.ProgressGauge.Left;
+  DetailMemo.Top := WizardForm.ProgressGauge.Top + WizardForm.ProgressGauge.Height + ScaleY(15);
+  DetailMemo.Width := WizardForm.ProgressGauge.Width;
+  DetailMemo.Height := ScaleY(120);
+  DetailMemo.ScrollBars := ssVertical;
+  DetailMemo.ReadOnly := True;
+  DetailMemo.Color := clWindow;
+  DetailMemo.Font.Name := 'Segoe UI';
+  DetailMemo.Font.Size := 8;
+end;
+
+procedure LogInstallFile;
+begin
+  if DetailMemo <> nil then
+  begin
+    DetailMemo.Lines.Add('Extracting: ' + ExtractFileName(CurrentFilename));
+    // Scroll to the bottom of the memo
+    SendMessage(DetailMemo.Handle, $0115, 7, 0); // WM_VSCROLL, SB_BOTTOM
+  end;
+end;
