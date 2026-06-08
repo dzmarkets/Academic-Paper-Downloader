@@ -366,15 +366,22 @@ def try_researchgate(doi, title):
             return True
         else:
             print("\n[WARNING] ResearchGate's Cloudflare security walls are actively blocking automated scripts.")
-            fallback_url = target_pdf if target_pdf else rg_profile_url
-            if fallback_url:
-                print(f"[INFO] Blocked URL (for manual access): {fallback_url}")
-                print("[INFO] Automatically launching web browser to open the ResearchGate page...")
+            
+            # Check if this is a "request full text" paper
+            is_request_full_text = False
+            if 'page_source' in locals() and page_source:
+                is_request_full_text = "Request full-text" in page_source or "Request full text" in page_source or "Request full-text PDF" in page_source
+
+            if is_request_full_text:
+                fallback_url = rg_profile_url
+                print(f"[INFO] 'Request full-text' paper detected. Launching web browser for manual request: {fallback_url}")
                 try:
                     import webbrowser
                     webbrowser.open(fallback_url)
                 except Exception as browser_err:
                     print(f"[WARNING] Failed to launch web browser: {browser_err}")
+            else:
+                print("[INFO] Public PDF available but download blocked. Skipping browser launch (avoiding Chrome PDF reader).")
             return False
             
     except Exception as e:
