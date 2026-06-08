@@ -375,13 +375,16 @@ def try_researchgate(doi, title):
             if is_request_full_text:
                 fallback_url = rg_profile_url
                 print(f"[INFO] 'Request full-text' paper detected. Launching web browser for manual request: {fallback_url}")
+            else:
+                fallback_url = target_pdf if target_pdf else rg_profile_url
+                print(f"[INFO] Public PDF download failed/blocked. Restoring browser launch to view/download manually: {fallback_url}")
+
+            if fallback_url:
                 try:
                     import webbrowser
                     webbrowser.open(fallback_url)
                 except Exception as browser_err:
                     print(f"[WARNING] Failed to launch web browser: {browser_err}")
-            else:
-                print("[INFO] Public PDF available but download blocked. Skipping browser launch (avoiding Chrome PDF reader).")
             return False
             
     except Exception as e:
