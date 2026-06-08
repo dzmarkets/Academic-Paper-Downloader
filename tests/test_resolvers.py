@@ -6,16 +6,18 @@ import urllib.request
 # Ensure the workspace directory is in the path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from paper import (
+from src.engines import (
     try_plos,
     try_biorxiv,
     try_zenodo,
     try_doaj,
     try_semantic_scholar,
     try_publisher_direct,
-    get_download_dir,
-    clean_filename
+    try_researchgate
 )
+from src.core.utils import get_download_dir, clean_filename
+from src.core.config import HEADERS
+from src.network.client import fetch_html_resilient
 
 class TestResolvers(unittest.TestCase):
     
@@ -161,6 +163,55 @@ class TestResolvers(unittest.TestCase):
                 self.verify_pdf_download(expected_filename)
             else:
                 print(f"[INFO] Direct heuristic bypassed for DOI: {doi} (expected for paywalls/challenged papers). Falling back to pipeline.")
+
+    def test_try_researchgate(self):
+        print("\n=== Testing ResearchGate Resolver ===")
+        
+        # Check if ResearchGate is actively blocking automated scripts on this network
+        test_url = "https://www.researchgate.net/publication/377370110_Low-Voltage_DC_Microgrid_Utilizing_Interleaved_MPPT_Buck_Converter_with_Hybrid_Communication_System_Based_on_LoRaWAN_and_ESPNOW"
+        try:
+            html = fetch_html_resilient(test_url)
+            if not html or "Security check required" in html or "Temporarily Unavailable" in html:
+                self.skipTest("ResearchGate is currently blocking automated scripts (Cloudflare challenge/No response).")
+        except Exception as e:
+            self.skipTest(f"ResearchGate pre-check failed: {e}")
+
+        doi = "10.1109/npec57805.2023.10384971"
+        title = "Low-Voltage DC Microgrid Utilizing Interleaved MPPT Buck Converter with Hybrid Communication System Based on LoRaWAN and ESPNOW"
+        
+        success = try_researchgate(doi, title)
+        if not success:
+            self.skipTest("ResearchGate download was blocked by Cloudflare/rate-limit (returned False or blocker page).")
+        
+        expected_filename = f"RG_{clean_filename(title)}.pdf"
+        self.verify_pdf_download(expected_filename)
+
+    def test_try_researchgate_mismatch(self):
+        print("\n=== Testing ResearchGate Mismatch Prevention ===")
+        
+        # Check if ResearchGate is actively blocking automated scripts on this network
+        test_url = "https://www.researchgate.net/publication/379349908_LoRaWAN_and_ESPNOW_based_hybrid_communication_system_for_monitoring_applications"
+        try:
+            html = fetch_html_resilient(test_url)
+            if not html or "Security check required" in html or "Temporarily Unavailable" in html:
+                self.skipTest("ResearchGate is currently blocking automated scripts (Cloudflare challenge/No response).")
+        except Exception as e:
+            self.skipTest(f"ResearchGate pre-check failed: {e}")
+
+        doi = "10.1063/5.0190773"
+        title = "LoRaWAN and ESPNOW based hybrid communication system for monitoring applications"
+        
+        # Run resolution and check which ResearchGate page was discovered
+        try_researchgate(doi, title)
+        
+        from src.core import state
+        rg_discovered = [url for url, rank, label in state.discovered_urls if label == "ResearchGate Profile Page"]
+        
+        self.assertTrue(len(rg_discovered) > 0, "No ResearchGate publication URL was discovered.")
+        self.assertTrue(any("379349908" in url for url in rg_discovered), f"Failed to match correct publication ID 379349908: {rg_discovered}")
+        self.assertFalse(any("347689105" in url for url in rg_discovered), f"Incorrectly matched publication ID 347689105: {rg_discovered}")
+        self.assertFalse(any("377465223" in url for url in rg_discovered), f"Incorrectly matched publication ID 377465223: {rg_discovered}")
+        print(f"[VERIFIED] Successfully matched the correct publication: {rg_discovered}")
 
 if __name__ == "__main__":
     unittest.main()

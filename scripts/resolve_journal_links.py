@@ -21,8 +21,11 @@ def save_json(data, path):
         print(f"Error saving {path}: {e}")
 
 def main():
-    extracted_path = "extracted_journals.json"
-    resolved_path = "resolved_journal_links.json"
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.abspath(os.path.join(script_dir, "..", "data"))
+    
+    extracted_path = os.path.join(data_dir, "extracted_journals.json")
+    resolved_path = os.path.join(data_dir, "resolved_journal_links.json")
     
     if not os.path.exists(extracted_path):
         print(f"Error: {extracted_path} not found. Please run extract_journals.py first.")
@@ -172,6 +175,9 @@ def main():
     build_lightweight_map(resolved_data)
 
 def build_lightweight_map(resolved_data):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.abspath(os.path.join(script_dir, "..", "data"))
+    
     # Create a light map of ISSN -> Homepage URL (skipping None/null values)
     issn_to_url = {}
     for issn, info in resolved_data.items():
@@ -179,7 +185,7 @@ def build_lightweight_map(resolved_data):
         if url:
             issn_to_url[issn] = url
             
-    light_path = "journal_issn_to_url.json"
+    light_path = os.path.join(data_dir, "journal_issn_to_url.json")
     save_json(issn_to_url, light_path)
     print(f"Lightweight lookup map saved to {light_path} (contains {len(issn_to_url)} homepages)")
 

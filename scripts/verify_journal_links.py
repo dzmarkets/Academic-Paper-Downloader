@@ -24,7 +24,6 @@ START_ITEM  = 2001
 END_ITEM    = 10000
 TIMEOUT     = 8        # seconds per request
 DELAY       = 0.15     # polite delay between requests (seconds)
-OUTPUT_CSV  = "journal_link_verification.csv"
 # ─────────────────────────────────────────────────────────────────────────────
 
 HEADERS = {
@@ -50,11 +49,19 @@ def check_url(url):
 
 
 def main():
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.abspath(os.path.join(script_dir, "..", "data"))
+    docs_dir = os.path.abspath(os.path.join(script_dir, "..", "docs"))
+    
+    resolved_path = os.path.join(data_dir, "resolved_journal_links.json")
+    status_path = os.path.join(docs_dir, "journal_integration_status.md")
+    output_csv = os.path.join(docs_dir, "journal_link_verification.csv")
+    
     print("Loading data files...")
-    with open("resolved_journal_links.json", "r", encoding="utf-8") as f:
+    with open(resolved_path, "r", encoding="utf-8") as f:
         json_data = json.load(f)
 
-    with open("journal_integration_status.md", "r", encoding="utf-8") as f:
+    with open(status_path, "r", encoding="utf-8") as f:
         md_content = f.read()
 
     # Parse tracking rows within the desired item range
@@ -117,13 +124,13 @@ def main():
             print(f"  [{i}/{len(rows)} {pct:.0f}%] working={working} broken={broken} no_url={no_url}")
 
     # Write CSV
-    with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as f:
+    with open(output_csv, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=results[0].keys())
         writer.writeheader()
         writer.writerows(results)
 
     print(f"\n{'='*60}")
-    print(f"Results saved to: {OUTPUT_CSV}")
+    print(f"Results saved to: {output_csv}")
     print(f"Total tested:  {len(results)}")
     print(f"WORKING:       {working} ({working/len(results)*100:.1f}%)")
     print(f"BROKEN/ERROR:  {broken} ({broken/len(results)*100:.1f}%)")

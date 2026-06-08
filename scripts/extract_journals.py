@@ -162,8 +162,14 @@ def extract_journals_from_scopus(pdf_path):
     return journals
 
 def main():
-    a_journals = extract_journals_from_a("A.pdf")
-    scopus_journals = extract_journals_from_scopus("SCOPUS.pdf")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.abspath(os.path.join(script_dir, "..", "data"))
+    
+    a_pdf = os.path.join(data_dir, "A.pdf")
+    scopus_pdf = os.path.join(data_dir, "SCOPUS.pdf")
+    
+    a_journals = extract_journals_from_a(a_pdf)
+    scopus_journals = extract_journals_from_scopus(scopus_pdf)
     
     # Merge journals
     merged_journals = {}
@@ -174,7 +180,7 @@ def main():
     print(f"Total merged unique ISSN mappings: {len(merged_journals)}")
     
     # Write to extracted_journals.json
-    output_path = "extracted_journals.json"
+    output_path = os.path.join(data_dir, "extracted_journals.json")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(merged_journals, f, indent=2, ensure_ascii=False)
         
