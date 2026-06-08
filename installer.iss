@@ -28,6 +28,7 @@ Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
 AppMutex=AcademicPaperDownloaderMutex
+DisableFinishedPage=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
