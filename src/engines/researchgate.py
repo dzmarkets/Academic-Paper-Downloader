@@ -367,10 +367,20 @@ def try_researchgate(doi, title):
         else:
             print("\n[WARNING] ResearchGate's Cloudflare security walls are actively blocking automated scripts.")
             
-            # Check if this is a "request full text" paper
+            # Check if this is a "Request full-text" paper versus a "Download full-text" paper
             is_request_full_text = False
             if 'page_source' in locals() and page_source:
-                is_request_full_text = "Request full-text" in page_source or "Request full text" in page_source or "Request full-text PDF" in page_source
+                src_lower = page_source.lower()
+                has_download = (
+                    "download full-text" in src_lower or 
+                    "download full text" in src_lower or 
+                    "download pdf" in src_lower or
+                    "full-text available" in page_source or
+                    "Download" in page_source
+                )
+                has_request = "request full-text" in src_lower or "request full text" in src_lower
+                if has_request and not has_download:
+                    is_request_full_text = True
 
             if is_request_full_text:
                 fallback_url = rg_profile_url
