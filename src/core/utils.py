@@ -135,3 +135,72 @@ def register_discovered_url(url, label):
         state.discovered_urls.append((url, rank, label))
 
 
+def get_data_filepath(filename):
+    """Return the absolute path to a data file, checking AppData override first, then falling back to PyInstaller/dev base paths."""
+    # Check AppData override directory first (handles dynamic online database updates)
+    appdata_dir = os.path.join(os.environ.get('APPDATA', os.path.expanduser('~')), "AcademicPaperDownloader", "data")
+    override_path = os.path.join(appdata_dir, filename)
+    if os.path.exists(override_path):
+        return override_path
+
+    # Fallback to packaged/dev path
+    if getattr(sys, 'frozen', False):
+        # Bundled data folder inside temporary _MEIPASS folder
+        base_dir = getattr(sys, '_MEIPASS', None)
+        if not base_dir:
+            exe_dir = os.path.dirname(os.path.abspath(sys.executable))
+            base_dir = os.path.join(exe_dir, "_internal")
+            if not os.path.exists(base_dir):
+                base_dir = exe_dir
+    else:
+        # Development mode
+        base_dir = get_app_dir()
+    return os.path.join(base_dir, "data", filename)
+
+
+def check_first_run_changelog():
+    """Check if this is the first run of the current version.
+    Returns the changelog text if yes, or None if it's already been run for this version."""
+    from src.core.config import VERSION
+    appdata_base = os.path.join(os.environ.get('APPDATA', os.path.expanduser('~')), "AcademicPaperDownloader")
+    os.makedirs(appdata_base, exist_ok=True)
+    version_file = os.path.join(appdata_base, "last_version.txt")
+    
+    last_version = ""
+    if os.path.exists(version_file):
+        try:
+            with open(version_file, "r", encoding="utf-8") as f:
+                last_version = f.read().strip()
+        except Exception:
+            pass
+            
+    if last_version != VERSION:
+        # Save current version immediately to prevent displaying changelog again
+        try:
+            with open(version_file, "w", encoding="utf-8") as f:
+                f.write(VERSION)
+        except Exception:
+            pass
+            
+        # Return changelog text (v3.0.0.0 release notes without Metadata & Build Updates)
+        changelog = (
+            "======================================================================\n"
+            f"         ACADEMIC PAPER DOWNLOADER - VERSION {VERSION} UPGRADE\n"
+            "======================================================================\n\n"
+            "What's New in v3.0.0.0:\n\n"
+            "📚 Massive Journal Database Expansion\n"
+            "- 7 New Integrated Sources: CNRS, AERES, De Gruyter, Erih Plus, Journal Quality, Scopus LT, and Financial Times (FT50).\n"
+            "- Enhanced Coverage: Over 65,000+ journals resolved in a single click.\n"
+            "- Offline Resiliency: Hardcoded fallbacks to ensure lookup works offline.\n\n"
+            "🔍 Advanced Classification & Metadata Engine\n"
+            "- Multi-Category Indexing: Real-time classification for Category A (High) and Category B (Medium) journals.\n"
+            "- Title-Based Fallback Matching: Retrieve rankings by title when ISSN matching fails.\n"
+            "- E-ISSN Resolution: Displays and resolves journals where only E-ISSN is available.\n\n"
+            "🎨 Modernized User Interface Enhancements\n"
+            "- Refined Header Controls: Aligned \"Get Latest Releases\" and \"Update Journal Database\" side-by-side.\n"
+            "- Dynamic Database Update Tracker: Background size check for remote database changes.\n"
+            "- Enhanced Search Cards: Integrated full ISSN/E-ISSN values with Category colors.\n\n"
+            "======================================================================\n"
+        )
+        return changelog
+    return None

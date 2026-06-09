@@ -1,8 +1,8 @@
 import os
 import re
 
-OLD = "2.4.0.9"
-NEW = "2.4.1.0"
+OLD = "2.4.1.0"
+NEW = "3.0.0.0"
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))

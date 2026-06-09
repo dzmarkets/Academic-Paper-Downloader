@@ -9,6 +9,38 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 
+
+
+## v3.0.0.0
+### Release Title
+Academic Paper Downloader v3.0.0.0 — Major Database Expansion, Multi-Category Indexing, and Improved Metadata Coverage
+
+### Release Body
+```
+## What's New in v3.0.0.0
+
+### 📚 Massive Journal Database Expansion
+- **7 New Integrated Sources**: Integrated and mapped CNRS, AERES, De Gruyter, Erih Plus, Journal Quality, Scopus LT, and the 50-journal Financial Times list.
+- **Enhanced Coverage**: Added support for resolving over 65,000+ journals in a single click.
+- **Offline Resiliency**: Hardcoded fallback lists (e.g., Financial Times 50 list) to ensure database matching continues to work even when offline.
+
+### 🔍 Advanced Classification & Metadata Engine
+- **Multi-Category Indexing**: Rewrote core classification matching to identify Category A (High-tier) and Category B (Medium-tier) journals dynamically.
+- **Title-Based Fallback Matching**: Implemented fallback search matching to retrieve journal rankings by title if direct ISSN matching fails.
+- **E-ISSN Resolution**: Support for resolving and displaying E-ISSN values alongside standard ISSN fields for databases where only E-ISSN is available.
+
+### 🎨 Modernized User Interface Enhancements
+- **Refined Header Controls**: Aligned "Get Latest Releases" and "Update Journal Database" side-by-side in the main window header.
+- **Dynamic Database Update Tracker**: The application checks for remote journal database modifications in the background, only rendering the "Update Journal Database" action when updates are actually available.
+- **Enhanced Search Cards**: Redesigned search results to show full ISSN/E-ISSN values and dynamic classification colors for Category A/B rankings.
+
+### 📦 Metadata & Build Updates
+- Bumped application version to `v3.0.0.0` across configuration, scripts, user-agent, and installer manifests.
+
+---
+**Full Changelog**: https://github.com/dzmarkets/Academic-Paper-Downloader/commits/main
+```
+
 ## v2.4.1.0
 ### Release Title
 Academic Paper Downloader v2.4.1.0 — Dynamic Pagination, Side-by-Side UI, and 5000 New Mapped Journals

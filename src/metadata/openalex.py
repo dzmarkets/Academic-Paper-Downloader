@@ -4,6 +4,7 @@ import json
 from src.core import state
 from src.core.config import HEADERS, UNPAYWALL_EMAIL
 from src.metadata.crossref import search_crossref
+from src.core.journals import resolve_journal_url, get_journal_details, get_journal_details_by_title
 
 def search_openalex_by_author(author_name, offset=0, rows=5, type_filter="All"):
     """Search OpenAlex for works by author name.
@@ -71,6 +72,28 @@ def search_openalex_by_author(author_name, offset=0, rows=5, type_filter="All"):
                 source = primary_loc.get('source') or {}
                 journal = source.get('display_name', 'Unknown Journal')
                 is_oa = (work.get('open_access') or {}).get('is_oa', False)
+                
+                issn_list = []
+                if source.get('issn'):
+                    if isinstance(source['issn'], list):
+                        issn_list.extend(source['issn'])
+                    else:
+                        issn_list.append(source['issn'])
+                if source.get('issn_l'):
+                    issn_list.append(source['issn_l'])
+                
+                journal_url = resolve_journal_url(issn_list, doi=doi)
+                
+                journal_details = None
+                for issn in issn_list:
+                    jd = get_journal_details(issn)
+                    if jd:
+                        journal_details = jd
+                        break
+                
+                if not journal_details:
+                    journal_details = get_journal_details_by_title(journal)
+
                 results.append({
                     'title': title,
                     'doi': doi,
@@ -78,7 +101,10 @@ def search_openalex_by_author(author_name, offset=0, rows=5, type_filter="All"):
                     'year': year,
                     'journal': journal,
                     'is_oa': is_oa,
-                    'source': 'openalex'
+                    'source': 'openalex',
+                    'journal_url': journal_url,
+                    'journal_details': journal_details,
+                    'issns': issn_list
                 })
         except Exception as e:
             print(f"[WARNING] OpenAlex works fetch failed: {e}")
@@ -141,6 +167,28 @@ def search_openalex_keyword(query, offset=0, rows=5, type_filter="All"):
             source = primary_loc.get('source') or {}
             journal = source.get('display_name', 'Unknown Journal')
             is_oa = (work.get('open_access') or {}).get('is_oa', False)
+            
+            issn_list = []
+            if source.get('issn'):
+                if isinstance(source['issn'], list):
+                    issn_list.extend(source['issn'])
+                else:
+                    issn_list.append(source['issn'])
+            if source.get('issn_l'):
+                issn_list.append(source['issn_l'])
+            
+            journal_url = resolve_journal_url(issn_list, doi=doi)
+            
+            journal_details = None
+            for issn in issn_list:
+                jd = get_journal_details(issn)
+                if jd:
+                    journal_details = jd
+                    break
+            
+            if not journal_details:
+                journal_details = get_journal_details_by_title(journal)
+
             results.append({
                 'title': title,
                 'doi': doi,
@@ -148,7 +196,10 @@ def search_openalex_keyword(query, offset=0, rows=5, type_filter="All"):
                 'year': year,
                 'journal': journal,
                 'is_oa': is_oa,
-                'source': 'openalex'
+                'source': 'openalex',
+                'journal_url': journal_url,
+                'journal_details': journal_details,
+                'issns': issn_list
             })
     except Exception as e:
         print(f"[WARNING] OpenAlex keyword search failed: {e}")

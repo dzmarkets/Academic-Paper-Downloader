@@ -4,6 +4,7 @@ import json
 import concurrent.futures
 from src.core import state
 from src.core.config import HEADERS, UNPAYWALL_EMAIL
+from src.core.journals import resolve_journal_url, get_journal_details, get_journal_details_by_title
 
 def resolve_title_to_doi(title):
     """Query Crossref API to resolve a title to a DOI."""
@@ -121,13 +122,29 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
                 if date_parts:
                     year = str(date_parts[0])
                     
+            issn_list = item.get('ISSN', [])
+            journal_url = resolve_journal_url(issn_list, doi=doi)
+            
+            journal_details = None
+            for issn in issn_list:
+                jd = get_journal_details(issn)
+                if jd:
+                    journal_details = jd
+                    break
+            
+            if not journal_details:
+                journal_details = get_journal_details_by_title(journal)
+
             filtered_items.append({
                 'title': title,
                 'doi': doi,
                 'authors': authors_str,
                 'year': year,
                 'journal': journal,
-                'is_oa': False
+                'is_oa': False,
+                'journal_url': journal_url,
+                'journal_details': journal_details,
+                'issns': issn_list
             })
             
         # Page the filtered items

@@ -1,8 +1,8 @@
 # 📚 Academic Paper Downloader
 
-> **Version 2.4.1.0**
+> **Version 3.0.0.0**
 
-[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v2.4.1.0/AcademicPaperDownloader_Setup.exe)
+[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v3.0.0.0/AcademicPaperDownloader_Setup.exe)
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
 
@@ -53,7 +53,7 @@ The application features a multi-tiered search and resolution pipeline that quer
 - **Europe PMC**: Queries PubMed Central and Europe PMC mirrors to access free biomedical publications.
 - **Annual Reviews / APS / University of Chicago Press / Royal Society / ASCE / Emerald / SIAM / Pleiades**: Expanded direct open-access resolution support for 25 additional publishers.
 - **De Gruyter / World Scientific / Mary Ann Liebert / Thieme / ACM / CSIRO / American Physiological Society / ASM / Edinburgh University Press**: Expanded direct open-access resolution support for 50 additional publishers (items 51-100).
-- **AIAA / INFORMS / Resolved Open Access Journals**: Expanded direct open-access resolution support for AIAA, INFORMS, and other publishers (supporting items 101-15000).
+- **AIAA / INFORMS / CNRS / AERES / De Gruyter / Erih Plus / Journal Quality / Scopus LT / Financial Times (FT50)**: Expanded direct open-access resolution and indexing support for over 65,000+ resolved journals.
 
 ### 📚 Book & Large Document Sources
 - **Library Genesis (LibGen)**: Queries Library Genesis mirrors to resolve and download textbook and monograph files.
@@ -106,6 +106,14 @@ All downloaded files are saved in subfolders under the user's `Documents\Academi
 ---
 
 ## 📋 Changelog
+
+### v3.0.0.0
+- Integrated 7 new journal mapping sources: CNRS, AERES, De Gruyter, Erih Plus, Journal Quality, Scopus LT, and the FT50 list.
+- Expanded database lookup to over 65,000+ resolved journals.
+- Implemented real-time Multi-Category ranking classification (Category A and Category B support).
+- Enhanced metadata routing with Title-based fallback index and E-ISSN display support.
+- Upgraded app layout, aligned header controls, and added background database update checker.
+- Bumped application version to `v3.0.0.0` in package, installers, configuration, and user-agent string.
 
 ### v2.4.1.0
 - Extended the tracked journal list by 5000 candidate journals (items 10001-15000) resolved via the open-access pipeline and direct publisher heuristics.

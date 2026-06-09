@@ -99,6 +99,75 @@ def view_document_in_browser(doi, paper_title, is_book=False):
     t.start()
 
 
+def open_url_in_browser(url):
+    """Open a URL in the default browser in a background thread."""
+    if not url:
+        return
+    def open_thread():
+        try:
+            import webbrowser
+            webbrowser.open(url)
+        except Exception as e:
+            print(f"[ERROR] Failed to open URL in browser: {e}")
+    t = threading.Thread(target=open_thread)
+    t.daemon = True
+    t.start()
+
+
+def score_and_rank_results(results):
+    """Sort and rank results based on Open Access status, recency, and journal diversity."""
+    import datetime
+    current_year = datetime.datetime.now().year
+    
+    scored_items = []
+    for item in results:
+        score = 0.0
+        
+        # 1. Open Access boost
+        is_oa = item.get('is_oa', False)
+        journal_name = item.get('journal', '').lower()
+        is_known_oa = any(oa in journal_name for oa in ["mdpi", "frontiers", "plos", "springer open", "biomed central", "scielo", "doaj"])
+        
+        if is_oa:
+            score += 100.0
+        if is_known_oa:
+            score += 80.0
+            
+        # 2. Recency boost
+        year_str = item.get('year', 'n.d.')
+        year_val = None
+        match = re.search(r'\b(19\d{2}|20\d{2})\b', year_str)
+        if match:
+            year_val = int(match.group(1))
+            
+        if year_val:
+            year_diff = current_year - year_val
+            if year_diff >= 0:
+                score += max(0.0, 50.0 - (year_diff * 4.0))
+        else:
+            score += 10.0
+            
+        scored_items.append((score, item))
+        
+    # Sort items by score descending
+    scored_items.sort(key=lambda x: x[0], reverse=True)
+    
+    # 3. Diversity filtering: greedily select unseen journals first
+    selected_items = []
+    skipped_items = []
+    seen_journals = set()
+    
+    for score, item in scored_items:
+        journal = item.get('journal', '').strip().lower()
+        if journal and journal not in seen_journals:
+            selected_items.append(item)
+            seen_journals.add(journal)
+        else:
+            skipped_items.append(item)
+            
+    return selected_items + skipped_items
+
+
 def reset_gui_state(run_button, entry_widget):
     """Restore the GUI button and entry box back to their idle states."""
     global is_running, prev_btn, next_btn, card_buttons
@@ -133,9 +202,11 @@ def update_pagination_states():
         next_btn.config(state='disabled')
 
 
-def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widget, root_widget):
+def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widget, root_widget, journal_url=None):
     """Run the download pipeline in a background thread and output logs to the GUI."""
     state.discovered_urls = []
+    if journal_url:
+        register_discovered_url(journal_url, "Journal Homepage Fallback")
     
     # Resolve identifier (DOI or Title)
     target_doi = None
@@ -317,13 +388,17 @@ def launch_gui():
     author_lbl = tk.Label(header_frame, text="Designed & Developed by Yazid YOUCEF", bg="#0D0B14", fg="#8B5CF6", font=('Segoe UI', 8, 'italic'))
     author_lbl.pack(anchor='center', pady=(3, 0))
     
+    # Frame to hold updates labels horizontally
+    updates_frame = tk.Frame(header_frame, bg="#0D0B14")
+    updates_frame.pack(anchor='center', pady=(4, 0))
+    
     # Clickable download releases link
     def open_releases(e=None):
         import webbrowser
         webbrowser.open("https://github.com/dzmarkets/Academic-Paper-Downloader/releases")
         
-    dl_link_lbl = tk.Label(header_frame, text="🌐 Get Latest Releases & Updates", bg="#0D0B14", fg="#10B981", font=('Segoe UI Semibold', 9, 'underline'), cursor="hand2")
-    dl_link_lbl.pack(anchor='center', pady=(4, 0))
+    dl_link_lbl = tk.Label(updates_frame, text="🌐 Get Latest Releases & Updates", bg="#0D0B14", fg="#10B981", font=('Segoe UI Semibold', 9, 'underline'), cursor="hand2")
+    dl_link_lbl.pack(side='left')
     dl_link_lbl.bind("<Button-1>", open_releases)
     
     # Hover states to make elements feel alive
@@ -335,12 +410,110 @@ def launch_gui():
         
     dl_link_lbl.bind("<Enter>", on_link_enter)
     dl_link_lbl.bind("<Leave>", on_link_leave)
+
+    # Bullet separator (hidden by default)
+    sep_lbl = tk.Label(updates_frame, text="  •  ", bg="#0D0B14", fg="#A78BFA", font=('Segoe UI Semibold', 9))
+
+    # Database update link/label (fetches latest Category A/B and Rank data over the web)
+    def trigger_db_update(e=None):
+        if getattr(state, "db_updating", False):
+            return
+        state.db_updating = True
+        db_update_lbl.config(text="📥 Updating Journal Database...")
+        status_label.config(text="Starting journal database update from GitHub...", fg="#3B82F6")
+        
+        def bg_update():
+            from src.network.db_updater import run_db_update
+            
+            def on_status(txt):
+                root.after(0, lambda: status_label.config(text=txt, fg="#3B82F6"))
+                
+            def on_progress(p):
+                root.after(0, lambda: status_label.config(text=f"Updating Database: {p}%...", fg="#3B82F6"))
+                
+            success = run_db_update(status_callback=on_status, progress_callback=on_progress)
+            
+            def on_finish():
+                state.db_updating = False
+                db_update_lbl.config(text="📥 Update Journal Database (Online)")
+                if success:
+                    status_label.config(text="Journal database updated successfully!", fg="#10B981")
+                    sep_lbl.pack_forget()
+                    db_update_lbl.pack_forget()
+                else:
+                    status_label.config(text="Database update failed. Check logs.", fg="#F44336")
+                    
+            root.after(0, on_finish)
+            
+        t = threading.Thread(target=bg_update)
+        t.daemon = True
+        t.start()
+
+    db_update_lbl = tk.Label(updates_frame, text="📥 Update Journal Database (Online)", bg="#0D0B14", fg="#3B82F6", font=('Segoe UI Semibold', 9, 'underline'), cursor="hand2")
+    # Packed only when update is available
+    
+    def on_db_enter(e):
+        if not getattr(state, "db_updating", False):
+            db_update_lbl.config(fg="#60A5FA")
+            
+    def on_db_leave(e):
+        if not getattr(state, "db_updating", False):
+            db_update_lbl.config(fg="#3B82F6")
+            
+    db_update_lbl.bind("<Enter>", on_db_enter)
+    db_update_lbl.bind("<Leave>", on_db_leave)
+    db_update_lbl.bind("<Button-1>", trigger_db_update)
     
     # Set references in state
     state.dl_link_lbl = dl_link_lbl
     
+    # Dynamic check for database updates
+    def check_db_updates_gui():
+        def check_db_bg():
+            try:
+                import urllib.request
+                from src.core.utils import get_data_filepath
+                from src.network.db_updater import EXTRACTED_URL, RESOLVED_URL
+                
+                ext_local = get_data_filepath("extracted_journals.json")
+                res_local = get_data_filepath("resolved_journal_links.json")
+                
+                # Show updates if local files don't exist
+                if not os.path.exists(ext_local) or not os.path.exists(res_local):
+                    root.after(0, show_db_update_ui)
+                    return
+                    
+                local_ext_size = os.path.getsize(ext_local)
+                local_res_size = os.path.getsize(res_local)
+                
+                headers = {'User-Agent': 'Mozilla/5.0'}
+                
+                # Extracted size
+                req_ext = urllib.request.Request(EXTRACTED_URL, method='HEAD', headers=headers)
+                with urllib.request.urlopen(req_ext, timeout=5) as resp:
+                    online_ext_size = int(resp.getheader('Content-Length', 0))
+                    
+                # Resolved size
+                req_res = urllib.request.Request(RESOLVED_URL, method='HEAD', headers=headers)
+                with urllib.request.urlopen(req_res, timeout=5) as resp:
+                    online_res_size = int(resp.getheader('Content-Length', 0))
+                    
+                if online_ext_size != local_ext_size or online_res_size != local_res_size:
+                    root.after(0, show_db_update_ui)
+            except Exception as e:
+                print(f"[WARNING] Failed to check for journal database updates: {e}")
+                
+        def show_db_update_ui():
+            sep_lbl.pack(side='left')
+            db_update_lbl.pack(side='left')
+            
+        t = threading.Thread(target=check_db_bg)
+        t.daemon = True
+        t.start()
+    
     # Silent update check on startup after 1.5 seconds
     root.after(1500, lambda: check_updates_gui(root, manual=False))
+    root.after(2000, check_db_updates_gui)
 
     # Main Input Card (Centered Elements)
     card_frame = tk.Frame(root, bg="#1A1625", bd=1, relief='flat', padx=20, pady=15)
@@ -517,15 +690,17 @@ def launch_gui():
             is_logs_visible = _console_visible[0]
             
             if is_results_visible and is_logs_visible:
-                main_container.grid_columnconfigure(0, weight=2)
-                main_container.grid_columnconfigure(1, weight=1)
+                main_container.grid_columnconfigure(0, weight=2, uniform="group1")
+                main_container.grid_columnconfigure(1, weight=1, uniform="group1")
                 results_frame.grid(row=0, column=0, sticky='nsew', padx=(25, 10))
                 logs_frame.grid(row=0, column=1, sticky='nsew', padx=(10, 25))
             elif is_results_visible and not is_logs_visible:
-                main_container.grid_columnconfigure(0, weight=1)
+                main_container.grid_columnconfigure(0, weight=1, uniform="")
+                main_container.grid_columnconfigure(1, weight=0, uniform="")
                 results_frame.grid(row=0, column=0, columnspan=2, sticky='nsew', padx=25)
             elif not is_results_visible and is_logs_visible:
-                main_container.grid_columnconfigure(0, weight=1)
+                main_container.grid_columnconfigure(0, weight=0, uniform="")
+                main_container.grid_columnconfigure(1, weight=1, uniform="")
                 logs_frame.grid(row=0, column=0, columnspan=2, sticky='nsew', padx=25)
         except Exception as e:
             print(f"[ERROR] Grid update failed: {e}")
@@ -573,6 +748,11 @@ def launch_gui():
     scrollbar.pack(side="right", fill="y")
     log_area.pack(side="left", fill="both", expand=True)
     
+    if getattr(state, "first_run_changelog", None):
+        log_area.insert('end', state.first_run_changelog)
+        log_area.see('end')
+    
+    
     def animate_loading(label, run_event, count=0):
         if not run_event.is_set():
             return
@@ -586,7 +766,7 @@ def launch_gui():
         entry.config(state='normal')
         clear_res_btn.config(state='normal')
         
-    def start_individual_download(doi, paper_title):
+    def start_individual_download(doi, paper_title, journal_url=None):
         """Trigger threaded background downloader for a specific result card's DOI."""
         global is_running
         
@@ -614,7 +794,7 @@ def launch_gui():
             try:
                 # Use DOI if present, fallback to exact Title
                 target = doi if doi else paper_title
-                run_pipeline_bg(target, status_label, log_area, run_button, entry, root)
+                run_pipeline_bg(target, status_label, log_area, run_button, entry, root, journal_url=journal_url)
             finally:
                 running_event.clear()
                 
@@ -785,9 +965,9 @@ def launch_gui():
                         adjusted_offset = (p - 1) * 5 - effective_priority
                         
                     # Fetch results from Crossref, OpenAlex, and Scholar
-                    crossref_results = search_crossref(query, offset=adjusted_offset, rows=5, type_filter="Papers", author="")
-                    openalex_results = search_openalex_keyword(query, offset=adjusted_offset, rows=5, type_filter="Papers")
-                    scholar_results = search_google_scholar(query, offset=adjusted_offset, rows=5)
+                    crossref_results = search_crossref(query, offset=adjusted_offset, rows=15, type_filter="Papers", author="")
+                    openalex_results = search_openalex_keyword(query, offset=adjusted_offset, rows=15, type_filter="Papers")
+                    scholar_results = search_google_scholar(query, offset=adjusted_offset, rows=15)
                     
                     results = []
                     results.extend(crossref_results)
@@ -797,6 +977,9 @@ def launch_gui():
                     for r in scholar_results:
                         if not any(r['title'].lower() in x['title'].lower() or x['title'].lower() in r['title'].lower() or (r['doi'] and r['doi'] == x['doi']) for x in results):
                             results.append(r)
+                            
+                    # Prioritize and rank results
+                    results = score_and_rank_results(results)
                             
                     if p == 1 and matching_priority:
                         cleaned_results = []
@@ -960,6 +1143,55 @@ def launch_gui():
             badge_lbl = tk.Label(doi_frame, text=badge_text, bg="#1A1625", fg=badge_fg, font=('Segoe UI Semibold', 8), anchor='w')
             badge_lbl.pack(side='left')
             
+            # Render Year Badge in doi_frame in chroma green
+            year_val = result.get('year', 'n.d.')
+            year_lbl = tk.Label(doi_frame, text=f"  [{year_val}]", bg="#1A1625", fg="#10B981", font=('Segoe UI Semibold', 8), anchor='w')
+            year_lbl.pack(side='left')
+            
+            # Render Journal Details Label under the DOI frame
+            jd = result.get('journal_details')
+            raw_issns = result.get('issns', [])
+            
+            # Gather all unique ISSNs in standardized clean form to avoid duplicates
+            seen_clean = set()
+            parts = []
+            
+            def add_issn_display(issn_val, label):
+                if not issn_val or issn_val == "N/A":
+                    return
+                clean = issn_val.strip().replace(" ", "").replace("-", "").upper()
+                if clean not in seen_clean:
+                    seen_clean.add(clean)
+                    if len(clean) == 8:
+                        formatted = f"{clean[:4]}-{clean[4:]}"
+                    else:
+                        formatted = issn_val.strip().upper()
+                    parts.append(f"{label}: {formatted}")
+
+            if jd:
+                add_issn_display(jd.get('issn'), "ISSN")
+                add_issn_display(jd.get('eissn'), "E-ISSN")
+                
+            for idx, raw_issn in enumerate(raw_issns):
+                lbl = "ISSN" if idx == 0 and not any(p.startswith("ISSN:") for p in parts) else "E-ISSN"
+                add_issn_display(raw_issn, lbl)
+                
+            if not parts:
+                issn_part = "ISSN: N/A"
+            else:
+                issn_part = " | ".join(parts)
+                
+            if jd:
+                cat_color = "#10B981" if jd['category'] == "A" else "#3B82F6"
+                details_text = f"{issn_part}  •  Category {jd['category']} (Rank: {jd['rank']})"
+                details_fg = cat_color
+            else:
+                details_text = f"{issn_part}  •  Category: Unindexed/Other  •  Rank: N/A"
+                details_fg = "#6B7280"
+                
+            jd_lbl = tk.Label(details_f, text=details_text, bg="#1A1625", fg=details_fg, font=('Segoe UI Semibold', 8), anchor='w')
+            jd_lbl.pack(anchor='w', pady=(1, 0))
+            
             meta_str = f"Authors: {result['authors']} | {result['journal']} ({result['year']})"
             meta_lbl = tk.Label(details_f, text=meta_str, bg="#1A1625", fg="#9CA3AF", font=('Segoe UI', 8), anchor='w', wraplength=current_wrap, justify='left')
             meta_lbl.pack(anchor='w', pady=(1, 0))
@@ -972,10 +1204,30 @@ def launch_gui():
             target_doi = result['doi']
             target_title = result['title']
             
+            # Journal Button (if available)
+            if result.get('journal_url'):
+                journal_btn = tk.Button(
+                    btn_container, 
+                    text="🌐  Journal", 
+                    bg="#06B6D4", 
+                    fg="#FFFFFF", 
+                    activebackground="#22D3EE", 
+                    activeforeground="#FFFFFF", 
+                    disabledforeground="#8E8A9F", 
+                    bd=0, 
+                    font=('Segoe UI Semibold', 9), 
+                    width=13, 
+                    pady=4, 
+                    cursor="hand2", 
+                    command=lambda url=result['journal_url']: open_url_in_browser(url)
+                )
+                journal_btn.pack(side='left', padx=(0, 6))
+                card_buttons.append(journal_btn)
+
             # View Button
             view_btn = tk.Button(
                 btn_container, 
-                text="View", 
+                text="👁️  View", 
                 bg="#8B5CF6", 
                 fg="#FFFFFF", 
                 activebackground="#A78BFA", 
@@ -983,7 +1235,7 @@ def launch_gui():
                 disabledforeground="#8E8A9F", 
                 bd=0, 
                 font=('Segoe UI Semibold', 9), 
-                padx=12, 
+                width=13, 
                 pady=4, 
                 cursor="hand2", 
                 command=lambda d=target_doi, t=target_title, ib=is_book: view_document_in_browser(d, t, is_book=ib)
@@ -994,7 +1246,7 @@ def launch_gui():
             # Download Button
             dl_btn = tk.Button(
                 btn_container, 
-                text="Download", 
+                text="📥  Download", 
                 bg="#10B981", 
                 fg="#FFFFFF", 
                 activebackground="#059669", 
@@ -1002,10 +1254,10 @@ def launch_gui():
                 disabledforeground="#8E8A9F", 
                 bd=0, 
                 font=('Segoe UI Semibold', 9), 
-                padx=12, 
+                width=13, 
                 pady=4, 
                 cursor="hand2", 
-                command=lambda d=target_doi, t=target_title: start_individual_download(d, t)
+                command=lambda d=target_doi, t=target_title, ju=result.get('journal_url'): start_individual_download(d, t, journal_url=ju)
             )
             dl_btn.pack(side='left')
             card_buttons.append(dl_btn)
@@ -1219,7 +1471,7 @@ def launch_gui():
             ("", None),
             ("Cette application reduit considerablement votre temps de recherche", "cyan"),
             ("en interrogeant simultanement plus de 11 sources academiques majeures", "cyan"),
-            ("et en resolvant jusqu'a 50 000 journaux scientifiques en 1 seul clic !", "green"),
+            ("et en resolvant plus de 65 000 journaux scientifiques en 1 seul clic !", "green"),
             ("", None),
             ("Votre contribution permet de perenniser le developpement de cet outil gratuit.", None),
             ("", None),

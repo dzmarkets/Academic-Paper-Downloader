@@ -1,6 +1,6 @@
 # Configuration constants
 
-VERSION = "2.4.1.0"
+VERSION = "3.0.0.0"
 
 UNPAYWALL_EMAIL = "researcher@domain.com"
 

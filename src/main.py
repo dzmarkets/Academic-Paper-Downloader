@@ -179,6 +179,16 @@ def run_download_pipeline(target_doi, target_title, status_label=None, root_widg
 
 
 def main():
+    from src.core.utils import check_first_run_changelog
+    state.first_run_changelog = check_first_run_changelog()
+    if state.first_run_changelog:
+        try:
+            print(state.first_run_changelog)
+        except UnicodeEncodeError:
+            # Fallback for systems/consoles that don't support UTF-8/emojis
+            clean_log = state.first_run_changelog.encode('ascii', errors='ignore').decode('ascii')
+            print(clean_log)
+        
     # If arguments are passed, run in headless CLI mode. Otherwise, launch GUI.
     if len(sys.argv) > 1:
         state.discovered_urls.clear()
