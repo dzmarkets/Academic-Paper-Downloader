@@ -7,34 +7,97 @@ from src.metadata.researchgate import search_researchgate_by_author, validate_re
 from src.network.client import fetch_html_resilient
 from src.network.downloader import download_file
 
-def try_researchgate(doi, title):
-    """Strategy 3: Automated extraction from ResearchGate."""
-    if not doi and not title:
-        print("\n--- [STRATEGY 3] Skipped (No DOI or Title available) ---")
-        return False
-    print("\n--- [STRATEGY 3] Scraping ResearchGate for Full-Text ---")
-    
-    target_year = None
-    # Resolve DOI metadata if missing or for validation parameters
-    if doi:
-        metadata = resolve_doi_metadata(doi)
-        if metadata:
-            if not title:
-                title = metadata.get('title')
-                if title:
-                    print(f"[INFO] Resolved DOI to exact title: '{title}'")
-            target_year = metadata.get('year')
-            
+
+def _collect_yahoo(html_body):
+    """Extract ResearchGate publication URLs from Yahoo HTML."""
+    results = []
+    seen = set()
+    ru_links = re.findall(r'RU=([^/&"]+)', html_body)
+    for val in ru_links:
+        unquoted = urllib.parse.unquote(val)
+        if "researchgate.net/publication/" not in unquoted:
+            continue
+        pub_url = unquoted.split('/RK=')[0]
+        m = re.match(r'(https?://(?:www\.)?researchgate\.net/publication/\d+_[^/&?"]+)', pub_url)
+        if not m:
+            m = re.match(r'(https?://(?:www\.)?researchgate\.net/publication/\d+[^/&?"]*)', pub_url)
+        if m and m.group(1) not in seen:
+            seen.add(m.group(1))
+            results.append(m.group(1))
+    return results
+
+def _collect_ddg(html_body):
+    """Extract ResearchGate publication URLs from DuckDuckGo HTML."""
+    results = []
+    seen = set()
+    encoded_links = re.findall(r'uddg=(https?%3A%2F%2F[^&"]*researchgate\.net%2Fpublication%2F[^&"]*)', html_body)
+    for enc_link in encoded_links:
+        resolved = urllib.parse.unquote(enc_link).split("&")[0]
+        if resolved not in seen:
+            seen.add(resolved)
+            results.append(resolved)
+    direct_links = re.findall(r'href="([^"]*researchgate\.net/publication/[^"]*)"', html_body)
+    for link in direct_links:
+        resolved = urllib.parse.unquote(link).split("&")[0]
+        if resolved not in seen:
+            seen.add(resolved)
+            results.append(resolved)
+    return results
+
+def _collect_bing(html_body):
+    """Extract ResearchGate publication URLs from Bing HTML."""
+    results = []
+    seen = set()
+    links = re.findall(r'href="(https?://(?:www\.)?researchgate\.net/publication/[^"&]+)"', html_body)
+    for link in links:
+        if link not in seen:
+            seen.add(link)
+            results.append(link)
+    return results
+
+def _collect_google(html_body):
+    """Extract ResearchGate publication URLs from Google HTML."""
+    results = []
+    seen = set()
+    links = re.findall(r'url\?q=(https://(?:www\.)?researchgate\.net/publication/[^&"()]+)', html_body)
+    for link in links:
+        unquoted = urllib.parse.unquote(link)
+        m = re.match(r'(https?://(?:www\.)?researchgate\.net/publication/\d+_[^/&?"]+)', unquoted)
+        if not m:
+            m = re.match(r'(https?://(?:www\.)?researchgate\.net/publication/\d+[^/&?"]*)', unquoted)
+        if m and m.group(1) not in seen:
+            seen.add(m.group(1))
+            results.append(m.group(1))
+    return results
+
+def _try_validate(candidates, engine_name, title, doi, target_year):
+    """Run title-similarity pre-check + page validation on a list of candidates.
+    Returns (accepted_url, accepted_html) on first match, or (None, None)."""
+    for url in candidates:
+        if not check_title_similarity(title, url):
+            continue
+        print(f"[INFO] {engine_name}: candidate passed URL similarity check: {url}. Fetching to validate...")
+        page_src = fetch_html_resilient(url)
+        if validate_researchgate_page(page_src, title, doi, target_year):
+            return url, page_src
+    return None, None
+
+
+def _resolve_direct_doi(doi, title, target_year):
+    """Attempt to resolve DOI to a ResearchGate profile via direct links or DOI resolvers."""
+    if not doi:
+        return None, None
+
     rg_profile_url = None
     rg_page_source = None
     
     # 0. Check if DOI is already a direct ResearchGate publication URL
-    if doi and "researchgate.net/publication/" in doi:
+    if "researchgate.net/publication/" in doi:
         rg_profile_url = doi
         print(f"[INFO] Using provided direct ResearchGate publication URL: {rg_profile_url}")
         
     # 1. If it is a ResearchGate specific DOI, attempt direct internal resolver link
-    elif doi and doi.strip().startswith("10.13140/"):
+    elif doi.strip().startswith("10.13140/"):
         resolver_url = f"https://www.researchgate.net/doi/{doi.strip()}"
         print(f"[INFO] Detected ResearchGate DOI. Attempting direct internal resolver: {resolver_url}")
         try:
@@ -52,7 +115,7 @@ def try_researchgate(doi, title):
             print(f"[WARNING] Direct internal resolver bypassed/failed (usually due to 403 Forbidden): {e}")
             
     # 2. Direct resolution using Crossref / Handle API as fallback
-    if doi and not rg_profile_url:
+    if not rg_profile_url:
         resolved_url = resolve_doi_to_url(doi)
         if resolved_url:
             print(f"[INFO] Resolving resolved DOI URL: {resolved_url}")
@@ -71,7 +134,7 @@ def try_researchgate(doi, title):
                 print(f"[WARNING] Direct DOI URL resolution bypassed/failed: {e}")
             
     # 3. Direct resolution via doi.org redirect as a fallback
-    if doi and not rg_profile_url:
+    if not rg_profile_url:
         print(f"[INFO] Attempting direct DOI resolution via doi.org...")
         try:
             url = f"https://doi.org/{doi}"
@@ -88,196 +151,105 @@ def try_researchgate(doi, title):
         except Exception as e:
             print(f"[WARNING] Direct DOI resolution bypassed/failed: {e}")
             
-    # 4. Attempt author-profile-based resolution on ResearchGate as a highly reliable fallback
-    if doi and not rg_profile_url and 'metadata' in locals() and metadata and metadata.get('authors'):
-        print("[INFO] Attempting author-profile-based resolution on ResearchGate...")
-        for author in metadata['authors'][:3]:
-            if rg_profile_url:
-                break
-            try:
-                # search_researchgate_by_author queries Yahoo/DDG for profile, then scrapes it
-                pub_entries = search_researchgate_by_author(author)
-                for entry in pub_entries:
-                    entry_url = entry.get('doi')  # search_researchgate_by_author stores publication URL in 'doi'
-                    if entry_url:
-                        # Verify if this is the correct publication using title segment checking
-                        if check_title_similarity(title if title else metadata.get('title'), entry_url):
-                            print(f"[INFO] Author profile search found candidate: {entry_url}. Fetching page to validate...")
-                            page_source = fetch_html_resilient(entry_url)
-                            if validate_researchgate_page(page_source, title if title else metadata.get('title'), doi, target_year):
-                                rg_profile_url = entry_url
-                                rg_page_source = page_source
-                                print(f"[INFO] Author profile search resolved and validated ResearchGate publication: {rg_profile_url}")
-                                break
-            except Exception as e:
-                print(f"[WARNING] Author-profile-based search failed for '{author}': {e}")
+    return rg_profile_url, rg_page_source
 
-    # Step 1: Discover the paper link using search engine queries targeting ResearchGate.
-    # We try three query variants per engine to maximize coverage:
-    #   1. Quoted exact title   (highest precision — avoids keyword-overlap false positives)
-    #   2. Plain title          (broader fallback)
-    #   3. DOI string           (most authoritative, but not always indexed by engines)
-    if not rg_profile_url:
-        search_queries = []
-        if title:
-            cleaned_title = re.sub(r'\s+', ' ', title).strip().strip('"').strip("'")
-            if cleaned_title:
-                search_queries.append(f'"{cleaned_title}"')
-                search_queries.append(cleaned_title)
-        if doi and doi.strip() not in search_queries:
-            search_queries.append(doi.strip())
+def _resolve_by_author(doi, title, metadata, target_year):
+    """Attempt author-profile-based resolution on ResearchGate as a highly reliable fallback."""
+    if not doi or not metadata or not metadata.get('authors'):
+        return None, None
 
-        def _collect_yahoo(html_body):
-            """Extract ResearchGate publication URLs from Yahoo HTML."""
-            results = []
-            seen = set()
-            ru_links = re.findall(r'RU=([^/&"]+)', html_body)
-            for val in ru_links:
-                unquoted = urllib.parse.unquote(val)
-                if "researchgate.net/publication/" not in unquoted:
-                    continue
-                pub_url = unquoted.split('/RK=')[0]
-                m = re.match(r'(https?://(?:www\.)?researchgate\.net/publication/\d+_[^/&?"]+)', pub_url)
-                if not m:
-                    m = re.match(r'(https?://(?:www\.)?researchgate\.net/publication/\d+[^/&?"]*)', pub_url)
-                if m and m.group(1) not in seen:
-                    seen.add(m.group(1))
-                    results.append(m.group(1))
-            return results
+    print("[INFO] Attempting author-profile-based resolution on ResearchGate...")
+    for author in metadata['authors'][:3]:
+        try:
+            # search_researchgate_by_author queries Yahoo/DDG for profile, then scrapes it
+            pub_entries = search_researchgate_by_author(author)
+            for entry in pub_entries:
+                entry_url = entry.get('doi')  # search_researchgate_by_author stores publication URL in 'doi'
+                if entry_url:
+                    # Verify if this is the correct publication using title segment checking
+                    if check_title_similarity(title if title else metadata.get('title'), entry_url):
+                        print(f"[INFO] Author profile search found candidate: {entry_url}. Fetching page to validate...")
+                        page_source = fetch_html_resilient(entry_url)
+                        if validate_researchgate_page(page_source, title if title else metadata.get('title'), doi, target_year):
+                            rg_profile_url = entry_url
+                            rg_page_source = page_source
+                            print(f"[INFO] Author profile search resolved and validated ResearchGate publication: {rg_profile_url}")
+                            return rg_profile_url, rg_page_source
+        except Exception as e:
+            print(f"[WARNING] Author-profile-based search failed for '{author}': {e}")
 
-        def _collect_ddg(html_body):
-            """Extract ResearchGate publication URLs from DuckDuckGo HTML."""
-            results = []
-            seen = set()
-            encoded_links = re.findall(r'uddg=(https?%3A%2F%2F[^&"]*researchgate\.net%2Fpublication%2F[^&"]*)', html_body)
-            for enc_link in encoded_links:
-                resolved = urllib.parse.unquote(enc_link).split("&")[0]
-                if resolved not in seen:
-                    seen.add(resolved)
-                    results.append(resolved)
-            direct_links = re.findall(r'href="([^"]*researchgate\.net/publication/[^"]*)"', html_body)
-            for link in direct_links:
-                resolved = urllib.parse.unquote(link).split("&")[0]
-                if resolved not in seen:
-                    seen.add(resolved)
-                    results.append(resolved)
-            return results
+    return None, None
 
-        def _collect_bing(html_body):
-            """Extract ResearchGate publication URLs from Bing HTML."""
-            results = []
-            seen = set()
-            links = re.findall(r'href="(https?://(?:www\.)?researchgate\.net/publication/[^"&]+)"', html_body)
-            for link in links:
-                if link not in seen:
-                    seen.add(link)
-                    results.append(link)
-            return results
 
-        def _collect_google(html_body):
-            """Extract ResearchGate publication URLs from Google HTML."""
-            results = []
-            seen = set()
-            links = re.findall(r'url\?q=(https://(?:www\.)?researchgate\.net/publication/[^&"()]+)', html_body)
-            for link in links:
-                unquoted = urllib.parse.unquote(link)
-                m = re.match(r'(https?://(?:www\.)?researchgate\.net/publication/\d+_[^/&?"]+)', unquoted)
-                if not m:
-                    m = re.match(r'(https?://(?:www\.)?researchgate\.net/publication/\d+[^/&?"]*)', unquoted)
-                if m and m.group(1) not in seen:
-                    seen.add(m.group(1))
-                    results.append(m.group(1))
-            return results
+def _search_engines_for_profile(title, doi, target_year):
+    """Discover the paper link using search engine queries targeting ResearchGate."""
+    search_queries = []
+    if title:
+        cleaned_title = re.sub(r'\s+', ' ', title).strip().strip('"').strip("'")
+        if cleaned_title:
+            search_queries.append(f'"{cleaned_title}"')
+            search_queries.append(cleaned_title)
+    if doi and doi.strip() not in search_queries:
+        search_queries.append(doi.strip())
 
-        def _try_validate(candidates, engine_name):
-            """Run title-similarity pre-check + page validation on a list of candidates.
-            Returns (accepted_url, accepted_html) on first match, or (None, None)."""
-            for url in candidates:
-                if not check_title_similarity(title, url):
-                    continue
-                print(f"[INFO] {engine_name}: candidate passed URL similarity check: {url}. Fetching to validate...")
-                page_src = fetch_html_resilient(url)
-                if validate_researchgate_page(page_src, title, doi, target_year):
-                    return url, page_src
-            return None, None
+    for search_query in search_queries:
+        # ── Yahoo ──────────────────────────────────────────────────────────────
+        print(f"[INFO] Searching ResearchGate for {repr(search_query)} via Yahoo...")
+        try:
+            yahoo_url = f"https://search.yahoo.com/search?p={urllib.parse.quote(search_query + ' site:researchgate.net/publication/')}"
+            html = fetch_html_resilient(yahoo_url)
+            if html:
+                accepted_url, accepted_html = _try_validate(_collect_yahoo(html), "Yahoo", title, doi, target_year)
+                if accepted_url:
+                    print(f"[INFO] Yahoo resolved and validated ResearchGate publication: {accepted_url}")
+                    return accepted_url, accepted_html
+        except Exception as e:
+            print(f"[WARNING] Yahoo ResearchGate publication search failed: {e}")
 
-        for search_query in search_queries:
-            if rg_profile_url:
-                break
+        # ── DuckDuckGo ────────────────────────────────────────────────────────
+        print(f"[INFO] Searching ResearchGate for {repr(search_query)} via DuckDuckGo...")
+        try:
+            ddg_url = f"https://html.duckduckgo.com/html/?q={urllib.parse.quote(search_query + ' site:researchgate.net/publication/')}"
+            html = fetch_html_resilient(ddg_url)
+            if html:
+                accepted_url, accepted_html = _try_validate(_collect_ddg(html), "DuckDuckGo", title, doi, target_year)
+                if accepted_url:
+                    print(f"[INFO] DuckDuckGo resolved and validated ResearchGate publication: {accepted_url}")
+                    return accepted_url, accepted_html
+        except Exception as e:
+            print(f"[WARNING] DuckDuckGo ResearchGate publication search failed: {e}")
 
-            # ── Yahoo ──────────────────────────────────────────────────────────────
-            print(f"[INFO] Searching ResearchGate for {repr(search_query)} via Yahoo...")
-            try:
-                yahoo_url = f"https://search.yahoo.com/search?p={urllib.parse.quote(search_query + ' site:researchgate.net/publication/')}"
-                html = fetch_html_resilient(yahoo_url)
-                if html:
-                    accepted_url, accepted_html = _try_validate(_collect_yahoo(html), "Yahoo")
-                    if accepted_url:
-                        rg_profile_url = accepted_url
-                        rg_page_source = accepted_html
-                        print(f"[INFO] Yahoo resolved and validated ResearchGate publication: {rg_profile_url}")
-            except Exception as e:
-                print(f"[WARNING] Yahoo ResearchGate publication search failed: {e}")
-
-            if rg_profile_url:
-                break
-
-            # ── DuckDuckGo ────────────────────────────────────────────────────────
-            print(f"[INFO] Searching ResearchGate for {repr(search_query)} via DuckDuckGo...")
-            try:
-                ddg_url = f"https://html.duckduckgo.com/html/?q={urllib.parse.quote(search_query + ' site:researchgate.net/publication/')}"
-                html = fetch_html_resilient(ddg_url)
-                if html:
-                    accepted_url, accepted_html = _try_validate(_collect_ddg(html), "DuckDuckGo")
-                    if accepted_url:
-                        rg_profile_url = accepted_url
-                        rg_page_source = accepted_html
-                        print(f"[INFO] DuckDuckGo resolved and validated ResearchGate publication: {rg_profile_url}")
-            except Exception as e:
-                print(f"[WARNING] DuckDuckGo ResearchGate publication search failed: {e}")
-
-            if rg_profile_url:
-                break
-
-            # ── Bing ──────────────────────────────────────────────────────────────
-            print(f"[INFO] Searching ResearchGate for {repr(search_query)} via Bing...")
-            try:
-                bing_url = f"https://www.bing.com/search?q={urllib.parse.quote(search_query + ' site:researchgate.net/publication/')}&count=10"
-                html = fetch_html_resilient(bing_url)
-                if html:
-                    accepted_url, accepted_html = _try_validate(_collect_bing(html), "Bing")
-                    if accepted_url:
-                        rg_profile_url = accepted_url
-                        rg_page_source = accepted_html
-                        print(f"[INFO] Bing resolved and validated ResearchGate publication: {rg_profile_url}")
-            except Exception as e:
-                print(f"[WARNING] Bing ResearchGate publication search failed: {e}")
-                
-            if rg_profile_url:
-                break
-                
-            # ── Google ────────────────────────────────────────────────────────────
-            print(f"[INFO] Searching ResearchGate for {repr(search_query)} via Google (Best Effort)...")
-            try:
-                google_url = f"https://www.google.com/search?q={urllib.parse.quote(search_query + ' site:researchgate.net/publication/')}"
-                html = fetch_html_resilient(google_url)
-                if html:
-                    accepted_url, accepted_html = _try_validate(_collect_google(html), "Google")
-                    if accepted_url:
-                        rg_profile_url = accepted_url
-                        rg_page_source = accepted_html
-                        print(f"[INFO] Google resolved and validated ResearchGate publication: {rg_profile_url}")
-            except Exception as e:
-                print(f"[WARNING] Google ResearchGate publication search failed: {e}")
+        # ── Bing ──────────────────────────────────────────────────────────────
+        print(f"[INFO] Searching ResearchGate for {repr(search_query)} via Bing...")
+        try:
+            bing_url = f"https://www.bing.com/search?q={urllib.parse.quote(search_query + ' site:researchgate.net/publication/')}&count=10"
+            html = fetch_html_resilient(bing_url)
+            if html:
+                accepted_url, accepted_html = _try_validate(_collect_bing(html), "Bing", title, doi, target_year)
+                if accepted_url:
+                    print(f"[INFO] Bing resolved and validated ResearchGate publication: {accepted_url}")
+                    return accepted_url, accepted_html
+        except Exception as e:
+            print(f"[WARNING] Bing ResearchGate publication search failed: {e}")
             
-    if rg_profile_url:
-        register_discovered_url(rg_profile_url, "ResearchGate Profile Page")
-        
-    if not rg_profile_url:
-        print("[INFO] Could not map paper details to a definitive ResearchGate profile.")
-        return False
+        # ── Google ────────────────────────────────────────────────────────────
+        print(f"[INFO] Searching ResearchGate for {repr(search_query)} via Google (Best Effort)...")
+        try:
+            google_url = f"https://www.google.com/search?q={urllib.parse.quote(search_query + ' site:researchgate.net/publication/')}"
+            html = fetch_html_resilient(google_url)
+            if html:
+                accepted_url, accepted_html = _try_validate(_collect_google(html), "Google", title, doi, target_year)
+                if accepted_url:
+                    print(f"[INFO] Google resolved and validated ResearchGate publication: {accepted_url}")
+                    return accepted_url, accepted_html
+        except Exception as e:
+            print(f"[WARNING] Google ResearchGate publication search failed: {e}")
 
-    # Step 2: Scrape the actual profile page for open full-text assets
+    return None, None
+
+
+def _scrape_and_download_profile(rg_profile_url, rg_page_source, title, doi):
+    """Scrape the actual profile page for open full-text assets and download."""
     try:
         # Use cached page source if available, otherwise fetch
         if rg_page_source:
@@ -401,3 +373,41 @@ def try_researchgate(doi, title):
         print(f"[WARNING] ResearchGate scraping routine failed: {e}")
         print("[TIP] ResearchGate may be prompting a Captcha verification wall against scripts.")
     return False
+
+def try_researchgate(doi, title):
+    """Strategy 3: Automated extraction from ResearchGate."""
+    if not doi and not title:
+        print("\n--- [STRATEGY 3] Skipped (No DOI or Title available) ---")
+        return False
+    print("\n--- [STRATEGY 3] Scraping ResearchGate for Full-Text ---")
+
+    target_year = None
+    metadata = None
+    # Resolve DOI metadata if missing or for validation parameters
+    if doi:
+        metadata = resolve_doi_metadata(doi)
+        if metadata:
+            if not title:
+                title = metadata.get('title')
+                if title:
+                    print(f"[INFO] Resolved DOI to exact title: '{title}'")
+            target_year = metadata.get('year')
+
+    rg_profile_url, rg_page_source = _resolve_direct_doi(doi, title, target_year)
+
+    if not rg_profile_url and metadata:
+        rg_profile_url, rg_page_source = _resolve_by_author(doi, title, metadata, target_year)
+
+    # Step 1: Discover the paper link using search engine queries targeting ResearchGate.
+    if not rg_profile_url:
+        rg_profile_url, rg_page_source = _search_engines_for_profile(title, doi, target_year)
+
+    if rg_profile_url:
+        register_discovered_url(rg_profile_url, "ResearchGate Profile Page")
+
+    if not rg_profile_url:
+        print("[INFO] Could not map paper details to a definitive ResearchGate profile.")
+        return False
+
+    # Step 2: Scrape the actual profile page for open full-text assets
+    return _scrape_and_download_profile(rg_profile_url, rg_page_source, title, doi)
