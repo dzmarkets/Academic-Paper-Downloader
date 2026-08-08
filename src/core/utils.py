@@ -182,24 +182,22 @@ def check_first_run_changelog():
         except Exception:
             pass
             
-        # Return changelog text (v3.0.0.0 release notes without Metadata & Build Updates)
+        # Return changelog text (v3.0.1.0 release notes)
         changelog = (
             "======================================================================\n"
             f"         ACADEMIC PAPER DOWNLOADER - VERSION {VERSION} UPGRADE\n"
             "======================================================================\n\n"
-            "What's New in v3.0.0.0:\n\n"
-            "📚 Massive Journal Database Expansion\n"
-            "- 7 New Integrated Sources: CNRS, AERES, De Gruyter, Erih Plus, Journal Quality, Scopus LT, and Financial Times (FT50).\n"
-            "- Enhanced Coverage: Over 65,000+ journals resolved in a single click.\n"
-            "- Offline Resiliency: Hardcoded fallbacks to ensure lookup works offline.\n\n"
-            "🔍 Advanced Classification & Metadata Engine\n"
-            "- Multi-Category Indexing: Real-time classification for Category A (High) and Category B (Medium) journals.\n"
-            "- Title-Based Fallback Matching: Retrieve rankings by title when ISSN matching fails.\n"
-            "- E-ISSN Resolution: Displays and resolves journals where only E-ISSN is available.\n\n"
-            "🎨 Modernized User Interface Enhancements\n"
-            "- Refined Header Controls: Aligned \"Get Latest Releases\" and \"Update Journal Database\" side-by-side.\n"
-            "- Dynamic Database Update Tracker: Background size check for remote database changes.\n"
-            "- Enhanced Search Cards: Integrated full ISSN/E-ISSN values with Category colors.\n\n"
+            "What's New in v3.0.1.0:\n\n"
+            "🤖 Captcha Bypass & Headless Downloading (Tier 3)\n"
+            "- Headless Browser Fallback: New Tier 3 fallback downloader to bypass captchas.\n"
+            "- Native Curl Enhancements: Optimized curl fallback engine with robust timeout handling.\n\n"
+            "🔍 Advanced Search & Exact Match Ranking\n"
+            "- Intelligent Query Parsing: Expertly handles quoted and unquoted natural language queries.\n"
+            "- GUI Similarity Ranking: New Smart GUI Ranking algorithm scores API results.\n"
+            "- Crossref & Metadata Accuracy: Deeply improved metadata parsing for accurate DOIs.\n\n"
+            "🌐 Database & Source Expansions\n"
+            "- Sci-Hub Mirror Updates: Updated and hardened the Sci-Hub resolution engine.\n"
+            "- Improved Installer: Perfectly synced installer configuration to v3.0.1.0.\n\n"
             "======================================================================\n"
         )
         return changelog
