@@ -214,6 +214,7 @@ def update_pagination_states():
 def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widget, root_widget, journal_url=None):
     """Run the download pipeline in a background thread and output logs to the GUI."""
     state.discovered_urls = []
+    state.download_success_event.clear()  # Reset race state for this new download
     if journal_url:
         register_discovered_url(journal_url, "Journal Homepage Fallback")
     

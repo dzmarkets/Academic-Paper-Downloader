@@ -122,10 +122,23 @@ def download_file(url, filename, referer=None, cookie=None, category="paper"):
                 except:
                     pass
             return False
-        
-    # Ensure content is saved to disk
-    with open(filename, "wb") as out_file:
-        out_file.write(content)
+
+    # Parallel race guard: bail out if another engine already won
+    if state.download_success_event.is_set():
+        print(f"[RACE] Another source already won. Discarding result.")
+        return False
+
+    with state.download_write_lock:
+        # Double-check inside the lock to handle simultaneous finishers
+        if state.download_success_event.is_set():
+            print(f"[RACE] Lost the write race. Discarding result.")
+            return False
+
+        # Ensure content is saved to disk
+        with open(filename, "wb") as out_file:
+            out_file.write(content)
+        state.download_success_event.set()  # Signal: we won the race
+
     print(f"[SUCCESS] Saved flawlessly inside Downloads folder: '{os.path.basename(filename)}'")
     print(f"[INFO] Absolute Location: {filename}")
     if state.GUI_MODE:

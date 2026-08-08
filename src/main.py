@@ -1,4 +1,5 @@
 import sys
+import concurrent.futures
 import urllib.parse
 from src.core import state
 from src.core.config import _TF_DOI_PREFIXES
@@ -27,14 +28,74 @@ from src.engines import (
     try_download_book
 )
 
+
+def _run_race(sources, update_status, label_text):
+    """Run a list of (name, fn, *args) download sources in parallel.
+
+    Returns True as soon as one callable returns True (sets
+    state.download_success_event) or False if all sources are exhausted.
+
+    Parameters
+    ----------
+    sources      : list of (name: str, fn: callable, *args)
+    update_status: callable(text, fg) — updates the GUI status label
+    label_text   : str — status bar message shown during the race
+    """
+    if not sources:
+        return False
+
+    update_status(label_text)
+
+    def _worker(name, fn, args):
+        if state.abort_requested or state.download_success_event.is_set():
+            return False
+        print(f"[RACE] Starting: {name}")
+        try:
+            result = fn(*args)
+        except Exception as e:
+            print(f"[RACE] {name} raised: {e}")
+            result = False
+        if result:
+            # Set the event here so the poll loop wakes up immediately even
+            # when the engine doesn't go through download_file() (e.g. tests).
+            state.download_success_event.set()
+            print(f"[RACE] \u2705 Winner: {name}")
+        return result
+
+    max_workers = min(len(sources), 8)
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=max_workers)
+    try:
+        futures = {
+            executor.submit(_worker, name, fn, tuple(args)): name
+            for name, fn, *args in sources
+        }
+        # Poll every 200 ms; break as soon as we have a winner or abort
+        while not state.download_success_event.is_set() and not state.abort_requested:
+            done, _ = concurrent.futures.wait(
+                futures, timeout=0.2,
+                return_when=concurrent.futures.ALL_COMPLETED
+            )
+            if len(done) == len(futures):
+                break  # All done, none succeeded
+    finally:
+        # If we have a winner or an abort, don't block waiting for slow threads.
+        early_exit = state.download_success_event.is_set() or state.abort_requested
+        executor.shutdown(wait=not early_exit, cancel_futures=early_exit)
+
+    return state.download_success_event.is_set()
+
+
 def run_download_pipeline(target_doi, target_title, status_label=None, root_widget=None):
-    """Run through all download strategies sequentially until one succeeds."""
+    """Run all download strategies in a two-tier parallel race until one succeeds."""
     def update_status(text, fg="#00ADB5"):
         if status_label:
             if root_widget:
                 root_widget.after(0, lambda: status_label.config(text=text, fg=fg))
             else:
                 status_label.config(text=text, fg=fg)
+
+    # Always reset race state at the top so back-to-back downloads work correctly
+    state.download_success_event.clear()
 
     if state.abort_requested:
         raise InterruptedError("Cancelled by user")
@@ -53,132 +114,87 @@ def run_download_pipeline(target_doi, target_title, status_label=None, root_widg
     if state.abort_requested:
         raise InterruptedError("Cancelled by user")
 
-    success = False
     is_book_identifier = target_doi and any(target_doi.lower().startswith(prefix) for prefix in ("ia:", "isbn:", "ol:"))
 
     if is_book_identifier:
         update_status("Querying Book Repositories...")
-        success = try_download_book(target_doi, target_title, status_label=status_label, root_widget=root_widget)
+        return try_download_book(target_doi, target_title, status_label=status_label, root_widget=root_widget)
+
+    # ------------------------------------------------------------------
+    # TIER 1 — Fast API race (all lightweight sources run simultaneously)
+    # ------------------------------------------------------------------
+    tier1_sources = []
+
+    if target_doi:
+        # DOI-specific fast-path sources
+        if target_doi.lower().startswith("10.1371/"):
+            tier1_sources.append(("PLOS", try_plos, target_doi, target_title))
+        if target_doi.lower().startswith("10.1101/"):
+            tier1_sources.append(("BioRxiv", try_biorxiv, target_doi, target_title))
+
+        # Direct URL shortcut (not for bare ResearchGate publication pages)
+        if (target_doi.startswith("http://") or target_doi.startswith("https://")) and \
+                ("researchgate.net" not in target_doi or "/links/" in target_doi):
+            def _direct_url_download(doi, title):
+                result = download_file(doi, clean_filename(title or "Downloaded_Paper") + ".pdf")
+                if result:
+                    print(f"[SUCCESS] Directly downloaded PDF from URL: {doi}")
+                return result
+            tier1_sources.append(("Direct URL", _direct_url_download, target_doi, target_title))
+
+        tier1_sources += [
+            ("Publisher Direct",  try_publisher_direct,  target_doi, target_title),
+            ("Unpaywall",         try_unpaywall,          target_doi),
+            ("Semantic Scholar",  try_semantic_scholar,   target_doi, target_title),
+            ("Zenodo",            try_zenodo,             target_doi, target_title),
+            ("DOAJ",              try_doaj,               target_doi, target_title),
+            ("CORE",              try_core,               target_doi, target_title),
+            ("SSRN",              try_ssrn,               target_doi, target_title),
+            ("arXiv",             try_arxiv,              target_doi, target_title),
+            ("ASTESJ",            try_astesj,             target_doi, target_title),
+            ("Europe PMC",        try_europe_pmc,         target_doi, target_title),
+        ]
+
+        # Taylor & Francis only for known T&F DOI prefixes (fast HTTP, so stays in Tier 1)
+        if any(target_doi.startswith(p) for p in _TF_DOI_PREFIXES):
+            tier1_sources.append(("Taylor & Francis", try_download_taylorfrancis, target_doi, target_title))
     else:
-        if target_doi:
-            # Try fast-path pattern matching (PLOS, BioRxiv) before requesting APIs
-            if not success and target_doi.lower().startswith("10.1371/"):
-                update_status("Querying PLOS Database...")
-                success = try_plos(target_doi, target_title)
-                
-            if not success and target_doi.lower().startswith("10.1101/"):
-                update_status("Querying BioRxiv/MedRxiv API...")
-                success = try_biorxiv(target_doi, target_title)
+        # Title-only: can still try the sources that accept a title without a DOI
+        tier1_sources += [
+            ("arXiv",    try_arxiv,    target_doi, target_title),
+            ("ASTESJ",   try_astesj,   target_doi, target_title),
+            ("Zenodo",   try_zenodo,   target_doi, target_title),
+            ("CORE",     try_core,     target_doi, target_title),
+        ]
 
-            if not success:
-                update_status("Querying Publisher Direct...")
-                success = try_publisher_direct(target_doi, target_title, status_label=status_label)
+    success = _run_race(tier1_sources, update_status, "\U0001f50d Searching all open sources...")
+    if success:
+        return True
 
-            # Try direct URL download first if target_doi is a direct URL (and not a ResearchGate publication url)
-            if not success and (target_doi.startswith("http://") or target_doi.startswith("https://")) and ("researchgate.net" not in target_doi or "/links/" in target_doi):
-                update_status("Directly Downloading URL...")
-                success = download_file(target_doi, clean_filename(target_title or "Downloaded_Paper") + ".pdf")
-                if success:
-                    print(f"[SUCCESS] Directly downloaded PDF from URL: {target_doi}")
+    if state.abort_requested:
+        raise InterruptedError("Cancelled by user")
 
-            # Try Taylor & Francis first for known T&F DOI prefixes
-            if not success and any(target_doi.startswith(p) for p in _TF_DOI_PREFIXES):
-                update_status("Querying Taylor & Francis API...")
-                success = try_download_taylorfrancis(target_doi, target_title)
+    # ------------------------------------------------------------------
+    # TIER 2 — Heavy scraper race (subprocess-heavy, run after Tier 1)
+    # ------------------------------------------------------------------
+    tier2_sources = [
+        ("Sci-Hub",            try_scihub,                    target_doi),
+        ("LibGen",             try_libgen,                    target_doi, target_title),
+        ("ResearchGate",       try_researchgate,              target_doi, target_title),
+        ("Taylor & Francis",   try_download_taylorfrancis,   target_doi, target_title),
+    ]
 
-            if not success:
-                update_status("Querying Unpaywall Database...")
-                success = try_unpaywall(target_doi)
+    success = _run_race(tier2_sources, update_status, "\U0001f512 Bypassing paywalls...")
+    if success:
+        return True
 
-            if state.abort_requested:
-                raise InterruptedError("Cancelled by user")
+    if state.abort_requested:
+        raise InterruptedError("Cancelled by user")
 
-            if not success:
-                update_status("Querying Semantic Scholar...")
-                success = try_semantic_scholar(target_doi, target_title)
+    # Final fallback: public-domain book repositories
+    update_status("Querying Book Repositories...")
+    return try_download_book(target_doi, target_title, status_label=status_label, root_widget=root_widget)
 
-            if state.abort_requested:
-                raise InterruptedError("Cancelled by user")
-
-            if not success:
-                update_status("Querying Zenodo...")
-                success = try_zenodo(target_doi, target_title)
-
-            if state.abort_requested:
-                raise InterruptedError("Cancelled by user")
-
-            if not success:
-                update_status("Querying DOAJ...")
-                success = try_doaj(target_doi, target_title)
-
-            if state.abort_requested:
-                raise InterruptedError("Cancelled by user")
-
-            if not success:
-                update_status("Querying CORE...")
-                success = try_core(target_doi, target_title)
-            
-            if state.abort_requested:
-                raise InterruptedError("Cancelled by user")
-                
-            if not success:
-                update_status("Querying SSRN...")
-                success = try_ssrn(target_doi, target_title)
-
-            if state.abort_requested:
-                raise InterruptedError("Cancelled by user")
-
-            if not success:
-                update_status("Querying Sci-Hub Shadows...")
-                success = try_scihub(target_doi)
-
-            if state.abort_requested:
-                raise InterruptedError("Cancelled by user")
-
-            if not success:
-                update_status("Querying Library Genesis...")
-                success = try_libgen(target_doi, target_title)
-            
-        if state.abort_requested:
-            raise InterruptedError("Cancelled by user")
-
-        if not success:
-            update_status("Querying arXiv...")
-            success = try_arxiv(target_doi, target_title)
-            
-        if state.abort_requested:
-            raise InterruptedError("Cancelled by user")
-
-        if not success:
-            update_status("Querying ASTESJ...")
-            success = try_astesj(target_doi, target_title)
-
-        if state.abort_requested:
-            raise InterruptedError("Cancelled by user")
-
-        if not success:
-            update_status("Querying Europe PMC...")
-            success = try_europe_pmc(target_doi, target_title)
-            
-        if state.abort_requested:
-            raise InterruptedError("Cancelled by user")
-
-        if not success:
-            update_status("Querying ResearchGate...")
-            success = try_researchgate(target_doi, target_title)
-            
-        if state.abort_requested:
-            raise InterruptedError("Cancelled by user")
-
-        # Final resort: check if it matches Gutenberg / OpenLibrary public domain books
-        if not success:
-            update_status("Querying Book Repositories...")
-            success = try_download_book(target_doi, target_title, status_label=status_label, root_widget=root_widget)
-            
-        if state.abort_requested:
-            raise InterruptedError("Cancelled by user")
-
-    return success
 
 
 def main():

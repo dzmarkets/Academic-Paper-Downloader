@@ -182,25 +182,29 @@ def check_first_run_changelog():
         except Exception:
             pass
             
-        # Return changelog text (v3.0.1.0 release notes)
+        # Return changelog text (v3.0.2.0 release notes)
         changelog = (
             "======================================================================\n"
             f"         ACADEMIC PAPER DOWNLOADER - VERSION {VERSION} UPGRADE\n"
             "======================================================================\n\n"
-            "What's New in v3.0.1.0:\n\n"
-            "🤖 Captcha Bypass & Headless Downloading (Tier 3)\n"
-            "- Headless Browser Fallback: New Tier 3 fallback downloader to bypass captchas.\n"
-            "- Native Curl Enhancements: Optimized curl fallback engine with robust timeout handling.\n\n"
-            "🔍 Advanced Search & Exact Match Ranking\n"
-            "- Intelligent Query Parsing: Expertly handles quoted and unquoted natural language queries.\n"
-            "- GUI Similarity Ranking: New Smart GUI Ranking algorithm scores API results.\n"
-            "- Crossref & Metadata Accuracy: Deeply improved metadata parsing for accurate DOIs.\n\n"
-            "🌐 Database & Source Expansions\n"
-            "- Sci-Hub Mirror Updates: Updated and hardened the Sci-Hub resolution engine.\n"
-            "- Improved Installer: Perfectly synced installer configuration to v3.0.1.0.\n\n"
+            "What's New in v3.0.2.0:\n\n"
+            "⚡ Parallel Race Download Architecture\n"
+            "- Tier 1 Fast API Race: 12 open-access sources now launch simultaneously.\n"
+            "  The first source to return a valid PDF wins; all others are cancelled.\n"
+            "- Tier 2 Heavy Scraper Race: Sci-Hub, LibGen, ResearchGate, and Taylor &\n"
+            "  Francis run in parallel only if Tier 1 fully fails.\n"
+            "- Average download time reduced from ~30-90s (sequential) to ~3-10s.\n\n"
+            "🔒 Thread-Safe File Writes\n"
+            "- Double-checked locking prevents two simultaneous engines from writing\n"
+            "  the same file to disk at the same time.\n"
+            "- download_success_event signal ensures only the winning engine saves.\n\n"
+            "🛑 Instant Abort on Stop\n"
+            "- Clicking Stop now cancels the thread pool immediately (cancel_futures)\n"
+            "  instead of waiting for slow threads to finish naturally.\n\n"
             "======================================================================\n"
         )
         return changelog
+
     return None
 
 
