@@ -1,10 +1,15 @@
 # 📚 Academic Paper Downloader
 
-> **Version 3.0.0.0**
+> **Version 3.0.1.0**
 
-[![Download Setup Installer](https://img.shields.io/badge/Download-Setup%20Installer-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v3.0.0.0/AcademicPaperDownloader_Setup.exe)
+[![Download Setup Installer v3.0.1.0](https://img.shields.io/badge/Download-v3.0.1.0-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v3.0.1.0/AcademicPaperDownloader_Setup.exe)
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
+
+### 🆕 What's New in Version 3.0.1.0
+- **Version Tracking**: Improved application versioning and metadata across configuration and build files.
+- **Installer Enhancements**: Enhanced the setup wizard and executable with accurately synced version tracking.
+- **Maintenance**: General bug fixes and stability improvements for the download pipeline.
 
 ---
 
@@ -87,8 +92,8 @@ python paper.py
 
 2. **Compile the Installer with Inno Setup**:
    Open Inno Setup and compile `installer.iss`, or compile it via the command line:
-   ```bash
-   "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss
+   ```powershell
+   & "C:\Users\yazid\AppData\Local\Programs\Inno Setup 6\ISCC.exe" installer.iss   
    ```
    This generates the setup executable `AcademicPaperDownloader_Setup.exe` in the `Output\` folder.
 
