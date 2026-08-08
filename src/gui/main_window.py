@@ -115,7 +115,7 @@ def open_url_in_browser(url):
 
 
 def score_and_rank_results(results):
-    """Sort and rank results based on Open Access status, recency, and journal diversity."""
+    """Sort and rank results based on Title Similarity (highest priority), Open Access status, and recency."""
     import datetime
     current_year = datetime.datetime.now().year
     
@@ -123,17 +123,21 @@ def score_and_rank_results(results):
     for item in results:
         score = 0.0
         
-        # 1. Open Access boost
+        # 1. Title Similarity (HIGHEST PRIORITY: 0 to 1000 points)
+        sim = item.get('similarity', 0.0)
+        score += sim * 1000.0
+        
+        # 2. Open Access boost (Secondary priority)
         is_oa = item.get('is_oa', False)
         journal_name = item.get('journal', '').lower()
         is_known_oa = any(oa in journal_name for oa in ["mdpi", "frontiers", "plos", "springer open", "biomed central", "scielo", "doaj"])
         
         if is_oa:
-            score += 100.0
+            score += 50.0
         if is_known_oa:
-            score += 80.0
+            score += 30.0
             
-        # 2. Recency boost
+        # 3. Recency boost
         year_str = item.get('year', 'n.d.')
         year_val = None
         match = re.search(r'\b(19\d{2}|20\d{2})\b', year_str)
@@ -143,21 +147,25 @@ def score_and_rank_results(results):
         if year_val:
             year_diff = current_year - year_val
             if year_diff >= 0:
-                score += max(0.0, 50.0 - (year_diff * 4.0))
+                score += max(0.0, 20.0 - (year_diff * 1.0))
         else:
-            score += 10.0
+            score += 5.0
             
         scored_items.append((score, item))
         
-    # Sort items by score descending
+    # Sort items by total score descending
     scored_items.sort(key=lambda x: x[0], reverse=True)
     
-    # 3. Diversity filtering: greedily select unseen journals first
+    # 4. Extract sorted items (preserve exact similarity matches at top without demoting them)
+    exact_matches = [item for score, item in scored_items if item.get('similarity', 0.0) >= 0.70]
+    other_items = [item for score, item in scored_items if item.get('similarity', 0.0) < 0.70]
+    
+    # Diversity filter applied only to non-exact keyword matches
     selected_items = []
     skipped_items = []
     seen_journals = set()
     
-    for score, item in scored_items:
+    for item in other_items:
         journal = item.get('journal', '').strip().lower()
         if journal and journal not in seen_journals:
             selected_items.append(item)
@@ -165,7 +173,8 @@ def score_and_rank_results(results):
         else:
             skipped_items.append(item)
             
-    return selected_items + skipped_items
+    return exact_matches + selected_items + skipped_items
+
 
 
 def reset_gui_state(run_button, entry_widget):
@@ -223,16 +232,41 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
         target_title = ident
         
     class RedirectText:
-        def __init__(self, text_widget):
+        """
+        Thread-safe stdout redirector for the pipeline log widget.
+
+        The download pipeline runs on a background thread. Tkinter widgets
+        must ONLY be touched from the main thread. This class queues every
+        write via root.after(0, ...) so the Tk event loop applies the
+        insertion safely — even when Tier 3 headless Chrome blocks the
+        worker thread for 20+ seconds.
+        """
+        def __init__(self, text_widget, root):
             self.text_widget = text_widget
+            self.root = root
         def write(self, string):
-            self.text_widget.insert('end', string)
-            self.text_widget.see('end')
+            # Tkinter (Tcl/Tk <= 8.6) crashes when inserting characters > U+FFFF on Windows.
+            clean_str = "".join(c for c in string if ord(c) <= 0xFFFF)
+            
+            # Use default argument (s=clean_str) to bind the variable immediately
+            # rather than late-binding in the closure.
+            def _insert(s=clean_str):
+                try:
+                    self.text_widget.insert('end', s)
+                    self.text_widget.see('end')
+                except Exception:
+                    pass
+                    
+            try:
+                self.root.after(0, _insert)
+            except Exception:
+                pass  # Widget already destroyed (app closing)
+                
         def flush(self):
             pass
-            
+
     old_stdout = sys.stdout
-    sys.stdout = RedirectText(log_widget)
+    sys.stdout = RedirectText(log_widget, root_widget)
     
     try:
         if state.abort_requested:
@@ -240,7 +274,7 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
 
         if not target_doi and target_title:
             print(f"Beginning Processing Pipeline for Title: '{target_title}'...")
-            status_label.config(text="Resolving Title DOI...", fg="#00ADB5")
+            root_widget.after(0, lambda: status_label.config(text="Resolving Title DOI...", fg="#00ADB5"))
             target_doi = resolve_title_to_doi(target_title)
         else:
             print(f"Beginning Processing Pipeline for DOI: {target_doi}...")
@@ -262,14 +296,14 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
         success = run_download_pipeline(target_doi, target_title, status_label=status_label, root_widget=root_widget)
 
         if success:
-            status_label.config(text="Document Pulled Successfully!", fg="#4CAF50")
+            root_widget.after(0, lambda: status_label.config(text="Document Pulled Successfully!", fg="#4CAF50"))
             print("\n==============================================")
             print("[PROCESS FINISHED] Document pulled successfully.")
             print("==============================================")
         else:
             # All strategies failed — report failure clearly, no browser popup
             valid_fallbacks = sorted(state.discovered_urls, key=lambda x: x[1])
-            status_label.config(text="Download Failed. Publisher blocked all channels.", fg="#F44336")
+            root_widget.after(0, lambda: status_label.config(text="Download Failed. Publisher blocked all channels.", fg="#F44336"))
             print("\n==============================================")
             print("[PROCESS FAILED] Could not retrieve a downloadable PDF.")
             if valid_fallbacks:
@@ -279,16 +313,16 @@ def run_pipeline_bg(identifier, status_label, log_widget, run_button, entry_widg
             print("==============================================")
             
     except InterruptedError:
-        status_label.config(text="Research Stopped.", fg="#FF9800")
+        root_widget.after(0, lambda: status_label.config(text="Research Stopped.", fg="#FF9800"))
         print("\n==============================================")
         print("[PROCESS CANCELLED] Stopped by user request.")
         print("==============================================")
     except Exception as ex:
-        status_label.config(text="An error occurred during download.", fg="#F44336")
+        root_widget.after(0, lambda: status_label.config(text="An error occurred during download.", fg="#F44336"))
         print(f"\n[ERROR] Thread failed: {ex}")
     finally:
         sys.stdout = old_stdout
-        reset_gui_state(run_button, entry_widget)
+        root_widget.after(0, lambda: reset_gui_state(run_button, entry_widget))
 
 
 def create_app_mutex():
@@ -882,6 +916,11 @@ def launch_gui():
     def start_background_prefetch(query, clear_cache=True):
         global active_search_query, cached_research_results, prefetched_pages, pagination_start_page, max_available_page
         active_search_query = query
+        try:
+            log_area.delete('1.0', 'end')
+            _force_show_console()
+        except Exception:
+            pass
         if clear_cache:
             cached_research_results.clear()
             prefetched_pages.clear()
@@ -891,144 +930,179 @@ def launch_gui():
         else:
             max_available_page = None
             update_pagination_buttons_ui()
+
         
         def prefetch_loop():
             global active_search_query, max_available_page
             
-            start_p = pagination_start_page
-            end_p = pagination_start_page + 9
+            class RedirectText:
+                def __init__(self, text_widget):
+                    self.text_widget = text_widget
+                def write(self, string):
+                    try:
+                        self.text_widget.insert('end', string)
+                        self.text_widget.see('end')
+                    except Exception:
+                        pass
+                def flush(self):
+                    pass
+
+            old_stdout = sys.stdout
+            sys.stdout = RedirectText(log_area)
             
-            for p in range(start_p, end_p + 1):
-                if state.abort_requested:
-                    break
-                if active_search_query != query:
-                    break
-                    
-                # Skip already cached pages (e.g. page 10 when shifting to 10-19 range)
-                if p in cached_research_results and cached_research_results[p]:
-                    continue
-                    
-                try:
-                    # 1. Fetch priority works
-                    yazid_works = fetch_yazid_rg_publications()
-                    assma_works = fetch_assma_publications()
-                    priority_works = yazid_works + assma_works
-                    
-                    # Deduplicate priority works by title to prevent duplicates
-                    seen_priority = set()
-                    unique_priority = []
-                    for w in priority_works:
-                        t_low = w['title'].lower().strip()
-                        if t_low not in seen_priority:
-                            seen_priority.add(t_low)
-                            unique_priority.append(w)
-                    priority_works = unique_priority
-                    
-                    # 2. Check for matches against keywords
-                    stripped = query.strip()
-                    is_exact = (stripped.startswith('"') and stripped.endswith('"')) or (stripped.startswith("'") and stripped.endswith("'"))
-                    exact_phrase = stripped.strip('"').strip("'").strip() if is_exact else None
-                    
-                    matching_priority = []
-                    query_words = [w.lower() for w in re.split(r'\W+', query) if len(w) > 2]
-                    
-                    for work in priority_works:
-                        title_lower = work['title'].lower()
-                        authors_lower = work['authors'].lower()
-                        is_match = False
+            try:
+                start_p = pagination_start_page
+                end_p = pagination_start_page + 9
+                
+                for p in range(start_p, end_p + 1):
+                    if state.abort_requested:
+                        break
+                    if active_search_query != query:
+                        break
                         
-                        if not query_words:
-                            is_match = True
-                        elif "yazid" in query.lower() or "youcef" in query.lower():
-                            if "yazid" in authors_lower or "youcef" in authors_lower:
+                    # Skip already cached pages
+                    if p in cached_research_results and cached_research_results[p]:
+                        continue
+                        
+                    try:
+                        # 1. Fetch priority profile works ONLY if query specifies author names
+                        q_low = query.lower()
+                        priority_works = []
+                        if any(k in q_low for k in ("yazid", "youcef", "assma", "derdoukh")):
+                            yazid_works = fetch_yazid_rg_publications() if ("yazid" in q_low or "youcef" in q_low) else []
+                            assma_works = fetch_assma_publications() if ("assma" in q_low or "derdoukh" in q_low) else []
+                            priority_works = yazid_works + assma_works
+                        
+                        # Deduplicate priority works by title
+                        seen_priority = set()
+                        unique_priority = []
+                        for w in priority_works:
+                            t_low = w['title'].lower().strip()
+                            if t_low not in seen_priority:
+                                seen_priority.add(t_low)
+                                unique_priority.append(w)
+                        priority_works = unique_priority
+                        
+                        matching_priority = []
+                        query_words = [w.lower() for w in re.split(r'\W+', query) if len(w) > 2]
+                        
+                        # Detect exact phrase in quotes for priority matching
+                        stripped = query.strip()
+                        is_exact = (stripped.startswith('"') and stripped.endswith('"')) or (stripped.startswith("'") and stripped.endswith("'"))
+                        exact_phrase = stripped.strip('"').strip("'").strip() if is_exact else None
+
+                        for work in priority_works:
+                            title_lower = work['title'].lower()
+                            authors_lower = work['authors'].lower()
+                            is_match = False
+                            
+                            if not query_words:
                                 is_match = True
-                        elif "assma" in query.lower() or "derdoukh" in query.lower():
-                            if "assma" in authors_lower or "derdoukh" in authors_lower:
-                                is_match = True
-                        elif exact_phrase:
-                            phrase = exact_phrase.lower()
-                            if (phrase in title_lower) or (phrase in authors_lower):
-                                is_match = True
-                        else:
-                            for word in query_words:
-                                if word in title_lower or word in authors_lower:
+                            elif "yazid" in query.lower() or "youcef" in query.lower():
+                                if "yazid" in authors_lower or "youcef" in authors_lower:
                                     is_match = True
-                                    break
-                                    
-                        if is_match:
-                            matching_priority.append(work)
-                    
-                    effective_priority = min(5, len(matching_priority))
-                    if p == 1:
-                        adjusted_offset = 0
-                    else:
-                        adjusted_offset = (p - 1) * 5 - effective_priority
+                            elif "assma" in query.lower() or "derdoukh" in query.lower():
+                                if "assma" in authors_lower or "derdoukh" in authors_lower:
+                                    is_match = True
+                            elif exact_phrase:
+                                phrase = exact_phrase.lower()
+                                if (phrase in title_lower) or (phrase in authors_lower):
+                                    is_match = True
+                            else:
+                                for word in query_words:
+                                    if word in title_lower or word in authors_lower:
+                                        is_match = True
+                                        break
+                                        
+                            if is_match:
+                                matching_priority.append(work)
                         
-                    # Fetch results from Crossref, OpenAlex, and Scholar
-                    crossref_results = search_crossref(query, offset=adjusted_offset, rows=15, type_filter="Papers", author="")
-                    openalex_results = search_openalex_keyword(query, offset=adjusted_offset, rows=15, type_filter="Papers")
-                    scholar_results = search_google_scholar(query, offset=adjusted_offset, rows=15)
-                    
-                    results = []
-                    results.extend(crossref_results)
-                    for r in openalex_results:
-                        if not any(r['title'].lower() in x['title'].lower() or x['title'].lower() in r['title'].lower() or (r['doi'] and r['doi'] == x['doi']) for x in results):
-                            results.append(r)
-                    for r in scholar_results:
-                        if not any(r['title'].lower() in x['title'].lower() or x['title'].lower() in r['title'].lower() or (r['doi'] and r['doi'] == x['doi']) for x in results):
-                            results.append(r)
-                            
-                    # Prioritize and rank results
-                    results = score_and_rank_results(results)
-                            
-                    if p == 1 and matching_priority:
-                        cleaned_results = []
-                        for r in results:
-                            if not any(y['title'].lower() in r['title'].lower() or r['title'].lower() in y['title'].lower() for y in matching_priority):
-                                cleaned_results.append(r)
-                        results = matching_priority + cleaned_results
-                        
-                    results = results[:5]
-                    
-                    if state.abort_requested or active_search_query != query:
-                        break
-                        
-                    cached_research_results[p] = results
-                    prefetched_pages.add(p)
-                    
-                    if p == 1:
-                        running_event.clear()  # Stop loading animation
-                        if results:
-                            root.after(0, lambda r=results: display_research_results(r, query, 1))
-                            root.after(0, lambda: status_label.config(text="Page 1 loaded. Fetching subsequent pages in background...", fg="#10B981"))
+                        effective_priority = min(5, len(matching_priority))
+                        if p == 1:
+                            adjusted_offset = 0
                         else:
-                            max_available_page = 1
-                            root.after(0, lambda: display_research_results([], query, 1))
-                            break
-                    else:
+                            adjusted_offset = (p - 1) * 5 - effective_priority
+
+                        print(f"\n--- [PAGE {p}] Fetching academic sources ---")
+                            
+                        # Fetch results from Crossref, OpenAlex, and Scholar
+                        crossref_results = search_crossref(query, offset=adjusted_offset, rows=15, type_filter="Papers", author="")
+                        openalex_results = search_openalex_keyword(query, offset=adjusted_offset, rows=15, type_filter="Papers")
+                        scholar_results = search_google_scholar(query, offset=adjusted_offset, rows=15)
+
+                        
+                        results = []
+                        results.extend(crossref_results)
+                        for r in openalex_results:
+                            if not any(r['title'].lower() in x['title'].lower() or x['title'].lower() in r['title'].lower() or (r['doi'] and r['doi'] == x['doi']) for x in results):
+                                results.append(r)
+                        for r in scholar_results:
+                            if not any(r['title'].lower() in x['title'].lower() or x['title'].lower() in r['title'].lower() or (r['doi'] and r['doi'] == x['doi']) for x in results):
+                                results.append(r)
+                                
+                        # Prioritize and rank results
+                        results = score_and_rank_results(results)
+                        
                         if results:
-                            root.after(0, lambda p_idx=p: enable_page_button(p_idx))
-                        else:
-                            max_available_page = p - 1
-                            root.after(0, update_pagination_buttons_ui)
+                            top = results[0]
+                            print(f"[STEP 3/3] RANKED RESULTS — Page {p}: {len(results)} candidates")
+                            print(f"  - #1 Match: '{top['title'][:70]}...' " if len(top['title']) > 70 else f"  - #1 Match: '{top['title']}'")
+                            print(f"    DOI: {top.get('doi','N/A')} | Year: {top.get('year','N/A')} | Sim: {top.get('similarity',0.0):.2f}")
+                                
+                        if p == 1 and matching_priority:
+                            cleaned_results = []
+                            for r in results:
+                                if not any(y['title'].lower() in r['title'].lower() or r['title'].lower() in y['title'].lower() for y in matching_priority):
+                                    cleaned_results.append(r)
+                            results = matching_priority + cleaned_results
+                            
+                        results = results[:5]
+
+                        
+                        if state.abort_requested or active_search_query != query:
                             break
                             
-                except Exception as e:
-                    print(f"[WARNING] Prefetch page {p} failed: {e}")
-                    if p == 1:
-                        running_event.clear()
-                        root.after(0, lambda: status_label.config(text="Failed to fetch search results.", fg="#F44336"))
-                        root.after(0, lambda: reset_gui_state(run_button, entry))
-                        root.after(0, reset_inputs)
-                        break
+                        cached_research_results[p] = results
+                        prefetched_pages.add(p)
+                        
+                        if p == 1:
+                            running_event.clear()  # Stop loading animation
+                            if results:
+                                root.after(0, lambda r=results: display_research_results(r, query, 1))
+                                root.after(0, lambda: status_label.config(text="Page 1 loaded. Fetching subsequent pages in background...", fg="#10B981"))
+                            else:
+                                max_available_page = 1
+                                root.after(0, lambda: display_research_results([], query, 1))
+                                break
+                        else:
+                            if results:
+                                root.after(0, lambda p_idx=p: enable_page_button(p_idx))
+                            else:
+                                max_available_page = p - 1
+                                root.after(0, update_pagination_buttons_ui)
+                                break
+                                
+                    except Exception as e:
+                        print(f"[WARNING] Prefetch page {p} failed: {e}")
+                        if p == 1:
+                            running_event.clear()
+                            root.after(0, lambda: status_label.config(text="Failed to fetch search results.", fg="#F44336"))
+                            root.after(0, lambda: reset_gui_state(run_button, entry))
+                            root.after(0, reset_inputs)
+                            break
+
                         
                 import time
                 time.sleep(0.5)
+                
+            finally:
+                sys.stdout = old_stdout
                 
             running_event.clear()
             root.after(0, lambda: on_prefetch_complete(query))
             
         t_prefetch = threading.Thread(target=prefetch_loop)
+
         t_prefetch.daemon = True
         t_prefetch.start()
 

@@ -30,47 +30,77 @@ def resolve_title_to_doi(title):
     return None
 
 
-def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
-    """Query Crossref API for title+author keywords, return paginated list with OA check."""
+from src.core.utils import calculate_title_similarity, parse_search_query
+
+def search_crossref(query, offset=0, rows=5, type_filter="All", author="", year=None):
+    """Query Crossref API for title+author+year keywords, return paginated list with OA check."""
     if state.abort_requested:
         return []
     if not query:
         return []
-    # Detect exact match phrase in quotes (Google-like intelligent search)
-    stripped = query.strip()
-    is_exact = (stripped.startswith('"') and stripped.endswith('"')) or (stripped.startswith("'") and stripped.endswith("'"))
-    exact_phrase = stripped.strip('"').strip("'").strip() if is_exact else None
+        
+    # Auto-parse title, author, year if full structured query is passed
+    parsed = parse_search_query(query)
+    clean_query = parsed['title'] if parsed['title'] else query.strip()
+    clean_author = (author or parsed['author']).strip().strip('"').strip("'")
+    target_year = str(year or parsed['year']).strip() if (year or parsed['year']) else None
     
-    clean_query = stripped
-    clean_author = author.strip().strip('"').strip("'") if author else ""
-    # Retrieve more rows to ensure we have enough valid ones after filtering
-    crossref_rows = 30 + offset
-    # Build URL: use query.title when title given, query.author when author given
-    url = "https://api.crossref.org/works?"
-    if clean_query and clean_author:
-        url += f"query={urllib.parse.quote(clean_query)}&query.author={urllib.parse.quote(clean_author)}"
-    elif clean_query:
-        url += f"query={urllib.parse.quote(clean_query)}"
-    elif clean_author:
-        url += f"query.author={urllib.parse.quote(clean_author)}"
-    else:
-        return []
-    url += f"&rows={crossref_rows}&offset=0"
-    if type_filter == "Papers":
-        url += "&filter=type:journal-article,type:proceedings-article,type:posted-content"
-    elif type_filter == "Books":
-        url += "&filter=type:book"
+    # Detect exact match phrase in quotes
+    stripped = query.strip()
+    is_exact = (stripped.startswith('"') and stripped.endswith('"')) or (stripped.startswith("'") and stripped.endswith("'")) or bool(parsed['title'])
+    exact_phrase = parsed['title'] if parsed['title'] else (stripped.strip('"').strip("'").strip() if is_exact else None)
+    
+    print(f"[STEP 2/3] EXACT PHRASE SEARCH (Crossref API)")
+    print(f"  - Target Title : '{clean_query}'")
+    if clean_author:
+        print(f"  - Target Author: '{clean_author}'")
+    if target_year:
+        print(f"  - Target Year  : {target_year}")
+        
+    crossref_rows = 40 + offset
+    
+    # Helper to execute Crossref API call
+    def execute_query(query_param_str):
+        filters = []
+        if type_filter == "Papers":
+            filters.append("type:journal-article,type:proceedings-article,type:posted-content")
+        elif type_filter == "Books":
+            filters.append("type:book")
+        if target_year and target_year.isdigit() and len(target_year) == 4:
+            y = int(target_year)
+            filters.append(f"from-pub-date:{y-1}-01-01,until-pub-date:{y+1}-12-31")
+        filter_str = f"&filter={','.join(filters)}" if filters else ""
+        req_url = f"https://api.crossref.org/works?{query_param_str}{filter_str}&rows={crossref_rows}&offset=0"
+        try:
+            req = urllib.request.Request(req_url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=8) as response:
+                return json.loads(response.read().decode()).get('message', {}).get('items', [])
+        except Exception as e:
+            print(f"[WARNING] Crossref stage failed ({req_url}): {e}")
+            return []
+
+    # Stage 1: Try exact title search first
+    print(f"[STEP 2/3] PRIORITY 1: EXACT TITLE PHRASE SEARCH")
+    print(f"  - Target Title : '{clean_query}'")
+    if target_year:
+        print(f"  - Target Year  : {target_year}")
+        
+    items = execute_query(f"query.title={urllib.parse.quote(clean_query)}")
+    
+    # Stage 2: Fallback to general keyword query if Stage 1 yields 0 items
+    if not items:
+        print(f"[STEP 3/3] PRIORITY 2: KEYWORD SEARCH FALLBACK")
+        print(f"  - Query Keywords: '{clean_query}'")
+        items = execute_query(f"query={urllib.parse.quote(clean_query)}")
+
+
+
     try:
         if state.abort_requested:
             return []
-        req = urllib.request.Request(url, headers=HEADERS)
-        with urllib.request.urlopen(req, timeout=10) as response:
-            if state.abort_requested:
-                return []
-            data = json.loads(response.read().decode())
-        
-        items = data.get('message', {}).get('items', [])
+            
         filtered_items = []
+
         for item in items:
             # If type_filter is Papers, only keep journal-article, proceedings-article, and posted-content (preprints)
             if type_filter == "Papers":
@@ -135,6 +165,8 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
             if not journal_details:
                 journal_details = get_journal_details_by_title(journal)
 
+            sim_score = calculate_title_similarity(clean_query, title) if clean_query else 1.0
+
             filtered_items.append({
                 'title': title,
                 'doi': doi,
@@ -144,11 +176,17 @@ def search_crossref(query, offset=0, rows=5, type_filter="All", author=""):
                 'is_oa': False,
                 'journal_url': journal_url,
                 'journal_details': journal_details,
-                'issns': issn_list
+                'issns': issn_list,
+                'similarity': sim_score
             })
+            
+        # Sort items by similarity score descending if a query title was given
+        if clean_query:
+            filtered_items.sort(key=lambda x: x.get('similarity', 0.0), reverse=True)
             
         # Page the filtered items
         page_items = filtered_items[offset : offset + rows]
+
         
         for idx, item in enumerate(page_items):
             item['original_index'] = idx

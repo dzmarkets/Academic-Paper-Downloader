@@ -38,7 +38,7 @@ def fetch_html_resilient(url):
         if state.abort_requested:
             return ""
         req = urllib.request.Request(url, headers=HEADERS)
-        with urllib.request.urlopen(req, timeout=12) as response:
+        with urllib.request.urlopen(req, timeout=5) as response:
             if state.abort_requested:
                 return ""
             return response.read().decode('utf-8', errors='ignore')
@@ -46,7 +46,8 @@ def fetch_html_resilient(url):
         print(f"[WARNING] urllib fetch failed: {e}. Trying native system curl fallback...")
         try:
             import subprocess
-            cmd = ["curl", "-s", "-L", "-H", f"User-Agent: {HEADERS['User-Agent']}", "-H", f"Accept: {HEADERS['Accept']}", url]
+            cmd = ["curl", "-s", "-L", "--max-time", "5", "-H", f"User-Agent: {HEADERS['User-Agent']}", "-H", f"Accept: {HEADERS['Accept']}", url]
+
             extra_kwargs = {'creationflags': 0x08000000} if os.name == 'nt' else {}
             res = subprocess.run(cmd, capture_output=True, **extra_kwargs)
             if res.returncode == 0:

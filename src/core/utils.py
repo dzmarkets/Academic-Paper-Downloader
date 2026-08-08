@@ -204,3 +204,99 @@ def check_first_run_changelog():
         )
         return changelog
     return None
+
+
+def calculate_title_similarity(t1, t2):
+    """Calculate normalized similarity ratio (0.0 to 1.0) between two title strings."""
+    if not t1 or not t2:
+        return 0.0
+    import difflib
+    clean_t1 = re.sub(r'[^\w\s]', '', str(t1).lower()).strip()
+    clean_t2 = re.sub(r'[^\w\s]', '', str(t2).lower()).strip()
+    if clean_t1 == clean_t2:
+        return 1.0
+    if len(clean_t2) > 10 and clean_t2 in clean_t1:
+        return 0.95
+    if len(clean_t1) > 10 and clean_t1 in clean_t2:
+        return 0.95
+    return difflib.SequenceMatcher(None, clean_t1, clean_t2).ratio()
+
+
+
+def parse_search_query(raw_query):
+    """Parse raw query into title, author, year, and doi components (works with or without quotes).
+    
+    Handles unquoted inputs like:
+    Particle swarm optimization with adaptive mutation for multimodal optimization Hui Wang, Wenjun Wang, Zhijian Wu, 2013
+    10.1016/j.amc.2013.06.074 Particle swarm optimization 2013
+    """
+    if not raw_query:
+        return {'title': '', 'author': '', 'year': None, 'doi': None, 'clean_query': ''}
+        
+    s = raw_query.strip()
+    
+    # 1. Extract embedded DOI if present
+    doi = None
+    doi_match = re.search(r'\b(10\.\d{4,9}/[-._;()/:A-Za-z0-9]+)', s)
+    if doi_match:
+        doi = doi_match.group(1).rstrip('.,;)')
+        s = s.replace(doi_match.group(0), '').strip()
+        
+    # 2. Extract publication year (4-digit number between 1900 and 2099)
+    year = None
+    year_match = re.search(r'\b(19\d{2}|20\d{2})\b', s)
+    if year_match:
+        year = year_match.group(1)
+        s = s[:year_match.start()] + s[year_match.end():]
+        s = re.sub(r'\s*,\s*$', '', s.strip())
+        
+    # 3. Extract title & author
+    title = ''
+    author = ''
+    quote_match = re.search(r'["\']([^"\']+)["\']', s)
+    if quote_match:
+        title = quote_match.group(1).strip()
+        remaining = (s[:quote_match.start()] + ' ' + s[quote_match.end():]).strip()
+        author = re.sub(r'^[\s,]+|[\s,]+$', '', remaining)
+    else:
+        # Unquoted input: check for comma-separated authors at the end
+        if ',' in s:
+            # Find boundary where author names start (e.g. capitalized Names separated by commas)
+            comma_idx = s.find(',')
+            # Look backwards from first comma for start of author name (e.g. "Hui Wang, ...")
+            pre_comma = s[:comma_idx].rstrip()
+            words = pre_comma.split()
+            # If last 1-2 words before comma are capitalized name (like Hui Wang), separate title and author
+            if len(words) >= 3 and words[-1][0].isupper() and words[-2][0].isupper():
+                title = ' '.join(words[:-2]).strip()
+                author = ' '.join(words[-2:]) + s[comma_idx:]
+            else:
+                title = pre_comma
+                author = s[comma_idx+1:].strip()
+        else:
+            title = s.strip()
+            author = ''
+
+            
+    print("\n" + "="*70)
+    print(f"[STEP 1/3] SEARCH QUERY ANALYSIS & ENTITY EXTRACTION")
+    print(f"  - Raw Input       : {raw_query}")
+    if doi:
+        print(f"  - Extracted DOI   : {doi}")
+    if year:
+        print(f"  - Extracted Year  : {year}")
+    if author:
+        print(f"  - Extracted Author: {author}")
+    print(f"  - Target Title/Text: '{title}'")
+    print("="*70)
+            
+    return {
+        'title': title,
+        'author': author,
+        'year': year,
+        'doi': doi,
+        'clean_query': raw_query.strip()
+    }
+
+
+

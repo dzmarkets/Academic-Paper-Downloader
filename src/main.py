@@ -31,7 +31,10 @@ def run_download_pipeline(target_doi, target_title, status_label=None, root_widg
     """Run through all download strategies sequentially until one succeeds."""
     def update_status(text, fg="#00ADB5"):
         if status_label:
-            status_label.config(text=text, fg=fg)
+            if root_widget:
+                root_widget.after(0, lambda: status_label.config(text=text, fg=fg))
+            else:
+                status_label.config(text=text, fg=fg)
 
     if state.abort_requested:
         raise InterruptedError("Cancelled by user")
