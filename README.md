@@ -1,10 +1,14 @@
 # 📚 Academic Paper Downloader
 
-> **Version 3.0.2.0**
+> **Version 3.0.2.1**
 
-[![Download Setup Installer v3.0.2.0](https://img.shields.io/badge/Download-v3.0.2.0-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v3.0.2.0/AcademicPaperDownloader_Setup.exe)
+[![Download Setup Installer v3.0.2.1](https://img.shields.io/badge/Download-v3.0.2.1-8B5CF6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/dzmarkets/Academic-Paper-Downloader/releases/download/v3.0.2.1/AcademicPaperDownloader_Setup.exe)
 
 A premium, high-performance desktop application built in Python/Tkinter designed to search, resolve, and download academic papers directly from multiple sources (including ResearchGate and OpenAlex) using advanced crawling pipelines, Cloudflare bypass mechanisms, and a modern user interface.
+
+### 🆕 What's New in Version 3.0.2.1
+- **🛠️ OpenAlex API Rate Limit Fix**: Solved HTTP 429 Too Many Requests errors. The app now dynamically generates a unique `mailto` identifier for the OpenAlex polite pool on every search to completely bypass global rate-limiting buckets.
+- **🔄 Exponential Backoff Retry**: Added robust retry logic to the search pipeline to gracefully handle temporary server blocks.
 
 ### 🆕 What's New in Version 3.0.2.0
 - **⚡ Parallel Race Download Engine**: All 12 open-access sources (Unpaywall, Semantic Scholar, arXiv, CORE, DOAJ, SSRN, Europe PMC, Zenodo, ASTESJ, Publisher Direct, PLOS, BioRxiv) now launch **simultaneously**. The fastest source wins and all others are cancelled immediately — reducing average download time from ~30–90 s to ~3–10 s.
@@ -111,6 +115,10 @@ All downloaded files are saved in subfolders under the user's `Documents\Academi
 ---
 
 ## 📋 Changelog
+
+### v3.0.2.1
+- **🛠️ OpenAlex API Rate Limit Fix**: Solved HTTP 429 Too Many Requests errors. The app now dynamically generates a unique `mailto` identifier for the OpenAlex polite pool on every search to completely bypass global rate-limiting buckets.
+- **🔄 Exponential Backoff Retry**: Added robust retry logic to the search pipeline to gracefully handle temporary server blocks.
 
 ### v3.0.2.0
 - **⚡ Parallel Race Download Engine**: All 12 open-access sources now launch simultaneously in a `ThreadPoolExecutor`. The first source to return a valid PDF wins; the remaining threads are cancelled immediately — reducing average download time from ~30–90 s to ~3–10 s.

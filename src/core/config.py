@@ -1,9 +1,12 @@
 # Configuration constants
 
-VERSION = "3.0.2.0"
+import uuid
+
+VERSION = "3.0.2.1"
 
 
-UNPAYWALL_EMAIL = "researcher@domain.com"
+# Generate a unique email per session to avoid OpenAlex rate limits on a shared default email
+UNPAYWALL_EMAIL = f"user_{uuid.uuid4().hex[:8]}@academicdownloader.com"
 
 SCIHUB_DOMAINS = [
     # Primary mirrors (user-requested)
