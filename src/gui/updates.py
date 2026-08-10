@@ -100,7 +100,9 @@ def start_update_download(parent, latest_version, download_url):
                             
             # Launch installer and exit app immediately so the file is not locked
             parent.after(0, lambda: state.dl_link_lbl.config(text="⚡ Launching Installer..."))
-            cmd_str = f'cmd.exe /c timeout /t 2 & start "" "{temp_path}" /SILENT /SP- /SUPPRESSMSGBOXES /NORESTART'
+            # timeout /t 2 fails instantly when using CREATE_NO_WINDOW, causing the installer to launch before the app exits.
+            # We use ping 127.0.0.1 -n 3 > NUL as a reliable 2-second sleep alternative that doesn't require a console.
+            cmd_str = f'cmd.exe /c ping 127.0.0.1 -n 3 > NUL & start "" "{temp_path}" /SILENT /SP- /SUPPRESSMSGBOXES /NORESTART'
             subprocess.Popen(cmd_str, creationflags=0x08000000)
             parent.after(100, lambda: os._exit(0))
             
